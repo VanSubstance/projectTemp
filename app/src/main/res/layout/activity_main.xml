@@ -17,83 +17,34 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:text="T-XX:XX:XX"/>
+            <EditText
+                android:id="@+id/userID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="100dp"
+                android:ems="10"
+                android:hint="이메일(아이디)"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/userPW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="200dp"
+                android:ems="10"
+                android:hint="비밀번호"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="로그인"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="300dp"/>
         </FrameLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="0.5">
-
-        <LinearLayout
-            android:id="@+id/button1"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:background="@drawable/pressevent"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_home_black_24dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/button2"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:background="@drawable/pressevent"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_format_align_justify_black_24dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/button3"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:background="@drawable/pressevent"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_search_black_24dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/button4"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:background="@drawable/pressevent"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_perm_identity_black_24dp"/>
-        </LinearLayout>
-
-
-
-
 
     </LinearLayout>
 
