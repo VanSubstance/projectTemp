@@ -22,8 +22,12 @@ class MainActivity : AppCompatActivity() {
         userInfo.pw = pw
         // 만약 계정정보가 판매자다 -> 판매자 UI 불러오기
         // 소비자다 -> 소비자 UI 불러오기
-        if (true) {
+        if (id == "a" && pw == "a") {
             val userUI = Intent(this, sellerUIMain :: class.java)
+            startActivity(userUI)
+        }
+        else {
+            val userUI = Intent(this, buyerUIMain :: class.java)
             startActivity(userUI)
         }
     }
