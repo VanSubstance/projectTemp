@@ -36,7 +36,7 @@
         android:layout_weight="0.5">
 
         <LinearLayout
-            android:id="@+id/sellerHome"
+            android:id="@+id/buyerHome"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -51,21 +51,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/SellerHistory"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:background="@drawable/pressevent"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_format_align_justify_black_24dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/sellerToday"
+            android:id="@+id/buyerToday"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -79,7 +65,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/sellerInfo"
+            android:id="@+id/buyerInfo"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -91,9 +77,6 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_perm_identity_black_24dp"/>
         </LinearLayout>
-
-
-
 
 
     </LinearLayout>

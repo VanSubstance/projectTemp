@@ -19,7 +19,7 @@ class sellerUIMain : AppCompatActivity() {
         //판매자 화면 전환
         setSellerFrag(0)
 
-        SellerHome.setOnClickListener {
+        sellerHome.setOnClickListener {
             setSellerFrag(0)
         }
 
@@ -27,11 +27,11 @@ class sellerUIMain : AppCompatActivity() {
             setSellerFrag(1)
         }
 
-        SellerToday.setOnClickListener {
+        sellerToday.setOnClickListener {
             setSellerFrag(2)
         }
 
-        SellerInfo.setOnClickListener {
+        sellerInfo.setOnClickListener {
             setSellerFrag(3)
         }
     }

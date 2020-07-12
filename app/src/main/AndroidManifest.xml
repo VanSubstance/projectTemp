@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".sellerUIMain"></activity>
+        <activity android:name=".buyerUIMain"></activity>
     </application>
 
 </manifest>
