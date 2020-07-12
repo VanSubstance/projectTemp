@@ -36,7 +36,7 @@
         android:layout_weight="0.5">
 
         <LinearLayout
-            android:id="@+id/button1"
+            android:id="@+id/SellerHome"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -51,7 +51,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/button2"
+            android:id="@+id/SellerHistory"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -65,7 +65,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/button3"
+            android:id="@+id/SellerToday"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -79,7 +79,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/button4"
+            android:id="@+id/SellerInfo"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"

@@ -16,26 +16,27 @@ class sellerUIMain : AppCompatActivity() {
         var timeFormat = SimpleDateFormat("HH:mm:ss", Locale.KOREA).format(currentTime)
         textTime.setText(timeFormat)
 
-        setFrag(0)
+        //판매자 화면 전환
+        setSellerFrag(0)
 
-        button1.setOnClickListener {
-            setFrag(0)
+        SellerHome.setOnClickListener {
+            setSellerFrag(0)
         }
 
-        button2.setOnClickListener {
-            setFrag(1)
+        SellerHistory.setOnClickListener {
+            setSellerFrag(1)
         }
 
-        button3.setOnClickListener {
-            setFrag(2)
+        SellerToday.setOnClickListener {
+            setSellerFrag(2)
         }
 
-        button4.setOnClickListener {
-            setFrag(3)
+        SellerInfo.setOnClickListener {
+            setSellerFrag(3)
         }
     }
 
-    private fun setFrag(fragNum : Int) {
+    private fun setSellerFrag(fragNum : Int) {
         val ft = supportFragmentManager.beginTransaction()
         when(fragNum)
         {
