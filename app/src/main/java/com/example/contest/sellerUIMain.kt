@@ -1,9 +1,8 @@
 package com.example.contest
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.seller_ui_home.*
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.seller_ui_main.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -57,8 +56,5 @@ class sellerUIMain : AppCompatActivity() {
                 ft.replace(R.id.main_frame,sellerUIInfo()).commit()
             }
         }
-
-
     }
-
 }
