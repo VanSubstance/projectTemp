@@ -1,5 +1,6 @@
 package com.example.contest
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -10,43 +11,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setFrag(0)
-
-        button1.setOnClickListener {
-            setFrag(0)
+        loginButton.setOnClickListener {
+            login(userID.text.toString(), userPW.text.toString())
         }
 
-        button2.setOnClickListener {
-            setFrag(1)
-        }
+    }
 
-        button3.setOnClickListener {
-            setFrag(2)
+    private fun login(id: String, pw: String) {
+        userInfo.id = id
+        userInfo.pw = pw
+        // 만약 계정정보가 판매자다 -> 판매자 UI 불러오기
+        // 소비자다 -> 소비자 UI 불러오기
+        if (id == "a" && pw == "a") {
+            val userUI = Intent(this, sellerUIMain :: class.java)
+            startActivity(userUI)
         }
-
-        button4.setOnClickListener {
-            setFrag(3)
+        else {
+            val userUI = Intent(this, buyerUIMain :: class.java)
+            startActivity(userUI)
         }
     }
 
-    private fun setFrag(fragNum : Int) {
-        val ft = supportFragmentManager.beginTransaction()
-        when(fragNum)
-        {
-            0 -> {
-                ft.replace(R.id.main_frame,Fragment1()).commit()
-            }
-            1 -> {
-                ft.replace(R.id.main_frame,Fragment2()).commit()
-            }
-            2 -> {
-                ft.replace(R.id.main_frame,Fragment3()).commit()
-            }
-            3 -> {
-                ft.replace(R.id.main_frame,Fragment4()).commit()
-            }
-        }
+}
 
-
-    }
+// 앱 실행부터 종료때까지 유저의 정보를 저장해두는 오브젝트
+// 자바의 static 개념으로 보면 됨
+object userInfo {
+    var id : String = ""
+    var pw : String = ""
 }

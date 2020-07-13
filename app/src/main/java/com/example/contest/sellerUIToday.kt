@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-class Fragment3 : Fragment() {
+class sellerUIToday : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment3, container, false)
+        val view = inflater.inflate(R.layout.seller_ui_today, container, false)
 
 
 
