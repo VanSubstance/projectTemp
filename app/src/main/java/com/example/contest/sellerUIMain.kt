@@ -1,7 +1,9 @@
 package com.example.contest
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.seller_ui_home.*
 import kotlinx.android.synthetic.main.seller_ui_main.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -11,6 +13,8 @@ class sellerUIMain : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.seller_ui_main)
+
+
 
         val currentTime = Calendar.getInstance().time
         var timeFormat = SimpleDateFormat("HH:mm:ss", Locale.KOREA).format(currentTime)
