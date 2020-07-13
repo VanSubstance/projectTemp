@@ -14,5 +14,9 @@ class sellerUIHome : Fragment() {
         val view = inflater.inflate(R.layout.seller_ui_home, container, false)
         return view
 
+        enrollProduct.setOnClickListener{
+            val sellerEnroll = Intent(getActivity(),sellerUIEnrollment::class.java)
+            startActivity(sellerEnroll)
+        }
     }
 }
