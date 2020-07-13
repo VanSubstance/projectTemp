@@ -16,8 +16,13 @@
 
     <Button
         android:id="@+id/enrollProduct"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="상품 등록" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:background="@drawable/roundbutton"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:text="추가"/>
 
 </LinearLayout>
+
