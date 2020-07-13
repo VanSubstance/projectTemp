@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.seller_ui_home.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private fun login(id: String, pw: String) {
         userInfo.id = id
         userInfo.pw = pw
+        
         // 만약 계정정보가 판매자다 -> 판매자 UI 불러오기
         // 소비자다 -> 소비자 UI 불러오기
         if (id == "a" && pw == "a") {
