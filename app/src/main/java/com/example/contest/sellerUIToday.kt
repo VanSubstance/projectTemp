@@ -29,16 +29,19 @@ class sellerUIToday : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        sellerUIHomeRecyclerView.layoutManager = linearLayoutManager
+        RecyclerView.layoutManager = linearLayoutManager
 
         productElementList = ArrayList()
 
+        // 데이터베이스에서 조건에 맞는 상품들 불러오기
+        // 상품들 productElement 양식에 맞춰서 데이터 집어넣기
+        // productElementList에 넣어주기
         for (i in 0 until 20) {
             val element = productElement("Test_$i")
             productElementList.add(element)
         }
-        adapter = productElementAdapter(productElementList, requireContext())
-        sellerUIHomeRecyclerView.adapter = adapter
+        adapter = productElementAdapter(productElementList, requireContext(), 1)
+        RecyclerView.adapter = adapter
 
     }
 

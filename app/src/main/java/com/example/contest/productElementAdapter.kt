@@ -2,16 +2,24 @@ package com.example.contest
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class productElementAdapter(val productElementList: ArrayList<productElement>, val context: Context) : RecyclerView.Adapter<productElementViewHolder>() {
+class productElementAdapter(val productElementList: ArrayList<productElement>, val context: Context, var usage : Int) : RecyclerView.Adapter<productElementViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): productElementViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.product_element, parent, false)
+        var view = LayoutInflater.from(context).inflate(R.layout.product_seller_today, parent, false)
+        when(usage) {
+            1 -> {
+                view = LayoutInflater.from(context).inflate(R.layout.product_seller_today, parent, false)
+            }
+            2 -> {
+                view = LayoutInflater.from(context).inflate(R.layout.product_seller_history, parent, false)
+            }
+            3 -> {
+                view = LayoutInflater.from(context).inflate(R.layout.product_seller_home, parent, false)
+            }
+        }
         return productElementViewHolder(view)
     }
 

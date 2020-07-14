@@ -6,7 +6,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/sellerUIHomeRecyclerView"
+        android:id="@+id/RecyclerView"
         android:layout_width="match_parent"
         android:layout_height="700dp" />
 

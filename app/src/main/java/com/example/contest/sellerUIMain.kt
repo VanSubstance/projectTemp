@@ -37,7 +37,7 @@ class sellerUIMain : AppCompatActivity() {
         }
     }
 
-    private fun setSellerFrag(fragNum : Int) {
+    fun setSellerFrag(fragNum : Int) {
         val ft = supportFragmentManager.beginTransaction()
         when(fragNum)
         {
@@ -53,9 +53,10 @@ class sellerUIMain : AppCompatActivity() {
             3 -> {
                 ft.replace(R.id.main_frame,sellerUIInfo()).commit()
             }
+            11 -> {
+                ft.replace(R.id.main_frame,sellerUIEnrollProduct()).commit()
+            }
         }
-
-
     }
 
 }
