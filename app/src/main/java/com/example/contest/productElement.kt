@@ -6,13 +6,18 @@ class productElement() {
     var sellerId : String = ""
     var title : String = ""
     var price : Int = 0
-    // 양의 기준을 정해야 함; ex) 물리적 무게(kg), 추상적 기준(3번 먹을 수 있다)
+    // 양의 기준을 정해야 함; ex) 3인분, etc.
     var quantity : Int = 0
     var ctgr : Array<String> = Array(5, {i -> ""})
     var buyerId : String = ""
     var soldTime : String = ""
     var soldDate : String = ""
 
+    constructor(title: String) : this() {
+        this.title = title
+        this.price = 1000
+        this.quantity = 3
+    }
     // 등록시
     private fun setInfo(title: String, price : Int, quantity : Int, ctgr : Array<String>) {
         this.title = title

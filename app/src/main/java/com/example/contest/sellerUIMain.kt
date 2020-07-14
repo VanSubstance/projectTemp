@@ -15,7 +15,7 @@ class sellerUIMain : AppCompatActivity() {
         val currentTime = Calendar.getInstance().time
         var timeFormat = SimpleDateFormat("HH:mm:ss", Locale.KOREA).format(currentTime)
         textTime.setText(timeFormat)
-        
+
 
         //판매자 화면 전환
         setSellerFrag(0)
@@ -37,7 +37,7 @@ class sellerUIMain : AppCompatActivity() {
         }
     }
 
-    private fun setSellerFrag(fragNum : Int) {
+    fun setSellerFrag(fragNum : Int) {
         val ft = supportFragmentManager.beginTransaction()
         when(fragNum)
         {
@@ -53,9 +53,10 @@ class sellerUIMain : AppCompatActivity() {
             3 -> {
                 ft.replace(R.id.main_frame,sellerUIInfo()).commit()
             }
+            11 -> {
+                ft.replace(R.id.main_frame,sellerUIEnrollProduct()).commit()
+            }
         }
-
-
     }
 
 }
