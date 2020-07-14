@@ -14,10 +14,10 @@ class productElementViewHolder(elementView : View) : RecyclerView.ViewHolder(ele
 
     fun bind (productElements : productElement, context : Context) {
 
-        productImage?.setImageResource(R.mipmap.ic_launcher)
-        productTitle?.text = productElements.title
-        productPrice?.text = productElements.price.toString()
-        productQuan?.text = productElements.quantity.toString()
+        productImage.setImageResource(R.mipmap.ic_launcher)
+        productTitle.text = productElements.title
+        productPrice.text = productElements.price.toString()
+        productQuan.text = productElements.quantity.toString()
 
     }
 }

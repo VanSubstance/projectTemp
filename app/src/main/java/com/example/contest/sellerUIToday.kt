@@ -29,7 +29,7 @@ class sellerUIToday : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        sellerUIHomeRecyclerView.layoutManager = linearLayoutManager
+        RecyclerView.layoutManager = linearLayoutManager
 
         productElementList = ArrayList()
 
@@ -37,8 +37,8 @@ class sellerUIToday : Fragment() {
             val element = productElement("Test_$i")
             productElementList.add(element)
         }
-        adapter = productElementAdapter(productElementList, requireContext())
-        sellerUIHomeRecyclerView.adapter = adapter
+        adapter = productElementAdapter(productElementList, requireContext(), 1)
+        RecyclerView.adapter = adapter
 
     }
 
