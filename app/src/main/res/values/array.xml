@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sellerUITodaySort">
+        <item>등록 순</item>
+        <item>조회 순</item>
+    </string-array>
+
+    <string-array name="sellerUIHistorySort">
+        <item>마감 순</item>
+        <item>조회 순</item>
+        <item>날짜 순</item>
+    </string-array>
+    <string-array name="sellerUICtgr">
+        <item>아직 확실히 모름</item>
+        <item>히스토리랑 투데이를 따로 정할지</item>
+        <item>같이 정할지도 안정함</item>
+    </string-array>
+</resources>
