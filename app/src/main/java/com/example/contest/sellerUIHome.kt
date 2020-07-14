@@ -41,10 +41,14 @@ class sellerUIHome : Fragment() {
 
         productElementList = ArrayList()
 
+        // 데이터베이스에서 조건에 맞는 상품들 불러오기
+        // 상품들 productElement 양식에 맞춰서 데이터 집어넣기
+        // productElementList에 넣어주기
         for (i in 0 until 20) {
             val element = productElement("Test_$i")
             productElementList.add(element)
         }
+
         adapter = productElementAdapter(productElementList, requireContext(), 3)
         RecyclerView.adapter = adapter
 

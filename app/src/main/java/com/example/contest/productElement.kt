@@ -6,7 +6,7 @@ class productElement() {
     var sellerId : String = ""
     var title : String = ""
     var price : Int = 0
-    // 양의 기준을 정해야 함; ex) 물리적 무게(kg), 추상적 기준(3번 먹을 수 있다)
+    // 양의 기준을 정해야 함; ex) 3인분, etc.
     var quantity : Int = 0
     var ctgr : Array<String> = Array(5, {i -> ""})
     var buyerId : String = ""
