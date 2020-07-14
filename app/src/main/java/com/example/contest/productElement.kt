@@ -13,6 +13,11 @@ class productElement() {
     var soldTime : String = ""
     var soldDate : String = ""
 
+    constructor(title: String) : this() {
+        this.title = title
+        this.price = 1000
+        this.quantity = 3
+    }
     // 등록시
     private fun setInfo(title: String, price : Int, quantity : Int, ctgr : Array<String>) {
         this.title = title
