@@ -1,121 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="30dp">
+    <ImageView
+        android:id="@+id/imageUser"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="60dp"
-            android:text="비밀번호 확인" />
+    <TextView
+        android:id="@+id/textName"
+        app:layout_constraintLeft_toRightOf="@id/imageUser"
+        app:layout_constraintTop_toTopOf="@id/imageUser"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="이름"
+        android:textSize="15dp"
+        />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:text="비밀번호 변경" />
+    <TextView
+        android:id="@+id/outputName"
+        app:layout_constraintLeft_toRightOf="@id/textName"
+        app:layout_constraintTop_toTopOf="@id/textName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="아무개"
+        android:textSize="15dp"
+        />
 
-        <EditText
-            android:id="@+id/editTextTextPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:ems="10"
-            android:inputType="textPassword" />
+    <TextView
+        android:id="@+id/textMarketName"
+        app:layout_constraintLeft_toRightOf="@id/imageUser"
+        app:layout_constraintTop_toBottomOf="@id/textName"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="가게 이름"
+        android:textSize="15dp"
+        />
 
-        <EditText
-            android:id="@+id/editTextTextPassword3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="50dp"
-            android:ems="10"
-            android:inputType="textPassword" />
+    <TextView
+        android:id="@+id/outputMarketName"
+        app:layout_constraintLeft_toRightOf="@id/textMarketName"
+        app:layout_constraintTop_toTopOf="@id/textMarketName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="아무개네 가게"
+        android:textSize="15dp"
+        />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="20dp"
-            android:text="수정" />
-    </FrameLayout>
+    <TextView
+        android:id="@+id/textImprovised"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="추가 정보"
+        app:layout_constraintLeft_toLeftOf="@id/imageUser"
+        app:layout_constraintTop_toBottomOf="@id/imageUser"
+        android:layout_marginTop="20dp"
+        />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3">
+    <Button
+        android:id="@+id/buttonSellerInfoModify"
+        app:layout_constraintTop_toBottomOf="@id/textImprovised"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수정"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
-            android:text="전화번호" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="100dp"
-            android:text="카테고리" />
-
-        <EditText
-            android:id="@+id/editTextPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="50dp"
-            android:ems="10"
-            android:inputType="phone" />
-
-        <EditText
-            android:id="@+id/editTextTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:ems="10"
-            android:inputType="time" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="49dp">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="15dp"
-                android:text="영업시간" />
-        </FrameLayout>
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2">
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="주소" />
-    </FrameLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

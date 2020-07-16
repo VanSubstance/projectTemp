@@ -27,7 +27,7 @@ class sellerUIHome : Fragment() {
         val view = inflater.inflate(R.layout.seller_ui_home, container, false)
 
         view.enrollProduct.setOnClickListener {
-            (activity as sellerUIMain).setSellerFrag(11)
+            (activity as sellerUIMain).setSellerFrag(12)
         }
 
         return view

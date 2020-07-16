@@ -18,22 +18,22 @@ class sellerUIMain : AppCompatActivity() {
 
 
         //판매자 화면 전환
-        setSellerFrag(0)
+        setSellerFrag(11)
 
         sellerHome.setOnClickListener {
-            setSellerFrag(0)
+            setSellerFrag(11)
         }
 
         SellerHistory.setOnClickListener {
-            setSellerFrag(1)
+            setSellerFrag(21)
         }
 
         sellerToday.setOnClickListener {
-            setSellerFrag(2)
+            setSellerFrag(31)
         }
 
         sellerInfo.setOnClickListener {
-            setSellerFrag(3)
+            setSellerFrag(41)
         }
     }
 
@@ -41,20 +41,23 @@ class sellerUIMain : AppCompatActivity() {
         val ft = supportFragmentManager.beginTransaction()
         when(fragNum)
         {
-            0 -> {
+            11 -> {
                 ft.replace(R.id.main_frame,sellerUIHome()).commit()
             }
-            1 -> {
+            21 -> {
                 ft.replace(R.id.main_frame,sellerUIHistory()).commit()
             }
-            2 -> {
+            31 -> {
                 ft.replace(R.id.main_frame,sellerUIToday()).commit()
             }
-            3 -> {
+            41 -> {
                 ft.replace(R.id.main_frame,sellerUIInfo()).commit()
             }
-            11 -> {
+            12 -> {
                 ft.replace(R.id.main_frame,sellerUIEnrollProduct()).commit()
+            }
+            42 -> {
+                ft.replace(R.id.main_frame,sellerUIInfoModify()).commit()
             }
         }
     }
