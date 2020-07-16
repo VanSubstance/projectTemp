@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class productElementAdapter(val productElementList: ArrayList<productElement>, val context: Context, var usage : Int) : RecyclerView.Adapter<productElementViewHolder>() {
+class productElementAdapter(var productElementList: ArrayList<productElement>, val context: Context, var usage : Int) : RecyclerView.Adapter<productElementViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): productElementViewHolder {
         var view = LayoutInflater.from(context).inflate(R.layout.product_seller_today, parent, false)

@@ -58,9 +58,9 @@
 
 
     <Button
-        android:id="@+id/productModify"
+        android:id="@+id/buttonProductModify"
         app:layout_constraintTop_toBottomOf="@id/productQuan"
-        app:layout_constraintRight_toLeftOf="@id/productDelete"
+        app:layout_constraintRight_toLeftOf="@id/buttonProductDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="수정"
@@ -68,7 +68,7 @@
         />
 
     <Button
-        android:id="@+id/productDelete"
+        android:id="@+id/buttonProductDelete"
         app:layout_constraintTop_toBottomOf="@id/productQuan"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="wrap_content"

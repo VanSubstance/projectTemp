@@ -1,6 +1,8 @@
 package com.example.contest
 
 import android.widget.ImageView
+import java.text.SimpleDateFormat
+import java.util.*
 
 class productElement() {
     // 상품코드의 기준을 세워야 함; ex) 20200712-001-0001
@@ -20,6 +22,7 @@ class productElement() {
         this.title = title
         this.price = 1000
         this.quantity = 3
+        this.soldDate = SimpleDateFormat("yyyy.mm.dd", Locale.KOREA).format(Calendar.getInstance().time)
     }
     // 등록시
     private fun setInfo(title: String, price : Int, quantity : Int, ctgr : Array<String>) {
