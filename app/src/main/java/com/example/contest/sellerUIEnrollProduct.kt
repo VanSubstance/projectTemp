@@ -19,7 +19,7 @@ class sellerUIEnrollProduct : Fragment() {
         }
 
         view.buttonCancel.setOnClickListener {
-            (activity as sellerUIMain).setSellerFrag(0)
+            (activity as sellerUIMain).setSellerFrag(11)
         }
 
         return view

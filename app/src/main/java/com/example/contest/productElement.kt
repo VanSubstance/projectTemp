@@ -1,5 +1,7 @@
 package com.example.contest
 
+import android.widget.ImageView
+
 class productElement() {
     // 상품코드의 기준을 세워야 함; ex) 20200712-001-0001
     var productId : String = ""
@@ -12,6 +14,7 @@ class productElement() {
     var buyerId : String = ""
     var soldTime : String = ""
     var soldDate : String = ""
+    var image : Int = R.drawable.test_02
 
     constructor(title: String) : this() {
         this.title = title

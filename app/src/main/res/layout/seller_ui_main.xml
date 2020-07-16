@@ -19,7 +19,8 @@
             android:layout_height="30dp"
             android:gravity="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:background="@drawable/element_border"/>
 
         <FrameLayout
             android:id="@+id/main_frame"
@@ -34,7 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        android:layout_weight="0.5">
+        android:layout_weight="0.5"
+        android:background="@drawable/element_border">
 
         <LinearLayout
             android:id="@+id/sellerHome"
@@ -42,7 +44,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:background="@drawable/pressevent"
+            android:background="@drawable/element_border"
             android:gravity="center">
             <ImageView
                 android:layout_width="match_parent"
@@ -57,7 +59,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:background="@drawable/pressevent"
+            android:background="@drawable/element_border"
             android:gravity="center">
             <ImageView
                 android:layout_width="match_parent"
@@ -71,7 +73,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:background="@drawable/pressevent"
+            android:background="@drawable/element_border"
             android:gravity="center">
             <ImageView
                 android:layout_width="match_parent"
@@ -85,7 +87,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:background="@drawable/pressevent"
+            android:background="@drawable/element_border"
             android:gravity="center">
             <ImageView
                 android:layout_width="match_parent"
