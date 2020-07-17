@@ -17,6 +17,7 @@ class productElementViewHolder(elementView : View) : RecyclerView.ViewHolder(ele
     val productSoldDate = elementView.findViewById<TextView>(R.id.productSoldDate)
     val buttonModify = elementView.findViewById<Button>(R.id.buttonProductModify)
     val buttonDelete = elementView.findViewById<Button>(R.id.buttonProductDelete)
+    val buttonPurchase = elementView.findViewById<Button>(R.id.buttonPurchase)
 
 
     fun bind (productElements : productElement, context : Context) {
@@ -40,6 +41,13 @@ class productElementViewHolder(elementView : View) : RecyclerView.ViewHolder(ele
                 Toast.makeText(it.context,"삭제 되어야 함", Toast.LENGTH_SHORT).show()
             }
 
+        }
+
+        // 소비자 ui today 일 경우
+        if (buttonPurchase != null) {
+            buttonPurchase.setOnClickListener {
+                Toast.makeText(it.context, "구매 확인 창 떠야 함", Toast.LENGTH_SHORT).show()
+            }
         }
 
     }

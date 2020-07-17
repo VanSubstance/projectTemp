@@ -157,28 +157,6 @@
             app:layout_constraintLeft_toLeftOf="@id/inputPhone"
             app:layout_constraintTop_toBottomOf="@id/inputPhone" />
 
-        <TextView
-            android:id="@+id/textTime"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:text="영업시간"
-            android:textSize="15dp"
-            app:layout_constraintRight_toLeftOf="@id/inputCtgr"
-            app:layout_constraintTop_toBottomOf="@id/inputCtgr" />
-
-        <EditText
-            android:id="@+id/inputTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:inputType="time"
-            android:textSize="15dp"
-            app:layout_constraintLeft_toLeftOf="@id/inputCtgr"
-            app:layout_constraintTop_toBottomOf="@id/inputCtgr" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -190,7 +168,7 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="주소 부분은 나중에"
+            android:text="추가 정보"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

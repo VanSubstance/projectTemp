@@ -11,7 +11,7 @@ class sellerUIInfoModify : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.seller_ui_info_modify, container, false)
-        view.buttonSellerInfoCancel.setOnClickListener {
+        view.buttonCancel.setOnClickListener {
             (activity as sellerUIMain).setSellerFrag(41)
         }
 

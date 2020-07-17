@@ -17,33 +17,36 @@ class buyerUIMain : AppCompatActivity() {
         textTime.setText(timeFormat)
 
         // 구매자 화면 전환
-        setBuyerFrag(0)
+        setBuyerFrag(11)
 
         buyerHome.setOnClickListener {
-            setBuyerFrag(0)
+            setBuyerFrag(11)
         }
 
         buyerToday.setOnClickListener {
-            setBuyerFrag(1)
+            setBuyerFrag(21)
         }
 
         buyerInfo.setOnClickListener {
-            setBuyerFrag(2)
+            setBuyerFrag(31)
         }
     }
 
-    private fun setBuyerFrag(fragNum : Int) {
+    fun setBuyerFrag(fragNum : Int) {
         val ft = supportFragmentManager.beginTransaction()
         when(fragNum)
         {
-            0 -> {
+            11 -> {
                 ft.replace(R.id.main_frame,buyerUIHome()).commit()
             }
-            1 -> {
+            21 -> {
                 ft.replace(R.id.main_frame,buyerUIToday()).commit()
             }
-            2 -> {
+            31 -> {
                 ft.replace(R.id.main_frame,buyerUIInfo()).commit()
+            }
+            32 -> {
+                ft.replace(R.id.main_frame,buyerUIInfoModify()).commit()
             }
         }
 

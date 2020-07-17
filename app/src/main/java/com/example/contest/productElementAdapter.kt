@@ -19,6 +19,9 @@ class productElementAdapter(var productElementList: ArrayList<productElement>, v
             3 -> {
                 view = LayoutInflater.from(context).inflate(R.layout.product_seller_home, parent, false)
             }
+            4 -> {
+                view = LayoutInflater.from(context).inflate(R.layout.product_buyer_today, parent, false)
+            }
         }
         return productElementViewHolder(view)
     }
