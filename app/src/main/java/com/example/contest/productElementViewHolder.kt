@@ -36,6 +36,7 @@ class productElementViewHolder(elementView : View) : RecyclerView.ViewHolder(ele
         if (buttonModify != null) {
             buttonModify.setOnClickListener {
                 Toast.makeText(it.context,"수정 화면이 열려야 함", Toast.LENGTH_SHORT).show()
+
             }
             buttonDelete.setOnClickListener {
                 Toast.makeText(it.context,"삭제 되어야 함", Toast.LENGTH_SHORT).show()

@@ -40,8 +40,11 @@ class buyerUIToday : Fragment() {
             val element = productElement("구매할 상품 $i")
             productElementList.add(element)
         }
+
         adapter = productElementAdapter(productElementList, requireContext(), 4)
         RecyclerView.adapter = adapter
 
     }
+
+
 }

@@ -56,6 +56,9 @@ class sellerUIMain : AppCompatActivity() {
             12 -> {
                 ft.replace(R.id.main_frame,sellerUIEnrollProduct()).commit()
             }
+            13 -> {
+                ft.replace(R.id.main_frame,sellerUIModifyProduct()).commit()
+            }
             42 -> {
                 ft.replace(R.id.main_frame,sellerUIInfoModify()).commit()
             }

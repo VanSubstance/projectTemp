@@ -31,6 +31,7 @@ class productElementAdapter(var productElementList: ArrayList<productElement>, v
     }
 
     override fun onBindViewHolder(holder: productElementViewHolder, position: Int) {
+
         holder.bind(productElementList[position], context)
     }
 

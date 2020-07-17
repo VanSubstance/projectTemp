@@ -48,6 +48,18 @@ class buyerUIMain : AppCompatActivity() {
             32 -> {
                 ft.replace(R.id.main_frame,buyerUIInfoModify()).commit()
             }
+            12 -> {
+                // 육류 게시판 프레그먼트
+            }
+            13 -> {
+                // 해산물 게시판 프레그먼트
+            }
+            14 -> {
+                // 채소 게시판 프레그먼트
+            }
+            15 -> {
+                // 그 외 게시판 프레그먼트
+            }
         }
 
 
