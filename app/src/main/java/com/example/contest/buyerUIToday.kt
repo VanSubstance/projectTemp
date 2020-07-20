@@ -25,7 +25,7 @@ class buyerUIToday : Fragment() {
 
         return view
     }
-
+/*
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -46,5 +46,5 @@ class buyerUIToday : Fragment() {
 
     }
 
-
+ */
 }

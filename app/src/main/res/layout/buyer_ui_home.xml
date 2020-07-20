@@ -11,47 +11,45 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+        <GridLayout
             android:id="@+id/layoutBuyerUIMainCtgr1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:columnCount="2">
 
             <Button
-                android:id="@+id/buttonCtgr1"
+                android:id="@+id/buttonRecipe1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="육류 게시판" />
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:text="레시피1" />
 
             <Button
-                android:id="@+id/buttonCtgr2"
+                android:id="@+id/buttonRecipe2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="해산물 게시판" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layoutBuyerUIMainCtgr2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:text="게시판2" />
 
             <Button
-                android:id="@+id/buttonCtgr3"
+                android:id="@+id/buttonRecipe3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="채소류 게시판" />
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:text="레시피3" />
 
             <Button
-                android:id="@+id/buttonCtgr4"
+                android:id="@+id/buttonRecipe4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="그 외 게시판" />
-        </LinearLayout>
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:text="게시판4" />
+
+        </GridLayout>
 
         <FrameLayout
             android:id="@+id/main_frame"

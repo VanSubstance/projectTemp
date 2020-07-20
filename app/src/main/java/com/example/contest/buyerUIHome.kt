@@ -12,16 +12,16 @@ class buyerUIHome : Fragment() {
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.buyer_ui_home, container, false)
 
-        view.buttonCtgr1.setOnClickListener {
+        view.buttonRecipe1.setOnClickListener {
             // 육류
         }
-        view.buttonCtgr2.setOnClickListener {
+        view.buttonRecipe2.setOnClickListener {
             // 해산물
         }
-        view.buttonCtgr3.setOnClickListener {
+        view.buttonRecipe3.setOnClickListener {
             // 채소류
         }
-        view.buttonCtgr4.setOnClickListener {
+        view.buttonRecipe4.setOnClickListener {
             // 그 외
         }
 
