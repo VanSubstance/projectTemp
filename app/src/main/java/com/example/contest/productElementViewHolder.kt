@@ -18,8 +18,6 @@ class productElementViewHolder(elementView : View) : RecyclerView.ViewHolder(ele
     val productPrice = elementView.findViewById<TextView>(R.id.productPrice)
     val productQuan = elementView.findViewById<TextView>(R.id.productQuan)
     val productSoldDate = elementView.findViewById<TextView>(R.id.productSoldDate)
-    val buttonModify = elementView.findViewById<Button>(R.id.buttonProductModify)
-    val buttonDelete = elementView.findViewById<Button>(R.id.buttonProductDelete)
     val buttonPurchase = elementView.findViewById<Button>(R.id.buttonPurchase)
     val textDate = elementView.findViewById<TextView>(R.id.textDate)
 
@@ -34,18 +32,6 @@ class productElementViewHolder(elementView : View) : RecyclerView.ViewHolder(ele
         // 판매자 ui history 일 경우
         if (productSoldDate != null) {
             productSoldDate.text = productElements.soldDate.toString()
-        }
-
-        // 판매자 ui home 일 경우
-        if (buttonModify != null) {
-            buttonModify.setOnClickListener {
-                Toast.makeText(it.context,"수정 화면이 열려야 함", Toast.LENGTH_SHORT).show()
-
-            }
-            buttonDelete.setOnClickListener {
-                Toast.makeText(it.context,"삭제 되어야 함", Toast.LENGTH_SHORT).show()
-            }
-
         }
 
         // 소비자 ui today 일 경우
