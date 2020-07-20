@@ -1,7 +1,6 @@
 package com.example.contest
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,13 +14,6 @@ class sellerUIHome : Fragment() {
     private lateinit var productElementList: ArrayList<productElement>
     private val linearLayoutManager by lazy { LinearLayoutManager(context) }
     private lateinit var adapter: productElementAdapter
-
-
-    companion object {
-        fun newInstance(): sellerUIToday {
-            return sellerUIToday()
-        }
-    }
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.seller_ui_home, container, false)

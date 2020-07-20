@@ -7,19 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.seller_ui_history.*
-import kotlinx.android.synthetic.main.seller_ui_history.RecyclerView
 
 class sellerUIHistory : Fragment() {
 
-    private lateinit var productElementList: ArrayList<productElement>
+    private lateinit var productElementList: ArrayList<sellerUIHistoryDate>
     private val linearLayoutManager by lazy { LinearLayoutManager(context) }
-    private lateinit var adapter: productElementAdapter
+    private lateinit var adapter: sellerUIHistoryAdapter
 
-    companion object {
-        fun newInstance(): sellerUIToday {
-            return sellerUIToday()
-        }
-    }
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.seller_ui_history, container, false)
@@ -31,17 +25,17 @@ class sellerUIHistory : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         RecyclerView.layoutManager = linearLayoutManager
+        val arr : Array<String> = resources.getStringArray(R.array.sample)
 
         productElementList = ArrayList()
 
-        // 데이터베이스에서 조건에 맞는 상품들 불러오기
-        // 상품들 productElement 양식에 맞춰서 데이터 집어넣기
-        // productElementList에 넣어주기
-        for (i in 0 until 9) {
-            val element = productElement("Test_$i")
+
+        for (i in 0 until 4) {
+            val element = sellerUIHistoryDate()
+
             productElementList.add(element)
         }
-        adapter = productElementAdapter(productElementList, requireContext(), 2)
+        adapter = sellerUIHistoryAdapter(productElementList, requireContext(), 1)
         RecyclerView.adapter = adapter
 
     }

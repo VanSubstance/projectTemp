@@ -68,20 +68,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/sellerToday"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:background="@drawable/element_border"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_search_black_24dp"/>
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/sellerInfo"
             android:layout_width="0dp"
             android:layout_height="40dp"

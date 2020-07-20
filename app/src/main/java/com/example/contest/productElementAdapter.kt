@@ -22,6 +22,9 @@ class productElementAdapter(var productElementList: ArrayList<productElement>, v
             4 -> {
                 view = LayoutInflater.from(context).inflate(R.layout.product_buyer_today, parent, false)
             }
+            22 -> {
+                view = LayoutInflater.from(context).inflate(R.layout.seller_ui_history_date, parent, false)
+            }
         }
         return productElementViewHolder(view)
     }

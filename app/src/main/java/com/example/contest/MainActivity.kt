@@ -11,6 +11,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // 예시 더미 데이터
+        var samplee : ArrayList<ArrayList<productElement>> = ArrayList()
+        for (j in 0 until 4) {
+            var sample : ArrayList<productElement> = ArrayList()
+            var da : Int = 10 + j
+            for (i in 0 until 10) {
+                var sp = productElement()
+                sp.setInfo("sample $i", 1000 + (100 * i), i % 2 + i, "2020:07:$da")
+                sample.add(sp)
+            }
+            samplee.add(sample)
+        }
+
         loginButton.setOnClickListener {
             login(userID.text.toString(), userPW.text.toString())
         }
@@ -18,6 +31,7 @@ class MainActivity : AppCompatActivity() {
             val intent=Intent(this,SubActivity::class.java)
             startActivity(intent)
         }
+
 
     }
 

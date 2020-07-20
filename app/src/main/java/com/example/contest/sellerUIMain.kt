@@ -28,10 +28,6 @@ class sellerUIMain : AppCompatActivity() {
             setSellerFrag(21)
         }
 
-        sellerToday.setOnClickListener {
-            setSellerFrag(31)
-        }
-
         sellerInfo.setOnClickListener {
             setSellerFrag(41)
         }

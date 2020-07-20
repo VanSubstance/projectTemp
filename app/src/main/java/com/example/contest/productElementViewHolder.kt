@@ -8,6 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.seller_ui_main.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class productElementViewHolder(elementView : View) : RecyclerView.ViewHolder(elementView) {
     val productImage = elementView.findViewById<ImageView>(R.id.productImage)
@@ -18,6 +21,7 @@ class productElementViewHolder(elementView : View) : RecyclerView.ViewHolder(ele
     val buttonModify = elementView.findViewById<Button>(R.id.buttonProductModify)
     val buttonDelete = elementView.findViewById<Button>(R.id.buttonProductDelete)
     val buttonPurchase = elementView.findViewById<Button>(R.id.buttonPurchase)
+    val textDate = elementView.findViewById<TextView>(R.id.textDate)
 
 
     fun bind (productElements : productElement, context : Context) {
@@ -49,6 +53,13 @@ class productElementViewHolder(elementView : View) : RecyclerView.ViewHolder(ele
             buttonPurchase.setOnClickListener {
                 Toast.makeText(it.context, "구매 확인 창 떠야 함", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        // 판매자 ui history Date 일 경우
+        if (textDate != null) {
+            val currentTime = Calendar.getInstance().time
+            var timeFormat = SimpleDateFormat("yyyy-mm-dd", Locale.KOREA).format(currentTime)
+            textDate.setText(timeFormat)
         }
 
     }

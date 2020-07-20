@@ -22,17 +22,18 @@ class productElement() {
         this.title = title
         this.price = 1000
         this.quantity = 3
-        this.soldDate = SimpleDateFormat("yyyy.mm.dd", Locale.KOREA).format(Calendar.getInstance().time)
+        this.soldDate = SimpleDateFormat("yyyy-mm-dd", Locale.KOREA).format(Calendar.getInstance().time)
     }
     // 등록시
-    private fun setInfo(title: String, price : Int, quantity : Int, ctgr : Array<String>) {
+    fun setInfo(title: String, price : Int, quantity : Int, date : String) {
         this.title = title
         this.price = price
         this.quantity = quantity
-        this.ctgr = ctgr
         this.sellerId = userInfo.id
+        soldDate = date
         // productId, 즉 상품 코드도 선언해 줄 것
     }
+
 
     // 판매시
     private fun soldBy(buyerId : String) {
