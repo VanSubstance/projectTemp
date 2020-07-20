@@ -25,7 +25,6 @@ class sellerUIHome : Fragment() {
         return view
     }
 
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -48,4 +47,5 @@ class sellerUIHome : Fragment() {
     fun callSellerUIModifyProduct() {
         (activity as sellerUIMain).setSellerFrag(13)
     }
+
 }
