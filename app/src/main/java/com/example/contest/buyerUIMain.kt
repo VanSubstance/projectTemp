@@ -49,16 +49,16 @@ class buyerUIMain : AppCompatActivity() {
                 ft.replace(R.id.main_frame,buyerUIInfoModify()).commit()
             }
             12 -> {
-                ft.replace(R.id.main_frame,meatRecipeUI()).commit()
+                ft.replace(R.id.home_frame,meatRecipeUI()).commit()
             }
             13 -> {
-                ft.replace(R.id.main_frame,seafoodRecipeUI()).commit()
+                ft.replace(R.id.home_frame,seafoodRecipeUI()).commit()
             }
             14 -> {
-                ft.replace(R.id.main_frame,vegetableRecipeUI()).commit()
+                ft.replace(R.id.home_frame,vegetableRecipeUI()).commit()
             }
             15 -> {
-                ft.replace(R.id.main_frame,etcRecipeUI()).commit()
+                ft.replace(R.id.home_frame,etcRecipeUI()).commit()
             }
         }
 

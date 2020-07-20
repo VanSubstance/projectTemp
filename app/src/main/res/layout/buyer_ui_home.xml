@@ -15,44 +15,40 @@
             android:id="@+id/layoutBuyerUIMainCtgr1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="2">
+            android:columnCount="4">
 
             <Button
                 android:id="@+id/buttonRecipe1"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_gravity="fill_horizontal"
-                android:text="레시피1" />
+                android:text="육류" />
 
             <Button
                 android:id="@+id/buttonRecipe2"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_gravity="fill_horizontal"
-                android:text="게시판2" />
+                android:text="해산물" />
 
             <Button
                 android:id="@+id/buttonRecipe3"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_gravity="fill_horizontal"
-                android:text="레시피3" />
+                android:text="채소류" />
 
             <Button
                 android:id="@+id/buttonRecipe4"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_gravity="fill_horizontal"
-                android:text="게시판4" />
+                android:text="기타" />
 
         </GridLayout>
 
         <FrameLayout
-            android:id="@+id/main_frame"
+            android:id="@+id/home_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/element_border">
