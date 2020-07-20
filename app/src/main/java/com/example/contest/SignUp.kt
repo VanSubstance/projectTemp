@@ -39,14 +39,14 @@ class SubActivity : AppCompatActivity() {
         database = Firebase.database.reference
         auth=FirebaseAuth.getInstance()
 
-        val email=findViewById<EditText>(R.id.et_email)
+        val email=findViewById<EditText>(R.id.et_id)
         val password=findViewById<EditText>(R.id.et_pass)
         val passwordAk=findViewById<EditText>(R.id.et_passck)
         val Uname=findViewById<EditText>(R.id.et_name)
         val address=findViewById<EditText>(R.id.et_address)
         val Phone_n=findViewById<EditText>(R.id.et_Phone_number)
 
-        btn_push_marktet_info.setOnClickListener {
+        btn_register.setOnClickListener {
             //Log.d(TAG, "Data: " + email.text + password.text)
             if (email.text.toString().length == 0 || password.text.toString().length == 0){
                 Toast.makeText(this, "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
@@ -62,11 +62,11 @@ class SubActivity : AppCompatActivity() {
                                 Log.d(TAG, "createUserWithEmail:success")
                                 val user = auth.currentUser
                                 val map= kotlin.collections.HashMap<String, Any>()
-                                map.put("email",email.toString())
-                                map.put("password",password.toString())
-                                map.put("user_name",Uname.toString())
-                                map.put("address",address.toString())
-                                map.put("phone_number",Phone_n.toString())
+                                map["email"] = email.toString()
+                                map["password"] = password.toString()
+                                map["user_name"] = Uname.toString()
+                                map["address"] = address.toString()
+                                map["phone_number"] = Phone_n.toString()
                                 database.child(email.toString()).setValue(map)
 
                                 val intent = Intent(this@SubActivity, MainActivity::class.java)
