@@ -44,8 +44,5 @@ class sellerUIHome : Fragment() {
         RecyclerView.adapter = adapter
 
     }
-    fun callSellerUIModifyProduct() {
-        (activity as sellerUIMain).setSellerFrag(13)
-    }
 
 }
