@@ -22,9 +22,9 @@ class productElement() {
         this.title = title
         this.price = 1000
         this.quantity = 3
-        this.soldDate = SimpleDateFormat("yyyy-mm-dd", Locale.KOREA).format(Calendar.getInstance().time)
+        //this.soldDate = SimpleDateFormat("yyyy-mm-dd", Locale.KOREA).format(Calendar.getInstance().time)
     }
-    // 등록시
+    // 등록시 사용하는 함수
     fun setInfo(title: String, price : Int, quantity : Int, date : String) {
         this.title = title
         this.price = price
