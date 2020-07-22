@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             login(userID.text.toString(), userPW.text.toString())
         }
         SignUpButton.setOnClickListener{
-            val intent=Intent(this,SubActivity::class.java)
+            val intent=Intent(this,SignUp::class.java)
             startActivity(intent)
         }
 
