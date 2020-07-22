@@ -6,17 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.seller_ui_history.*
+import kotlinx.android.synthetic.main.recipe_ui_meat.*
 
-class sellerUIHistory : Fragment() {
+class recipeUIMeat : Fragment() {
 
-    private lateinit var productElementList: ArrayList<sellerUIHistoryDate>
+    private lateinit var recipeElementList: ArrayList<recipeUIElement>
     private val linearLayoutManager by lazy { LinearLayoutManager(context) }
-    private lateinit var adapter: sellerUIHistoryAdapter
-
+    private lateinit var adapter: recipeUIAdapter
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.seller_ui_history, container, false)
+        val view = inflater.inflate(R.layout.recipe_ui_meat,container,false)
 
         return view
     }
@@ -26,16 +25,17 @@ class sellerUIHistory : Fragment() {
 
         RecyclerView.layoutManager = linearLayoutManager
 
-        productElementList = ArrayList()
+        recipeElementList = ArrayList()
 
 
         for (i in 0 until 4) {
-            val element = sellerUIHistoryDate()
-
-            productElementList.add(element)
+            val element = recipeUIElement("육류 샘플 $i")
+            recipeElementList.add(element)
         }
-        adapter = sellerUIHistoryAdapter(productElementList, requireContext(), 1)
+
+        adapter = recipeUIAdapter(recipeElementList, requireContext(), 1)
         RecyclerView.adapter = adapter
+
 
     }
 }

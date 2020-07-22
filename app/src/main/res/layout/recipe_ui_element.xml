@@ -4,12 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
     android:background="@drawable/element_border"
     >
 
     <ImageView
-        android:id="@+id/productImage"
+        android:id="@+id/recipeImage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="60dp"
@@ -21,36 +21,36 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/productTitle"
+        android:id="@+id/recipeTitle"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/productImage"
+        app:layout_constraintLeft_toRightOf="@id/recipeImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="이름"
+        android:text="레시피 이름"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:textSize="20dp"
         />
 
     <TextView
-        android:id="@+id/productPrice"
-        app:layout_constraintTop_toBottomOf="@id/productQuan"
-        app:layout_constraintLeft_toRightOf="@id/productImage"
+        android:id="@+id/recipeCtgr"
+        app:layout_constraintTop_toBottomOf="@id/recipeTitle"
+        app:layout_constraintLeft_toRightOf="@id/recipeImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="가격"
+        android:text="종류"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:textSize="20dp"
         />
 
     <TextView
-        android:id="@+id/productQuan"
+        android:id="@+id/recipeLevel"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="양"
+        android:text="조리 난이도?"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:textSize="20dp"

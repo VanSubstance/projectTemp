@@ -49,16 +49,16 @@ class buyerUIMain : AppCompatActivity() {
                 ft.replace(R.id.main_frame,buyerUIInfoModify()).commit()
             }
             12 -> {
-                // 육류 게시판 프레그먼트
+                ft.replace(R.id.home_frame,recipeUIMeat()).commit()
             }
             13 -> {
-                // 해산물 게시판 프레그먼트
+                ft.replace(R.id.home_frame,recipeUISeafood()).commit()
             }
             14 -> {
-                // 채소 게시판 프레그먼트
+                ft.replace(R.id.home_frame,recipeUIVegetable()).commit()
             }
             15 -> {
-                // 그 외 게시판 프레그먼트
+                ft.replace(R.id.home_frame,recipeUIEtc()).commit()
             }
         }
 
