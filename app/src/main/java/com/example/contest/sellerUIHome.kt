@@ -1,9 +1,12 @@
 package com.example.contest
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.seller_ui_home.*
@@ -35,12 +38,13 @@ class sellerUIHome : Fragment() {
         // 데이터베이스에서 조건에 맞는 상품들 불러오기
         // 상품들 productElement 양식에 맞춰서 데이터 집어넣기
         // productElementList에 넣어주기
-        for (i in 0 until 4) {
-            val element = productElement("Test_$i")
-            productElementList.add(element)
-        }
+        productElementList = sampledb.productList
 
-        adapter = productElementAdapter(productElementList, requireContext(), 3)
+        adapter = productElementAdapter(productElementList, requireContext(), 3) {
+            productElement ->
+            // 팝업창 띄우기
+            (activity as sellerUIMain).showProductSpecific(productElement)
+        }
         RecyclerView.adapter = adapter
 
     }

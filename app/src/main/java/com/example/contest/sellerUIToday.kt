@@ -34,7 +34,10 @@ class sellerUIToday : Fragment() {
             val element = productElement("Test_$i")
             productElementList.add(element)
         }
-        adapter = productElementAdapter(productElementList, requireContext(), 1)
+        adapter = productElementAdapter(productElementList, requireContext(), 1) {
+            productElement ->
+            // Today 폐쇄함
+        }
         RecyclerView.adapter = adapter
 
     }

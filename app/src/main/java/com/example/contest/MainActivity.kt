@@ -11,18 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // 예시 더미 데이터
-        var samplee : ArrayList<ArrayList<productElement>> = ArrayList()
-        for (j in 0 until 4) {
-            var sample : ArrayList<productElement> = ArrayList()
-            var da : Int = 10 + j
-            for (i in 0 until 10) {
-                var sp = productElement()
-                sp.setInfo("sample $i", 1000 + (100 * i), i % 2 + i, "2020:07:$da")
-                sample.add(sp)
-            }
-            samplee.add(sample)
-        }
+        // 예시 더미 데이터 생성
+        createDummy()
 
         loginButton.setOnClickListener {
             login(userID.text.toString(), userPW.text.toString())
@@ -51,6 +41,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun createDummy() {
+        for (i in 0 until 4) {
+            for ( j in 0 until 4) {
+                var dummy = productElement("Test_$i$j")
+                sampledb.productList.add(dummy)
+            }
+        }
+    }
+
 }
 
 // 앱 실행부터 종료때까지 유저의 정보를 저장해두는 오브젝트
@@ -58,4 +57,9 @@ class MainActivity : AppCompatActivity() {
 object userInfo {
     var id : String = ""
     var pw : String = ""
+}
+
+object sampledb {
+    var productList : ArrayList<productElement> = ArrayList()
+
 }

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class productElementAdapter(var productElementList: ArrayList<productElement>, val context: Context, var usage : Int) : RecyclerView.Adapter<productElementViewHolder>() {
+class productElementAdapter(var productElementList: ArrayList<productElement>, val context: Context, var usage : Int, val productClick: (productElement) -> Unit) : RecyclerView.Adapter<productElementViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): productElementViewHolder {
         var view = LayoutInflater.from(context).inflate(R.layout.product_seller_today, parent, false)
@@ -26,7 +26,7 @@ class productElementAdapter(var productElementList: ArrayList<productElement>, v
                 view = LayoutInflater.from(context).inflate(R.layout.seller_ui_history_date, parent, false)
             }
         }
-        return productElementViewHolder(view)
+        return productElementViewHolder(view, productClick)
     }
 
     override fun getItemCount(): Int {

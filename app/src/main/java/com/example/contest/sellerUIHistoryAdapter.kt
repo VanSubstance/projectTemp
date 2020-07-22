@@ -51,7 +51,7 @@ class sellerUIHistoryAdapter(var productElementList: ArrayList<sellerUIHistoryDa
             }
 
             val s = itemView.findViewById<RecyclerView>(R.id.RecyclerView11)
-            val sAdapter = productElementAdapter(productElementList1, context, 2)
+            val sAdapter = productElementAdapter(productElementList1, context, 2) {}
             s.adapter = sAdapter
             val layoutManager = LinearLayoutManager(context)
             s.layoutManager = layoutManager
