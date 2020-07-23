@@ -3,45 +3,19 @@ package com.example.contest
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_main.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.sun.xml.internal.bind.v2.model.core.ID
 import kotlinx.android.synthetic.main.signup_main.*
+import com.example.contest.userInfo
 
 
 class SignUp : AppCompatActivity() {
-    // [START post_class]
 
-    @IgnoreExtraProperties
-    data class Post(
-            var email: String? = "",
-            var password: String? = "",
-            var name: String? = "",
-            var address: String? = "",
-            var pnum:String ?="",
-            var starCount: Int = 0,
-            var stars: MutableMap<String, Boolean> = HashMap()
-    ) {
-
-        // [START post_to_map]
-        @Exclude
-        fun toMap(): Map<String, Any?> {
-            return mapOf(
-                    "email" to email,
-                    "password" to password,
-                    "name" to name,
-                    "address" to address,
-                    "pnum" to pnum,
-                    "starCount" to starCount,
-                    "stars" to stars
-            )
-        }
-        // [END post_to_map]
-    }
 
     private lateinit var database: DatabaseReference
     private lateinit var auth: FirebaseAuth
@@ -105,26 +79,17 @@ class SignUp : AppCompatActivity() {
         }
 
     }
-    private fun writeNewPost(email: String, password:String, name: String, address: String, pnum:String) {
-        // Create new post at /user-posts/$userid/$postid and at
-        // /posts/$postid simultaneously
-        val key = database.child("posts").push().key
-        if (key == null) {
-            Log.w(TAG, "Couldn't get push key for posts")
-            return
+    fun postFirebaseDatabase(add: Boolean) {
+        val mPostReference = FirebaseDatabase.getInstance().reference
+        val childUpdates: MutableMap<String, Any?> = HashMap()
+        var postValues: Map<String?, Any?>? = null
+        if (add) {
+            val post = User_info
+            postValues = post.toMap()
         }
-
-        val post = Post(email, password, name, address,pnum)
-        val postValues = post.toMap()
-
-        val childUpdates = hashMapOf<String, Any>(
-                "/posts/$key" to postValues,
-                "/user-posts/$email/$key" to postValues
-        )
-
-        database.updateChildren(childUpdates)
+        childUpdates["/id_list/$ID"] = postValues
+        mPostReference.updateChildren(childUpdates)
     }
-
 }
 
 
