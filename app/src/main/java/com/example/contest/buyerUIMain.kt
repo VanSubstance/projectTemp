@@ -3,7 +3,10 @@ package com.example.contest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.buyer_ui_main.*
+import kotlinx.android.synthetic.main.buyer_ui_main.textTime
+import kotlinx.android.synthetic.main.seller_ui_main.*
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 
 class buyerUIMain : AppCompatActivity() {
@@ -12,9 +15,8 @@ class buyerUIMain : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.buyer_ui_main)
 
-        val currentTime = Calendar.getInstance().time
-        var timeFormat = SimpleDateFormat("HH:mm:ss", Locale.KOREA).format(currentTime)
-        textTime.setText(timeFormat)
+        val currentTime = LocalDate.now()
+        textTime.setText(currentTime.toString())
 
         // 구매자 화면 전환
         setBuyerFrag(11)

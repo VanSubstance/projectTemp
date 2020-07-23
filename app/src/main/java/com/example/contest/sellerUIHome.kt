@@ -1,12 +1,9 @@
 package com.example.contest
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.seller_ui_home.*
@@ -43,7 +40,7 @@ class sellerUIHome : Fragment() {
         adapter = productElementAdapter(productElementList, requireContext(), 3) {
             productElement ->
             // 팝업창 띄우기
-            (activity as sellerUIMain).showProductSpecific(productElement)
+            (activity as sellerUIMain).showProductSpecific(productElement, 1)
         }
         RecyclerView.adapter = adapter
 

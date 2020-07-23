@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.seller_ui_history.*
 
 class sellerUIHistory : Fragment() {
 
-    private lateinit var productElementList: ArrayList<sellerUIHistoryDate>
+    private lateinit var historyElementList: ArrayList<sellerUIHistoryDate>
     private val linearLayoutManager by lazy { LinearLayoutManager(context) }
     private lateinit var adapter: sellerUIHistoryAdapter
 
@@ -26,15 +26,15 @@ class sellerUIHistory : Fragment() {
 
         RecyclerView.layoutManager = linearLayoutManager
 
-        productElementList = ArrayList()
+        historyElementList = ArrayList()
 
 
-        for (i in 0 until 4) {
+        for (i in sampledb.productMap) {
             val element = sellerUIHistoryDate()
-
-            productElementList.add(element)
+            element.setData(i.key, i.value as ArrayList<productElement>)
+            historyElementList.add(element)
         }
-        adapter = sellerUIHistoryAdapter(productElementList, requireContext(), 1)
+        adapter = sellerUIHistoryAdapter(historyElementList, requireContext(), 1)
         RecyclerView.adapter = adapter
 
     }

@@ -30,7 +30,20 @@ class MainActivity : AppCompatActivity() {
         userInfo.pw = pw
         // 만약 계정정보가 판매자다 -> 판매자 UI 불러오기
         // 소비자다 -> 소비자 UI 불러오기
+        ///////////////
+        // //
+        // //
+        // //
+        // //
+        // //
         // DB 데이터 불러오기
+        //
+        //
+        //
+        //
+        //
+        //
+        //
         if (id == "a" && pw == "a") {
             val userUI = Intent(this, sellerUIMain :: class.java)
             startActivity(userUI)
@@ -54,6 +67,7 @@ class MainActivity : AppCompatActivity() {
     /// #주의: 이 함수 쓰기 전에 그 유저에 해당하는 상품만 걸러야됨
     fun putProductList(date : String, productList : ArrayList<productElement>) {
         sampledb.productMap[date] = productList
+        sampledb.productDates.add(date)
     }
 
 }
@@ -74,6 +88,8 @@ object userInfo {
 //// c. 맵 변수에 넣어주기
 object sampledb {
     var productMap = mutableMapOf<String, Any>()
+    // productDates: 날짜 리스트 = productMap의 key value 들
+    var productDates :ArrayList<String> = ArrayList()
     // ProductList: 오늘의 상품들
     var productList : ArrayList<productElement> = ArrayList()
 }

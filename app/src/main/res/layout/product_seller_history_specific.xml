@@ -18,17 +18,18 @@
         android:layout_marginLeft="20dp"
         />
 
-    <EditText
-        android:id="@+id/inputTitle"
+
+    <TextView
+        android:id="@+id/textTitle"
         app:layout_constraintTop_toBottomOf="@id/staticTitle"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
         android:text=""
         android:textSize="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         />
 
     <TextView
@@ -43,8 +44,8 @@
         android:layout_marginLeft="20dp"
         />
 
-    <EditText
-        android:id="@+id/inputPrice"
+    <TextView
+        android:id="@+id/textPrice"
         app:layout_constraintTop_toBottomOf="@id/staticPrice"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
@@ -54,17 +55,18 @@
         android:text=""
         android:textSize="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         />
 
     <TextView
         android:id="@+id/textPriceUnit"
         app:layout_constraintTop_toBottomOf="@id/staticPrice"
-        app:layout_constraintLeft_toRightOf="@id/inputPrice"
+        app:layout_constraintLeft_toRightOf="@id/textPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="원"
         android:textSize="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         />
 
     <TextView
@@ -79,8 +81,8 @@
         android:layout_marginLeft="20dp"
         />
 
-    <EditText
-        android:id="@+id/inputQuan"
+    <TextView
+        android:id="@+id/textQuan"
         app:layout_constraintTop_toBottomOf="@id/staticQuan"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
@@ -90,38 +92,18 @@
         android:text=""
         android:textSize="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         />
 
     <TextView
         android:id="@+id/textQuanUnit"
         app:layout_constraintTop_toBottomOf="@id/staticQuan"
-        app:layout_constraintLeft_toRightOf="@id/inputQuan"
+        app:layout_constraintLeft_toRightOf="@id/textQuan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="인분"
         android:textSize="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         />
 
-    <Button
-        android:id="@+id/buttonConfirm"
-        app:layout_constraintTop_toBottomOf="@id/staticQuan"
-        app:layout_constraintRight_toLeftOf="@id/buttonCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="확인"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="20dp"
-        />
-
-    <Button
-        android:id="@+id/buttonCancel"
-        app:layout_constraintTop_toBottomOf="@id/staticQuan"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="취소"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="20dp"
-        />
 </androidx.constraintlayout.widget.ConstraintLayout>
