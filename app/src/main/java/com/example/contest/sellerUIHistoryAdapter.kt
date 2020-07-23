@@ -5,14 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import java.text.SimpleDateFormat
-import java.util.*
+import kotlinx.android.synthetic.main.product_seller_home_specific.view.*
 import kotlin.collections.ArrayList
-import kotlinx.android.synthetic.main.seller_ui_history_date.*
 
-class sellerUIHistoryAdapter(var productElementList: ArrayList<sellerUIHistoryDate>, val context: Context, var usage : Int) : RecyclerView.Adapter<sellerUIHistoryAdapter.sellerUIHistoryViewHolder>() {
+class sellerUIHistoryAdapter(var historyElementListList: ArrayList<sellerUIHistoryDate>, val context: Context, var usage : Int) : RecyclerView.Adapter<sellerUIHistoryAdapter.sellerUIHistoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): sellerUIHistoryViewHolder {
         var view = LayoutInflater.from(context).inflate(R.layout.seller_ui_history_date, parent, false)
@@ -25,33 +24,35 @@ class sellerUIHistoryAdapter(var productElementList: ArrayList<sellerUIHistoryDa
     }
 
     override fun getItemCount(): Int {
-        return productElementList.size
+        return historyElementListList.size
     }
 
     override fun onBindViewHolder(holder: sellerUIHistoryViewHolder, position: Int) {
-
-        holder.bind(productElementList[position], context)
+        holder.bind(historyElementListList[position], context)
     }
 
     inner class sellerUIHistoryViewHolder(elementView: View) : RecyclerView.ViewHolder(elementView) {
         val textDate = elementView.findViewById<TextView>(R.id.textDate)
 
 
-        fun bind(productElements: sellerUIHistoryDate, context: Context) {
+        fun bind(historyElements: sellerUIHistoryDate, context: Context) {
 
-            val currentTime = Calendar.getInstance().time
-            var timeFormat = SimpleDateFormat("yyyy-mm-dd", Locale.KOREA).format(currentTime)
-            textDate.setText(timeFormat)
-
-            var productElementList1: ArrayList<productElement>
-            productElementList1 = ArrayList()
-            for (i in 0 until 4) {
-                val element = productElement("Test_$i")
-                productElementList1.add(element)
-            }
+            textDate.setText(historyElements.date)
 
             val s = itemView.findViewById<RecyclerView>(R.id.RecyclerView11)
-            val sAdapter = productElementAdapter(productElementList1, context, 2) {}
+            val sAdapter = productElementAdapter(historyElements.productList, context, 2) {
+                productElement ->
+                // 상품 정보가 떠야함 팝업으로
+                val view = LayoutInflater.from(context).inflate(R.layout.product_seller_history_specific, null)
+                view.textTitle.text = productElement.title
+                view.textPrice.text = productElement.price.toString()
+                view.textQuan.text = productElement.quantity.toString()
+                val alertDialog = AlertDialog.Builder(context)
+                    .setTitle("상품 정보")
+                    .create()
+                alertDialog.setView(view)
+                alertDialog.show()
+            }
             s.adapter = sAdapter
             val layoutManager = LinearLayoutManager(context)
             s.layoutManager = layoutManager

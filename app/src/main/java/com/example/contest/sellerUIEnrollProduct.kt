@@ -21,14 +21,19 @@ class sellerUIEnrollProduct : Fragment() {
             // inputTitle: 상품 이름 인풋, inputPrice: 가격 인풋, inputQuan: 수량 인풋
             // 여기서 데이터베이스에 저장
             // 저장 양식은 테이블에 맞춰서: 상품 이름, 가격, 수량, 날짜, 판매자 ID, etc.
-            var title = view.inputTitle.text.toString()
-            var price = Integer.parseInt(view.inputPrice.text.toString())
-            var quan = Integer.parseInt(view.inputQuan.text.toString())
-            var date = LocalDate.now().toString()
-            var newProduct : productElement = productElement()
-            newProduct.setInfo(title, price, quan, date)
-            sampledb.productList.add(newProduct)
-            (activity as sellerUIMain).setSellerFrag(11)
+            if (view.inputTitle.text.isEmpty() || view.inputPrice.text.isEmpty() || view.inputQuan.text.isEmpty()) {
+                Toast.makeText(requireContext(), "제대로 입력해야 합니다.", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                var title = view.inputTitle.text.toString()
+                var price = Integer.parseInt(view.inputPrice.text.toString())
+                var quan = Integer.parseInt(view.inputQuan.text.toString())
+                var date = LocalDate.now().toString()
+                var newProduct : productElement = productElement()
+                newProduct.setInfo(title, price, quan, date)
+                sampledb.productList.add(newProduct)
+                (activity as sellerUIMain).setSellerFrag(11)
+            }
         }
 
         view.buttonCancel.setOnClickListener {
