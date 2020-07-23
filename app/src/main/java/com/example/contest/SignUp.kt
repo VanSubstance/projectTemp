@@ -52,8 +52,7 @@ class SignUp : AppCompatActivity() {
         setContentView(R.layout.signup_main)
 
         val database:FirebaseDatabase= FirebaseDatabase.getInstance()
-        val myref:DatabaseReference=database.getReference("SellerUserInfo")
-
+        val myref:DatabaseReference=database.getReference("UserInfo")
         val mEmailText =findViewById<EditText>(R.id.et_id);
         val mPasswordText = findViewById<EditText>(R.id.et_pass);
         val mPasswordcheckText = findViewById<EditText>(R.id.et_passck);

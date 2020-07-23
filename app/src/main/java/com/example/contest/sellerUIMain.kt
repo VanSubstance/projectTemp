@@ -71,6 +71,7 @@ class sellerUIMain : AppCompatActivity() {
         }
     }
 
+    // 상품의 세부사항을 보여주는 함수
     fun showProductSpecific(productElement: productElement) {
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.product_seller_home_specific, null)
@@ -106,6 +107,11 @@ class sellerUIMain : AppCompatActivity() {
             }
             alertDialog.setView(view)
             alertDialog.show()
+        }
+        view.buttonDelete.setOnClickListener {
+            alertDialog.dismiss()
+            sampledb.productList.remove(productElement)
+            setSellerFrag(11)
         }
     }
 

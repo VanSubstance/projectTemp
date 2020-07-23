@@ -16,10 +16,6 @@ class sellerUIProductSpecific : Fragment() {
         view.textPrice.setText("")
         view.textQuan.setText("")
 
-        view.buttonModify.setOnClickListener {
-            Toast.makeText(it.context, "상품 수정 창 떠야 함", Toast.LENGTH_SHORT).show()
-        }
-
         return view
     }
 }
