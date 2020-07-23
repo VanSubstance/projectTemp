@@ -38,19 +38,28 @@
                 android:inputType="textPassword" />
 
             <Button
-            android:id="@+id/loginButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="로그인"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="300dp"/>
+                android:id="@+id/loginButton"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="300dp"
+                android:text="로그인" />
+
             <Button
                 android:id="@+id/SignUpButton"
-                android:layout_width="wrap_content"
+                android:layout_width="190dp"
                 android:layout_height="wrap_content"
-                android:text="회원가입"
-                android:layout_marginLeft="210dp"
-                android:layout_marginTop="300dp"/>
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="360dp"
+                android:text="소비자 회원가입" />
+
+            <Button
+                android:id="@+id/SignUpButton_seller"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="420dp"
+                android:text="판매자 회원가입" />
         </FrameLayout>
 
     </LinearLayout>
