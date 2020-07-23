@@ -1,5 +1,6 @@
 package com.example.contest
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -7,12 +8,40 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.signup_main.*
 
 
 class SignUp : AppCompatActivity() {
+    // [START post_class]
+
+    @IgnoreExtraProperties
+    data class Post(
+            var email: String? = "",
+            var password: String? = "",
+            var name: String? = "",
+            var address: String? = "",
+            var pnum:String ?="",
+            var starCount: Int = 0,
+            var stars: MutableMap<String, Boolean> = HashMap()
+    ) {
+
+        // [START post_to_map]
+        @Exclude
+        fun toMap(): Map<String, Any?> {
+            return mapOf(
+                    "email" to email,
+                    "password" to password,
+                    "name" to name,
+                    "address" to address,
+                    "pnum" to pnum,
+                    "starCount" to starCount,
+                    "stars" to stars
+            )
+        }
+        // [END post_to_map]
+    }
 
     private lateinit var database: DatabaseReference
     private lateinit var auth: FirebaseAuth
@@ -21,9 +50,10 @@ class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_main)
+
         val database:FirebaseDatabase= FirebaseDatabase.getInstance()
-        val myref:DatabaseReference=database.getReference("UserInfo")
-        myref.setValue("안녕 반가워!")
+        val myref:DatabaseReference=database.getReference("SellerUserInfo")
+
         val mEmailText =findViewById<EditText>(R.id.et_id);
         val mPasswordText = findViewById<EditText>(R.id.et_pass);
         val mPasswordcheckText = findViewById<EditText>(R.id.et_passck);
@@ -32,6 +62,11 @@ class SignUp : AppCompatActivity() {
         val mPnum=findViewById<EditText>(R.id.et_Phone_number)
 
         auth = FirebaseAuth.getInstance()
+
+        btn_register_seller.setOnClickListener{
+            val intent= Intent(this,signUp_seller::class.java)
+            startActivity(intent)
+        }
 
         btn_register.setOnClickListener{
             if (mEmailText.text.toString().length == 0 || mPasswordText.text.toString().length == 0){
@@ -66,8 +101,29 @@ class SignUp : AppCompatActivity() {
                         }
             }
         }
+        validateButton.setOnClickListener{
 
+        }
 
+    }
+    private fun writeNewPost(email: String, password:String, name: String, address: String, pnum:String) {
+        // Create new post at /user-posts/$userid/$postid and at
+        // /posts/$postid simultaneously
+        val key = database.child("posts").push().key
+        if (key == null) {
+            Log.w(TAG, "Couldn't get push key for posts")
+            return
+        }
+
+        val post = Post(email, password, name, address,pnum)
+        val postValues = post.toMap()
+
+        val childUpdates = hashMapOf<String, Any>(
+                "/posts/$key" to postValues,
+                "/user-posts/$email/$key" to postValues
+        )
+
+        database.updateChildren(childUpdates)
     }
 
 }
