@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.recipe_ui_meat.*
 
 class recipeUIMeat : Fragment() {
 
-    private lateinit var recipeElementList: ArrayList<recipeUIElement>
+    private lateinit var recipeElementList: ArrayList<recipeElement>
     private val linearLayoutManager by lazy { LinearLayoutManager(context) }
     private lateinit var adapter: recipeUIAdapter
 
@@ -29,11 +29,15 @@ class recipeUIMeat : Fragment() {
 
 
         for (i in 0 until 4) {
-            val element = recipeUIElement("육류 샘플 $i")
+            val element = recipeElement("육류 샘플 $i")
+            element.ctgrBig = "육류"
             recipeElementList.add(element)
         }
 
-        adapter = recipeUIAdapter(recipeElementList, requireContext(), 1)
+        adapter = recipeUIAdapter(recipeElementList, requireContext(), 1){
+                recipeElement ->
+            (activity as buyerUIMain).showRecipeSpecific(recipeElement)
+        }
         RecyclerView.adapter = adapter
 
 

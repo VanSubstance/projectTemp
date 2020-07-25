@@ -5,10 +5,15 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.buyer_ui_main.*
 import kotlinx.android.synthetic.main.product_buyer_today_specific.view.*
+import kotlinx.android.synthetic.main.product_buyer_today_specific.view.textTitle
+import kotlinx.android.synthetic.main.recipe_ui_specific.view.*
 import java.time.LocalDate
 
 class buyerUIMain : AppCompatActivity() {
@@ -49,7 +54,7 @@ class buyerUIMain : AppCompatActivity() {
         when(fragNum)
         {
             11 -> {
-                ft.replace(R.id.main_frame,buyerUIHome()).commit()
+                ft.replace(R.id.main_frame,buyerUIRecipe()).commit()
             }
             21 -> {
                 ft.replace(R.id.main_frame,buyerUIToday()).commit()
@@ -76,16 +81,19 @@ class buyerUIMain : AppCompatActivity() {
                 ft.replace(R.id.main_frame,buyerUIInfoModify()).commit()
             }
             12 -> {
-                ft.replace(R.id.home_frame,recipeUIMeat()).commit()
+                ft.replace(R.id.recipe_frame,recipeUIMeat()).commit()
             }
             13 -> {
-                ft.replace(R.id.home_frame,recipeUISeafood()).commit()
+                ft.replace(R.id.recipe_frame,recipeUISeafood()).commit()
             }
             14 -> {
-                ft.replace(R.id.home_frame,recipeUIVegetable()).commit()
+                ft.replace(R.id.recipe_frame,recipeUIVegetable()).commit()
             }
             15 -> {
-                ft.replace(R.id.home_frame,recipeUIEtc()).commit()
+                ft.replace(R.id.recipe_frame,recipeUIEtc()).commit()
+            }
+            16 -> {
+                ft.replace(R.id.recipe_frame,recipeUISpecific()).commit()
             }
         }
 
@@ -110,7 +118,19 @@ class buyerUIMain : AppCompatActivity() {
                 alertDialog.show()
             }
         }
+    }
 
+    fun showRecipeSpecific(recipeElement: recipeElement) {
+        // return 타입: recipeUISpecific
+        // 값을 전달받은 fragment
+        var frag = recipeUISpecific()
+        var bundle = Bundle(2)
+        bundle.putString("title", recipeElement.title)
+        bundle.putString("ctgrBig", recipeElement.ctgrBig)
+        frag.setArguments(bundle)
+
+        val ft = supportFragmentManager.beginTransaction()
+        ft.replace(R.id.recipe_frame, frag).commit()
     }
 
 }
