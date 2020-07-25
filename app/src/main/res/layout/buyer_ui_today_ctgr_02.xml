@@ -22,28 +22,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="육류" />
 
             <Button
                 android:id="@+id/buttonFish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="완제품" />
+                android:text="해산물" />
 
             <Button
                 android:id="@+id/buttonVegetable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="재료" />
+                android:text="채소" />
 
             <Button
                 android:id="@+id/buttonEtc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="재료" />
+                android:text="기타" />
 
         </LinearLayout>
 
