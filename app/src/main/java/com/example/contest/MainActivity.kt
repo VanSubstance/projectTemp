@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         for (i in 0 until 2) {
             for ( j in 0 until 2) {
                 var dummy = productElement("Test_$i$j")
-                sampledb.productList.add(dummy)
+                conditionData.productList.add(dummy)
             }
         }
     }
@@ -70,8 +70,8 @@ class MainActivity : AppCompatActivity() {
     // 날짜에 해당하는 상품들을 넣는 함수
     /// #주의: 이 함수 쓰기 전에 그 유저에 해당하는 상품만 걸러야됨
     fun putProductList(date : String, productList : ArrayList<productElement>) {
-        sampledb.productMap[date] = productList
-        sampledb.productDates.add(date)
+        conditionData.productMap[date] = productList
+        conditionData.productDates.add(date)
     }
 
 }
@@ -84,16 +84,19 @@ object userInfo {
 }
 
 // 휘발성 데이터
-// 로그인 할때부터 로그아웃 할때까지만 있는 데이터
-/// 1. 판매자가 로그인
-//// 이중어레이 {날짜: ArrayList<productElement>, 날짜: ArrayList<productElement>, ...}
-//// a. 맵 변수 만들기
-//// b. 날짜 별 엘레먼트 만들기 -> {날짜: ArrayList<productElement>}
-//// c. 맵 변수에 넣어주기
-object sampledb {
+// 조건에 맞는 데이터들을 불러와서 보관하는 컨테이너 개념
+object conditionData {
     var productMap = mutableMapOf<String, Any>()
     // productDates: 날짜 리스트 = productMap의 key value 들
     var productDates :ArrayList<String> = ArrayList()
     // ProductList: 오늘의 상품들
     var productList : ArrayList<productElement> = ArrayList()
+}
+
+// 오늘을 위한 데이터
+// 판매자 -> 오늘자 등록한 상품들
+// 소비자 -> 장바구니
+object instantData {
+    var productList : ArrayList<productElement> = ArrayList()
+
 }

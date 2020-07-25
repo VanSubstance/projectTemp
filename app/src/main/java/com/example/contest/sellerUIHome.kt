@@ -32,13 +32,10 @@ class sellerUIHome : Fragment() {
 
         productElementList = ArrayList()
 
-        // 데이터베이스에서 조건에 맞는 상품들 불러오기
-        // 상품들 productElement 양식에 맞춰서 데이터 집어넣기
-        // productElementList에 넣어주기
-        productElementList = sampledb.productList
+        productElementList = instantData.productList
 
         adapter = productElementAdapter(productElementList, requireContext(), 3) {
-            productElement ->
+                productElement ->
             // 팝업창 띄우기
             (activity as sellerUIMain).showProductSpecific(productElement, 1)
         }

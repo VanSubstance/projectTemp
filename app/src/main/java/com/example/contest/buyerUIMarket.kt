@@ -6,16 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.seller_ui_today.*
+import kotlinx.android.synthetic.main.buyer_ui_market.*
 
-class sellerUIToday : Fragment() {
+class buyerUIMarket : Fragment() {
 
     private lateinit var productElementList: ArrayList<productElement>
     private val linearLayoutManager by lazy { LinearLayoutManager(context) }
     private lateinit var adapter: productElementAdapter
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.seller_ui_today, container, false)
+        val view = inflater.inflate(R.layout.buyer_ui_market, container, false)
+
 
         return view
     }
@@ -27,16 +28,12 @@ class sellerUIToday : Fragment() {
 
         productElementList = ArrayList()
 
-        // 데이터베이스에서 조건에 맞는 상품들 불러오기
-        // 상품들 productElement 양식에 맞춰서 데이터 집어넣기
-        // productElementList에 넣어주기
-        for (i in 0 until 7) {
-            val element = productElement("Test_$i")
-            productElementList.add(element)
-        }
-        adapter = productElementAdapter(productElementList, requireContext(), 1) {
-            productElement ->
-            // Today 폐쇄함
+        productElementList = conditionData.productList
+
+        adapter = productElementAdapter(productElementList, requireContext(), 4) {
+                productElement ->
+            // 팝업창 띄우기
+            (activity as buyerUIMain).showProductSpecific(productElement, 1)
         }
         RecyclerView.adapter = adapter
 
