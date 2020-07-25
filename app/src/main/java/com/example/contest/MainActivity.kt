@@ -11,10 +11,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // 예시 더미 데이터 생성
-        createDummy()
 
         loginButton.setOnClickListener {
+            // 예시 더미 데이터 생성
+            createDummy()
             login(userID.text.toString(), userPW.text.toString())
         }
         SignUpButton.setOnClickListener{
@@ -61,8 +61,10 @@ class MainActivity : AppCompatActivity() {
     fun createDummy() {
         for (i in 0 until 2) {
             for ( j in 0 until 2) {
-                var dummy = productElement("Test_$i$j")
+                var dummy = productElement("조건부 데이터_$i$j")
                 conditionData.productList.add(dummy)
+                var dummy2 = productElement("오늘 데이터_$i$j")
+                instantData.productList.add(dummy2)
             }
         }
     }
