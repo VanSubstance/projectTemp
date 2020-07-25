@@ -10,11 +10,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        // 예시 더미 데이터 생성
+        createDummy()
 
         loginButton.setOnClickListener {
-            // 예시 더미 데이터 생성
-            createDummy()
             login(userID.text.toString(), userPW.text.toString())
         }
         SignUpButton.setOnClickListener{
