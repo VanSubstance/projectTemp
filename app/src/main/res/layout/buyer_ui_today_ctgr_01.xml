@@ -17,19 +17,39 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/buttonComplete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="완제품" />
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/buttonRaw"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <ImageButton
+                    android:id="@+id/buttonComplete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="완제품"
+                    android:layout_gravity="center"
+                    android:padding="0dp"
+                    android:src="@drawable/ui_plus"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="재료" />
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/buttonRaw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="재료"
+                    android:layout_gravity="center"
+                    android:padding="0dp"
+                    android:src="@drawable/ui_ctgr_etc"/>
+            </LinearLayout>
 
         </LinearLayout>
 
