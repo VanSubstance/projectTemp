@@ -31,7 +31,7 @@ class sellerUIEnrollProduct : Fragment() {
                 var date = LocalDate.now().toString()
                 var newProduct : productElement = productElement()
                 newProduct.setInfo(title, price, quan, date)
-                sampledb.productList.add(newProduct)
+                instantData.productList.add(newProduct)
                 (activity as sellerUIMain).setSellerFrag(11)
             }
         }

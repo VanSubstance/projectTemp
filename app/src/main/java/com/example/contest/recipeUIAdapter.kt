@@ -6,13 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
-class recipeUIAdapter(var recipeElementList: ArrayList<recipeUIElement>, val context: Context, var usage : Int) : RecyclerView.Adapter<recipeUIAdapter.recipeUIViewHolder>() {
+class recipeUIAdapter(var recipeElementList: ArrayList<recipeElement>, val context: Context, var usage : Int, val productClick: (recipeElement) -> Unit) : RecyclerView.Adapter<recipeUIAdapter.recipeUIViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): recipeUIViewHolder {
         var view = LayoutInflater.from(context).inflate(R.layout.recipe_ui_element, parent, false)
@@ -21,7 +18,7 @@ class recipeUIAdapter(var recipeElementList: ArrayList<recipeUIElement>, val con
                 view = LayoutInflater.from(context).inflate(R.layout.recipe_ui_element, parent, false)
             }
         }
-        return recipeUIViewHolder(view)
+        return recipeUIViewHolder(view, productClick)
     }
 
     override fun getItemCount(): Int {
@@ -33,19 +30,24 @@ class recipeUIAdapter(var recipeElementList: ArrayList<recipeUIElement>, val con
         holder.bind(recipeElementList[position], context)
     }
 
-    inner class recipeUIViewHolder(elementView: View) : RecyclerView.ViewHolder(elementView) {
+    inner class recipeUIViewHolder(elementView: View, productClick: (recipeElement) -> Unit) : RecyclerView.ViewHolder(elementView) {
 
         val recipeImage = elementView.findViewById<ImageView>(R.id.recipeImage)
         val recipeTitle = elementView.findViewById<TextView>(R.id.recipeTitle)
         val recipeCtgr = elementView.findViewById<TextView>(R.id.recipeCtgr)
         val recipeLevel = elementView.findViewById<TextView>(R.id.recipeLevel)
+        val elementView = elementView
+        val productClick = productClick
 
-        fun bind(recipeElements: recipeUIElement, context: Context) {
+        fun bind(recipeElements: recipeElement, context: Context) {
 
             recipeImage.setImageResource(recipeElements.image)
             recipeTitle.text = recipeElements.title
             recipeCtgr.text = recipeElements.ctgr
             recipeLevel.text = recipeElements.level
+            elementView.setOnClickListener {
+                productClick(recipeElements)
+            }
 
         }
     }

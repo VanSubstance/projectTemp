@@ -5,19 +5,13 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.seller_ui_main.*
-import kotlinx.android.synthetic.main.product_seller_home_specific.*
 import kotlinx.android.synthetic.main.product_seller_home_specific.view.*
-import kotlinx.android.synthetic.main.seller_ui_info_modify.*
 import kotlinx.android.synthetic.main.seller_ui_main.textTime
 import kotlinx.android.synthetic.main.seller_ui_modify_product.view.*
-import java.text.SimpleDateFormat
 import java.time.LocalDate
-import java.util.*
 
 class sellerUIMain : AppCompatActivity() {
 
@@ -54,9 +48,6 @@ class sellerUIMain : AppCompatActivity() {
             }
             21 -> {
                 ft.replace(R.id.main_frame,sellerUIHistory()).commit()
-            }
-            31 -> {
-                ft.replace(R.id.main_frame,sellerUIToday()).commit()
             }
             41 -> {
                 ft.replace(R.id.main_frame,sellerUIInfo()).commit()
@@ -114,7 +105,7 @@ class sellerUIMain : AppCompatActivity() {
                 }
                 view.buttonDelete.setOnClickListener {
                     alertDialog.dismiss()
-                    sampledb.productList.remove(productElement)
+                    instantData.productList.remove(productElement)
                     setSellerFrag(11)
                 }
             }

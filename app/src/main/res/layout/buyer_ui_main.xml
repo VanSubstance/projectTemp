@@ -50,7 +50,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_home_black_24dp"/>
+                android:src="@drawable/ui_main_home"/>
 
         </LinearLayout>
 
@@ -65,7 +65,40 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_baseline_add_shopping_cart_24"/>
+                android:src="@drawable/ui_main_location"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buyerMarket"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@drawable/element_border"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="시장 테스트" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buyerBasket"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@drawable/element_border"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="장바구니" />
         </LinearLayout>
 
         <LinearLayout
@@ -79,7 +112,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_perm_identity_black_24dp"/>
+                android:src="@drawable/ui_main_info"/>
         </LinearLayout>
 
 

@@ -49,7 +49,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_home_black_24dp"/>
+                android:src="@drawable/ui_main_home"/>
 
         </LinearLayout>
 
@@ -64,7 +64,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_format_align_justify_black_24dp"/>
+                android:src="@drawable/test_02"/>
         </LinearLayout>
 
         <LinearLayout
@@ -78,7 +78,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_perm_identity_black_24dp"/>
+                android:src="@drawable/ui_main_info"/>
         </LinearLayout>
 
 
