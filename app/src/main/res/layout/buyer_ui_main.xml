@@ -93,12 +93,10 @@
             android:orientation="horizontal"
             android:background="@drawable/element_border"
             android:gravity="center">
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="장바구니" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ui_main_basket"/>
         </LinearLayout>
 
         <LinearLayout

@@ -21,9 +21,21 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/productTitle"
+        android:id="@+id/staticTitle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/productImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="상품 이름"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/productTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/staticTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="이름"
@@ -33,8 +45,42 @@
         />
 
     <TextView
-        android:id="@+id/productPrice"
+        android:id="@+id/staticQuan"
+        app:layout_constraintTop_toBottomOf="@id/staticTitle"
+        app:layout_constraintLeft_toRightOf="@id/productImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수량"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/productQuan"
         app:layout_constraintTop_toBottomOf="@id/productTitle"
+        app:layout_constraintLeft_toRightOf="@id/staticQuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="양"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/unitQuan"
+        app:layout_constraintTop_toBottomOf="@id/productTitle"
+        app:layout_constraintLeft_toRightOf="@id/productQuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="인분"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/staticPrice"
+        app:layout_constraintTop_toBottomOf="@id/staticQuan"
         app:layout_constraintLeft_toRightOf="@id/productImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,20 +91,31 @@
         />
 
     <TextView
-        android:id="@+id/productQuan"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/productPrice"
+        app:layout_constraintTop_toBottomOf="@id/productQuan"
+        app:layout_constraintLeft_toRightOf="@id/staticPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="양"
+        android:text="가격"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/unitPrice"
+        app:layout_constraintTop_toBottomOf="@id/productQuan"
+        app:layout_constraintLeft_toRightOf="@id/productPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="원"
+        android:layout_marginTop="10dp"
         android:textSize="20dp"
         />
 
     <Button
         android:id="@+id/buttonPurchase"
-        app:layout_constraintTop_toBottomOf="@id/productQuan"
+        app:layout_constraintTop_toBottomOf="@id/buttonBasket"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,8 +125,8 @@
         />
     <Button
         android:id="@+id/buttonBasket"
-        app:layout_constraintTop_toBottomOf="@id/productQuan"
-        app:layout_constraintRight_toLeftOf="@id/buttonPurchase"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

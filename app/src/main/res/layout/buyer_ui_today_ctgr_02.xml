@@ -17,41 +17,102 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageButton
+            <LinearLayout
                 android:id="@+id/buttonMeat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="육류"
-                android:src="@drawable/ui_ctgr_meat"
-                android:padding="0dp"/>
+                android:orientation="horizontal">
 
-            <ImageButton
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:src="@drawable/ui_ctgr_meat"
+                    android:text="육류" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="육류"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/buttonFish"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="해산물"
-                android:src="@drawable/ui_ctgr_seafood"
-                android:padding="0dp"/>
+                android:orientation="horizontal">
 
-            <ImageButton
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:src="@drawable/ui_ctgr_seafood"
+                    android:text="해산물" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="해산물"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/buttonVegetable"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="채소"
-                android:src="@drawable/ui_ctgr_vegetable"
-                android:padding="0dp"/>
+                android:orientation="horizontal">
 
-            <ImageButton
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:src="@drawable/ui_ctgr_vegetable"
+                    android:text="채소"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="채소"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/buttonEtc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="기타"
-                android:src="@drawable/ui_ctgr_etc"
-                android:padding="0dp"/>
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:src="@drawable/ui_ctgr_etc"
+                    android:text="기타" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="기타"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -59,7 +120,7 @@
             android:id="@+id/main_frame03"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/element_border">
+            >
 
         </FrameLayout>
     </LinearLayout>
