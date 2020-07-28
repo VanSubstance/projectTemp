@@ -12,7 +12,6 @@ class buyerUIRecipe : Fragment() {
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.buyer_ui_recipe, container, false)
 
-
         view.buttonRecipe1.setOnClickListener {
             (activity as buyerUIMain).setBuyerFrag(12)
         }

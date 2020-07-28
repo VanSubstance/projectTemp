@@ -11,6 +11,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textMarketName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="시장 이름"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:background="@drawable/element_border"/>
+
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
@@ -40,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="완제품"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:layout_gravity="center"
                     android:gravity="center"/>
             </LinearLayout>
@@ -66,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="재료"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
                     android:layout_gravity="center"
                     android:gravity="center"/>
             </LinearLayout>

@@ -11,6 +11,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/staticRecipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="레시피"
+            android:textSize="15dp"
+            android:gravity="center"
+            />
+
         <GridLayout
             android:id="@+id/layoutBuyerUIMainCtgr1"
             android:layout_width="match_parent"

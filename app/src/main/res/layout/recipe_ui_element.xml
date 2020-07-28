@@ -29,7 +29,7 @@
         android:text="레시피 이름"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:textSize="20dp"
+        android:textSize="15dp"
         />
 
     <TextView
@@ -41,7 +41,7 @@
         android:text="종류"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:textSize="20dp"
+        android:textSize="15dp"
         />
 
     <TextView
@@ -53,7 +53,7 @@
         android:text="조리 난이도?"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:textSize="20dp"
+        android:textSize="15dp"
         />
 
 
