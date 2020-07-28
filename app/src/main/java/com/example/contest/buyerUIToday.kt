@@ -48,7 +48,6 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
         return view
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun onMapReady(naverMap: NaverMap) {
         locationSource = FusedLocationSource(this, ACCESS_LOCATION_PERMISSION_REQUEST_CODE)
         naverMap.setLocationSource(locationSource);
