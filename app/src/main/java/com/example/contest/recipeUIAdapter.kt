@@ -35,7 +35,7 @@ class recipeUIAdapter(var recipeElementList: ArrayList<recipeElement>, val conte
         val recipeImage = elementView.findViewById<ImageView>(R.id.recipeImage)
         val recipeTitle = elementView.findViewById<TextView>(R.id.recipeTitle)
         val recipeCtgr = elementView.findViewById<TextView>(R.id.recipeCtgr)
-        val recipeLevel = elementView.findViewById<TextView>(R.id.recipeLevel)
+        val recipeLevel = elementView.findViewById<ImageView>(R.id.recipeLevel)
         val elementView = elementView
         val productClick = productClick
 
@@ -44,7 +44,7 @@ class recipeUIAdapter(var recipeElementList: ArrayList<recipeElement>, val conte
             recipeImage.setImageResource(recipeElements.image)
             recipeTitle.text = recipeElements.title
             recipeCtgr.text = recipeElements.ctgr
-            recipeLevel.text = recipeElements.level
+            recipeLevel.setImageResource(recipeElements.level)
             elementView.setOnClickListener {
                 productClick(recipeElements)
             }

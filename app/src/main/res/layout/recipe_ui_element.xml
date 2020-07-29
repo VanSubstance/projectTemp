@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="80dp"
     android:background="@drawable/element_border"
     >
 
@@ -16,12 +16,10 @@
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="16dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/recipeTitle"
+        android:id="@+id/staticRecipeTitle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/recipeImage"
         android:layout_width="wrap_content"
@@ -33,8 +31,20 @@
         />
 
     <TextView
-        android:id="@+id/recipeCtgr"
-        app:layout_constraintTop_toBottomOf="@id/recipeTitle"
+        android:id="@+id/recipeTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/staticRecipeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="개쩌는 레시피"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        />
+
+    <TextView
+        android:id="@+id/staticRecipeCtgr"
+        app:layout_constraintTop_toBottomOf="@id/staticRecipeTitle"
         app:layout_constraintLeft_toRightOf="@id/recipeImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,15 +55,39 @@
         />
 
     <TextView
-        android:id="@+id/recipeLevel"
+        android:id="@+id/recipeCtgr"
+        app:layout_constraintTop_toBottomOf="@id/staticRecipeTitle"
+        app:layout_constraintLeft_toRightOf="@id/staticRecipeCtgr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="주 카테고리"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        />
+
+    <TextView
+        android:id="@+id/staticRecipeLevel"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="조리 난이도?"
+        android:text="조리 난이도"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:textSize="15dp"
+        />
+
+    <ImageView
+        android:id="@+id/recipeLevel"
+        app:layout_constraintTop_toBottomOf="@id/staticRecipeLevel"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="25dp"
+        android:textSize="15dp"
+
         />
 
 
