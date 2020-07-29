@@ -29,7 +29,7 @@ class productElement() {
         this.title = title
         this.price = price
         this.quantity = quantity
-        this.sellerId = userInfo.id
+        this.sellerId = userInfo.email
         soldDate = date
         // productId, 즉 상품 코드도 선언해 줄 것
     }
