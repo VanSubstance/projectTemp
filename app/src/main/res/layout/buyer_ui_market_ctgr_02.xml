@@ -25,11 +25,12 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/imageMeat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="0dp"
-                    android:src="@drawable/ui_ctgr_meat"
+                    android:src="@drawable/ui_ctgr_meat_off"
                     android:text="육류" />
 
                 <TextView
@@ -49,11 +50,12 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/imageSeafood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="0dp"
-                    android:src="@drawable/ui_ctgr_seafood"
+                    android:src="@drawable/ui_ctgr_seafood_off"
                     android:text="해산물" />
 
                 <TextView
@@ -73,11 +75,12 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/imageVegetable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="0dp"
-                    android:src="@drawable/ui_ctgr_vegetable"
+                    android:src="@drawable/ui_ctgr_vegetable_off"
                     android:text="채소"
                     />
 
@@ -98,11 +101,12 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/imageEtc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="0dp"
-                    android:src="@drawable/ui_ctgr_etc"
+                    android:src="@drawable/ui_ctgr_etc_off"
                     android:text="기타" />
 
                 <TextView

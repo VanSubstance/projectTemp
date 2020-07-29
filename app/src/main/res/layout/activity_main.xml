@@ -18,11 +18,11 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/userEmail"
+                android:id="@+id/userID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="150dp"
+                android:layout_marginTop="100dp"
                 android:ems="10"
                 android:hint="이메일(아이디)"
                 android:inputType="textEmailAddress" />
@@ -37,17 +37,6 @@
                 android:hint="비밀번호"
                 android:inputType="textPassword" />
 
-            <EditText
-                android:id="@+id/userPN"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="250dp"
-                android:ems="10"
-                android:hint="핸드폰 번호"
-               android:inputType="textPassword" />
-
-
             <Button
                 android:id="@+id/loginButton"
                 android:layout_width="190dp"
@@ -61,7 +50,7 @@
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="100dp"
-                android:layout_marginTop="400dp"
+                android:layout_marginTop="360dp"
                 android:text="소비자 회원가입" />
 
             <Button
@@ -69,7 +58,7 @@
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="100dp"
-                android:layout_marginTop="450dp"
+                android:layout_marginTop="420dp"
                 android:text="판매자 회원가입" />
         </FrameLayout>
 
