@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.sign_up_seller.*
 import kotlinx.android.synthetic.main.signup_main.*
+import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 
 class SignUp_seller : AppCompatActivity() {
@@ -27,15 +28,16 @@ class SignUp_seller : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_up_seller)
 
-        val mEmailText = findViewById<EditText>(R.id.et_id);
-        val mPasswordText = findViewById<EditText>(R.id.et_pass);
-        val mPasswordcheckText = findViewById<EditText>(R.id.et_passck);
-        val mName = findViewById<EditText>(R.id.et_name);
-        val mAddress = findViewById<EditText>(R.id.et_name)
-        val mPnum = findViewById<EditText>(R.id.et_Phone_number)
-
+        val mEmailText = findViewById<EditText>(R.id.seller_id);
+        val mPasswordText = findViewById<EditText>(R.id.seller_pass);
+        val mPasswordcheckText = findViewById<EditText>(R.id.seller_passck);
+        val mName = findViewById<EditText>(R.id.seller_name);
+        val mAddress = findViewById<EditText>(R.id.seller_address)
+        val mPnum = findViewById<EditText>(R.id.seller_Phone_number)
+        val M_name=findViewById<EditText>(R.id.MarketName)
         val mPickTimeBt_s = findViewById<Button>(R.id.picktimebtn_S)
         val textView_s     = findViewById<TextView>(R.id.time_s)
+        val textView_c=findViewById<TextView>(R.id.seller_cat)
 
         val mPickTimeBt_e = findViewById<Button>(R.id.picktimebtn_E)
         val textView_e     = findViewById<TextView>(R.id.time_E)
@@ -43,8 +45,7 @@ class SignUp_seller : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         btn_register_seller.setOnClickListener {
-            val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-            val DatabaseReference=database.reference
+            val databaseReference = FirebaseDatabase.getInstance().getReference("users")
             if (mEmailText.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
                 Toast.makeText(this, "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
             } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
@@ -61,10 +62,10 @@ class SignUp_seller : AppCompatActivity() {
                                 val name=mName.text.toString()
                                 val address=mAddress.text.toString()
                                 val pnum=mPnum.text.toString()
-                                val Character="소비자"
-                                val data=Post(email,password,name,address,pnum,Character)
-                                val info =data.toMap()
-                                DatabaseReference.child("BuyerInfo").child(pnum).setValue(info)
+                                val m_name=M_name.text.toString()
+                                val data=Post_seller(email,password,name,address,pnum,m_name,textView_s.text,textView_e.text,seller_cat.text.trim())
+                                val info =data.seller_toMap()
+                                databaseReference.child("SellerInfo").child(pnum).setValue(info)
                                 finish()
                                 overridePendingTransition(0, 0)
                             } else {
@@ -81,7 +82,6 @@ class SignUp_seller : AppCompatActivity() {
                         }
             }
         }
-
 
         mPickTimeBt_s.setOnClickListener {
             val cal = Calendar.getInstance()

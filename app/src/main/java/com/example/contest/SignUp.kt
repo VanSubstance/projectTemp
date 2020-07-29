@@ -26,13 +26,12 @@ class SignUp : AppCompatActivity() {
         val mPasswordText = findViewById<EditText>(R.id.et_pass);
         val mPasswordcheckText = findViewById<EditText>(R.id.et_passck);
         val mName = findViewById<EditText>(R.id.et_name);
-        val mAddress = findViewById<EditText>(R.id.et_name)
+        val mAddress = findViewById<EditText>(R.id.et_address)
         val mPnum = findViewById<EditText>(R.id.et_Phone_number)
 
         auth = FirebaseAuth.getInstance()
         btn_register.setOnClickListener {
-            val database:FirebaseDatabase= FirebaseDatabase.getInstance()
-            val DatabaseReference=database.reference
+            val databaseReference = FirebaseDatabase.getInstance().getReference("users")
             if (mEmailText.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
                 Toast.makeText(this, "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
             } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
@@ -49,10 +48,9 @@ class SignUp : AppCompatActivity() {
                                 val name=mName.text.toString()
                                 val address=mAddress.text.toString()
                                 val pnum=mPnum.text.toString()
-                                val Character="소비자"
-                                val data=Post(email,password,name,address,pnum,Character)
+                                val data=Post(email,password,name,address,pnum)
                                 val info =data.toMap()
-                                DatabaseReference.child("BuyerInfo").child(pnum).setValue(info)
+                                databaseReference.child("BuyerInfo").child(pnum).setValue(info)
                                 finish()
                                 overridePendingTransition(0, 0)
                             } else {

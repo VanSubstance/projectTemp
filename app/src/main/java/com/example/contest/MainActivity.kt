@@ -1,20 +1,42 @@
 package com.example.contest
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ValueEventListener as ValueEventListener
+import com.google.firebase.database.FirebaseDatabase
+import android.util.Log
+import kotlin.collections.listOf
+
 
 class MainActivity : AppCompatActivity() {
+
+
+    private lateinit var database: DatabaseReference
+    private lateinit var auth: FirebaseAuth
+    private val TAG: String = "SignIn"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // 예시 더미 데이터 생성
         createDummy()
+        //계정 로그인
+        auth =FirebaseAuth.getInstance()
 
+
+        // 파이어베이스에서 데이터 읽기
         loginButton.setOnClickListener {
-            login(userID.text.toString(), userPW.text.toString())
+            login(userEmail.text.toString(), userPW.text.toString(),userPN.text.toString())
         }
         SignUpButton.setOnClickListener{
             val SignUp_user=Intent(this,SignUp::class.java)
@@ -28,34 +50,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun login(id: String, pw: String) {
-        userInfo.id = id
+    private fun login(email: String, pw: String,pn:String) {
+        val databaseReference = FirebaseDatabase.getInstance().getReference("users")
+        userInfo.email = email
         userInfo.pw = pw
-        // 만약 계정정보가 판매자다 -> 판매자 UI 불러오기
-        // 소비자다 -> 소비자 UI 불러오기
-        ///////////////
-        // //
-        // //
-        // //
-        // //
-        // //
-        // DB 데이터 불러오기
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        if (id == "a" && pw == "a") {
-            val userUI = Intent(this, sellerUIMain :: class.java)
-            startActivity(userUI)
-        }
-        else {
-            val userUI = Intent(this, buyerUIMain :: class.java)
-            startActivity(userUI)
-        }
+        userInfo.pnum=pn
+        //로그인 입력값 받는거
+
     }
+
 
     fun createDummy() {
         for (i in 0 until 2) {
@@ -77,11 +80,13 @@ class MainActivity : AppCompatActivity() {
 
 }
 
+
 // 앱 실행부터 종료때까지 유저의 정보를 저장해두는 오브젝트
 // 자바의 static 개념으로 보면 됨
 object userInfo {
-    var id : String = ""
+    var email : String = ""
     var pw : String = ""
+    var pnum : String=""
 }
 
 // 휘발성 데이터
