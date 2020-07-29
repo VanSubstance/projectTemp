@@ -28,9 +28,8 @@ class sellerUIEnrollProduct : Fragment() {
                 var title = view.inputTitle.text.toString()
                 var price = Integer.parseInt(view.inputPrice.text.toString())
                 var quan = Integer.parseInt(view.inputQuan.text.toString())
-                var date = LocalDate.now().toString()
                 var newProduct : productElement = productElement()
-                newProduct.setInfo(title, price, quan, date)
+                newProduct.setInfo(title, price, quan)
                 instantData.productList.add(newProduct)
                 (activity as sellerUIMain).setSellerFrag(11)
             }

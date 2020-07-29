@@ -1,7 +1,10 @@
 package com.example.contest
 
+import android.os.Build
 import android.widget.ImageView
+import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 
 class productElement() {
@@ -25,28 +28,26 @@ class productElement() {
         //this.soldDate = SimpleDateFormat("yyyy-mm-dd", Locale.KOREA).format(Calendar.getInstance().time)
     }
     // 등록시 사용하는 함수
-    fun setInfo(title: String, price : Int, quantity : Int, date : String) {
+    fun setInfo(title: String, price : Int, quantity : Int) {
         this.title = title
         this.price = price
         this.quantity = quantity
         this.sellerId = userInfo.id
-        soldDate = date
         // productId, 즉 상품 코드도 선언해 줄 것
     }
 
-
     // 판매시
-    private fun soldBy(buyerId : String) {
-        this.buyerId = buyerId
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun sold() {
+        buyerId = userInfo.id
+        soldDate = LocalDate.now().toString()
         // soldTime, 즉 팔린 시간도 선언해 줄 것
         // soldDate도 선언
     }
 
-    // 조회시
-    private fun callInfo(productId : String, ctgr : String) {
-        // 데베 접속 -> productId 에 해당하는 상품 정보를 불러와서 할당
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun terminated() {
+        soldDate = LocalDate.now().toString()
+        soldTime = "3:00:00"
     }
-
-
-
 }

@@ -3,15 +3,17 @@ package com.example.contest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        // 예시 더미 데이터 생성
-        createDummy()
 
         loginButton.setOnClickListener {
             login(userID.text.toString(), userPW.text.toString())
@@ -31,41 +33,30 @@ class MainActivity : AppCompatActivity() {
     private fun login(id: String, pw: String) {
         userInfo.id = id
         userInfo.pw = pw
-        // 만약 계정정보가 판매자다 -> 판매자 UI 불러오기
-        // 소비자다 -> 소비자 UI 불러오기
-        ///////////////
-        // //
-        // //
-        // //
-        // //
-        // //
-        // DB 데이터 불러오기
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        if (id == "a" && pw == "a") {
-            val userUI = Intent(this, sellerUIMain :: class.java)
-            startActivity(userUI)
-        }
-        else {
-            val userUI = Intent(this, buyerUIMain :: class.java)
-            startActivity(userUI)
-        }
-    }
-
-    fun createDummy() {
-        for (i in 0 until 2) {
-            for ( j in 0 until 2) {
-                var dummy = productElement("조건부 데이터_$i$j")
-                conditionData.productList.add(dummy)
-                var dummy2 = productElement("오늘 데이터_$i$j")
-                instantData.productList.add(dummy2)
+        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        auth = FirebaseAuth.getInstance()
+        val data = database.getReference("userDB")
+        val sellerUI = Intent(this, sellerUIMain :: class.java)
+        val buyerUI = Intent(this, buyerUIMain :: class.java)
+        data.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
             }
-        }
+            override fun onDataChange(p0: DataSnapshot) {
+                for (client in p0.children) {
+                    if (userInfo.id.equals(client.child("id").value) && userInfo.pw.equals(client.child("pw").value)) {
+                        userInfo.role = client.child("role").value as String
+                        userInfo.pNum = client.child("pNum").value as String
+                        if (userInfo.role.equals("seller")) {
+                            startActivity(sellerUI)
+                        } else {
+                            startActivity(buyerUI)
+                        }
+                    } else {
+                        Toast.makeText(this@MainActivity, "아이디 또는 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        })
     }
 
     // 날짜에 해당하는 상품들을 넣는 함수
@@ -82,6 +73,8 @@ class MainActivity : AppCompatActivity() {
 object userInfo {
     var id : String = ""
     var pw : String = ""
+    var pNum : String = ""
+    var role : String = ""
 }
 
 // 휘발성 데이터
