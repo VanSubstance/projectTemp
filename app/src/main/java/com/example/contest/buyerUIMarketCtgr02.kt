@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.buyer_ui_today_ctgr_02.view.*
+import kotlinx.android.synthetic.main.buyer_ui_market_ctgr_02.view.*
 
-class buyerUITodayCtgr02 : Fragment() {
+class buyerUIMarketCtgr02 : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.buyer_ui_today_ctgr_02, container, false)
+        val view = inflater.inflate(R.layout.buyer_ui_market_ctgr_02, container, false)
         view.buttonMeat.setOnClickListener {
             // 해당 시장 오늘 상품중 육류만 골라서 보여준다.
             // conditionData 정보를 조건에 맞춰서 여기서 변경해줘야함

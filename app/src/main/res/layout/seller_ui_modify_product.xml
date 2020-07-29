@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="상품 이름"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         />
@@ -27,7 +27,7 @@
         android:ems="10"
         android:inputType="text"
         android:text=""
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_marginLeft="20dp"
         />
 
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="가격"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_marginTop="100dp"
         android:layout_marginLeft="20dp"
         />
@@ -52,7 +52,7 @@
         android:ems="10"
         android:inputType="text"
         android:text=""
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_marginLeft="20dp"
         />
 
@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="원"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_marginTop="10dp"
         />
 
@@ -74,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="수량"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_marginTop="100dp"
         android:layout_marginLeft="20dp"
         />
@@ -88,7 +88,7 @@
         android:ems="10"
         android:inputType="text"
         android:text=""
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_marginLeft="20dp"
         />
 
@@ -99,7 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="인분"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_marginTop="10dp"
         />
 

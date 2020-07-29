@@ -40,7 +40,7 @@
         />
 
     <TextView
-        android:id="@+id/textMarketName"
+        android:id="@+id/textStoreName"
         app:layout_constraintLeft_toRightOf="@id/imageUser"
         app:layout_constraintTop_toBottomOf="@id/textName"
         android:layout_width="100dp"
@@ -52,9 +52,9 @@
         />
 
     <TextView
-        android:id="@+id/outputMarketName"
-        app:layout_constraintLeft_toRightOf="@id/textMarketName"
-        app:layout_constraintTop_toTopOf="@id/textMarketName"
+        android:id="@+id/outputStoreName"
+        app:layout_constraintLeft_toRightOf="@id/textStoreName"
+        app:layout_constraintTop_toTopOf="@id/textStoreName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"

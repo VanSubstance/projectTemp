@@ -64,6 +64,7 @@ class sellerUIMain : AppCompatActivity() {
     // 상품의 세부사항을 보여주는 함수
     fun showProductSpecific(productElement: productElement, usage : Int) {
         when (usage) {
+            // 판매자 오늘 상품
             1 -> {
                 val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 val view = inflater.inflate(R.layout.product_seller_home_specific, null)

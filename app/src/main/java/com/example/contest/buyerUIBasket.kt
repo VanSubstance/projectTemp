@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.buyer_ui_basket.*
 
@@ -30,7 +31,7 @@ class buyerUIBasket : Fragment() {
 
         productElementList = instantData.productList
 
-        adapter = productElementAdapter(productElementList, requireContext(), 5) {
+        adapter = productElementAdapter(productElementList, requireContext(),5) {
                 productElement ->
             // 팝업창 띄우기
             (activity as buyerUIMain).showProductSpecific(productElement, 1)

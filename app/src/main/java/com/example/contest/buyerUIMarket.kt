@@ -33,7 +33,17 @@ class buyerUIMarket : Fragment() {
         adapter = productElementAdapter(productElementList, requireContext(), 4) {
                 productElement ->
             // 팝업창 띄우기
-            (activity as buyerUIMain).showProductSpecific(productElement, 1)
+            when (arguments?.getInt("usage")) {
+                // 재료
+                2 -> {
+                    (activity as buyerUIMain).showProductSpecific(productElement, 2)
+                }
+                // 완제품
+                3 -> {
+                    (activity as buyerUIMain).showProductSpecific(productElement, 3)
+                }
+            }
+
         }
         RecyclerView.adapter = adapter
 

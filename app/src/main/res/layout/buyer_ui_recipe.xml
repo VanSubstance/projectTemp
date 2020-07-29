@@ -11,6 +11,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/staticRecipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="레시피"
+            android:textSize="15dp"
+            android:gravity="center"
+            />
+
         <GridLayout
             android:id="@+id/layoutBuyerUIMainCtgr1"
             android:layout_width="match_parent"
@@ -24,7 +33,8 @@
                 android:layout_columnWeight="1"
                 android:text="육류"
                 android:src="@drawable/ui_ctgr_meat"
-                android:padding="0dp"/>
+                android:padding="0dp"
+                android:background="#00ff0000"/>
 
             <ImageButton
                 android:id="@+id/buttonRecipe2"
@@ -33,7 +43,8 @@
                 android:layout_columnWeight="1"
                 android:text="해산물"
                 android:src="@drawable/ui_ctgr_seafood"
-                android:padding="0dp"/>
+                android:padding="0dp"
+                android:background="#00ff0000"/>
 
             <ImageButton
                 android:id="@+id/buttonRecipe3"
@@ -42,7 +53,8 @@
                 android:layout_columnWeight="1"
                 android:text="채소류"
                 android:src="@drawable/ui_ctgr_vegetable"
-                android:padding="0dp"/>
+                android:padding="0dp"
+                android:background="#00ff0000"/>
 
             <ImageButton
                 android:id="@+id/buttonRecipe4"
@@ -51,7 +63,8 @@
                 android:layout_columnWeight="1"
                 android:text="기타"
                 android:src="@drawable/ui_ctgr_etc"
-                android:padding="0dp"/>
+                android:padding="0dp"
+                android:background="#00ff0000"/>
 
         </GridLayout>
 

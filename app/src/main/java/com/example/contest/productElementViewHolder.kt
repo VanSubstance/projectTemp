@@ -1,67 +1,70 @@
 package com.example.contest
 
 import android.content.Context
+import android.os.Build
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
 import java.util.*
 
-class productElementViewHolder(elementView : View, productClick: (productElement) -> Unit) : RecyclerView.ViewHolder(elementView) {
+class productElementViewHolder(elementView : View, usage : Int, productClick: (productElement) -> Unit) : RecyclerView.ViewHolder(elementView) {
     val productImage = elementView.findViewById<ImageView>(R.id.productImage)
     val productTitle = elementView.findViewById<TextView>(R.id.productTitle)
     val productPrice = elementView.findViewById<TextView>(R.id.productPrice)
     val productQuan = elementView.findViewById<TextView>(R.id.productQuan)
-    val productSoldDate = elementView.findViewById<TextView>(R.id.productSoldDate)
-    val buttonPurchase = elementView.findViewById<Button>(R.id.buttonPurchase)
-    val buttonBasket = elementView.findViewById<Button>(R.id.buttonBasket)
-    val textDate = elementView.findViewById<TextView>(R.id.textDate)
+    val usage : Int = usage
     val elementView = elementView
     val productClick = productClick
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun bind (productElements : productElement, context : Context) {
-
         productImage.setImageResource(productElements.image)
         productTitle.text = productElements.title
         productPrice.text = productElements.price.toString()
         productQuan.text = productElements.quantity.toString()
 
-        // 판매자 ui history 일 경우
-        if (productSoldDate != null) {
-            productSoldDate.text = productElements.soldDate.toString()
-        } else if (buttonBasket != null){
-            // 소비자 ui market 일 경우
-            buttonPurchase.setOnClickListener {
-                Toast.makeText(it.context, "구매 확인 창 떠야 함", Toast.LENGTH_SHORT).show()
+        when (usage) {
+            // 판매자 이력
+            2 -> {
+                elementView.findViewById<TextView>(R.id.productSoldDate).text = productElements.soldDate.toString()
             }
-            buttonBasket.setOnClickListener {
-                Toast.makeText(it.context, "상품이 장바구니에 추가되어야 함", Toast.LENGTH_SHORT).show()
+            // 판매자 날짜에 따른 이력
+            22 -> {
+                elementView.findViewById<TextView>(R.id.textDate).text = LocalDateTime.now().toString()
             }
-            elementView.setOnClickListener {
-                productClick(productElements)
+            // 판매자 오늘 상품
+            3 -> {
+                elementView.setOnClickListener {
+                    productClick(productElements)
+                }
             }
-        } else if (buttonPurchase != null) {
-            // 소비자 ui today 일 경우
-            buttonPurchase.setOnClickListener {
-                Toast.makeText(it.context, "구매 확인 창 떠야 함", Toast.LENGTH_SHORT).show()
+            // 소비자 재료
+            4 -> {
+                elementView.setOnClickListener {
+                    productClick(productElements)
+                }
             }
-            elementView.setOnClickListener {
-                productClick(productElements)
+            // 소비자 완제품
+            42 -> {
+                elementView.setOnClickListener {
+                    productClick(productElements)
+                }
             }
-        } else if (textDate != null) {
-            // 판매자 ui history Date 일 경우
-            val currentTime = Calendar.getInstance().time
-            var timeFormat = SimpleDateFormat("yyyy-mm-dd", Locale.KOREA).format(currentTime)
-            textDate.setText(timeFormat)
-        } else {
-            // 판매자 ui home 일 경우
-            elementView.setOnClickListener {
-                productClick(productElements)
+            // 소비자 장바구니
+            5 -> {
+                elementView.setOnClickListener {
+                    productClick(productElements)
+                }
             }
+
+
         }
 
     }
