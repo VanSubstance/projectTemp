@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.product_seller_home_specific.view.*
 import kotlin.collections.ArrayList
 
-class sellerUIHistoryAdapter(var historyElementListList: ArrayList<sellerUIHistoryDate>, val context: Context, var usage : Int) : RecyclerView.Adapter<sellerUIHistoryAdapter.sellerUIHistoryViewHolder>() {
+class sellerUIHistoryAdapter(var historyElementListList: MutableMap<String, ArrayList<productElement>>, val context: Context, var usage : Int) : RecyclerView.Adapter<sellerUIHistoryAdapter.sellerUIHistoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): sellerUIHistoryViewHolder {
         var view = LayoutInflater.from(context).inflate(R.layout.seller_ui_history_date, parent, false)
@@ -28,19 +28,19 @@ class sellerUIHistoryAdapter(var historyElementListList: ArrayList<sellerUIHisto
     }
 
     override fun onBindViewHolder(holder: sellerUIHistoryViewHolder, position: Int) {
-        holder.bind(historyElementListList[position], context)
+        holder.bind((historyElementListList.values.toList())[position]
+            , (historyElementListList.keys.toList())[position], context)
     }
 
     inner class sellerUIHistoryViewHolder(elementView: View) : RecyclerView.ViewHolder(elementView) {
         val textDate = elementView.findViewById<TextView>(R.id.textDate)
 
 
-        fun bind(historyElements: sellerUIHistoryDate, context: Context) {
-
-            textDate.setText(historyElements.date)
+        fun bind(historyElements: ArrayList<productElement>, date : String, context: Context) {
+            textDate.setText(date)
 
             val s = itemView.findViewById<RecyclerView>(R.id.RecyclerView11)
-            val sAdapter = productElementAdapter(historyElements.productList, context, 2) {
+            val sAdapter = productElementAdapter(historyElements, context, 2) {
                 productElement ->
                 // 상품 정보가 떠야함 팝업으로
                 val view = LayoutInflater.from(context).inflate(R.layout.product_seller_history_specific, null)

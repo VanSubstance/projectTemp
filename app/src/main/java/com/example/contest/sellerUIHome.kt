@@ -21,7 +21,6 @@ class sellerUIHome : Fragment() {
     private val linearLayoutManager by lazy { LinearLayoutManager(context) }
     private lateinit var adapter: productElementAdapter
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    val DatabaseReference = database.reference
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
