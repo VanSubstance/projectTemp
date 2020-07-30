@@ -1,41 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageRecipe"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+>
 
-    <TextView
-        android:id="@+id/staticTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/imageRecipe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="레시피 이름"
-        android:textSize="15dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/staticTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="개쩌는 레시피"
-        android:textSize="15dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        />
+            <ImageView
+                android:id="@+id/recipeImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/staticRecipeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="레시피 이름"
+                android:textSize="15dp"
+                app:layout_constraintStart_toEndOf="@+id/recipeImage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="개쩌는 레시피"
+                android:textSize="15dp"
+                app:layout_constraintStart_toEndOf="@+id/staticRecipeTitle"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/staticRecipeLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:text="조리 난이도"
+                android:textSize="15dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/recipeLevel"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="25dp"
+                android:textSize="15dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/staticRecipeLevel" />
+
+            <TextView
+                android:id="@+id/recipeIngredient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="재료"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recipeImage" />
+
+            <TextView
+                android:id="@+id/Ingredient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recipeIngredient" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="조리순서"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Ingredient" />
+
+            <TextView
+                android:id="@+id/recipeSteps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:text="정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

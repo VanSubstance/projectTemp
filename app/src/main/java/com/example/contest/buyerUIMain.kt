@@ -2,11 +2,11 @@ package com.example.contest
 
 import android.content.Context
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.buyer_ui_main.*
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.*
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.buttonPurchase
@@ -214,5 +214,6 @@ class buyerUIMain : AppCompatActivity() {
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.recipe_frame, frag).commit()
     }
+
 
 }
