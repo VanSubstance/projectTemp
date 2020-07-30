@@ -38,7 +38,6 @@ class sellerUIHome : Fragment() {
         super.onActivityCreated(savedInstanceState)
         RecyclerView.layoutManager = linearLayoutManager
         productElementList = ArrayList()
-        var productEl = productElement()
         auth = FirebaseAuth.getInstance()
         val data = database.getReference("productTodayDB")
         data.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -47,23 +46,19 @@ class sellerUIHome : Fragment() {
             override fun onDataChange(p0: DataSnapshot) {
                 for (product in p0.children) {
                     if (userInfo.id.equals(product.child("seller").value)) {
-                        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                        var title = product.child("title").value
-                        var price = product.child("price").value
-                        var quan = product.child("quantity").value
-                        productEl.setInfo(title.toString(), price as Int, quan as Int)
+                        var productEl = productElement()
+                        productEl.setFromDb(product)
                         productElementList.add(productEl)
                     }
                 }
+                adapter = productElementAdapter(productElementList, requireContext(), 3) {
+                        productElement ->
+                    // 팝업창 띄우기
+                    (activity as sellerUIMain).showProductSpecific(productElement, 1)
+                }
+                RecyclerView.adapter = adapter
             }
         })
-
-        adapter = productElementAdapter(productElementList, requireContext(), 3) {
-                productElement ->
-            // 팝업창 띄우기
-            (activity as sellerUIMain).showProductSpecific(productElement, 1)
-        }
-        RecyclerView.adapter = adapter
 
     }
 
