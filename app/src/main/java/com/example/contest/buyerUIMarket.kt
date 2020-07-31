@@ -20,7 +20,7 @@ class buyerUIMarket : Fragment() {
     private val linearLayoutManager by lazy { LinearLayoutManager(context) }
     private lateinit var adapter: productElementAdapter
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    private lateinit var auth: FirebaseAuth
+
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.buyer_ui_market, container, false)
@@ -33,7 +33,7 @@ class buyerUIMarket : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         RecyclerView.layoutManager = linearLayoutManager
-        auth = FirebaseAuth.getInstance()
+
 
         var data = database.getReference("marketDB").child(currentCondition.marketTitle).child("store")
         var sellers : ArrayList<String> = ArrayList()

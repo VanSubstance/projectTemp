@@ -8,13 +8,17 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.buyer_ui_main.*
+import kotlinx.android.synthetic.main.buyer_ui_main.textTime
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.*
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.buttonPurchase
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textPrice
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textQuan
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textTitle
 import kotlinx.android.synthetic.main.product_buyer_market_specific.view.*
+import kotlinx.android.synthetic.main.seller_ui_main.*
+import java.text.SimpleDateFormat
 import java.time.LocalDate
+import java.util.*
 
 class buyerUIMain : AppCompatActivity() {
 
@@ -23,8 +27,13 @@ class buyerUIMain : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.buyer_ui_main)
 
-        val currentTime = LocalDate.now()
-        textTime.setText(currentTime.toString())
+        Thread(Runnable {
+            while (!Thread.interrupted()) try {
+                Thread.sleep(1000)
+                runOnUiThread { textTime.setText(getCurrentTime()) }
+            } catch (e: InterruptedException) {
+            }
+        }).start()
 
         // 구매자 화면 전환
         setBuyerFrag(11)
@@ -47,6 +56,10 @@ class buyerUIMain : AppCompatActivity() {
         buyerBasket.setOnClickListener {
             setBuyerFrag(41)
         }
+    }
+    fun getCurrentTime(): String? {
+        val time = System.currentTimeMillis()
+        return SimpleDateFormat("yyyy-mm-dd HH:mm:ss").format(Date(time))
     }
 
     fun setBuyerFrag(fragNum : Int) {

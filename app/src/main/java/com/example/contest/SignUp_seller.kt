@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat
 
 class SignUp_seller : AppCompatActivity() {
 
-    private lateinit var auth: FirebaseAuth
+
     private val TAG: String = "SignUp"
 
     override fun onCreate(savedInstanceState: Bundle?) {

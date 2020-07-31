@@ -127,8 +127,8 @@
 
     <TextView
         android:id="@+id/staticImage"
-        app:layout_constraintBottom_toTopOf="@id/imageProduct"
-        app:layout_constraintLeft_toLeftOf="@id/imageProduct"
+        app:layout_constraintBottom_toTopOf="@id/productImage"
+        app:layout_constraintLeft_toLeftOf="@id/productImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="상품 사진"
@@ -137,7 +137,7 @@
         />
 
     <ImageView
-        android:id="@+id/imageProduct"
+        android:id="@+id/productImage"
         app:layout_constraintTop_toTopOf="@id/inputTitle"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="160dp"
@@ -148,7 +148,7 @@
 
     <Button
         android:id="@+id/buttonChangeImage"
-        app:layout_constraintTop_toBottomOf="@id/imageProduct"
+        app:layout_constraintTop_toBottomOf="@id/productImage"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

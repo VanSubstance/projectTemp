@@ -19,7 +19,7 @@ class sellerUIHistory : Fragment() {
     private val linearLayoutManager by lazy { LinearLayoutManager(context) }
     private lateinit var adapter: sellerUIHistoryAdapter
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    private lateinit var auth: FirebaseAuth
+
 
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
@@ -34,7 +34,7 @@ class sellerUIHistory : Fragment() {
         RecyclerView.layoutManager = linearLayoutManager
 
         historyElementList = mutableMapOf()
-        auth = FirebaseAuth.getInstance()
+
         val data = database.getReference("productDB")
         data.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {

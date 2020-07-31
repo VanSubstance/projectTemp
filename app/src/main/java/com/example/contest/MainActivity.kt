@@ -9,7 +9,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         userInfo.id = id
         userInfo.pw = pw
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-        auth = FirebaseAuth.getInstance()
+
         val data = database.getReference("userDB")
         val sellerUI = Intent(this, sellerUIMain :: class.java)
         val buyerUI = Intent(this, buyerUIMain :: class.java)

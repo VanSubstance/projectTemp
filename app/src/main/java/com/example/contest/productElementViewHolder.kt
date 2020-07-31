@@ -1,7 +1,6 @@
 package com.example.contest
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Build
 import android.view.View
@@ -10,12 +9,13 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.firebase.ui.storage.images.FirebaseImageLoader
 import com.google.firebase.storage.FirebaseStorage
 import java.time.LocalDateTime
 
 
 class productElementViewHolder(elementView : View, usage : Int, productClick: (productElement) -> Unit) : RecyclerView.ViewHolder(elementView) {
-    val productImage = elementView.findViewById<ImageView>(R.id.imageProduct)
+    val productImage = elementView.findViewById<ImageView>(R.id.productImage)
     val productTitle = elementView.findViewById<TextView>(R.id.productTitle)
     val productPrice = elementView.findViewById<TextView>(R.id.productPrice)
     val productQuan = elementView.findViewById<TextView>(R.id.productQuan)
@@ -27,15 +27,15 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun bind (productElements : productElement, context : Context) {
-        //productImage.setImageURI(productElements.image)
         productTitle.text = productElements.title
         productPrice.text = productElements.price.toString()
         productQuan.text = productElements.quantity.toString()
         val imagePath = mStorageRef.child(productElements.productId + ".png")
-        imagePath.getDownloadUrl().addOnSuccessListener {
-            productImage.setImageURI(it)
+        val imageSize: Long = 1024 * 1024 * 10
+        imagePath.getBytes(imageSize).addOnSuccessListener {
+            val imageBitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
+            productImage.setImageBitmap(imageBitmap)
         }
-
 
         when (usage) {
             // 판매자 이력
