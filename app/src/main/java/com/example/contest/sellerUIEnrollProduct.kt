@@ -2,7 +2,6 @@ package com.example.contest
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,11 +12,15 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.*
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.view.*
 import java.time.LocalDate
 
+
 class sellerUIEnrollProduct : Fragment() {
+    private val mStorageRef: StorageReference = FirebaseStorage.getInstance().getReference()
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private lateinit var auth: FirebaseAuth
 
