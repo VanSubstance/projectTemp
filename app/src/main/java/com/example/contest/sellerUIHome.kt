@@ -21,7 +21,7 @@ class sellerUIHome : Fragment() {
     private val linearLayoutManager by lazy { LinearLayoutManager(context) }
     private lateinit var adapter: productElementAdapter
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    private lateinit var auth: FirebaseAuth
+
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.seller_ui_home, container, false)
@@ -37,7 +37,7 @@ class sellerUIHome : Fragment() {
         super.onActivityCreated(savedInstanceState)
         RecyclerView.layoutManager = linearLayoutManager
         productElementList = ArrayList()
-        auth = FirebaseAuth.getInstance()
+
         val data = database.getReference("productTodayDB")
         data.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
