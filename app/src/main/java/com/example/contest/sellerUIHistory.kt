@@ -49,6 +49,7 @@ class sellerUIHistory : Fragment() {
                         }
                         var productEl = productElement()
                         productEl.setFromDb(product)
+                        productEl.soldDate = product.child("soldDate").value.toString()
                         historyElementList[product.child("soldDate").value.toString()]?.add(productEl)
                     }
                 }
