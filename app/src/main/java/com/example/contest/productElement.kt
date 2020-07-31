@@ -1,5 +1,6 @@
 package com.example.contest
 
+import android.net.Uri
 import android.os.Build
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
@@ -20,7 +21,7 @@ class productElement() {
     var buyerId : String = "undefined"
     var soldTime : String = ""
     var soldDate : String = ""
-    var image : Int = R.drawable.test_02
+    //var image : Uri = Uri.EMPTY
 
     constructor(title: String) : this() {
         this.title = title
@@ -28,13 +29,14 @@ class productElement() {
         this.quantity = 3
     }
     // 등록시 사용하는 함수
-    fun setInfo(title: String, price : Int, quantity : Int, productId : String) {
+    fun setInfo(title: String, price : Int, quantity : Int, productId : String/**, image : Uri*/) {
         this.productId = productId
         this.title = title
         this.price = price
         this.quantity = quantity
-        sellerId = userInfo.id
+        this.sellerId = userInfo.id
         buyerId = "undefined"
+        //this.image = image
         // image 받아줘야댐
     }
 
@@ -56,12 +58,12 @@ class productElement() {
 
     fun toMap(): Map<String, Any?> {
         return mapOf(
-            "title" to title,
-            "price" to price.toString(),
-            "quantity" to quantity.toString(),
-            "seller" to sellerId,
-            "buyer" to buyerId,
-            "image" to image.toString()
+            "title" to title
+            ,"price" to price.toString()
+            ,"quantity" to quantity.toString()
+            ,"seller" to sellerId
+            ,"buyer" to buyerId
+            //,"image" to image.toString()
         )
     }
 
@@ -72,6 +74,6 @@ class productElement() {
         quantity = Integer.parseInt(product.child("quantity").value as String)
         sellerId = product.child("seller").value.toString()
         buyerId = product.child("buyer").value.toString()
-        image = Integer.parseInt(product.child("image").value as String)
+        //image = product.child("image").value as Uri
     }
 }

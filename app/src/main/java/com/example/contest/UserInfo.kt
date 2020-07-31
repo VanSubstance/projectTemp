@@ -9,8 +9,7 @@ data class Post(
         var Password: String? = "",
         var Name: String? = "",
         var Address: String? = "",
-        var Pnum: String? = "",
-        var Character:String?=""
+        var Pnum: String? = ""
 ) {
 
     // [START post_to_map]
@@ -21,8 +20,7 @@ data class Post(
                 "Password" to Password,
                 "Name" to Name,
                 "Address" to Address,
-                "Pnum" to Pnum,
-                "Character" to Character
+                "Pnum" to Pnum
         )
     }
     // [END post_to_map]

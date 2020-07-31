@@ -85,6 +85,7 @@ class sellerUIMain : AppCompatActivity() {
                     .create()
                 alertDialog.setView(view)
                 alertDialog.show()
+
                 view.buttonModify.setOnClickListener {
                     // 상품 수정 버튼
                     alertDialog.dismiss()
@@ -101,7 +102,8 @@ class sellerUIMain : AppCompatActivity() {
                         modifiedProduct.setInfo(view.inputTitle.text.toString()
                             , Integer.parseInt(view.inputPrice.text.toString())
                             , Integer.parseInt(view.inputQuan.text.toString())
-                            , productElement.productId)
+                            , productElement.productId
+                            /**, productElement.image*/)
                         data.child(modifiedProduct.productId).setValue(modifiedProduct.toMap())
                         alertDialog.dismiss()
                         setSellerFrag(11)
