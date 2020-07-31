@@ -25,7 +25,7 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun bind (productElements : productElement, context : Context) {
-        productImage.setImageResource(productElements.image)
+        //productImage.setImageURI(productElements.image)
         productTitle.text = productElements.title
         productPrice.text = productElements.price.toString()
         productQuan.text = productElements.quantity.toString()

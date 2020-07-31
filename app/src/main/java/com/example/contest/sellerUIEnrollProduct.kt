@@ -1,24 +1,21 @@
 package com.example.contest
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.IntegerRes
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.*
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.view.*
 import java.time.LocalDate
-import kotlin.reflect.typeOf
 
 class sellerUIEnrollProduct : Fragment() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
@@ -30,7 +27,12 @@ class sellerUIEnrollProduct : Fragment() {
 
         auth = FirebaseAuth.getInstance()
         val data = database.getReference("productTodayDB")
-
+        // 사진 변경 버튼
+        view.buttonChangeImage.setOnClickListener {
+            val intent : Intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.setType("image/*")
+            startActivityForResult(intent, 1)
+        }
         view.buttonEnroll.setOnClickListener {
             // inputTitle: 상품 이름 인풋, inputPrice: 가격 인풋, inputQuan: 수량 인풋
             // 여기서 데이터베이스에 저장
@@ -42,8 +44,9 @@ class sellerUIEnrollProduct : Fragment() {
                 var price = Integer.parseInt(view.inputPrice.text.toString())
                 var quan = Integer.parseInt(view.inputQuan.text.toString())
                 var newProduct : productElement = productElement()
+                //var image = view.imageProduct as Uri
                 var productId : String = LocalDate.now().toString() + userInfo.id + title
-                newProduct.setInfo(title, price, quan, productId)
+                newProduct.setInfo(title, price, quan, productId/**, image*/)
                 data.child(productId).setValue(newProduct.toMap())
                 (activity as sellerUIMain).setSellerFrag(11)
             }
@@ -54,5 +57,16 @@ class sellerUIEnrollProduct : Fragment() {
         }
 
         return view
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == 1) {
+                var imageUrl = data?.data
+                imageProduct.setImageURI(imageUrl)
+            }
+        }
     }
 }
