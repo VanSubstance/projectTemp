@@ -25,7 +25,7 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun bind (productElements : productElement, context : Context) {
-        productImage.setImageResource(productElements.image)
+        //productImage.setImageURI(productElements.image)
         productTitle.text = productElements.title
         productPrice.text = productElements.price.toString()
         productQuan.text = productElements.quantity.toString()
@@ -34,10 +34,16 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
             // 판매자 이력
             2 -> {
                 elementView.findViewById<TextView>(R.id.productSoldDate).text = productElements.soldDate.toString()
+                elementView.setOnClickListener {
+                    productClick(productElements)
+                }
             }
             // 판매자 날짜에 따른 이력
             22 -> {
                 elementView.findViewById<TextView>(R.id.textDate).text = LocalDateTime.now().toString()
+                elementView.setOnClickListener {
+                    productClick(productElements)
+                }
             }
             // 판매자 오늘 상품
             3 -> {

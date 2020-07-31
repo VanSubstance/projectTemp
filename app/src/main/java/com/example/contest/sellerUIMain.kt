@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.seller_ui_main.*
 import kotlinx.android.synthetic.main.product_seller_home_specific.view.*
 import kotlinx.android.synthetic.main.seller_ui_main.textTime
@@ -14,6 +16,9 @@ import kotlinx.android.synthetic.main.seller_ui_modify_product.view.*
 import java.time.LocalDate
 
 class sellerUIMain : AppCompatActivity() {
+
+    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    private lateinit var auth: FirebaseAuth
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,6 +68,8 @@ class sellerUIMain : AppCompatActivity() {
 
     // 상품의 세부사항을 보여주는 함수
     fun showProductSpecific(productElement: productElement, usage : Int) {
+        val data = database.getReference("productTodayDB")
+
         when (usage) {
             // 판매자 오늘 상품
             1 -> {
@@ -78,6 +85,7 @@ class sellerUIMain : AppCompatActivity() {
                     .create()
                 alertDialog.setView(view)
                 alertDialog.show()
+
                 view.buttonModify.setOnClickListener {
                     // 상품 수정 버튼
                     alertDialog.dismiss()
@@ -90,9 +98,13 @@ class sellerUIMain : AppCompatActivity() {
                     view.inputQuan.setText(productElement.quantity.toString())
                     view.buttonConfirm.setOnClickListener {
                         // 확인 버튼
-                        productElement.title = view.inputTitle.text.toString()
-                        productElement.price = Integer.parseInt(view.inputPrice.text.toString())
-                        productElement.quantity = Integer.parseInt(view.inputQuan.text.toString())
+                        var modifiedProduct = productElement
+                        modifiedProduct.setInfo(view.inputTitle.text.toString()
+                            , Integer.parseInt(view.inputPrice.text.toString())
+                            , Integer.parseInt(view.inputQuan.text.toString())
+                            , productElement.productId
+                            /**, productElement.image*/)
+                        data.child(modifiedProduct.productId).setValue(modifiedProduct.toMap())
                         alertDialog.dismiss()
                         setSellerFrag(11)
                     }
@@ -106,7 +118,7 @@ class sellerUIMain : AppCompatActivity() {
                 }
                 view.buttonDelete.setOnClickListener {
                     alertDialog.dismiss()
-                    instantData.productList.remove(productElement)
+                    data.child(productElement.productId).removeValue()
                     setSellerFrag(11)
                 }
             }

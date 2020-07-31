@@ -50,10 +50,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="number"
         android:text=""
         android:textSize="15dp"
         android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/textPriceUnit"
+        app:layout_constraintTop_toBottomOf="@id/staticPrice"
+        app:layout_constraintLeft_toRightOf="@id/inputPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="원"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp"
         />
 
     <TextView
@@ -75,10 +86,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="number"
         android:text=""
         android:textSize="15dp"
         android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/textQuanUnit"
+        app:layout_constraintTop_toBottomOf="@id/staticQuan"
+        app:layout_constraintLeft_toRightOf="@id/inputQuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="인분"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp"
         />
 
     <Button
@@ -102,4 +124,36 @@
         android:layout_marginTop="100dp"
         android:layout_marginRight="20dp"
         />
+
+    <TextView
+        android:id="@+id/staticImage"
+        app:layout_constraintBottom_toTopOf="@id/imageProduct"
+        app:layout_constraintLeft_toLeftOf="@id/imageProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="상품 사진"
+        android:textSize="15dp"
+        android:layout_marginBottom="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/imageProduct"
+        app:layout_constraintTop_toTopOf="@id/inputTitle"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        tools:srcCompat="@tools:sample/avatars"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <Button
+        android:id="@+id/buttonChangeImage"
+        app:layout_constraintTop_toBottomOf="@id/imageProduct"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="사진 변경"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

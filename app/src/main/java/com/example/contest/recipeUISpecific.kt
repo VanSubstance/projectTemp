@@ -14,7 +14,6 @@ class recipeUISpecific : Fragment() {
         val view = inflater.inflate(R.layout.recipe_ui_specific, container, false)
 
         view.textTitle.text = arguments?.getString("title")
-        view.recipeCtgr.text = arguments?.getString("ctgrBig")
 
         return view
     }

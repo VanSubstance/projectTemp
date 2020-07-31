@@ -2,11 +2,11 @@ package com.example.contest
 
 import android.content.Context
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.buyer_ui_main.*
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.*
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.buttonPurchase
@@ -42,7 +42,7 @@ class buyerUIMain : AppCompatActivity() {
         }
 
         buyerMarket.setOnClickListener {
-            setBuyerFrag(22)
+            setBuyerFrag(211)
         }
         buyerBasket.setOnClickListener {
             setBuyerFrag(41)
@@ -68,6 +68,10 @@ class buyerUIMain : AppCompatActivity() {
             // 장바구니
             41 -> {
                 ft.replace(R.id.main_frame,buyerUIBasket()).commit()
+            }
+            // 시장 선택 예시 창 -> 버튼들은 지도에 마커로 대체
+            211 -> {
+                ft.replace(R.id.main_frame,buyerUIMarketSelection()).commit()
             }
             // 시장 선택 시
             22 -> {
@@ -215,4 +219,14 @@ class buyerUIMain : AppCompatActivity() {
         ft.replace(R.id.recipe_frame, frag).commit()
     }
 
+
+}
+
+object currentCondition {
+    // 시장
+    var marketTitle : String = ""
+    // 완제품 or 재료
+    var ctgr01 : String = ""
+    // 육류, 해산물, 등등
+    var ctgr02 : String = ""
 }
