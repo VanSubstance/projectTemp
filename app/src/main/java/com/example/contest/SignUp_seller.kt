@@ -15,7 +15,6 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.sign_up_seller.*
-import kotlinx.android.synthetic.main.signup_main.*
 import java.text.SimpleDateFormat
 
 class SignUp_seller : AppCompatActivity() {
@@ -31,7 +30,6 @@ class SignUp_seller : AppCompatActivity() {
         val mPasswordText = findViewById<EditText>(R.id.et_pass);
         val mPasswordcheckText = findViewById<EditText>(R.id.et_passck);
         val mName = findViewById<EditText>(R.id.et_name);
-        val mAddress = findViewById<EditText>(R.id.et_name)
         val mPnum = findViewById<EditText>(R.id.et_Phone_number)
 
         val mPickTimeBt_s = findViewById<Button>(R.id.picktimebtn_S)
@@ -40,7 +38,6 @@ class SignUp_seller : AppCompatActivity() {
         val mPickTimeBt_e = findViewById<Button>(R.id.picktimebtn_E)
         val textView_e     = findViewById<TextView>(R.id.time_E)
 
-        auth = FirebaseAuth.getInstance()
 
         btn_register_seller.setOnClickListener {
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()
@@ -50,37 +47,18 @@ class SignUp_seller : AppCompatActivity() {
             } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
                 Toast.makeText(this, "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
             } else {
-                auth.createUserWithEmailAndPassword(mEmailText.text.toString(), mPasswordText.text.toString())
-                        .addOnCompleteListener(this) { task ->
-                            if (task.isSuccessful) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Log.d(TAG, "createUserWithEmail:success")
-                                val user = auth.currentUser
-                                val email=mEmailText.text.toString()
-                                val password=mPasswordText.text.toString()
-                                val name=mName.text.toString()
-                                val address=mAddress.text.toString()
-                                val pnum=mPnum.text.toString()
-                                val data=Post(email,password,name,address,pnum)
-                                val info =data.toMap()
-                                DatabaseReference.child("").child(pnum).setValue(info)
-                                finish()
-                                overridePendingTransition(0, 0)
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                                Toast.makeText(
-                                        baseContext, "Authentication failed.",
-                                        Toast.LENGTH_SHORT
-                                ).show()
-                                mEmailText?.setText("")
-                                mPasswordText?.setText("")
-                                et_id.requestFocus()
+                val email=mEmailText.text.toString()
+                val password=mPasswordText.text.toString()
+                val name=mName.text.toString()
+                val pnum=mPnum.text.toString()
+                val data=Post(email,password,name,pnum)
+                val info =data.toMap()
+                DatabaseReference.child("").child(pnum).setValue(info)
+                finish()
+                overridePendingTransition(0, 0)
                             }
-                        }
-            }
-        }
 
+                        }
 
         mPickTimeBt_s.setOnClickListener {
             val cal = Calendar.getInstance()

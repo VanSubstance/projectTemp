@@ -5,22 +5,22 @@ import com.google.firebase.database.Exclude
 
 @IgnoreExtraProperties
 data class Post(
-        var Email: String? = "",
+        var ID: String? = "",
         var Password: String? = "",
         var Name: String? = "",
-        var Address: String? = "",
-        var Pnum: String? = ""
+        var pNum: String? = "",
+        var role: String?=""
 ) {
 
     // [START post_to_map]
     @Exclude
     fun toMap(): Map<String, Any?> {
         return mapOf(
-                "Email" to Email,
+                "ID" to ID,
                 "Password" to Password,
                 "Name" to Name,
-                "Address" to Address,
-                "Pnum" to Pnum
+                "pNum" to pNum,
+                "role" to role
         )
     }
     // [END post_to_map]
