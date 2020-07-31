@@ -1,24 +1,22 @@
 package com.example.contest
 
+import android.R.layout.simple_list_item_1
 import android.app.AlertDialog
 import android.app.TimePickerDialog
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import java.util.*
 import android.content.Context
+import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import android.view.View
 import android.widget.*
-
-import com.google.firebase.auth.FirebaseAuth
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.menu.ListMenuPresenter
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.selectlocation.*
 import kotlinx.android.synthetic.main.sign_up_seller.*
 import java.text.SimpleDateFormat
+import java.util.*
 
 class SignUp_seller : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_up_seller)
@@ -82,19 +80,60 @@ class SignUp_seller : AppCompatActivity() {
             showCat()
         }
         picklocation.setOnClickListener {
+            var LIST_1= mutableListOf<String>()
+            var LIST_MENU= arrayOf<String>()
+            val database :FirebaseDatabase= FirebaseDatabase.getInstance()
+            val myref: DatabaseReference =database.getReference("MarketInfo")
+            myref.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
 
-            var m_List= arrayListOf<locationInfo>(locationInfo("삼성"))
-            val l_Adapter=locationAdapter(this,m_List)
-            listView.adapter=l_Adapter
+                override fun onDataChange(p0: DataSnapshot) {
+                    val child = p0.children.iterator();
+                    while(child.hasNext()){
+                       LIST_1.add(p0.child("전통시장명").value.toString())
+                }
+            }}
+            )
+            LIST_MENU= LIST_1.toTypedArray()
+
+            val adapter_1 = ArrayAdapter(this, simple_list_item_1,LIST_MENU)
 
             val builder = AlertDialog.Builder(this)
             val dialogView = layoutInflater.inflate(R.layout.selectlocation, null)
-            val dialogText=dialogView.findViewById<EditText>(R.id.editSearch)
+            val listview=dialogView.findViewById<ListView>(R.id.listview1)
+            listview.adapter=adapter_1
+            val dialogText=dialogView.findViewById<EditText>(R.id.editTextFilter)
+            dialogText.addTextChangedListener( object: TextWatcher {
+                override fun afterTextChanged(s: Editable?) {
+                    val filterText=s.toString()
+                    if(filterText.length >0){
+                        listview.setFilterText(filterText)
+                    }
+                    else{
+                        listview.clearTextFilter()
+                    }
+                }
+
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    TODO("Not yet implemented")
+                }
+
+            })
 
             builder.setView(dialogView)
                     .setPositiveButton("확인") { dialogInterface, i ->
-                        location.text = dialogText.text.toString()
-                        /* 확인일 때 main의 View의 값에 dialog View에 있는 값을 적용 */
+
 
                     }
                     .setNegativeButton("취소") { dialogInterface, i ->
