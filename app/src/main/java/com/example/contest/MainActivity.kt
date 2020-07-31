@@ -51,10 +51,9 @@ class MainActivity : AppCompatActivity() {
                         } else {
                             startActivity(buyerUI)
                         }
-                    } else {
-                        Toast.makeText(this@MainActivity, "아이디 또는 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()
                     }
                 }
+                Toast.makeText(this@MainActivity, "아이디 또는 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()
             }
         })
     }

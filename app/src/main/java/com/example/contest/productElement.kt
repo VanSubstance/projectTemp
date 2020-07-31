@@ -21,7 +21,6 @@ class productElement() {
     var buyerId : String = "undefined"
     var soldTime : String = ""
     var soldDate : String = ""
-    //var image : Uri = Uri.EMPTY
 
     constructor(title: String) : this() {
         this.title = title
@@ -29,15 +28,13 @@ class productElement() {
         this.quantity = 3
     }
     // 등록시 사용하는 함수
-    fun setInfo(title: String, price : Int, quantity : Int, productId : String/**, image : Uri*/) {
+    fun setInfo(title: String, price : Int, quantity : Int, productId : String) {
         this.productId = productId
         this.title = title
         this.price = price
         this.quantity = quantity
         this.sellerId = userInfo.id
         buyerId = "undefined"
-        //this.image = image
-        // image 받아줘야댐
     }
 
     // 판매시
@@ -63,7 +60,6 @@ class productElement() {
             ,"quantity" to quantity.toString()
             ,"seller" to sellerId
             ,"buyer" to buyerId
-            //,"image" to image.toString()
         )
     }
 
@@ -74,6 +70,5 @@ class productElement() {
         quantity = Integer.parseInt(product.child("quantity").value as String)
         sellerId = product.child("seller").value.toString()
         buyerId = product.child("buyer").value.toString()
-        //image = product.child("image").value as Uri
     }
 }

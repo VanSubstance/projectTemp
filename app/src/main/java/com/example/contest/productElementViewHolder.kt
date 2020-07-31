@@ -1,20 +1,21 @@
 package com.example.contest
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
-import java.text.SimpleDateFormat
+import com.bumptech.glide.Glide
+import com.google.firebase.storage.FirebaseStorage
 import java.time.LocalDateTime
-import java.util.*
+
 
 class productElementViewHolder(elementView : View, usage : Int, productClick: (productElement) -> Unit) : RecyclerView.ViewHolder(elementView) {
-    val productImage = elementView.findViewById<ImageView>(R.id.productImage)
+    val productImage = elementView.findViewById<ImageView>(R.id.imageProduct)
     val productTitle = elementView.findViewById<TextView>(R.id.productTitle)
     val productPrice = elementView.findViewById<TextView>(R.id.productPrice)
     val productQuan = elementView.findViewById<TextView>(R.id.productQuan)
@@ -22,6 +23,7 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
     val elementView = elementView
     val productClick = productClick
 
+    private val mStorageRef = FirebaseStorage.getInstance().getReference("productImageDB")
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun bind (productElements : productElement, context : Context) {
@@ -29,6 +31,11 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
         productTitle.text = productElements.title
         productPrice.text = productElements.price.toString()
         productQuan.text = productElements.quantity.toString()
+        val imagePath = mStorageRef.child(productElements.productId + ".png")
+        imagePath.getDownloadUrl().addOnSuccessListener {
+            productImage.setImageURI(it)
+        }
+
 
         when (usage) {
             // 판매자 이력
