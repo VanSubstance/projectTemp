@@ -245,24 +245,36 @@
                         android:id="@+id/checkBeef"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
                         android:text="소고기" />
 
                     <CheckBox
                         android:id="@+id/checkChicken"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
                         android:text="닭고기" />
 
                     <CheckBox
                         android:id="@+id/checkFish"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
                         android:text="어류" />
 
                     <CheckBox
                         android:id="@+id/checkVegetables"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
                         android:text="채소류" />
                 </LinearLayout>
 
@@ -270,24 +282,33 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <CheckBox
                         android:id="@+id/checkPork"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
                         android:text="돼지고기" />
 
                     <CheckBox
                         android:id="@+id/checkSeaweed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
                         android:text="해조류" />
 
                     <CheckBox
                         android:id="@+id/checkCrustacean"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
                         android:text="갑각류" />
                 </LinearLayout>
             </LinearLayout>
