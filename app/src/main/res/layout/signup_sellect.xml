@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageButton
+        android:id="@+id/signup_buyer"
+        android:layout_width="0dp"
+        android:layout_height="136dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@+id/signup_seller"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sign_up" />
+
+    <ImageButton
+        android:id="@+id/signup_seller"
+        android:layout_width="0dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/signup_buyer"
+        app:layout_constraintTop_toTopOf="@+id/signup_buyer"
+        app:srcCompat="@drawable/sign_up2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="57dp"
+        android:layout_marginLeft="57dp"
+        android:layout_marginTop="30dp"
+        android:text="소비자"
+        app:layout_constraintStart_toStartOf="@+id/signup_buyer"
+        app:layout_constraintTop_toBottomOf="@+id/signup_buyer" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="79dp"
+        android:layout_marginLeft="79dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="79dp"
+        android:layout_marginRight="79dp"
+        android:text="판매자"
+        app:layout_constraintEnd_toEndOf="@+id/signup_seller"
+        app:layout_constraintStart_toEndOf="@+id/signup_buyer"
+        app:layout_constraintTop_toBottomOf="@+id/signup_seller" />
+</androidx.constraintlayout.widget.ConstraintLayout>

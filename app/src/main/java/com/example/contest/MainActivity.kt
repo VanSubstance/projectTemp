@@ -19,14 +19,9 @@ class MainActivity : AppCompatActivity() {
             login(userID.text.toString(), userPW.text.toString())
         }
         SignUpButton.setOnClickListener{
-            val SignUp_user=Intent(this,SignUp::class.java)
+            val SignUp_user=Intent(this,signup_sellect::class.java)
             startActivity(SignUp_user)
         }
-        SignUpButton_seller.setOnClickListener{
-            val SignUp_seller=Intent(this,SignUp_seller::class.java)
-            startActivity(SignUp_seller)
-        }
-
 
     }
 
