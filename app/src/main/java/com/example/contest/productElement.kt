@@ -34,6 +34,10 @@ class productElement() {
         this.title = title
         this.price = price
         this.quantity = quantity
+        this.sellerId = userInfo.id
+        soldDate = date
+        // productId, 즉 상품 코드도 선언해 줄 것
+
         sellerId = userInfo.id
         buyerId = "undefined"
         //this.image = image

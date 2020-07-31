@@ -49,8 +49,7 @@ class SignUp : AppCompatActivity() {
                                 val name=mName.text.toString()
                                 val address=mAddress.text.toString()
                                 val pnum=mPnum.text.toString()
-                                val Character="소비자"
-                                val data=Post(email,password,name,address,pnum,Character)
+                                val data=Post(email,password,name,address,pnum)
                                 val info =data.toMap()
                                 DatabaseReference.child("BuyerInfo").child(pnum).setValue(info)
                                 finish()
