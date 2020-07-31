@@ -2,6 +2,7 @@ package com.example.contest
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,13 +17,16 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.*
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.view.*
+import java.text.SimpleDateFormat
 import java.time.LocalDate
+import java.util.*
 
 
 class sellerUIEnrollProduct : Fragment() {
-    private val mStorageRef: StorageReference = FirebaseStorage.getInstance().getReference()
+    private val mStorageRef = FirebaseStorage.getInstance()
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private lateinit var auth: FirebaseAuth
+    var imageUrl : Uri? = null
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -30,6 +34,7 @@ class sellerUIEnrollProduct : Fragment() {
 
         auth = FirebaseAuth.getInstance()
         val data = database.getReference("productTodayDB")
+        val imageData = mStorageRef.getReference("productImageDB")
         // 사진 변경 버튼
         view.buttonChangeImage.setOnClickListener {
             val intent : Intent = Intent(Intent.ACTION_GET_CONTENT)
@@ -37,9 +42,6 @@ class sellerUIEnrollProduct : Fragment() {
             startActivityForResult(intent, 1)
         }
         view.buttonEnroll.setOnClickListener {
-            // inputTitle: 상품 이름 인풋, inputPrice: 가격 인풋, inputQuan: 수량 인풋
-            // 여기서 데이터베이스에 저장
-            // 저장 양식은 테이블에 맞춰서: 상품 이름, 가격, 수량, 날짜, 판매자 ID, etc.
             if (view.inputTitle.text.isEmpty() || view.inputPrice.text.isEmpty() || view.inputQuan.text.isEmpty()) {
                 Toast.makeText(requireContext(), "제대로 입력해야 합니다.", Toast.LENGTH_SHORT).show()
             } else {
@@ -47,9 +49,11 @@ class sellerUIEnrollProduct : Fragment() {
                 var price = Integer.parseInt(view.inputPrice.text.toString())
                 var quan = Integer.parseInt(view.inputQuan.text.toString())
                 var newProduct : productElement = productElement()
-                //var image = view.imageProduct as Uri
-                var productId : String = LocalDate.now().toString() + userInfo.id + title
-                newProduct.setInfo(title, price, quan, productId/**, image*/)
+                var productId = SimpleDateFormat("yyyyMMdd").format(Date()) + userInfo.id + title
+                var imageTitle = productId + ".png"
+
+                imageData.child(imageTitle).putFile(imageUrl!!)
+                newProduct.setInfo(title, price, quan, productId)
                 data.child(productId).setValue(newProduct.toMap())
                 (activity as sellerUIMain).setSellerFrag(11)
             }
@@ -67,7 +71,7 @@ class sellerUIEnrollProduct : Fragment() {
 
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 1) {
-                var imageUrl = data?.data
+                imageUrl = data?.data
                 imageProduct.setImageURI(imageUrl)
             }
         }
