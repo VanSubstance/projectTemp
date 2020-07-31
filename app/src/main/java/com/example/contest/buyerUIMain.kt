@@ -1,9 +1,11 @@
 package com.example.contest
 
+import android.app.Activity
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -15,9 +17,7 @@ import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textPri
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textQuan
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textTitle
 import kotlinx.android.synthetic.main.product_buyer_market_specific.view.*
-import kotlinx.android.synthetic.main.seller_ui_main.*
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.util.*
 
 class buyerUIMain : AppCompatActivity() {
@@ -157,8 +157,8 @@ class buyerUIMain : AppCompatActivity() {
                 view.buttonPurchase.setOnClickListener{
 
                 }
+                // 취소 버튼
                 view.buttonCancel.setOnClickListener {
-                    conditionData.productList.add(productElement)
                     instantData.productList.remove(productElement)
                     alertDialog.dismiss()
                     setBuyerFrag(41)
@@ -183,7 +183,6 @@ class buyerUIMain : AppCompatActivity() {
                 }
                 // 장바구니 버튼
                 view.buttonBasket.setOnClickListener {
-                    conditionData.productList.remove(productElement)
                     instantData.productList.add(productElement)
                     alertDialog.dismiss()
                     setBuyerFrag(24)
@@ -208,7 +207,6 @@ class buyerUIMain : AppCompatActivity() {
                 }
                 // 장바구니 버튼
                 view.buttonBasket.setOnClickListener {
-                    conditionData.productList.remove(productElement)
                     instantData.productList.add(productElement)
                     alertDialog.dismiss()
                     setBuyerFrag(25)
@@ -231,7 +229,25 @@ class buyerUIMain : AppCompatActivity() {
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.recipe_frame, frag).commit()
     }
-
+    // 뒤로가기 테스트
+    private final var FINISH_INTERVAL_TIME: Long = 2000
+    private var backPressedTime: Long = 0
+    override fun onBackPressed() {
+        if(supportFragmentManager.backStackEntryCount == 0) {
+            var tempTime = System.currentTimeMillis()
+            var intervalTime = tempTime - backPressedTime
+            if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
+                finishAffinity()
+                System.exit(0)
+                super.onBackPressed()
+            } else {
+                backPressedTime = tempTime;
+                Toast.makeText(this, "'뒤로' 버튼을 한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+                return
+            }
+        }
+        super.onBackPressed()
+    }
 
 }
 
