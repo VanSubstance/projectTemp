@@ -16,8 +16,8 @@ data class Post(
     @Exclude
     fun toMap(): Map<String, Any?> {
         return mapOf(
-                "ID" to ID,
-                "Password" to Password,
+                "id" to ID,
+                "pw" to Password,
                 "Name" to Name,
                 "pNum" to pNum,
                 "role" to role

@@ -37,7 +37,7 @@ class SignUp_buyer : AppCompatActivity() {
                 val password=mPasswordText.text.toString()
                 val name=mName.text.toString()
                 val pnum=mPnum.text.toString()
-                val role:String="소비자"
+                val role:String="buyer"
                 val data=Post(ID,password,name,pnum,role)
                 val info =data.toMap()
                 DatabaseReference.child("userDB").child(ID).setValue(info)

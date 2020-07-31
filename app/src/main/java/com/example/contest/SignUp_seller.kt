@@ -26,11 +26,11 @@ class SignUp_seller : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_up_seller)
 
-        val mEmailText = findViewById<EditText>(R.id.et_id);
-        val mPasswordText = findViewById<EditText>(R.id.et_pass);
-        val mPasswordcheckText = findViewById<EditText>(R.id.et_passck);
-        val mName = findViewById<EditText>(R.id.et_name);
-        val mPnum = findViewById<EditText>(R.id.et_Phone_number)
+        val mEmailText = findViewById<EditText>(R.id.seller_id);
+        val mPasswordText = findViewById<EditText>(R.id.seller_pass);
+        val mPasswordcheckText = findViewById<EditText>(R.id.seller_passck);
+        val mName = findViewById<EditText>(R.id.seller_name);
+        val mPnum = findViewById<EditText>(R.id.seller_Phone_number)
 
         val mPickTimeBt_s = findViewById<Button>(R.id.picktimebtn_S)
         val textView_s     = findViewById<TextView>(R.id.time_s)
@@ -47,13 +47,14 @@ class SignUp_seller : AppCompatActivity() {
             } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
                 Toast.makeText(this, "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
             } else {
-                val email=mEmailText.text.toString()
+                val ID=mEmailText.text.toString()
                 val password=mPasswordText.text.toString()
                 val name=mName.text.toString()
                 val pnum=mPnum.text.toString()
-                val data=Post(email,password,name,pnum)
+                val role:String="seller"
+                val data=Post(ID,password,name,pnum,role)
                 val info =data.toMap()
-                DatabaseReference.child("").child(pnum).setValue(info)
+                DatabaseReference.child("userDB").child(ID).setValue(info)
                 finish()
                 overridePendingTransition(0, 0)
                             }
