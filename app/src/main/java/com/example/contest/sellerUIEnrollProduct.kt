@@ -33,7 +33,7 @@ class sellerUIEnrollProduct : Fragment() {
         view.buttonChangeImage.setOnClickListener {
             val intent : Intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.setType("image/*")
-            startActivityForResult(intent, 1)
+            startActivityForResult(Intent.createChooser(intent, "사용할 애플리케이션"), 1)
         }
         view.buttonEnroll.setOnClickListener {
             if (view.inputTitle.text.isEmpty() || view.inputPrice.text.isEmpty() || view.inputQuan.text.isEmpty()) {
