@@ -13,11 +13,11 @@ import kotlinx.android.synthetic.main.buyer_ui_main.textTime
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.*
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.buttonPurchase
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textPrice
-import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textQuan
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textTitle
 import kotlinx.android.synthetic.main.product_buyer_market_specific.view.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlinx.android.synthetic.main.product_buyer_market_specific.view.textServing as textServing1
 
 class buyerUIMain : AppCompatActivity() {
 
@@ -143,7 +143,7 @@ class buyerUIMain : AppCompatActivity() {
                 val view = inflater.inflate(R.layout.product_buyer_basket_specific, null)
                 view.textTitle.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
-                view.textQuan.text = productElement.quantity.toString()
+                view.textServing.text = productElement.quantity.toString()
 
                 val alertDialog = AlertDialog.Builder(this)
                     .setTitle("상품 정보")
@@ -167,7 +167,7 @@ class buyerUIMain : AppCompatActivity() {
                 val view = inflater.inflate(R.layout.product_buyer_market_specific, null)
                 view.textTitle.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
-                view.textQuan.text = productElement.quantity.toString()
+                view.textServing.text = productElement.quantity.toString()
 
                 val alertDialog = AlertDialog.Builder(this)
                     .setTitle("상품 정보")
@@ -191,7 +191,7 @@ class buyerUIMain : AppCompatActivity() {
                 val view = inflater.inflate(R.layout.product_buyer_market_specific, null)
                 view.textTitle.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
-                view.textQuan.text = productElement.quantity.toString()
+                view.textServing.text = productElement.quantity.toString()
 
                 val alertDialog = AlertDialog.Builder(this)
                     .setTitle("상품 정보")

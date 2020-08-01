@@ -70,7 +70,7 @@
         />
 
     <TextView
-        android:id="@+id/staticQuan"
+        android:id="@+id/staticServing"
         app:layout_constraintTop_toTopOf="@id/staticPrice"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
@@ -82,8 +82,8 @@
         />
 
     <TextView
-        android:id="@+id/textQuan"
-        app:layout_constraintTop_toBottomOf="@id/staticQuan"
+        android:id="@+id/textServing"
+        app:layout_constraintTop_toBottomOf="@id/staticServing"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,9 +96,9 @@
         />
 
     <TextView
-        android:id="@+id/textQuanUnit"
-        app:layout_constraintTop_toBottomOf="@id/staticQuan"
-        app:layout_constraintLeft_toRightOf="@id/textQuan"
+        android:id="@+id/textServingUnit"
+        app:layout_constraintTop_toBottomOf="@id/staticServing"
+        app:layout_constraintLeft_toRightOf="@id/textServing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="인분"
@@ -108,7 +108,7 @@
 
     <TextView
         android:id="@+id/staticSoldDate"
-        app:layout_constraintTop_toTopOf="@id/staticQuan"
+        app:layout_constraintTop_toTopOf="@id/staticServing"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

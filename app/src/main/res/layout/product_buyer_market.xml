@@ -22,95 +22,128 @@
 
     <TextView
         android:id="@+id/staticTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/productImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="상품 이름"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        />
+        android:layout_marginTop="10dp"
+        android:text="상품 이름"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toRightOf="@id/productImage"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/productTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/staticTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="이름"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        />
+        android:layout_marginTop="10dp"
+        android:text="이름"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toRightOf="@id/staticTitle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/staticServing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="양"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toRightOf="@id/productImage"
+        app:layout_constraintTop_toBottomOf="@id/staticTitle" />
+
+    <TextView
+        android:id="@+id/productServing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="몇"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toRightOf="@id/staticServing"
+        app:layout_constraintTop_toBottomOf="@id/productTitle" />
+
+    <TextView
+        android:id="@+id/unitServing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="인분"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/productServing"
+        app:layout_constraintTop_toTopOf="@+id/productServing" />
 
     <TextView
         android:id="@+id/staticQuan"
-        app:layout_constraintTop_toBottomOf="@id/staticTitle"
-        app:layout_constraintLeft_toRightOf="@id/productImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="수량"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        />
+        android:layout_marginTop="10dp"
+        android:text="수량"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/productImage"
+        app:layout_constraintTop_toBottomOf="@+id/staticServing" />
 
     <TextView
         android:id="@+id/productQuan"
-        app:layout_constraintTop_toBottomOf="@id/productTitle"
-        app:layout_constraintLeft_toRightOf="@id/staticQuan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="양"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        />
+        android:text="몇"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/staticQuan"
+        app:layout_constraintTop_toTopOf="@+id/staticQuan" />
 
     <TextView
         android:id="@+id/unitQuan"
-        app:layout_constraintTop_toBottomOf="@id/productTitle"
-        app:layout_constraintLeft_toRightOf="@id/productQuan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="인분"
-        android:layout_marginTop="10dp"
-        android:textSize="15dp"/>
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="개"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/productQuan"
+        app:layout_constraintTop_toTopOf="@+id/staticQuan" />
 
     <TextView
         android:id="@+id/staticPrice"
-        app:layout_constraintTop_toBottomOf="@id/staticQuan"
-        app:layout_constraintLeft_toRightOf="@id/productImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="가격"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="가격"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/productImage"
+        app:layout_constraintTop_toBottomOf="@+id/staticQuan" />
 
     <TextView
         android:id="@+id/productPrice"
-        app:layout_constraintTop_toBottomOf="@id/productQuan"
-        app:layout_constraintLeft_toRightOf="@id/staticPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="가격"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        />
+        android:text="가격"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/staticPrice"
+        app:layout_constraintLeft_toRightOf="@id/staticPrice"
+        app:layout_constraintTop_toTopOf="@+id/staticPrice" />
 
     <TextView
         android:id="@+id/unitPrice"
-        app:layout_constraintTop_toBottomOf="@id/productQuan"
-        app:layout_constraintLeft_toRightOf="@id/productPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
         android:text="원"
-        android:layout_marginTop="10dp"
-        android:textSize="15dp"
-        />
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/productPrice"
+        app:layout_constraintStart_toEndOf="@+id/productPrice"
+        app:layout_constraintTop_toTopOf="@+id/productPrice" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -82,7 +82,7 @@
         />
 
     <TextView
-        android:id="@+id/staticQuan"
+        android:id="@+id/staticServing"
         app:layout_constraintTop_toTopOf="@id/staticPrice"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
@@ -94,8 +94,8 @@
         />
 
     <TextView
-        android:id="@+id/textQuan"
-        app:layout_constraintTop_toBottomOf="@id/staticQuan"
+        android:id="@+id/textServing"
+        app:layout_constraintTop_toBottomOf="@id/staticServing"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -108,9 +108,9 @@
         />
 
     <TextView
-        android:id="@+id/textQuanUnit"
-        app:layout_constraintTop_toBottomOf="@id/staticQuan"
-        app:layout_constraintLeft_toRightOf="@id/textQuan"
+        android:id="@+id/textServingUnit"
+        app:layout_constraintTop_toBottomOf="@id/staticServing"
+        app:layout_constraintLeft_toRightOf="@id/textServing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="인분"
@@ -120,7 +120,7 @@
 
     <Button
         android:id="@+id/buttonModify"
-        app:layout_constraintTop_toBottomOf="@id/staticQuan"
+        app:layout_constraintTop_toBottomOf="@id/staticServing"
         app:layout_constraintRight_toLeftOf="@id/buttonDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
 
     <Button
         android:id="@+id/buttonDelete"
-        app:layout_constraintTop_toBottomOf="@id/staticQuan"
+        app:layout_constraintTop_toBottomOf="@id/staticServing"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

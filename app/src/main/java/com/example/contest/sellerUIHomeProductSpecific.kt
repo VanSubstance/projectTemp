@@ -25,7 +25,7 @@ class sellerUIHomeProductSpecific: Fragment() {
 
         view.textTitle.text = productElement.title
         view.textPrice.text = productElement.price.toString()
-        view.textQuan.text = productElement.quantity.toString()
+        view.textServing.text = productElement.quantity.toString()
         imagePath.getBytes(imageSize).addOnSuccessListener {
             val imageBitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
             view.productImage.setImageBitmap(imageBitmap)

@@ -8,8 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.firebase.ui.storage.images.FirebaseImageLoader
 import com.google.firebase.storage.FirebaseStorage
 import java.time.LocalDateTime
 
@@ -18,7 +16,7 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
     val productImage = elementView.findViewById<ImageView>(R.id.productImage)
     val productTitle = elementView.findViewById<TextView>(R.id.productTitle)
     val productPrice = elementView.findViewById<TextView>(R.id.productPrice)
-    val productQuan = elementView.findViewById<TextView>(R.id.productQuan)
+    val productQuan = elementView.findViewById<TextView>(R.id.productServing)
     val usage : Int = usage
     val elementView = elementView
     val productClick = productClick

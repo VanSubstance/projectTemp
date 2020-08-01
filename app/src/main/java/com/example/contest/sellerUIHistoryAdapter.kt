@@ -9,9 +9,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.product_seller_history_specific.view.*
-import kotlinx.android.synthetic.main.product_seller_home_specific.view.*
 import kotlinx.android.synthetic.main.product_seller_home_specific.view.textPrice
-import kotlinx.android.synthetic.main.product_seller_home_specific.view.textQuan
+import kotlinx.android.synthetic.main.product_seller_home_specific.view.textServing
 import kotlinx.android.synthetic.main.product_seller_home_specific.view.textTitle
 import kotlin.collections.ArrayList
 
@@ -50,7 +49,7 @@ class sellerUIHistoryAdapter(var historyElementListList: MutableMap<String, Arra
                 val view = LayoutInflater.from(context).inflate(R.layout.product_seller_history_specific, null)
                 view.textTitle.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
-                view.textQuan.text = productElement.quantity.toString()
+                view.textServing.text = productElement.quantity.toString()
                 view.textSoldDate.text = productElement.soldDate
                 val alertDialog = AlertDialog.Builder(context)
                     .setTitle("상품 정보")

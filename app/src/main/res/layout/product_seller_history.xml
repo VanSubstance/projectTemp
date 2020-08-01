@@ -16,8 +16,6 @@
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="16dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -80,7 +78,7 @@
         />
 
     <TextView
-        android:id="@+id/textQuan"
+        android:id="@+id/textServing"
         app:layout_constraintTop_toBottomOf="@id/textTitle"
         app:layout_constraintLeft_toRightOf="@id/textPrice"
         android:layout_width="wrap_content"
@@ -92,9 +90,9 @@
         />
 
     <TextView
-        android:id="@+id/productQuan"
+        android:id="@+id/productServing"
         app:layout_constraintTop_toBottomOf="@id/textTitle"
-        app:layout_constraintRight_toLeftOf="@id/textQuanUnit"
+        app:layout_constraintRight_toLeftOf="@id/textServingUnit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="몆"
@@ -103,9 +101,9 @@
         />
 
     <TextView
-        android:id="@+id/textQuanUnit"
+        android:id="@+id/textServingUnit"
         app:layout_constraintTop_toBottomOf="@id/textTitle"
-        app:layout_constraintLeft_toRightOf="@id/textQuan"
+        app:layout_constraintLeft_toRightOf="@id/textServing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="인분"
@@ -117,7 +115,7 @@
     <TextView
         android:id="@+id/productSoldDate"
         app:layout_constraintTop_toTopOf="@id/textTitle"
-        app:layout_constraintLeft_toLeftOf="@id/textQuan"
+        app:layout_constraintLeft_toLeftOf="@id/textServing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="" />
