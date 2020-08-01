@@ -49,9 +49,8 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
         val uiSettings: UiSettings = naverMap.uiSettings
         uiSettings.setLocationButtonEnabled(true)
 
-        var marketList : MutableMap<Marker, String> = mutableMapOf()
-
-        var infoWindow = InfoWindow()
+        var marketList : ArrayList<Marker> = arrayListOf()
+        var infoWindowList : ArrayList<InfoWindow> = arrayListOf()
         var data = database.getReference("marketInfo")
 
         data.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -62,32 +61,29 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
                 for (market in p0.children) {
                     var marketTitle = market.child("marketTitle").value.toString()
                     var marker = Marker()
-
                     marker.position = LatLng(market.child("latitude").value.toString().toDouble(), market.child("longitude").value.toString().toDouble())
                     marker.map = naverMap
                     marker.width = 70
                     marker.height = 100
                     marker.tag = marketTitle
-                    marketList[marker] = marketTitle
+                    marketList.add(marker)
 
-
+                    var infoWindow = InfoWindow()
                     infoWindow.adapter = object : DefaultTextAdapter(context!!) {
                         override fun getText(infoWindow: InfoWindow): CharSequence {
                             return infoWindow.marker!!.tag as CharSequence
                         }
                     }
-
                     infoWindow.onClickListener = Overlay.OnClickListener { overlay: Overlay? ->
-
-                        currentCondition.marketTitle = marketList[marker].toString()
+                        currentCondition.marketTitle = marketTitle
                         (activity as buyerUIMain).setBuyerFrag(22)
                         true
                     }
-
                     marker.onClickListener = Overlay.OnClickListener { overlay: Overlay? ->
                         infoWindow.open((overlay as Marker?)!!)
                         true
                     }
+                    infoWindowList.add(infoWindow)
                 }
             }
         })
@@ -95,14 +91,17 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
 
 
         naverMap.setOnMapClickListener { pointF, latLng ->
-            infoWindow.close()
+            for (infoWindow in infoWindowList){
+                infoWindow.close()
+            }
         }
         val listener = Overlay.OnClickListener { overlay ->
             val marker = overlay as Marker
-
             if (marker.infoWindow != null) {
                 // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
-                infoWindow.close()
+                for (infoWindow in infoWindowList){
+                    infoWindow.close()
+                }
             }
             true
         }

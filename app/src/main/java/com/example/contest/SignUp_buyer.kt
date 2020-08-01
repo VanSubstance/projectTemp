@@ -57,10 +57,10 @@ class SignUp_buyer : AppCompatActivity() {
                     val child = p0.children.iterator();
                     while(child.hasNext()){
                         if(mID.text.toString().equals(child.next().key)) {
-                            Toast.makeText(getApplicationContext(), "존재하는 아이디 입니다.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "존재하는 아이디 입니다.", Toast.LENGTH_SHORT).show();
                         }
                         else{
-                            Toast.makeText(getApplicationContext(), "사용가능한 아이디입니다.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "사용가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
 
                         }
                     }
