@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -47,15 +48,15 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
 
         var marketList : ArrayList<Marker> = arrayListOf()
 
-        var data = database.getReference("MarkerInfo")
+        var data = database.getReference("marketInfo")
         data.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
             }
             override fun onDataChange(p0: DataSnapshot) {
                 for (market in p0.children) {
-                    var marketTitle = market.child("전통시장명").value.toString()
+                    var marketTitle = market.child("marketTitle").value.toString()
                     var marker = Marker()
-                    marker.position = LatLng(market.child("위도").value.toString().toDouble(), market.child("경도").value.toString().toDouble())
+                    marker.position = LatLng(market.child("latitude").value.toString().toDouble(), market.child("longitude").value.toString().toDouble())
                     marker.map = naverMap
                     marketList.add(marker)
                 }
