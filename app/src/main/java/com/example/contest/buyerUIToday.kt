@@ -47,6 +47,10 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
 
         var marketList : ArrayList<Marker> = arrayListOf()
 
+        var marker = Marker()
+        marker.position = LatLng(37.645327, 127.022302)
+        marker.map = naverMap
+
         var data = database.getReference("MarkerInfo")
         data.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
