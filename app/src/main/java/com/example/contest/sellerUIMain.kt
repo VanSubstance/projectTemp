@@ -6,12 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.seller_ui_main.*
 import kotlinx.android.synthetic.main.seller_ui_main.textTime
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class sellerUIMain : AppCompatActivity() {
 
@@ -46,7 +44,7 @@ class sellerUIMain : AppCompatActivity() {
 
     fun getCurrentTime(): String? {
         val time = System.currentTimeMillis()
-        return SimpleDateFormat("yyyy-mm-dd HH:mm:ss").format(Date(time))
+        return SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date(time))
     }
 
     fun setSellerFrag(fragNum : Int) {
@@ -108,8 +106,4 @@ class sellerUIMain : AppCompatActivity() {
         }
         super.onBackPressed()
     }
-}
-
-object currentProductElement {
-    var currentProductElement = productElement()
 }
