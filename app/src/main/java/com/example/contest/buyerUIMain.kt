@@ -51,7 +51,7 @@ class buyerUIMain : AppCompatActivity() {
         }
 
         buyerMarket.setOnClickListener {
-            setBuyerFrag(211)
+            setBuyerFrag(22)
         }
         buyerBasket.setOnClickListener {
             setBuyerFrag(41)
@@ -81,10 +81,6 @@ class buyerUIMain : AppCompatActivity() {
             // 장바구니
             41 -> {
                 ft.replace(R.id.main_frame,buyerUIBasket()).commit()
-            }
-            // 시장 선택 예시 창 -> 버튼들은 지도에 마커로 대체
-            211 -> {
-                ft.replace(R.id.main_frame,buyerUIMarketSelection()).commit()
             }
             // 시장 선택 시
             22 -> {
