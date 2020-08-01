@@ -48,8 +48,6 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
 
         var marketList : ArrayList<Marker> = arrayListOf()
 
-        var data = database.getReference("MarkerInfo")
-
         var data = database.getReference("marketInfo")
 
         data.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -62,6 +60,8 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
                     marker.position = LatLng(market.child("latitude").value.toString().toDouble(), market.child("longitude").value.toString().toDouble())
                     marker.map = naverMap
                     marketList.add(marker)
+                    marker.width = 70
+                    marker.height = 100
                 }
             }
         })

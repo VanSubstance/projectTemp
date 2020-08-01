@@ -21,28 +21,35 @@
         android:id="@+id/textName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginRight="116dp"
         android:text="이름"
         android:textSize="15dp"
-        tools:layout_editor_absoluteX="268dp"
-        tools:layout_editor_absoluteY="170dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/outputName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="367dp"
+        android:layout_marginEnd="292dp"
+        android:layout_marginRight="292dp"
         android:text="아무개"
         android:textSize="15dp"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="367dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonModify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="28dp"
+        android:layout_marginBottom="27dp"
         android:text="수정"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="656dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
