@@ -1,27 +1,31 @@
 package com.example.contest
 
-import android.R.layout.simple_list_item_1
 import android.app.AlertDialog
 import android.app.TimePickerDialog
 import android.content.Context
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.widget.*
+import android.widget.AdapterView.OnItemClickListener
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.view.menu.ListMenuPresenter
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.sign_up_seller.*
 import java.text.SimpleDateFormat
 import java.util.*
+import android.view.View
+
 
 class SignUp_seller : AppCompatActivity() {
+    private val TAG_TEXT = "text"
+
+    var dialogItemList: List<Map<String, Any>>? = null
+
+    var text = arrayOf("포도", "체리", "수박")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_up_seller)
-
-        val mEmailText = findViewById<EditText>(R.id.seller_id);
+        val msID = findViewById<EditText>(R.id.seller_id);
         val mPasswordText = findViewById<EditText>(R.id.seller_pass);
         val mPasswordcheckText = findViewById<EditText>(R.id.seller_passck);
         val mName = findViewById<EditText>(R.id.seller_name);
@@ -38,12 +42,12 @@ class SignUp_seller : AppCompatActivity() {
         btn_register_seller.setOnClickListener {
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()
             val DatabaseReference = database.reference
-            if (mEmailText.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
+            if (msID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
                 Toast.makeText(this, "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
             } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
                 Toast.makeText(this, "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
             } else {
-                val ID = mEmailText.text.toString()
+                val ID = msID.text.toString()
                 val password = mPasswordText.text.toString()
                 val name = mName.text.toString()
                 val pnum = mPnum.text.toString()
@@ -55,6 +59,28 @@ class SignUp_seller : AppCompatActivity() {
                 overridePendingTransition(0, 0)
             }
 
+        }
+        validateButton_seller.setOnClickListener{
+            val database :FirebaseDatabase= FirebaseDatabase.getInstance()
+            val myref:DatabaseReference=database.getReference("userDB")
+            myref.addValueEventListener(object : ValueEventListener{
+                override fun onCancelled(p0: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    val child = p0.children.iterator();
+                    while(child.hasNext()){
+                        if(msID.text.toString().equals(child.next().key)) {
+                            Toast.makeText(getApplicationContext(), "존재하는 아이디 입니다.", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(), "사용가능한 아이디입니다.", Toast.LENGTH_LONG).show();
+
+                        }
+                    }
+                }
+            })
         }
 
         mPickTimeBt_s.setOnClickListener {
@@ -79,70 +105,22 @@ class SignUp_seller : AppCompatActivity() {
         btn_category.setOnClickListener {
             showCat()
         }
-        picklocation.setOnClickListener {
-            var LIST_1= mutableListOf<String>()
-            var LIST_MENU= arrayOf<String>()
-            val database :FirebaseDatabase= FirebaseDatabase.getInstance()
-            val myref: DatabaseReference =database.getReference("MarketInfo")
-            myref.addValueEventListener(object : ValueEventListener {
-                override fun onCancelled(p0: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
+        picklocation.setOnClickListener{
+            
 
-                override fun onDataChange(p0: DataSnapshot) {
-                    val child = p0.children.iterator();
-                    while(child.hasNext()){
-                       LIST_1.add(p0.child("전통시장명").value.toString())
-                }
-            }}
-            )
-            LIST_MENU= LIST_1.toTypedArray()
-
-            val adapter_1 = ArrayAdapter(this, simple_list_item_1,LIST_MENU)
-
-            val builder = AlertDialog.Builder(this)
-            val dialogView = layoutInflater.inflate(R.layout.selectlocation, null)
-            val listview=dialogView.findViewById<ListView>(R.id.listview1)
-            listview.adapter=adapter_1
-            val dialogText=dialogView.findViewById<EditText>(R.id.editTextFilter)
-            dialogText.addTextChangedListener( object: TextWatcher {
-                override fun afterTextChanged(s: Editable?) {
-                    val filterText=s.toString()
-                    if(filterText.length >0){
-                        listview.setFilterText(filterText)
-                    }
-                    else{
-                        listview.clearTextFilter()
-                    }
-                }
-
-                override fun beforeTextChanged(
-                    s: CharSequence?,
-                    start: Int,
-                    count: Int,
-                    after: Int
-                ) {
-                    TODO("Not yet implemented")
-                }
-
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    TODO("Not yet implemented")
-                }
-
-            })
-
+            val builder =AlertDialog.Builder(this)
+            val dialogView =layoutInflater.inflate(R.layout.select_location,null)
+            val dialogText =dialogView.findViewById<EditText>(R.id.editTextFilter)
             builder.setView(dialogView)
-                    .setPositiveButton("확인") { dialogInterface, i ->
-
-
+                    .setPositiveButton("확인"){dialogInterface, i ->
+                        location.text=dialogText.text.toString()
                     }
-                    .setNegativeButton("취소") { dialogInterface, i ->
-                        /* 취소일 때 아무 액션이 없으므로 빈칸 */
+                    .setNegativeButton("취소"){dialogInterface, i ->
                     }
                     .show()
-
         }
     }
+
     private fun showCat(){
         lateinit var dialog: AlertDialog
         var arrayCat= arrayOf("정육점","잡화점","채소가게","생선가게")
