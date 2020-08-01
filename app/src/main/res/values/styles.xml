@@ -6,11 +6,21 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/textFontBC</item>
+        <item name="android:buttonStyle">@style/buttonFontBC</item>
 
         <!--No Title Bar-->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
+    </style>
+
+    <style name="textFontBC" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/bccard_l</item>
+    </style>
+
+    <style name="buttonFontBC" parent="android:Widget.Button">
+        <item name="android:fontFamily">@font/bccard_l</item>
     </style>
 
 </resources>
