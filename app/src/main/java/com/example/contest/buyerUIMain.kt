@@ -1,6 +1,5 @@
 package com.example.contest
 
-import android.app.Activity
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
@@ -59,7 +58,7 @@ class buyerUIMain : AppCompatActivity() {
     }
     fun getCurrentTime(): String? {
         val time = System.currentTimeMillis()
-        return SimpleDateFormat("yyyy-mm-dd HH:mm:ss").format(Date(time))
+        return SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date(time))
     }
 
     fun setBuyerFrag(fragNum : Int) {
@@ -249,13 +248,4 @@ class buyerUIMain : AppCompatActivity() {
         super.onBackPressed()
     }
 
-}
-
-object currentCondition {
-    // 시장
-    var marketTitle : String = ""
-    // 완제품 or 재료
-    var ctgr01 : String = ""
-    // 육류, 해산물, 등등
-    var ctgr02 : String = ""
 }

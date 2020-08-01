@@ -4,19 +4,30 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Thread(Runnable {
+            while (!Thread.interrupted()) try {
+                Thread.sleep(1000)
+                runOnUiThread {
+                    if (SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date()) == "00:00:00") {
+                        pushProducts()
+                    }
+                }
+            } catch (e: InterruptedException) {
+            }
+        }).start()
 
         loginButton.setOnClickListener {
-            login(userID.text.toString(), userPW.text.toString())
+                login(userID.text.toString(), userPW.text.toString())
         }
         SignUpButton.setOnClickListener{
             val SignUp_user=Intent(this,signup_sellect::class.java)
@@ -59,6 +70,25 @@ class MainActivity : AppCompatActivity() {
         })
     }
 }
+
+private fun pushProducts() {
+    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    val historyDB = database.getReference("productDB")
+    var todayDB = database.getReference("productTodayDB")
+    todayDB.addListenerForSingleValueEvent(object : ValueEventListener {
+        override fun onCancelled(p0: DatabaseError) {
+        }
+        override fun onDataChange(p0: DataSnapshot) {
+            for (element in p0.children) {
+                var product = productElement()
+                product.setFromDb(element)
+                product.soldDate = SimpleDateFormat("yyyyMMdd").format(Date()).toString()
+                historyDB.child(SimpleDateFormat("yyyyMMdd").format(Date()).toString()).child(product.productId).setValue(product.toMap())
+            }
+        }
+    })
+
+}
 // 앱 실행부터 종료때까지 유저의 정보를 저장해두는 오브젝트
 // 자바의 static 개념으로 보면 됨
 object userInfo {
@@ -76,4 +106,17 @@ object instantData {
 
 object backPressedTime {
     var flag : Long = 0
+}
+
+object currentCondition {
+    // 시장
+    var marketTitle : String = ""
+    // 완제품 or 재료
+    var ctgr01 : String = ""
+    // 육류, 해산물, 등등
+    var ctgr02 : String = ""
+}
+
+object currentProductElement {
+    var currentProductElement = productElement()
 }

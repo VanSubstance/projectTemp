@@ -19,14 +19,8 @@ class productElement() {
     var quantity : Int = 0
     var ctgr : Array<String> = Array(5, {i -> ""})
     var buyerId : String = "undefined"
-    var soldTime : String = ""
     var soldDate : String = ""
 
-    constructor(title: String) : this() {
-        this.title = title
-        this.price = 1000
-        this.quantity = 3
-    }
     // 등록시 사용하는 함수
     fun setInfo(title: String, price : Int, quantity : Int, productId : String) {
         this.productId = productId
@@ -41,16 +35,6 @@ class productElement() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun sold() {
         buyerId = userInfo.id
-        soldDate = LocalDate.now().toString()
-        // soldTime, 즉 팔린 시간도 선언해 줄 것
-        // soldDate도 선언
-    }
-
-    // 못팔고 시간 종료 -> 폐기 확정일 때
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun terminated() {
-        soldDate = LocalDate.now().toString()
-        soldTime = "3:00:00"
     }
 
     fun toMap(): Map<String, Any?> {
@@ -60,6 +44,7 @@ class productElement() {
             ,"quantity" to quantity.toString()
             ,"seller" to sellerId
             ,"buyer" to buyerId
+            ,"soldDate" to soldDate
         )
     }
 
@@ -70,5 +55,6 @@ class productElement() {
         quantity = Integer.parseInt(product.child("quantity").value as String)
         sellerId = product.child("seller").value.toString()
         buyerId = product.child("buyer").value.toString()
+        soldDate = product.child("soldDate").value.toString()
     }
 }
