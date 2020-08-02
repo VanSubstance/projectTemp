@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -120,7 +119,7 @@
             android:text="정육점"
             android:textSize="20sp"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/preferCategory"
             app:layout_constraintTop_toBottomOf="@+id/preferCategory" />
 
         <TextView
@@ -157,18 +156,6 @@
             android:textSize="20sp"
             android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/outputPreferFishShop"
-            app:layout_constraintTop_toTopOf="@+id/outputPreferGreengrocer" />
-
-        <TextView
-            android:id="@+id/outputPreferComplete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:text="완제품"
-            android:textSize="20sp"
-            android:visibility="gone"
-            app:layout_constraintStart_toEndOf="@+id/outputPreferGenearl"
             app:layout_constraintTop_toTopOf="@+id/outputPreferGreengrocer" />
 
         <Button

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.*
@@ -39,6 +40,14 @@ class signupBuyer : Fragment() {
                 val data = Post(ID, password, name, pnum, role)
                 val info = data.toMap()
                 DatabaseReference.child("userDB").child(ID).setValue(info)
+                DatabaseReference.child("userDB").child(ID).child("nickName").setValue(ID)
+
+                DatabaseReference.child("userDB").child(ID).child("ctgr").child("정육점").setValue(view.checkButcher.isChecked)
+                DatabaseReference.child("userDB").child(ID).child("ctgr").child("생선가게").setValue(view.checkFishShop.isChecked)
+                DatabaseReference.child("userDB").child(ID).child("ctgr").child("채소가게").setValue(view.checkGreengrocer.isChecked)
+                DatabaseReference.child("userDB").child(ID).child("ctgr").child("잡화점").setValue(view.checkGenearl.isChecked)
+                DatabaseReference.child("userDB").child(ID).child("ctgr").child("완제품").setValue(view.checkComplete.isChecked)
+
                 (activity as signup_sellect).finish()
             }
         }
