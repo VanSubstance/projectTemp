@@ -41,7 +41,6 @@ class signupBuyer : Fragment() {
                 val info = data.toMap()
                 DatabaseReference.child("userDB").child(ID).setValue(info)
                 DatabaseReference.child("userDB").child(ID).child("nickName").setValue(ID)
-
                 DatabaseReference.child("userDB").child(ID).child("ctgr").child("정육점").setValue(view.checkButcher.isChecked)
                 DatabaseReference.child("userDB").child(ID).child("ctgr").child("생선가게").setValue(view.checkFishShop.isChecked)
                 DatabaseReference.child("userDB").child(ID).child("ctgr").child("채소가게").setValue(view.checkGreengrocer.isChecked)

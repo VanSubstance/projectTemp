@@ -158,6 +158,18 @@
             app:layout_constraintStart_toEndOf="@+id/outputPreferFishShop"
             app:layout_constraintTop_toTopOf="@+id/outputPreferGreengrocer" />
 
+        <TextView
+            android:id="@+id/outputPreferComplete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="잡화점"
+            android:textSize="20sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/outputPreferGenearl"
+            app:layout_constraintTop_toTopOf="@+id/outputPreferGreengrocer" />
+
         <Button
             android:id="@+id/buttonModify"
             style="@style/buttonView"
