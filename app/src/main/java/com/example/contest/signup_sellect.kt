@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
 import android.widget.CheckBox
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -52,7 +51,7 @@ class signup_sellect : AppCompatActivity() {
         checkBoxes.add(view.checkSeaFood)
         checkBoxes.add(view.checkVegetable)
         checkBoxes.add(view.checkGrocery)
-        checkBoxes.add(view.checkEtc)
+        checkBoxes.add(view.checkComplete)
         var settledCtgr : String = ""
 
         for (checkBox in checkBoxes) {
