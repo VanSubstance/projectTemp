@@ -120,5 +120,5 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
             }
         }
     }
-
+    
 }
