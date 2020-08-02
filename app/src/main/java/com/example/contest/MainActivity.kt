@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             val SignUp_user=Intent(this,signup_sellect::class.java)
             startActivity(SignUp_user)
         }
+        
 
     }
 
@@ -71,6 +72,29 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+private fun resetDB() {
+    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    var data = database.getReference("marketInfo")
+    data.addListenerForSingleValueEvent(object : ValueEventListener {
+        override fun onCancelled(p0: DatabaseError) {
+        }
+        override fun onDataChange(p0: DataSnapshot) {
+            for (market in p0.children) {
+                var title = market.child("marketTitle").value.toString()
+                var addr = market.child("address").value.toString()
+                var lat = market.child("latitude").value.toString()
+                var lon = market.child("longitude").value.toString()
+                data.child(title).child("marketTitle").setValue(title)
+                data.child(title).child("address").setValue(addr)
+                data.child(title).child("latitude").setValue(lat)
+                data.child(title).child("longitude").setValue(lon)
+                data.child(market.key.toString()).removeValue()
+            }
+        }
+
+    })
+}
+
 private fun pushProducts() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     val historyDB = database.getReference("productDB")
@@ -84,6 +108,7 @@ private fun pushProducts() {
                 product.setFromDb(element)
                 product.soldDate = SimpleDateFormat("yyyyMMdd").format(Date()).toString()
                 historyDB.child(SimpleDateFormat("yyyyMMdd").format(Date()).toString()).child(product.productId).setValue(product.toMap())
+                todayDB.child(element.key.toString()).removeValue()
             }
         }
     })
