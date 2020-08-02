@@ -47,12 +47,7 @@ class buyerUIInfo : Fragment() {
             }
 
         })
-        /**
-        view.outputName
-        view.outputNickName
-        view.outputPhoneNumber
-        view.outputPreferCategory
-        */
+
         view.buttonModify.setOnClickListener {
             (activity as buyerUIMain).setBuyerFrag(32)
         }
