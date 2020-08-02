@@ -7,7 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.buyer_ui_info.view.*
 
@@ -31,6 +34,19 @@ class buyerUIInfo : Fragment() {
             }
             view.imageUser.setImageBitmap(bitmap)
         }
+
+        var data = database.getReference("userDB").child(userInfo.id)
+        data.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+            }
+            override fun onDataChange(p0: DataSnapshot) {
+                view.outputName.setText(p0.child("Name").value.toString())
+                view.outputPhoneNumber.setText(p0.child("pNum").value.toString())
+                view.outputNickName.setText(p0.child("nickName").value.toString())
+                // 카테고리도 해줘야댐
+            }
+
+        })
         /**
         view.outputName
         view.outputNickName

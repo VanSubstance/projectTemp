@@ -39,6 +39,7 @@ class signupBuyer : Fragment() {
                 val data = Post(ID, password, name, pnum, role)
                 val info = data.toMap()
                 DatabaseReference.child("userDB").child(ID).setValue(info)
+                DatabaseReference.child("userDB").child(ID).child("nickName").setValue(ID)
                 (activity as signup_sellect).finish()
             }
         }
