@@ -324,13 +324,13 @@
                         android:text="정육점" />
 
                     <CheckBox
-                        android:id="@+id/checkGenearl"
+                        android:id="@+id/checkFishShop"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
-                        android:text="잡화점" />
+                        android:text="생선가게" />
 
                 </LinearLayout>
 
@@ -350,13 +350,13 @@
                         android:text="채소가게" />
 
                     <CheckBox
-                        android:id="@+id/checkFishShop"
+                        android:id="@+id/checkGenearl"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
-                        android:text="생선가게" />
+                        android:text="잡화점" />
 
                 </LinearLayout>
             </LinearLayout>

@@ -111,23 +111,63 @@
             app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
 
         <TextView
-            android:id="@+id/outputPreferCategory"
+            android:id="@+id/outputPreferButcher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="선호카테고리"
+            android:layout_marginTop="15dp"
+            android:text="정육점"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/imageUser"
-            app:layout_constraintTop_toTopOf="@+id/preferCategory" />
+            app:layout_constraintStart_toStartOf="@+id/preferCategory"
+            app:layout_constraintTop_toBottomOf="@+id/preferCategory"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/outputPreferGreengrocer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="채소가게"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/outputPreferButcher"
+            app:layout_constraintTop_toTopOf="@+id/outputPreferButcher"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/outputPreferFishShop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="생선가게"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/outputPreferGreengrocer"
+            app:layout_constraintTop_toTopOf="@+id/outputPreferGenearl"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/outputPreferGenearl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="잡화점"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/outputPreferFishShop"
+            app:layout_constraintTop_toTopOf="@+id/outputPreferGreengrocer"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/buttonModify"
+            style="@style/buttonView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            style="@style/buttonView"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:text="수정"
-            app:layout_constraintStart_toEndOf="@+id/outputPreferCategory"
-            app:layout_constraintTop_toBottomOf="@+id/outputPreferCategory" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/outputPreferButcher" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
