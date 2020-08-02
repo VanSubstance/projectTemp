@@ -30,10 +30,48 @@
                     android:textColor="#000000"
                     android:textSize="15sp"
                     android:textStyle="bold" />
+
             </LinearLayout>
 
             <View
                 android:id="@+id/view5"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="5dp"
+                android:background="#A9A9A9" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/imageUser"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <Button
+                    android:id="@+id/changeImageUser"
+                    style="@style/buttonView"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="105dp"
+                    android:layout_marginRight="105dp"
+                    android:text="사진 변경"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageUser"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/view9"
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:layout_marginTop="5dp"
@@ -307,7 +345,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp">
+                android:layout_height="150dp">
 
                 <TextView
                     android:id="@+id/StoreCategory"
@@ -329,7 +367,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="77dp"
                     android:layout_marginLeft="77dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:text="정육점"
                     app:layout_constraintStart_toEndOf="@+id/StoreCategory"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -341,9 +379,7 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:text="생선가게"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/checkGenearl"
                     app:layout_constraintTop_toBottomOf="@+id/checkGreengrocer" />
 
@@ -354,9 +390,7 @@
                     android:layout_marginStart="77dp"
                     android:layout_marginLeft="77dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:text="잡화점"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/StoreCategory"
                     app:layout_constraintTop_toBottomOf="@+id/checkButcher" />
 
@@ -366,10 +400,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginTop="10dp"
                     android:text="채소가게"
                     app:layout_constraintStart_toEndOf="@+id/checkButcher"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@+id/checkButcher" />
+
+                <CheckBox
+                    android:id="@+id/checkComplete2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="완제품"
+                    app:layout_constraintStart_toStartOf="@+id/checkGenearl"
+                    app:layout_constraintTop_toBottomOf="@+id/checkGenearl" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
