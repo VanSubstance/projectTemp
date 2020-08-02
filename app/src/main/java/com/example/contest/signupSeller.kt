@@ -44,9 +44,34 @@ class signupSeller : Fragment() {
                 val name = mName.text.toString()
                 val pnum = mPnum.text.toString()
                 val role: String = "seller"
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                // 소속 시장 이름
+                val marketTitle = location.text.toString()
+                // 가게 이름
+                val storeTitle = storeName.text.toString()
+                val storeCtgr = seller_cat.text.toString()
+                val timeOpen = time_s.text.toString()
+                val timeClose = time_E.text.toString()
+                // 시장 데이터베이스에 가게 추가해주기
+                /** 1. 판매자
+                 *  2. 가게 이름
+                 *  3. 카테고리
+                 *  4. 오픈 시간
+                 *  5. 마감 시간
+                 */
+                /**
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////marketInfo key값들 전부 marketTitle로 바궈야 정상 작동함
+                DatabaseReference.child("marketInfo").child(//marketTitle).child("store").child(storeTitle).child("seller").setValue(ID)
+                DatabaseReference.child("marketInfo").child(//marketTitle).child("store").child(storeTitle).child("storeName").setValue(storeTitle)
+                DatabaseReference.child("marketInfo").child(//marketTitle).child("store").child(storeTitle).child("ctgr").setValue(storeCtgr)
+                DatabaseReference.child("marketInfo").child(//marketTitle).child("store").child(storeTitle).child("timeOpen").setValue(timeOpen)
+                DatabaseReference.child("marketInfo").child(//marketTitle).child("store").child(storeTitle).child("timeClose").setValue(timeClose)
+                */
                 val data = Post(ID, password, name, pnum, role)
                 val info = data.toMap()
                 DatabaseReference.child("userDB").child(ID).setValue(info)
+                Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
+                (activity as signup_sellect).finish()
             }
         }
         view.validateButton_seller.setOnClickListener{
@@ -54,9 +79,7 @@ class signupSeller : Fragment() {
             val myref: DatabaseReference =database.getReference("userDB")
             myref.addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
-                    TODO("Not yet implemented")
                 }
-
                 override fun onDataChange(p0: DataSnapshot) {
                     val child = p0.children.iterator();
                     while(child.hasNext()){

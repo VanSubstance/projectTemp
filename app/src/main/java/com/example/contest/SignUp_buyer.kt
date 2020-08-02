@@ -1,14 +1,9 @@
 package com.example.contest
 
-
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.UserInfo
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.sign_up_buyer.*
 
@@ -47,23 +42,23 @@ class SignUp_buyer : AppCompatActivity() {
         }
         validateButton.setOnClickListener{
             val database :FirebaseDatabase= FirebaseDatabase.getInstance()
-            val myref:DatabaseReference=database.getReference("userDB")
-            myref.addValueEventListener(object : ValueEventListener{
-                override fun onCancelled(p0: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
-
-                override fun onDataChange(p0: DataSnapshot) {
-                    val child = p0.children.iterator();
-                    while(child.hasNext()){
-                        if(mID.text.toString().equals(child.next().key)) {
-                            Toast.makeText(getApplicationContext(), "존재하는 아이디 입니다.", Toast.LENGTH_SHORT).show();
+                    val myref:DatabaseReference=database.getReference("userDB")
+                    myref.addValueEventListener(object : ValueEventListener{
+                        override fun onCancelled(p0: DatabaseError) {
+                            TODO("Not yet implemented")
                         }
-                        else{
-                            Toast.makeText(getApplicationContext(), "사용가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
 
-                        }
-                    }
+                        override fun onDataChange(p0: DataSnapshot) {
+                            val child = p0.children.iterator();
+                            while(child.hasNext()){
+                                if(mID.text.toString().equals(child.next().key)) {
+                                    Toast.makeText(getApplicationContext(), "존재하는 아이디 입니다.", Toast.LENGTH_SHORT).show();
+                                }
+                                else{
+                                    Toast.makeText(getApplicationContext(), "사용가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+
+                                }
+                            }
                 }
             })
         }

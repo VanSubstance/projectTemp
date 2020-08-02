@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             val SignUp_user=Intent(this,signup_sellect::class.java)
             startActivity(SignUp_user)
         }
+        
 
     }
 

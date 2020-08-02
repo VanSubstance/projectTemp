@@ -91,7 +91,7 @@
         app:layout_constraintTop_toTopOf="@+id/location" />
 
     <EditText
-        android:id="@+id/MarketName"
+        android:id="@+id/storeName"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -111,10 +111,10 @@
         android:gravity="center_horizontal"
         android:text="Start Time"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/MarketName"
+        app:layout_constraintEnd_toEndOf="@+id/storeName"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/MarketName"
-        app:layout_constraintTop_toTopOf="@+id/MarketName" />
+        app:layout_constraintStart_toStartOf="@+id/storeName"
+        app:layout_constraintTop_toTopOf="@+id/storeName" />
 
     <TextView
         android:id="@+id/time_E"
@@ -167,7 +167,7 @@
         android:textSize="15sp"
         android:ems="5"
         app:layout_constraintStart_toEndOf="@+id/time_s"
-        app:layout_constraintTop_toTopOf="@+id/MarketName" />
+        app:layout_constraintTop_toTopOf="@+id/storeName" />
 
     <Button
         android:id="@+id/picktimebtn_E"
