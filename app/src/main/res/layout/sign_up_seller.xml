@@ -2,27 +2,25 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp_seller">
+    android:background="#FFFFFF">
 
     <EditText
         android:id="@+id/seller_id"
         android:layout_width="200dp"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="ID"
-        android:inputType="textWebEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/seller_pass"
         android:layout_width="200dp"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="패스워드"
@@ -33,7 +31,7 @@
     <EditText
         android:id="@+id/seller_passck"
         android:layout_width="200dp"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="패스워드 확인"
@@ -45,7 +43,7 @@
     <EditText
         android:id="@+id/seller_name"
         android:layout_width="200dp"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="이름"
@@ -57,7 +55,7 @@
     <EditText
         android:id="@+id/seller_Phone_number"
         android:layout_width="200dp"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="핸드폰 번호"
@@ -69,21 +67,33 @@
     <TextView
         android:id="@+id/location"
         android:layout_width="200dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:gravity="center_horizontal"
         android:text="시장이름"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/seller_Phone_number"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/seller_Phone_number"
         app:layout_constraintTop_toTopOf="@+id/seller_Phone_number" />
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:text="주소"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/location"
+        app:layout_constraintStart_toStartOf="@+id/location"
+        app:layout_constraintTop_toTopOf="@+id/location" />
 
     <EditText
         android:id="@+id/MarketName"
         android:layout_width="200dp"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="매장명"
@@ -95,7 +105,7 @@
     <TextView
         android:id="@+id/time_s"
         android:layout_width="200dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:gravity="center_horizontal"
@@ -109,7 +119,7 @@
     <TextView
         android:id="@+id/time_E"
         android:layout_width="200dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:gravity="center_horizontal"
@@ -123,7 +133,7 @@
     <TextView
         android:id="@+id/seller_cat"
         android:layout_width="200dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:gravity="center_horizontal"
@@ -135,14 +145,13 @@
         app:layout_constraintTop_toTopOf="@+id/time_E" />
 
     <Button
-        android:id="@+id/picklocation"
+        android:id="@+id/buttonSelectMarket"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="select"
-        android:textSize="10sp"
+        android:textSize="15sp"
+        android:ems="5"
         app:layout_constraintStart_toEndOf="@+id/location"
         app:layout_constraintTop_toTopOf="@+id/seller_Phone_number" />
 
@@ -150,43 +159,45 @@
     <Button
         android:id="@+id/picktimebtn_S"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="48dp"
         android:text="time pick"
-        android:textSize="10sp"
+        android:textSize="15sp"
+        android:ems="5"
         app:layout_constraintStart_toEndOf="@+id/time_s"
         app:layout_constraintTop_toTopOf="@+id/MarketName" />
 
     <Button
         android:id="@+id/picktimebtn_E"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="48dp"
         android:text="time pick"
-        android:textSize="10sp"
+        android:textSize="15sp"
+        android:ems="5"
         app:layout_constraintStart_toEndOf="@+id/time_E"
         app:layout_constraintTop_toTopOf="@+id/time_s" />
 
     <Button
-        android:id="@+id/btn_category"
+        android:id="@+id/buttonCtgr"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="48dp"
         android:text="카테고리"
-        android:textSize="10sp"
+        android:textSize="15sp"
+        android:ems="5"
         app:layout_constraintStart_toEndOf="@+id/seller_cat"
         app:layout_constraintTop_toTopOf="@+id/time_E" />
 
     <Button
         android:id="@+id/btn_register_seller"
         android:layout_width="200dp"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="완료"
         app:layout_constraintEnd_toEndOf="@+id/seller_cat"
@@ -197,11 +208,11 @@
     <Button
         android:id="@+id/validateButton_seller"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="중복확인"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
+        android:ems="5"
         app:layout_constraintStart_toEndOf="@+id/seller_id"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

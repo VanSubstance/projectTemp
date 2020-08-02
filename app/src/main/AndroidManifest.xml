@@ -26,8 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUp_buyer"></activity>
-        <activity android:name=".SignUp_seller"></activity>
         <activity android:name=".sellerUIMain"></activity>
         <activity android:name=".buyerUIMain"></activity>
         <activity android:name=".signup_sellect"></activity>
