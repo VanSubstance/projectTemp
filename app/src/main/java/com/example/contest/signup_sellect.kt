@@ -29,9 +29,13 @@ class signup_sellect : AppCompatActivity() {
         val ft = supportFragmentManager.beginTransaction()
 
         signup_buyer.setOnClickListener{
+            main_frame.isVisible = true
+            layoutRoleSelection.isVisible = false
             ft.replace(R.id.main_frame,signupBuyer()).commit()
         }
         signup_seller.setOnClickListener{
+            main_frame.isVisible = true
+            layoutRoleSelection.isVisible = false
             ft.replace(R.id.main_frame,signupSeller()).commit()
         }
     }

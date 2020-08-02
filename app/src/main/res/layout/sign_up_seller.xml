@@ -112,7 +112,6 @@
         android:text="Start Time"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/storeName"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/storeName"
         app:layout_constraintTop_toTopOf="@+id/storeName" />
 
@@ -126,7 +125,6 @@
         android:text="End Time"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/time_s"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/time_s"
         app:layout_constraintTop_toTopOf="@+id/time_s" />
 
@@ -140,7 +138,6 @@
         android:text="카테고리"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/time_E"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/time_E"
         app:layout_constraintTop_toTopOf="@+id/time_E" />
 
