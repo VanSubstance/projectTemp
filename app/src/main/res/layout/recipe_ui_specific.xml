@@ -15,106 +15,338 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/recipeImage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/staticRecipeTitle"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:text="레시피 이름"
-                android:textSize="15dp"
-                app:layout_constraintStart_toEndOf="@+id/recipeImage"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:text="개쩌는 레시피"
-                android:textSize="15dp"
-                app:layout_constraintStart_toEndOf="@+id/staticRecipeTitle"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/staticRecipeLevel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:text="조리 난이도"
-                android:textSize="15dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/recipeLevel"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="25dp"
-                android:textSize="15dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/staticRecipeLevel" />
-
-            <TextView
-                android:id="@+id/recipeIngredient"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:text="재료"
-                android:textSize="20dp"
-                android:textStyle="bold"
+                android:background="@drawable/element_border_black_1dp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/recipeImage" />
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/Ingredient"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n"
-                android:textSize="15dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recipeIngredient" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutRecipeBasicInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/element_border_black_0_5dp">
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:text="조리순서"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Ingredient" />
+                    <ImageView
+                        android:id="@+id/imageRecipe"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/element_border_black_0_5dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:src="@drawable/test_02"
+                        />
 
-            <TextView
-                android:id="@+id/recipeSteps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:text="정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n정신나갈거같아정신나갈거같아정신나갈거같아\n"
-                android:textSize="15dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                    <TextView
+                        android:id="@+id/staticRecipeTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="레시피 이름"
+                        android:textSize="15dp"
+                        app:layout_constraintTop_toTopOf="@id/imageRecipe"
+                        app:layout_constraintLeft_toRightOf="@id/imageRecipe"
+                        />
+
+                    <TextView
+                        android:id="@+id/textRecipeTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="개쩌는 레시피"
+                        android:textSize="15dp"
+                        app:layout_constraintTop_toBottomOf="@id/staticRecipeTitle"
+                        app:layout_constraintLeft_toRightOf="@id/imageRecipe"/>
+
+                    <TextView
+                    android:id="@+id/staticCtgrSpecific"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="음식 종류"
+                    android:textSize="15dp"
+                    app:layout_constraintTop_toBottomOf="@id/textRecipeTitle"
+                    app:layout_constraintLeft_toRightOf="@id/imageRecipe"
+                    />
+
+                    <TextView
+                        android:id="@+id/textCtgrSpecific"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="돼지고기나 그런거"
+                        android:textSize="15dp"
+                        app:layout_constraintTop_toBottomOf="@id/staticCtgrSpecific"
+                        app:layout_constraintLeft_toRightOf="@id/imageRecipe"
+                        />
+
+                    <TextView
+                        android:id="@+id/staticRecipeLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="조리 난이도"
+                        android:textSize="15dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <ImageView
+                        android:id="@+id/recipeLevel"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintRight_toRightOf="@id/staticRecipeLevel"
+                        app:layout_constraintLeft_toLeftOf="@id/staticRecipeLevel"
+                        app:layout_constraintTop_toBottomOf="@id/staticRecipeLevel"
+                        android:src="@drawable/recipe_level_2"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutRecipeIngredient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutRecipeBasicInfo"
+                    android:background="@drawable/element_border_black_0_5dp">
+
+                    <TextView
+                        android:id="@+id/staticIngredient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="재료"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        />
+
+                    <TextView
+                        android:id="@+id/textIngredient"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="
+                        ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                        ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                        ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                        ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                        ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                        android:textSize="15dp"
+                        app:layout_constraintTop_toBottomOf="@id/staticIngredient"
+                        app:layout_constraintLeft_toLeftOf="@id/staticIngredient"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/latoutRecipeProcedure"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutRecipeIngredient"
+                    android:background="@drawable/element_border_black_0_5dp">
+
+                    <TextView
+                        android:id="@+id/staticProcedure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="조리순서"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layoutRecipeProcedureElement01"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/staticProcedure"
+                        android:background="@drawable/element_border_black_0_5dp">
+
+                        <ImageView
+                            android:id="@+id/imageProcedure01"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/element_border_black_0_5dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:src="@drawable/test"
+                            />
+
+                        <TextView
+                            android:id="@+id/textProcedure01"
+                            android:layout_width="240dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:textSize="15dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@id/imageProcedure01"
+
+
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layoutRecipeProcedureElement02"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement01"
+                        android:background="@drawable/element_border_black_0_5dp">
+
+                        <ImageView
+                            android:id="@+id/imageProcedure02"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/element_border_black_0_5dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:src="@drawable/test"
+                            />
+
+                        <TextView
+                            android:id="@+id/textProcedure02"
+                            android:layout_width="240dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:textSize="15dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@id/imageProcedure02"
+
+
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layoutRecipeProcedureElement03"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement02"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:background="@drawable/element_border_black_0_5dp">
+
+                        <ImageView
+                            android:id="@+id/imageProcedure03"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/element_border_black_0_5dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:src="@drawable/test"
+                            />
+
+                        <TextView
+                            android:id="@+id/textProcedure03"
+                            android:layout_width="240dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
+                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:textSize="15dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@id/imageProcedure03"
+
+
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

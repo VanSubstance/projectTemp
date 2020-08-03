@@ -218,7 +218,8 @@ class buyerUIMain : AppCompatActivity() {
         var frag = recipeUISpecific()
         var bundle = Bundle(2)
         bundle.putString("title", recipeElement.title)
-        bundle.putString("ctgrBig", recipeElement.ctgrBig)
+        bundle.putString("ctgr", recipeElement.ctgr)
+
         frag.setArguments(bundle)
 
         val ft = supportFragmentManager.beginTransaction()
