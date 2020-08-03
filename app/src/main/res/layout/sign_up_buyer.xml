@@ -9,12 +9,13 @@
         android:id="@+id/et_id"
         android:layout_width="200dp"
         android:layout_height="45dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
         android:ems="10"
         android:hint="ID"
         android:inputType="textWebEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/validateButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -70,17 +71,20 @@
         android:id="@+id/staticCtgr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/et_Phone_number"
-        android:orientation="horizontal">
+        android:layout_marginBottom="9dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/layoutCtgr"
+        app:layout_constraintTop_toBottomOf="@id/et_Phone_number">
 
         <TextView
             android:id="@+id/preferCategoryModify"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="선호 카테고리 변경"
+            android:text="선호 카테고리"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -90,12 +94,15 @@
         android:id="@+id/layoutCtgr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/staticCtgr"
-        android:orientation="horizontal">
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/staticCtgr">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -106,7 +113,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:text="정육점" />
+                android:text="정육점"
+                style="@style/MyCheckBox"/>
 
             <CheckBox
                 android:id="@+id/checkFishShop"
@@ -115,7 +123,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:text="생선가게" />
+                android:text="생선가게"
+                style="@style/MyCheckBox"/>
 
             <CheckBox
                 android:id="@+id/checkComplete"
@@ -124,7 +133,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:text="완제품" />
+                android:text="완제품"
+                style="@style/MyCheckBox"/>
 
         </LinearLayout>
 
@@ -132,7 +142,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            style="@style/MyCheckBox">
 
             <CheckBox
                 android:id="@+id/checkGreengrocer"
@@ -141,7 +152,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:text="채소가게" />
+                android:text="채소가게"
+                style="@style/MyCheckBox"/>
 
             <CheckBox
                 android:id="@+id/checkGenearl"
@@ -150,7 +162,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:text="잡화점" />
+                android:text="잡화점"
+                style="@style/MyCheckBox"/>
 
         </LinearLayout>
     </LinearLayout>
@@ -163,18 +176,20 @@
         android:layout_marginTop="20dp"
         android:text="회원가입완료(소비자)"
         app:layout_constraintStart_toStartOf="@+id/et_Phone_number"
-        app:layout_constraintTop_toBottomOf="@+id/layoutCtgr" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutCtgr"
+        style="@style/buttonView"/>
 
 
     <Button
         android:id="@+id/validateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginTop="28dp"
+        style="@style/buttonView"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
         android:text="중복확인"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
-        app:layout_constraintStart_toEndOf="@+id/et_id"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/et_id" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
