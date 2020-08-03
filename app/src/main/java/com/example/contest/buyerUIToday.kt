@@ -61,29 +61,32 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
                 for (market in p0.children) {
                     var marketTitle = market.child("marketTitle").value.toString()
                     var marker = Marker()
-                    marker.position = LatLng(market.child("latitude").value.toString().toDouble(), market.child("longitude").value.toString().toDouble())
-                    marker.map = naverMap
-                    marker.width = 70
-                    marker.height = 100
-                    marker.tag = marketTitle
-                    marketList.add(marker)
+                    if (market.child("latitude").value.toString().toDouble() != null && market.child("longitude").value.toString().toDouble() != null) {
 
-                    var infoWindow = InfoWindow()
-                    infoWindow.adapter = object : DefaultTextAdapter(context!!) {
-                        override fun getText(infoWindow: InfoWindow): CharSequence {
-                            return infoWindow.marker!!.tag as CharSequence
+                        marker.position = LatLng(market.child("latitude").value.toString().toDouble(), market.child("longitude").value.toString().toDouble())
+                        marker.map = naverMap
+                        marker.width = 70
+                        marker.height = 100
+                        marker.tag = marketTitle
+                        marketList.add(marker)
+
+                        var infoWindow = InfoWindow()
+                        infoWindow.adapter = object : DefaultTextAdapter(context!!) {
+                            override fun getText(infoWindow: InfoWindow): CharSequence {
+                                return infoWindow.marker!!.tag as CharSequence
+                            }
                         }
-                    }
-                    infoWindow.onClickListener = Overlay.OnClickListener { overlay: Overlay? ->
-                        currentCondition.marketTitle = marketTitle
-                        (activity as buyerUIMain).setBuyerFrag(22)
-                        true
-                    }
-                    marker.onClickListener = Overlay.OnClickListener { overlay: Overlay? ->
-                        infoWindow.open((overlay as Marker?)!!)
-                        true
-                    }
-                    infoWindowList.add(infoWindow)
+                        infoWindow.onClickListener = Overlay.OnClickListener { overlay: Overlay? ->
+                            currentCondition.marketTitle = marketTitle
+                            (activity as buyerUIMain).setBuyerFrag(22)
+                            true
+                        }
+                        marker.onClickListener = Overlay.OnClickListener { overlay: Overlay? ->
+                            infoWindow.open((overlay as Marker?)!!)
+                            true
+                        }
+                        infoWindowList.add(infoWindow)
+                        }
                 }
             }
         })

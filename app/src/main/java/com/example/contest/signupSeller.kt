@@ -57,6 +57,7 @@ class signupSeller : Fragment() {
                 val data = Post(ID, password, name, pnum, role)
                 val info = data.toMap()
                 DatabaseReference.child("userDB").child(ID).setValue(info)
+                DatabaseReference.child("userDB").child("marketTitle").setValue(marketTitle)
                 Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
                 (activity as signup_sellect).finish()
             }
