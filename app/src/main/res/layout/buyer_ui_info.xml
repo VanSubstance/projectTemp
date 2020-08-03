@@ -7,19 +7,21 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp">
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/element_border_black_1dp">
 
                 <ImageView
                     android:id="@+id/imageUser"
@@ -30,7 +32,7 @@
                     android:layout_marginTop="50dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    android:background="@drawable/element_border_black_0_5dp"/>
 
                 <TextView
                     android:id="@+id/textName"
@@ -48,7 +50,7 @@
                     android:id="@+id/outputName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="아무개"
+                    android:text=""
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/imageUser"
                     app:layout_constraintTop_toTopOf="@+id/textName" />
@@ -69,7 +71,7 @@
                     android:id="@+id/outputNickName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="닉네임"
+                    android:text=""
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/imageUser"
                     app:layout_constraintTop_toTopOf="@+id/textNickName" />
@@ -93,7 +95,7 @@
                     android:id="@+id/outputPhoneNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="전화번호"
+                    android:text=""
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/imageUser"
                     app:layout_constraintTop_toTopOf="@+id/phoneNumber" />
@@ -180,9 +182,36 @@
                     android:layout_marginTop="50dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
                     android:text="수정"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/outputPreferButcher" />
+                    app:layout_constraintTop_toBottomOf="@+id/outputPreferButcher"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/staticComfimPw"
+                    app:layout_constraintLeft_toLeftOf="@id/preferCategory"
+                    app:layout_constraintBottom_toTopOf="@id/inputConfirmPw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:text="비밀번호 확인"
+                    android:visibility="gone"
+                    />
+
+                <EditText
+                    android:id="@+id/inputConfirmPw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/preferCategory"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:hint="현재 비밀번호 입력"
+                    android:visibility="gone"
+                    />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>

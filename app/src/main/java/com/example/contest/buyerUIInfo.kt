@@ -2,10 +2,12 @@ package com.example.contest
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.DataSnapshot
@@ -81,7 +83,18 @@ class buyerUIInfo : Fragment() {
         })
 
         view.buttonModify.setOnClickListener {
-            (activity as buyerUIMain).setBuyerFrag(32)
+            if (!view.staticComfimPw.isVisible) {
+                // 수정 버튼 처음 눌렀을 때
+                view.staticComfimPw.isVisible = true
+                view.inputConfirmPw.isVisible = true
+            } else {
+                if (view.inputConfirmPw.text.toString().equals(userInfo.pw)) {
+                    (activity as buyerUIMain).setBuyerFrag(32)
+                } else {
+                    view.staticComfimPw.setText("비밀번호 확인 : 비밀번호가 틀립니다!")
+                    view.staticComfimPw.setTextColor(Color.parseColor("#ff0000"))
+                }
+            }
         }
         return view
     }
