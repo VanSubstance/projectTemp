@@ -38,8 +38,8 @@
 
         <ImageView
             android:id="@+id/productImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_margin="10dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -147,7 +147,7 @@
             android:id="@+id/textServingSlash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="40dp"
             android:text="/"
             android:textSize="15dp"
             app:layout_constraintLeft_toRightOf="@id/textQuan"
@@ -162,7 +162,7 @@
             android:inputType="text"
             android:text=""
             android:textSize="15dp"
-            app:layout_constraintLeft_toLeftOf="@id/textQuan"
+            app:layout_constraintLeft_toLeftOf="@id/textServingSlash"
             app:layout_constraintTop_toBottomOf="@id/staticQuan"
             />
 
@@ -170,20 +170,22 @@
             android:id="@+id/textServingUnitTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:text="개"
             android:textSize="15dp"
             app:layout_constraintLeft_toRightOf="@id/textQuanTotal"
-            app:layout_constraintTop_toTopOf="@id/textQuanTotal"/>
+            app:layout_constraintTop_toTopOf="@id/textQuanTotal"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
             android:id="@+id/staticSoldDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="180dp"
             android:layout_marginTop="40dp"
             android:text="판매 날짜"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/staticQuan"
+            app:layout_constraintTop_toBottomOf="@id/staticServing"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
         <TextView
@@ -197,30 +199,6 @@
             app:layout_constraintLeft_toLeftOf="@id/staticSoldDate"
             app:layout_constraintTop_toBottomOf="@id/staticSoldDate"/>
 
-        <TextView
-            android:id="@+id/staticSoldTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="40dp"
-            android:text="판매 될 때까지 걸린 시간"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/staticSoldDate"
-            app:layout_constraintLeft_toLeftOf="parent"
-            />
-
-        <TextView
-            android:id="@+id/textSoldTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:inputType="text"
-            android:text=""
-            android:textSize="15dp"
-            app:layout_constraintLeft_toLeftOf="@id/staticSoldTime"
-            app:layout_constraintTop_toBottomOf="@id/staticSoldTime"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

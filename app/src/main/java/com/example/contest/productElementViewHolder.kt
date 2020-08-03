@@ -30,7 +30,7 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
     fun bind (productElements : productElement, context : Context) {
         productTitle.text = productElements.title
         productPrice.text = productElements.price.toString()
-        productQuan.text = productElements.quantity.toString()
+        productQuan.text = productElements.serve.toString()
         val imagePath = mStorageRef.child(productElements.productId + ".png")
         val imageSize: Long = 1024 * 1024 * 10
         imagePath.getBytes(imageSize).addOnSuccessListener {

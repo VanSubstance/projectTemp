@@ -49,7 +49,7 @@ class sellerUIHistoryAdapter(var historyElementListList: MutableMap<String, Arra
                 val view = LayoutInflater.from(context).inflate(R.layout.product_seller_history_specific, null)
                 view.textTitle.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
-                view.textServing.text = productElement.quantity.toString()
+                view.textServing.text = productElement.serve.toString()
                 view.textSoldDate.text = productElement.soldDate
                 val alertDialog = AlertDialog.Builder(context)
                     .setTitle("상품 정보")
