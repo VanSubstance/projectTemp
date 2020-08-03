@@ -36,18 +36,19 @@ class sellerUIEnrollProduct : Fragment() {
             startActivityForResult(Intent.createChooser(intent, "사용할 애플리케이션"), 1)
         }
         view.buttonEnroll.setOnClickListener {
-            if (view.inputTitle.text.isEmpty() || view.inputPrice.text.isEmpty() || view.inputQuan.text.isEmpty()) {
+            if (view.textTitle.text.isEmpty() || view.textPrice.text.isEmpty() || view.textQuan.text.isEmpty() || view.textServing.text.isEmpty()) {
                 Toast.makeText(requireContext(), "제대로 입력해야 합니다.", Toast.LENGTH_SHORT).show()
             } else {
-                var title = view.inputTitle.text.toString()
-                var price = Integer.parseInt(view.inputPrice.text.toString())
-                var quan = Integer.parseInt(view.inputQuan.text.toString())
+                var title = view.textTitle.text.toString()
+                var price = Integer.parseInt(view.textPrice.text.toString())
+                var serve = Integer.parseInt(view.textServing.text.toString())
+                var quan = Integer.parseInt(view.textQuan.text.toString())
                 var newProduct : productElement = productElement()
                 var productId = SimpleDateFormat("yyyyMMdd").format(Date()) + userInfo.id + title
                 var imageTitle = productId + ".png"
 
                 imageData.child(imageTitle).putFile(imageUrl!!)
-                newProduct.setInfo(title, price, quan, productId)
+                newProduct.setInfo(title, price, serve, productId, quan, userInfo.ctgrForSeller, userInfo.timeClose)
                 data.child(productId).setValue(newProduct.toMap())
                 (activity as sellerUIMain).setSellerFrag(11)
             }

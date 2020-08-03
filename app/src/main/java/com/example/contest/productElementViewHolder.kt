@@ -3,6 +3,7 @@ package com.example.contest
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Build
+import android.os.CountDownTimer
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -16,10 +17,12 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
     val productImage = elementView.findViewById<ImageView>(R.id.productImage)
     val productTitle = elementView.findViewById<TextView>(R.id.productTitle)
     val productPrice = elementView.findViewById<TextView>(R.id.productPrice)
-    val productQuan = elementView.findViewById<TextView>(R.id.productServing)
+    val productQuan = elementView.findViewById<TextView>(R.id.productQuan)
+    val textCloseTime = elementView.findViewById<TextView>(R.id.textCloseTime)
     val usage : Int = usage
     val elementView = elementView
     val productClick = productClick
+    var CountDownTimer : CountDownTimer? = null
 
     private val mStorageRef = FirebaseStorage.getInstance().getReference("productImageDB")
 

@@ -11,8 +11,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.product_seller_home_specific.view.*
-import kotlinx.android.synthetic.main.seller_ui_enroll_product.*
+import kotlinx.android.synthetic.main.seller_ui_modify_product.*
 import kotlinx.android.synthetic.main.seller_ui_modify_product.view.*
 import kotlinx.android.synthetic.main.seller_ui_modify_product.view.productImage
 import java.text.SimpleDateFormat
@@ -21,21 +20,25 @@ import java.util.*
 class sellerUIHomeProductModify : Fragment() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     val mStorageRef = FirebaseStorage.getInstance()
-    var imageUrl : Uri? = null
+    var imageUrl: Uri? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.seller_ui_modify_product, null)
         var productElement = currentProductElement.currentProductElement
         val data = database.getReference("productTodayDB")
         var imagePath = mStorageRef.getReference("productImageDB")
         var imageData = imagePath.child(productElement.productId + ".png")
         val imageSize: Long = 1024 * 1024 * 10
-        val intent : Intent = Intent(Intent.ACTION_GET_CONTENT)
-        var byteArr : ByteArray = byteArrayOf()
+        val intent: Intent = Intent(Intent.ACTION_GET_CONTENT)
+        var byteArr: ByteArray = byteArrayOf()
 
-        view.inputTitle.setText(productElement.title)
-        view.inputPrice.setText(productElement.price.toString())
-        view.inputQuan.setText(productElement.quantity.toString())
+        view.textTitle.setText(productElement.title)
+        view.textPrice.setText(productElement.price.toString())
+        view.textQuan.setText(productElement.quantity.toString())
         imageData.getBytes(imageSize).addOnSuccessListener {
             byteArr = it
             val imageBitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
@@ -48,10 +51,21 @@ class sellerUIHomeProductModify : Fragment() {
         }
         view.buttonConfirm.setOnClickListener {
             var modifiedProduct = productElement()
-            modifiedProduct.setInfo(view.inputTitle.text.toString()
-                , Integer.parseInt(view.inputPrice.text.toString())
-                , Integer.parseInt(view.inputQuan.text.toString())
-                , SimpleDateFormat("yyyyMMdd").format(Date()) + userInfo.id + view.inputTitle.text.toString())
+            modifiedProduct.setInfo(
+                view.textTitle.text.toString()
+                ,
+                Integer.parseInt(view.textPrice.text.toString())
+                ,
+                Integer.parseInt(view.textQuan.text.toString())
+                ,
+                SimpleDateFormat("yyyyMMdd").format(Date()) + userInfo.id + view.textTitle.text.toString()
+                ,
+                textQuan.text.toString().toInt()
+                ,
+                userInfo.ctgrForSeller
+                ,
+                userInfo.timeClose
+            )
             var imageNew = imagePath.child(modifiedProduct.productId + ".png")
 
             imageData.delete()

@@ -38,7 +38,15 @@ class signupSeller : Fragment() {
                 Toast.makeText(requireContext(), "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
             } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
                 Toast.makeText(requireContext(), "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
-            } else {
+            } else if (location.text.equals("시장 이름")) {
+                Toast.makeText(requireContext(), "시장을 선택해주세요", Toast.LENGTH_SHORT).show()
+            } else if (storeName.text.equals("")) {
+                Toast.makeText(requireContext(), "매장 명을 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
+            } else if (time_E.text.equals("개점 시간") || time_s.text.equals("폐점 시간")) {
+                Toast.makeText(requireContext(), "개점, 폐점 시간을 정해주세요", Toast.LENGTH_SHORT).show()
+            } else if (seller_cat.text.equals("카테고리") || seller_cat.text.equals("")) {
+                Toast.makeText(requireContext(), "카테고리를 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
+            } else{
                 val ID = msID.text.toString()
                 val password = mPasswordText.text.toString()
                 val name = mName.text.toString()
@@ -57,7 +65,12 @@ class signupSeller : Fragment() {
                 val data = Post(ID, password, name, pnum, role)
                 val info = data.toMap()
                 DatabaseReference.child("userDB").child(ID).setValue(info)
-                DatabaseReference.child("userDB").child("marketTitle").setValue(marketTitle)
+                DatabaseReference.child("userDB").child(ID).child("marketTitle").setValue(marketTitle)
+                DatabaseReference.child("userDB").child(ID).child("store").child("seller").setValue(ID)
+                DatabaseReference.child("userDB").child(ID).child("store").child("storeName").setValue(storeTitle)
+                DatabaseReference.child("userDB").child(ID).child("store").child("ctgr").setValue(storeCtgr)
+                DatabaseReference.child("userDB").child(ID).child("store").child("timeOpen").setValue(timeOpen)
+                DatabaseReference.child("userDB").child(ID).child("store").child("timeClose").setValue(timeClose)
                 Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
                 (activity as signup_sellect).finish()
             }
