@@ -1,124 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:background="@drawable/element_border"
-    >
+    android:layout_height="wrap_content"
+    android:background="@drawable/element_border">
 
-    <ImageView
-        android:id="@+id/productImage"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/textTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/productImage"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="상품 이름"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        />
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/productTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/textTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="이름"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="40dp"
-        android:textSize="15dp"
-        />
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/textPrice"
-        app:layout_constraintTop_toBottomOf="@id/textTitle"
-        app:layout_constraintLeft_toRightOf="@id/productImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="가격"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        />
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="상품 이름"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/productImage"
+            app:layout_constraintTop_toTopOf="@+id/productImage" />
 
-    <TextView
-        android:id="@+id/productPrice"
-        app:layout_constraintTop_toBottomOf="@id/textTitle"
-        app:layout_constraintRight_toLeftOf="@id/textPriceUnit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="얼마"
-        android:layout_marginTop="10dp"
-        android:textSize="15dp"
-        />
+        <TextView
+            android:id="@+id/productTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="이름"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textTitle"
+            app:layout_constraintTop_toTopOf="@+id/textTitle" />
 
-    <TextView
-        android:id="@+id/textPriceUnit"
-        app:layout_constraintTop_toBottomOf="@id/textTitle"
-        app:layout_constraintLeft_toRightOf="@id/textPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="원"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="80dp"
-        android:textSize="15dp"
-        />
+        <TextView
+            android:id="@+id/textPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="가격"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@+id/textServingUnit"
+            tools:layout_editor_absoluteX="237dp" />
 
-    <TextView
-        android:id="@+id/textServing"
-        app:layout_constraintTop_toBottomOf="@id/textTitle"
-        app:layout_constraintLeft_toRightOf="@id/textPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="양"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="140dp"
-        android:textSize="15dp"
-        />
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="얼마"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textPrice"
+            app:layout_constraintTop_toTopOf="@+id/textPrice" />
 
-    <TextView
-        android:id="@+id/productServing"
-        app:layout_constraintTop_toBottomOf="@id/textTitle"
-        app:layout_constraintRight_toLeftOf="@id/textServingUnit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="몆"
-        android:layout_marginTop="10dp"
-        android:textSize="15dp"
-        />
+        <TextView
+            android:id="@+id/textPriceUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="원"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/productPrice"
+            app:layout_constraintTop_toTopOf="@+id/productPrice" />
 
-    <TextView
-        android:id="@+id/textServingUnit"
-        app:layout_constraintTop_toBottomOf="@id/textTitle"
-        app:layout_constraintLeft_toRightOf="@id/textServing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="인분"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="80dp"
-        android:textSize="15dp"
-        />
+        <TextView
+            android:id="@+id/textServing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="양"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/textTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textTitle" />
 
-    <TextView
-        android:id="@+id/productSoldDate"
-        app:layout_constraintTop_toTopOf="@id/textTitle"
-        app:layout_constraintLeft_toLeftOf="@id/textServing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="" />
+        <TextView
+            android:id="@+id/productServing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="몇"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textServing"
+            app:layout_constraintTop_toTopOf="@+id/textServing" />
+
+        <TextView
+            android:id="@+id/textServingUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="인분"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/productServing"
+            app:layout_constraintTop_toTopOf="@+id/productServing" />
+
+        <TextView
+            android:id="@+id/productSoldDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            tools:layout_editor_absoluteX="335dp"
+            tools:layout_editor_absoluteY="16dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

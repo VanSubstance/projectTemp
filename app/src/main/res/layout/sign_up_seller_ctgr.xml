@@ -67,7 +67,7 @@
                 android:text="잡화점" />
 
             <CheckBox
-                android:id="@+id/checkEtc"
+                android:id="@+id/checkComplete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"

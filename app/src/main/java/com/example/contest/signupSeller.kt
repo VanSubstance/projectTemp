@@ -1,6 +1,5 @@
 package com.example.contest
 
-import android.app.AlertDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,6 +14,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class signupSeller : Fragment() {
+
+    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.sign_up_seller, container, false)
@@ -32,7 +33,6 @@ class signupSeller : Fragment() {
         val textView_e = view.time_E
 
         view.btn_register_seller.setOnClickListener {
-            val database: FirebaseDatabase = FirebaseDatabase.getInstance()
             val DatabaseReference = database.reference
             if (msID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
                 Toast.makeText(requireContext(), "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
@@ -44,32 +44,20 @@ class signupSeller : Fragment() {
                 val name = mName.text.toString()
                 val pnum = mPnum.text.toString()
                 val role: String = "seller"
-                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                // 소속 시장 이름
                 val marketTitle = location.text.toString()
-                // 가게 이름
                 val storeTitle = storeName.text.toString()
                 val storeCtgr = seller_cat.text.toString()
                 val timeOpen = time_s.text.toString()
                 val timeClose = time_E.text.toString()
-                // 시장 데이터베이스에 가게 추가해주기
-                /** 1. 판매자
-                 *  2. 가게 이름
-                 *  3. 카테고리
-                 *  4. 오픈 시간
-                 *  5. 마감 시간
-                 */
-                /**
-                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////marketInfo key값들 전부 marketTitle로 바궈야 정상 작동함
-                DatabaseReference.child("marketInfo").child(//marketTitle).child("store").child(storeTitle).child("seller").setValue(ID)
-                DatabaseReference.child("marketInfo").child(//marketTitle).child("store").child(storeTitle).child("storeName").setValue(storeTitle)
-                DatabaseReference.child("marketInfo").child(//marketTitle).child("store").child(storeTitle).child("ctgr").setValue(storeCtgr)
-                DatabaseReference.child("marketInfo").child(//marketTitle).child("store").child(storeTitle).child("timeOpen").setValue(timeOpen)
-                DatabaseReference.child("marketInfo").child(//marketTitle).child("store").child(storeTitle).child("timeClose").setValue(timeClose)
-                */
+                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(storeTitle).child("seller").setValue(ID)
+                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(storeTitle).child("storeName").setValue(storeTitle)
+                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(storeTitle).child("ctgr").setValue(storeCtgr)
+                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(storeTitle).child("timeOpen").setValue(timeOpen)
+                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(storeTitle).child("timeClose").setValue(timeClose)
                 val data = Post(ID, password, name, pnum, role)
                 val info = data.toMap()
                 DatabaseReference.child("userDB").child(ID).setValue(info)
+                DatabaseReference.child("userDB").child("marketTitle").setValue(marketTitle)
                 Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
                 (activity as signup_sellect).finish()
             }
@@ -81,16 +69,17 @@ class signupSeller : Fragment() {
                 override fun onCancelled(p0: DatabaseError) {
                 }
                 override fun onDataChange(p0: DataSnapshot) {
-                    val child = p0.children.iterator();
-                    while(child.hasNext()){
-                        if(msID.text.toString().equals(child.next().key)) {
+                    var err = 0
+                    for (account in p0.children) {
+                        if(msID.text.toString().equals(account.key.toString())) {
+                            err = 1
                             Toast.makeText(requireContext(), "존재하는 아이디 입니다.", Toast.LENGTH_SHORT).show();
                         }
-                        else{
-                            Toast.makeText(requireContext(), "사용가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
-
-                        }
                     }
+                    if (err == 0) {
+                        Toast.makeText(requireContext(), "사용가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                    }
+                    err = 0
                 }
             })
         }

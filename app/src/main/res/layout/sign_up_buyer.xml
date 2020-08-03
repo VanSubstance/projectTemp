@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".SignUp_buyer">
+    >
 
     <EditText
         android:id="@+id/et_id"
@@ -67,15 +66,105 @@
         app:layout_constraintStart_toStartOf="@+id/et_name"
         app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
+    <LinearLayout
+        android:id="@+id/staticCtgr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/et_Phone_number"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/preferCategoryModify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="선호 카테고리 변경"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layoutCtgr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/staticCtgr"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkButcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:text="정육점" />
+
+            <CheckBox
+                android:id="@+id/checkFishShop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:text="생선가게" />
+
+            <CheckBox
+                android:id="@+id/checkComplete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:text="완제품" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkGreengrocer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:text="채소가게" />
+
+            <CheckBox
+                android:id="@+id/checkGenearl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:text="잡화점" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
     <Button
         android:id="@+id/btn_register"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:text="회원가입완료(소비자)"
-        app:layout_constraintEnd_toEndOf="@+id/et_Phone_number"
         app:layout_constraintStart_toStartOf="@+id/et_Phone_number"
-        app:layout_constraintTop_toBottomOf="@+id/et_Phone_number" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutCtgr" />
+
 
     <Button
         android:id="@+id/validateButton"
