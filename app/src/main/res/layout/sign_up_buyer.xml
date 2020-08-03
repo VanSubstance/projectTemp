@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:layout_weight="1">
 
     <EditText
         android:id="@+id/et_id"
@@ -12,7 +12,7 @@
         android:layout_height="45dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/editext_border"
@@ -25,10 +25,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/et_email"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/editext_border"
+        android:ems="10"
+        android:hint="이메일"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/et_id"
+        app:layout_constraintStart_toStartOf="@+id/et_passck"
+        app:layout_constraintTop_toBottomOf="@+id/et_passck" />
+
+    <EditText
         android:id="@+id/et_pass"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/editext_border"
         android:ems="10"
         android:hint="패스워드"
@@ -56,16 +70,16 @@
         android:id="@+id/et_name"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/editext_border"
         android:ems="10"
         android:hint="이름"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:privateImeOptions="defaultInputmode=korean"
-        app:layout_constraintEnd_toEndOf="@+id/et_passck"
-        app:layout_constraintStart_toStartOf="@+id/et_passck"
-        app:layout_constraintTop_toBottomOf="@+id/et_passck" />
+        app:layout_constraintEnd_toEndOf="@+id/certify_btn"
+        app:layout_constraintStart_toStartOf="@+id/et_email"
+        app:layout_constraintTop_toBottomOf="@+id/et_email" />
 
     <EditText
         android:id="@+id/et_Phone_number"
@@ -190,7 +204,7 @@
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
-        android:text="회원가입완료(소비자)"
+        android:text="완료"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutCtgr" />
@@ -208,5 +222,17 @@
         app:layout_constraintBottom_toBottomOf="@+id/et_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/et_id" />
+
+    <Button
+        android:id="@+id/certify_btn"
+        style="@style/buttonView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="인증하기"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_email"
+        app:layout_constraintEnd_toEndOf="@+id/validateButton"
+        app:layout_constraintStart_toStartOf="@+id/validateButton"
+        app:layout_constraintTop_toTopOf="@+id/et_email" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

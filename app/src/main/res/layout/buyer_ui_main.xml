@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".sellerUIMain">
+    tools:context=".sellerUIMain"
+    android:background="@drawable/editext_border"
+    android:layout_margin="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,7 +27,9 @@
         style="@style/fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@drawable/editext_border"
+        >
 
 
         <LinearLayout
@@ -37,7 +40,8 @@
             android:layout_weight="1"
             android:background="@drawable/navi_press_event"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <ImageView
                 android:layout_width="match_parent"
@@ -62,10 +66,6 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-
-            android:orientation="horizontal"
-            android:background="@drawable/element_border_black_0_5dp"
-            android:gravity="center">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -73,30 +73,6 @@
 
             <View
                 android:id="@+id/view13"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="#000000" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/buyerMarket"
-            style="@style/fragment"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="@drawable/navi_press_event"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="시장 테스트" />
-
-            <View
-                android:id="@+id/view14"
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:background="#000000" />
