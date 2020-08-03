@@ -56,6 +56,9 @@ class MainActivity : AppCompatActivity() {
                         userInfo.role = client.child("role").value as String
                         userInfo.pNum = client.child("pNum").value as String
                         if (userInfo.role.equals("seller")) {
+                            userInfo.ctgrForSeller = client.child("store").child("ctgr").value.toString()
+                            userInfo.timeOpen = client.child("store").child("timeOpen").value.toString()
+                            userInfo.timeClose = client.child("store").child("timeClose").value.toString()
                             startActivity(sellerUI)
                         } else {
                             startActivity(buyerUI)
@@ -121,6 +124,9 @@ object userInfo {
     var pw : String = ""
     var pNum : String = ""
     var role : String = ""
+    var ctgrForSeller : String = ""
+    var timeOpen = ""
+    var timeClose = ""
 }
 // 오늘을 위한 데이터
 // 소비자 -> 장바구니

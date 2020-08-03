@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:text="상품 이름"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:text="가격"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -82,16 +82,52 @@
         app:layout_constraintTop_toBottomOf="@id/staticPrice" />
 
     <TextView
-        android:id="@+id/staticServing"
+        android:id="@+id/staticQuan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:text="양"
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@id/staticPrice" />
+
+    <TextView
+        android:id="@+id/textQuan"
+        app:layout_constraintTop_toBottomOf="@id/staticQuan"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+        android:textSize="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/textQuanUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:text="인분"
+        android:textSize="15dp"
+        app:layout_constraintLeft_toRightOf="@id/textQuan"
+        app:layout_constraintTop_toBottomOf="@id/staticQuan" />
+
+    <TextView
+        android:id="@+id/staticServing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"
+        android:text="수량"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/staticQuan" />
 
     <TextView
         android:id="@+id/textServing"
@@ -106,27 +142,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         />
-
-    <TextView
-        android:id="@+id/textServingUnit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="20dp"
-        android:text="인분"
-        android:textSize="15dp"
-        app:layout_constraintLeft_toRightOf="@id/textServing"
-        app:layout_constraintTop_toBottomOf="@id/staticServing" />
-
-    <TextView
-        android:id="@+id/staticQuan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="수량"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textServing"
-        app:layout_constraintTop_toBottomOf="@+id/textServing" />
 
     <Button
         android:id="@+id/buttonModify"

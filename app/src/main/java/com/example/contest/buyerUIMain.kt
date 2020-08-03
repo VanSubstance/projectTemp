@@ -13,9 +13,12 @@ import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.*
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.buttonPurchase
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textPrice
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textTitle
+import kotlinx.android.synthetic.main.product_buyer_market.view.*
 import kotlinx.android.synthetic.main.product_buyer_market_specific.view.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.concurrent.timer
 import kotlinx.android.synthetic.main.product_buyer_market_specific.view.textServing as textServing1
 
 class buyerUIMain : AppCompatActivity() {
@@ -152,6 +155,31 @@ class buyerUIMain : AppCompatActivity() {
                 view.textPrice.text = productElement.price.toString()
                 view.textServing.text = productElement.quantity.toString()
 
+                // 타이머
+                var openTime = "20:00" + ":00"
+                var openTimeList = openTime.split(":")
+                var openTimeSec = (openTimeList[0].toInt() * 60 + openTimeList[1].toInt()) * 60 + openTimeList[2].toInt()
+                var closeTime = "21:00" + ":00"
+                var closeTimeList = closeTime.split(":")
+                var closeTimeSec = (closeTimeList[0].toInt() * 60 + closeTimeList[1].toInt()) * 60 + closeTimeList[2].toInt()
+                timer(period = 1000) {
+                    var currentTime = SimpleDateFormat("HH:mm:ss").format(Date())
+                    var currentTimeList = currentTime.split(":")
+                    var currentTimeSec = (currentTimeList[0].toInt() * 60 + currentTimeList[1].toInt()) * 60 + currentTimeList[2].toInt()
+
+                    if (currentTimeSec > openTimeSec) {
+                        view.textCloseTime.setText("준비중")
+                    } else {
+                        var leftTimeSec = closeTimeSec - currentTimeSec
+                        var leftTimeList : ArrayList<Int> = arrayListOf()
+                        leftTimeList[0] = leftTimeSec / 60 / 60
+                        leftTimeList[1] = leftTimeSec / 60 % 60
+                        leftTimeList[2] = leftTimeSec % 60
+                        var leftTime = leftTimeList[0].toString() + ":" + leftTimeList[1].toString() + ":" + leftTimeList[2].toString()
+                        view.textCloseTime.setText(leftTime)
+                    }
+                }
+
                 val alertDialog = AlertDialog.Builder(this)
                     .setTitle("상품 정보")
                     .create()
@@ -175,6 +203,31 @@ class buyerUIMain : AppCompatActivity() {
                 view.textTitle.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
                 view.textServing.text = productElement.quantity.toString()
+
+                // 타이머
+                var openTime = "20:00" + ":00"
+                var openTimeList = openTime.split(":")
+                var openTimeSec = (openTimeList[0].toInt() * 60 + openTimeList[1].toInt()) * 60 + openTimeList[2].toInt()
+                var closeTime = "21:00" + ":00"
+                var closeTimeList = closeTime.split(":")
+                var closeTimeSec = (closeTimeList[0].toInt() * 60 + closeTimeList[1].toInt()) * 60 + closeTimeList[2].toInt()
+                timer(period = 1000) {
+                    var currentTime = SimpleDateFormat("HH:mm:ss").format(Date())
+                    var currentTimeList = currentTime.split(":")
+                    var currentTimeSec = (currentTimeList[0].toInt() * 60 + currentTimeList[1].toInt()) * 60 + currentTimeList[2].toInt()
+
+                    if (currentTimeSec > openTimeSec) {
+                        view.textCloseTime.setText("준비중")
+                    } else {
+                        var leftTimeSec = closeTimeSec - currentTimeSec
+                        var leftTimeList : ArrayList<Int> = arrayListOf()
+                        leftTimeList[0] = leftTimeSec / 60 / 60
+                        leftTimeList[1] = leftTimeSec / 60 % 60
+                        leftTimeList[2] = leftTimeSec % 60
+                        var leftTime = leftTimeList[0].toString() + ":" + leftTimeList[1].toString() + ":" + leftTimeList[2].toString()
+                        view.textCloseTime.setText(leftTime)
+                    }
+                }
 
                 val alertDialog = AlertDialog.Builder(this)
                     .setTitle("상품 정보")

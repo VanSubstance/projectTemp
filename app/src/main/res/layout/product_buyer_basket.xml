@@ -88,75 +88,67 @@
             android:id="@+id/unitQuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
             android:text="개"
             android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/productQuan"
             app:layout_constraintTop_toTopOf="@+id/productQuan" />
-
-        <TextView
-            android:id="@+id/staticServing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="양"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/staticTitle"
-            app:layout_constraintTop_toBottomOf="@+id/staticTitle" />
-
-        <TextView
-            android:id="@+id/productServing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="몇"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/staticServing"
-            app:layout_constraintTop_toTopOf="@+id/staticServing" />
-
-        <TextView
-            android:id="@+id/unitServing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:text="인분"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/productServing"
-            app:layout_constraintTop_toTopOf="@+id/productServing" />
-
         <TextView
             android:id="@+id/staticPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
             android:text="가격"
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/staticQuan"
-            app:layout_constraintTop_toTopOf="@+id/unitServing" />
+            app:layout_constraintStart_toEndOf="@+id/productImage"
+            app:layout_constraintTop_toTopOf="@+id/productImage"
+            />
 
         <TextView
             android:id="@+id/productPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:text="가격"
             android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/productQuan"
+            app:layout_constraintStart_toEndOf="@+id/staticPrice"
             app:layout_constraintTop_toTopOf="@+id/staticPrice" />
 
         <TextView
             android:id="@+id/unitPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
             android:text="원"
             android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/productPrice"
             app:layout_constraintTop_toTopOf="@+id/productPrice" />
+        <TextView
+            android:id="@+id/staticCloseTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="35dp"
+            android:text="마감 시간"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/productTitle"
+            app:layout_constraintTop_toTopOf="@+id/productTitle"
+            />
+
+        <TextView
+            android:id="@+id/textCloseTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="hh:MM:ss"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/staticCloseTime"
+            app:layout_constraintTop_toTopOf="@+id/staticCloseTime" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
