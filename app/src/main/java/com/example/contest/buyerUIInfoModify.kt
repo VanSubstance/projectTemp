@@ -25,11 +25,15 @@ class buyerUIInfoModify : Fragment() {
 
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     val storage = FirebaseStorage.getInstance()
-    var imageUrl : Uri? = null
-    var pw : String = ""
+    var imageUrl: Uri? = null
+    var pw: String = ""
 
 
-    override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.buyer_ui_info_modify, container, false)
         var dataImage = storage.getReference("userImageDB")
         val imageSize: Long = 1024 * 1024 * 10
@@ -48,6 +52,7 @@ class buyerUIInfoModify : Fragment() {
         data.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
             }
+
             override fun onDataChange(p0: DataSnapshot) {
                 inputName.setText(p0.child("Name").value.toString())
                 inputNickName.setText(p0.child("nickName").value.toString())
@@ -62,30 +67,29 @@ class buyerUIInfoModify : Fragment() {
         })
 
         view.changeImageUser.setOnClickListener {
-            val intent : Intent = Intent(Intent.ACTION_GET_CONTENT)
+            val intent: Intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.setType("image/*")
             startActivityForResult(Intent.createChooser(intent, "사용할 애플리케이션"), 1)
         }
 
         view.buttonConfirm.setOnClickListener {
-            if (!pw.equals(inputCurrentPassword.text.toString())) {
-                Toast.makeText(requireContext(), "현재 비밀번호를 잘못 입력했습니다", Toast.LENGTH_SHORT).show()
-            } else {
-                data.child("Name").setValue(inputName.text.toString())
-                data.child("nickName").setValue(inputNickName.text.toString())
-                data.child("pNum").setValue(inputPhoneNumber.text.toString())
+            if (!inputChangePassword.text.toString().isEmpty()) {
                 data.child("pw").setValue(inputChangePassword.text.toString())
-                data.child("ctgr").child("정육점").setValue(checkButcher.isChecked)
-                data.child("ctgr").child("생선가게").setValue(checkFishShop.isChecked)
-                data.child("ctgr").child("잡화점").setValue(checkGenearl.isChecked)
-                data.child("ctgr").child("채소가게").setValue(checkGreengrocer.isChecked)
-                data.child("ctgr").child("완제품").setValue(checkComplete.isChecked)
-                if (imageUrl != null) {
-                    // 사진 바꿈
-                    dataImage.child(userInfo.id + ".png").putFile(imageUrl!!)
-                }
-                (activity as buyerUIMain).setBuyerFrag(31)
             }
+            data.child("Name").setValue(inputName.text.toString())
+            data.child("nickName").setValue(inputNickName.text.toString())
+            data.child("pNum").setValue(inputPhoneNumber.text.toString())
+            data.child("ctgr").child("정육점").setValue(checkButcher.isChecked)
+            data.child("ctgr").child("생선가게").setValue(checkFishShop.isChecked)
+            data.child("ctgr").child("잡화점").setValue(checkGenearl.isChecked)
+            data.child("ctgr").child("채소가게").setValue(checkGreengrocer.isChecked)
+            data.child("ctgr").child("완제품").setValue(checkComplete.isChecked)
+            if (imageUrl != null) {
+                // 사진 바꿈
+                dataImage.child(userInfo.id + ".png").putFile(imageUrl!!)
+            }
+            (activity as buyerUIMain).setBuyerFrag(31)
+
         }
 
         view.buttonCancel.setOnClickListener {
