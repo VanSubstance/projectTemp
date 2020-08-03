@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,37 +8,26 @@
     android:orientation="vertical"
     tools:context=".sellerUIMain">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="9"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textTime"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:gravity="center"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:background="@drawable/element_border"
-            />
+        android:layout_height="wrap_content"
+        android:layout_weight="9">
 
         <FrameLayout
             android:id="@+id/main_frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
         </FrameLayout>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
+        android:id="@+id/layoutBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@drawable/element_border">
+        android:background="@drawable/element_border_black_1dp">
 
         <LinearLayout
             android:id="@+id/buyerHome"
@@ -45,7 +35,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:background="@drawable/element_border_thin"
+            android:background="@drawable/element_border_black_0_5dp"
             android:gravity="center">
             <ImageView
                 android:layout_width="match_parent"
@@ -60,6 +50,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:orientation="horizontal"
+            android:background="@drawable/element_border_black_0_5dp"
             android:gravity="center">
             <ImageView
                 android:layout_width="match_parent"
@@ -68,28 +59,12 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/buyerMarket"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:background="@drawable/element_border_thin"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="시장 테스트" />
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/buyerBasket"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
             android:orientation="horizontal"
+            android:background="@drawable/element_border_black_0_5dp"
             android:gravity="center">
             <ImageView
                 android:layout_width="match_parent"
@@ -103,7 +78,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:background="@drawable/element_border_thin"
+            android:background="@drawable/element_border_black_0_5dp"
             android:gravity="center">
             <ImageView
                 android:layout_width="match_parent"

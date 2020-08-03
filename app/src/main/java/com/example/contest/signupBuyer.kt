@@ -51,26 +51,30 @@ class signupBuyer : Fragment() {
             }
         }
         view.validateButton.setOnClickListener {
-            val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-            val myref: DatabaseReference = database.getReference("userDB")
-            myref.addValueEventListener(object : ValueEventListener {
-                override fun onCancelled(p0: DatabaseError) {
-                }
+            if (mID.text.toString().equals("")) {
+                Toast.makeText(requireContext(), "아이디를 입력해주세요", Toast.LENGTH_SHORT).show();
+            } else {
+                val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+                val myref: DatabaseReference = database.getReference("userDB")
+                myref.addValueEventListener(object : ValueEventListener {
+                    override fun onCancelled(p0: DatabaseError) {
+                    }
 
-                override fun onDataChange(p0: DataSnapshot) {
-                    var err = 0
-                    for (account in p0.children) {
-                        if(mID.text.toString().equals(account.key.toString())) {
-                            err = 1
-                            Toast.makeText(requireContext(), "존재하는 아이디 입니다.", Toast.LENGTH_SHORT).show();
+                    override fun onDataChange(p0: DataSnapshot) {
+                        var err = 0
+                        for (account in p0.children) {
+                            if(mID.text.toString().equals(account.key.toString())) {
+                                err = 1
+                                Toast.makeText(requireContext(), "존재하는 아이디 입니다.", Toast.LENGTH_SHORT).show();
+                            }
                         }
+                        if (err == 0) {
+                            Toast.makeText(requireContext(), "사용가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                        }
+                        err = 0
                     }
-                    if (err == 0) {
-                        Toast.makeText(requireContext(), "사용가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
-                    }
-                    err = 0
-                }
-            })
+                })
+            }
         }
         return view
     }

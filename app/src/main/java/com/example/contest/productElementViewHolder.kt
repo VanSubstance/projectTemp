@@ -38,7 +38,6 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
         when (usage) {
             // 판매자 이력
             2 -> {
-                elementView.findViewById<TextView>(R.id.productSoldDate).text = productElements.soldDate.toString()
                 elementView.setOnClickListener {
                     productClick(productElements)
                 }

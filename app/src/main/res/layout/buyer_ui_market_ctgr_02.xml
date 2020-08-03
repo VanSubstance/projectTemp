@@ -14,22 +14,25 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:id="@+id/buttonMeat"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@drawable/element_border_black_0_5dp"
+                >
 
                 <ImageView
                     android:id="@+id/imageMeat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:padding="0dp"
                     android:src="@drawable/ui_ctgr_meat_off"
                     android:text="육류" />
 
@@ -45,9 +48,12 @@
             <LinearLayout
                 android:id="@+id/buttonFish"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@drawable/element_border_black_0_5dp"
+                >
 
                 <ImageView
                     android:id="@+id/imageSeafood"
@@ -70,9 +76,12 @@
             <LinearLayout
                 android:id="@+id/buttonVegetable"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@drawable/element_border_black_0_5dp"
+                >
 
                 <ImageView
                     android:id="@+id/imageVegetable"
@@ -96,9 +105,12 @@
             <LinearLayout
                 android:id="@+id/buttonEtc"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@drawable/element_border_black_0_5dp"
+                >
 
                 <ImageView
                     android:id="@+id/imageEtc"
@@ -124,6 +136,7 @@
             android:id="@+id/main_frame03"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="9"
             >
 
         </FrameLayout>
