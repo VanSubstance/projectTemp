@@ -21,152 +21,154 @@
             android:id="@+id/staticTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_margin="10dp"
             android:text="상품 이름"
-            android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
         <TextView
             android:id="@+id/textTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:ems="10"
+            android:layout_margin="10dp"
             android:text=""
             android:textSize="15dp"
-            app:layout_constraintStart_toStartOf="@+id/staticTitle"
-            app:layout_constraintTop_toBottomOf="@+id/staticTitle" />
+            app:layout_constraintLeft_toLeftOf="@id/staticTitle"
+            app:layout_constraintTop_toBottomOf="@id/staticTitle"/>
 
-        <TextView
-            android:id="@+id/textPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:ems="10"
-            android:inputType="text"
-            android:text=""
-            android:textSize="15dp"
-            app:layout_constraintStart_toStartOf="@+id/staticPrice"
-            app:layout_constraintTop_toBottomOf="@+id/staticPrice" />
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/element_border_black_0_5dp"
+            />
 
         <TextView
             android:id="@+id/staticPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
             android:text="가격"
-            android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textQuan"
-            app:layout_constraintTop_toBottomOf="@+id/textQuan" />
+            app:layout_constraintTop_toBottomOf="@id/staticTitle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/textPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text=""
+            android:textSize="15dp"
+            app:layout_constraintLeft_toLeftOf="@id/staticPrice"
+            app:layout_constraintTop_toBottomOf="@id/staticPrice"/>
 
         <TextView
             android:id="@+id/textPriceUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
             android:text="원"
             android:textSize="15dp"
-            app:layout_constraintStart_toEndOf="@+id/textPrice"
-            app:layout_constraintTop_toTopOf="@+id/textPrice" />
-
-        <TextView
-            android:id="@+id/textQuanUnit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:text="개"
-            android:textSize="15dp"
-            app:layout_constraintStart_toEndOf="@+id/textQuan"
-            app:layout_constraintTop_toTopOf="@+id/textQuan" />
+            app:layout_constraintLeft_toRightOf="@id/textPrice"
+            app:layout_constraintTop_toTopOf="@id/textPrice"/>
 
         <TextView
             android:id="@+id/staticServing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
             android:text="양"
-            android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textTitle"
-            app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+            app:layout_constraintTop_toBottomOf="@id/staticPrice"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
 
         <TextView
             android:id="@+id/textServing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:ems="10"
+            android:layout_margin="10dp"
             android:inputType="text"
             android:text=""
             android:textSize="15dp"
-            app:layout_constraintStart_toStartOf="@+id/staticServing"
-            app:layout_constraintTop_toBottomOf="@+id/staticServing" />
+            app:layout_constraintLeft_toLeftOf="@id/staticServing"
+            app:layout_constraintTop_toBottomOf="@id/staticServing"
+            />
 
         <TextView
-            android:id="@+id/textQuan"
+            android:id="@+id/textQuanUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:ems="10"
-            android:inputType="text"
-            android:text=""
-            android:textSize="15dp"
-            app:layout_constraintStart_toStartOf="@+id/staticQuan"
-            app:layout_constraintTop_toBottomOf="@+id/staticQuan" />
-
-        <TextView
-            android:id="@+id/textServingUnit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
             android:text="인분"
             android:textSize="15dp"
-            app:layout_constraintStart_toEndOf="@+id/textServing"
-            app:layout_constraintTop_toTopOf="@+id/textServing" />
+            app:layout_constraintLeft_toRightOf="@id/textServing"
+            app:layout_constraintTop_toTopOf="@id/textServing"/>
 
         <TextView
             android:id="@+id/staticQuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
             android:text="수량"
-            android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/staticServing"
-            app:layout_constraintTop_toBottomOf="@+id/textServing" />
+            app:layout_constraintTop_toBottomOf="@id/staticServing"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/textQuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:inputType="text"
+            android:text=""
+            android:textSize="15dp"
+            app:layout_constraintLeft_toLeftOf="@id/staticQuan"
+            app:layout_constraintTop_toBottomOf="@id/staticQuan"
+            />
+
+        <TextView
+            android:id="@+id/textServingUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="개"
+            android:textSize="15dp"
+            app:layout_constraintLeft_toRightOf="@id/textQuan"
+            app:layout_constraintTop_toTopOf="@id/textQuan"/>
 
         <Button
             android:id="@+id/buttonCancel"
             style="@style/buttonView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="20dp"
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="60dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:text="장바구니에서 빼기"
+            android:textSize="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/buttonPurchase"
-            app:layout_constraintTop_toBottomOf="@+id/textPriceUnit" />
+            app:layout_constraintRight_toLeftOf="@id/buttonPurchase"
+            app:layout_constraintTop_toBottomOf="@id/staticServing" />
 
         <Button
             android:id="@+id/buttonPurchase"
             style="@style/buttonView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="10dp"
             android:text="구매"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/buttonCancel" />
+            android:textSize="15dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/staticServing" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

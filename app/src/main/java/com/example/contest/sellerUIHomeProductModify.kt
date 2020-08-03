@@ -38,7 +38,7 @@ class sellerUIHomeProductModify : Fragment() {
 
         view.textTitle.setText(productElement.title)
         view.textPrice.setText(productElement.price.toString())
-        view.textQuan.setText(productElement.quantity.toString())
+        view.textQuan.setText(productElement.serve.toString())
         imageData.getBytes(imageSize).addOnSuccessListener {
             byteArr = it
             val imageBitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
