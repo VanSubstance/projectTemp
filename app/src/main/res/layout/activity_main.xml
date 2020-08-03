@@ -71,7 +71,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/userID"
                 app:layout_constraintStart_toStartOf="@+id/userID"
                 app:layout_constraintTop_toBottomOf="@+id/userPW"
-                />
+/>
 
             <Button
                 android:id="@+id/SignUpButton"
