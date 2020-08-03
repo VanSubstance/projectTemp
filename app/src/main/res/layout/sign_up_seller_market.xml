@@ -20,32 +20,44 @@
 
     <LinearLayout
         android:id="@+id/barForSearch"
-        app:layout_constraintTop_toBottomOf="@id/staticSelectMarket"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/staticSelectMarket">
 
         <TextView
             android:id="@+id/staticMarketTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="시장 이름"
-            android:textSize="20dp"/>
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/inputMarketTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:layout_weight="4"
-            android:hint="시장 이름을 입력하세요"/>
+            android:hint="시장 이름을 입력하세요" />
 
         <Button
             android:id="@+id/buttonSearchMarket"
+            style="@style/buttonView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
             android:text="검색" />
     </LinearLayout>
 
