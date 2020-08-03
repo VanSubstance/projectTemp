@@ -13,7 +13,7 @@
         android:layout_height="45dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/editext_border"
@@ -23,13 +23,14 @@
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toStartOf="@+id/validateButton_seller"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1" />
 
     <EditText
         android:id="@+id/seller_pass"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/editext_border"
         android:ems="10"
         android:hint="패스워드"
@@ -37,7 +38,8 @@
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/validateButton_seller"
         app:layout_constraintStart_toStartOf="@+id/seller_id"
-        app:layout_constraintTop_toBottomOf="@+id/seller_id" />
+        app:layout_constraintTop_toBottomOf="@+id/seller_id"
+        app:layout_constraintVertical_weight="1" />
 
     <EditText
         android:id="@+id/seller_passck"
@@ -51,13 +53,30 @@
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/seller_pass"
         app:layout_constraintStart_toStartOf="@+id/seller_pass"
-        app:layout_constraintTop_toBottomOf="@+id/seller_pass" />
+        app:layout_constraintTop_toBottomOf="@+id/seller_pass"
+        app:layout_constraintVertical_weight="1" />
+
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/editext_border"
+        android:ems="10"
+        android:hint="이메일"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/seller_id"
+        app:layout_constraintStart_toStartOf="@+id/seller_id"
+        app:layout_constraintTop_toBottomOf="@+id/seller_passck"
+        app:layout_constraintVertical_weight="1" />
 
     <EditText
         android:id="@+id/seller_name"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/editext_border"
         android:ems="10"
         android:hint="이름"
@@ -65,7 +84,8 @@
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/seller_passck"
         app:layout_constraintStart_toStartOf="@+id/seller_passck"
-        app:layout_constraintTop_toBottomOf="@+id/seller_passck" />
+        app:layout_constraintTop_toBottomOf="@+id/et_email"
+        app:layout_constraintVertical_weight="1" />
 
     <EditText
         android:id="@+id/seller_Phone_number"
@@ -79,7 +99,8 @@
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/seller_name"
         app:layout_constraintStart_toStartOf="@+id/seller_name"
-        app:layout_constraintTop_toBottomOf="@+id/seller_name" />
+        app:layout_constraintTop_toBottomOf="@+id/seller_name"
+        app:layout_constraintVertical_weight="1" />
 
     <View
         android:id="@+id/view11"
@@ -106,7 +127,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/seller_id"
         app:layout_constraintStart_toStartOf="@+id/seller_Phone_number"
-        app:layout_constraintTop_toBottomOf="@+id/seller_Phone_number" />
+        app:layout_constraintTop_toBottomOf="@+id/seller_Phone_number"
+        app:layout_constraintVertical_weight="1" />
 
     <TextView
         android:id="@+id/address"
@@ -121,7 +143,8 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/buttonSelectMarket"
         app:layout_constraintStart_toStartOf="@+id/location"
-        app:layout_constraintTop_toBottomOf="@+id/location" />
+        app:layout_constraintTop_toBottomOf="@+id/location"
+        app:layout_constraintVertical_weight="1" />
 
     <EditText
         android:id="@+id/storeName"
@@ -135,7 +158,8 @@
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/buttonSelectMarket"
         app:layout_constraintStart_toStartOf="@+id/location"
-        app:layout_constraintTop_toBottomOf="@+id/address" />
+        app:layout_constraintTop_toBottomOf="@+id/address"
+        app:layout_constraintVertical_weight="1" />
 
     <TextView
         android:id="@+id/time_s"
@@ -148,7 +172,8 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/storeName"
         app:layout_constraintStart_toStartOf="@+id/storeName"
-        app:layout_constraintTop_toBottomOf="@+id/storeName" />
+        app:layout_constraintTop_toBottomOf="@+id/storeName"
+        app:layout_constraintVertical_weight="1" />
 
     <TextView
         android:id="@+id/time_E"
@@ -161,7 +186,8 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/time_s"
         app:layout_constraintStart_toStartOf="@+id/time_s"
-        app:layout_constraintTop_toBottomOf="@+id/time_s" />
+        app:layout_constraintTop_toBottomOf="@+id/time_s"
+        app:layout_constraintVertical_weight="1" />
 
     <TextView
         android:id="@+id/seller_cat"
@@ -170,13 +196,14 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:gravity="center_horizontal"
-        android:text="카테고리"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
+        android:text="카테고리"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/time_E"
         app:layout_constraintStart_toStartOf="@+id/time_E"
-        app:layout_constraintTop_toBottomOf="@+id/time_E" />
+        app:layout_constraintTop_toBottomOf="@+id/time_E"
+        app:layout_constraintVertical_weight="1" />
 
 
     <Button
@@ -255,5 +282,18 @@
         app:layout_constraintBottom_toBottomOf="@+id/seller_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/seller_id" />
+
+
+    <Button
+        android:id="@+id/certify_btn"
+        style="@style/buttonView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="인증하기"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_email"
+        app:layout_constraintEnd_toEndOf="@+id/validateButton_seller"
+        app:layout_constraintStart_toStartOf="@+id/validateButton_seller"
+        app:layout_constraintTop_toTopOf="@+id/et_email" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
