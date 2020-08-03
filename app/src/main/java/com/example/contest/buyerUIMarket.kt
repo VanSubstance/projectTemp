@@ -34,8 +34,7 @@ class buyerUIMarket : Fragment() {
 
         RecyclerView.layoutManager = linearLayoutManager
 
-
-        var data = database.getReference("marketDB").child(currentCondition.marketTitle).child("store")
+        var data = database.getReference("marketInfo").child(currentCondition.marketTitle).child("store")
         var sellers : ArrayList<String> = ArrayList()
         data.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -48,8 +47,8 @@ class buyerUIMarket : Fragment() {
             }
         })
         productElementList = ArrayList()
-        data = database.getReference("productTodayDB")
-        data.addListenerForSingleValueEvent(object : ValueEventListener {
+        var data2 = database.getReference("productTodayDB")
+        data2.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
             }
             override fun onDataChange(p0: DataSnapshot) {
