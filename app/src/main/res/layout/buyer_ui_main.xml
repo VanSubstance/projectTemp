@@ -23,67 +23,124 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:id="@+id/layoutBar"
+        style="@style/fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/element_border_black_1dp">
+        android:orientation="horizontal">
+
 
         <LinearLayout
             android:id="@+id/buyerHome"
+            style="@style/fragment"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:orientation="horizontal"
-            android:background="@drawable/element_border_black_0_5dp"
-            android:gravity="center">
+            android:background="@drawable/navi_press_event"
+            android:gravity="center"
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ui_main_home"/>
+                android:src="@drawable/ui_main_home" />
+
+            <View
+                android:id="@+id/view12"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#000000" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/buyerToday"
+            style="@style/fragment"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
+            android:background="@drawable/navi_press_event"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
             android:orientation="horizontal"
             android:background="@drawable/element_border_black_0_5dp"
             android:gravity="center">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ui_main_location"/>
+                android:src="@drawable/ui_main_location" />
+
+            <View
+                android:id="@+id/view13"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#000000" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buyerMarket"
+            style="@style/fragment"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/navi_press_event"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="시장 테스트" />
+
+            <View
+                android:id="@+id/view14"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#000000" />
+
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/buyerBasket"
+            style="@style/fragment"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:orientation="horizontal"
-            android:background="@drawable/element_border_black_0_5dp"
-            android:gravity="center">
+            android:background="@drawable/navi_press_event"
+            android:gravity="center"
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ui_main_basket"/>
+                android:src="@drawable/ui_main_basket" />
+
+            <View
+                android:id="@+id/view15"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#000000" />
+
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/buyerInfo"
+            style="@style/fragment"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:orientation="horizontal"
-            android:background="@drawable/element_border_black_0_5dp"
-            android:gravity="center">
+            android:background="@drawable/navi_press_event"
+            android:gravity="center"
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ui_main_info"/>
+                android:src="@drawable/ui_main_info" />
+
         </LinearLayout>
 
 

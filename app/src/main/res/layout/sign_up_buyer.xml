@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,80 +8,95 @@
 
     <EditText
         android:id="@+id/et_id"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/editext_border"
         android:ems="10"
         android:hint="ID"
         android:inputType="textWebEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/validateButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/et_pass"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/editext_border"
         android:ems="10"
         android:hint="패스워드"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/et_id"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/validateButton"
         app:layout_constraintStart_toStartOf="@+id/et_id"
         app:layout_constraintTop_toBottomOf="@+id/et_id" />
+
     <EditText
         android:id="@+id/et_passck"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/editext_border"
         android:ems="10"
         android:hint="패스워드 확인"
         android:inputType="textPassword"
+        android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/et_pass"
         app:layout_constraintStart_toStartOf="@+id/et_pass"
         app:layout_constraintTop_toBottomOf="@+id/et_pass" />
 
     <EditText
         android:id="@+id/et_name"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/editext_border"
         android:ems="10"
         android:hint="이름"
         android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:privateImeOptions="defaultInputmode=korean"
         app:layout_constraintEnd_toEndOf="@+id/et_passck"
         app:layout_constraintStart_toStartOf="@+id/et_passck"
-        app:layout_constraintTop_toBottomOf="@+id/et_passck"
-        android:privateImeOptions="defaultInputmode=korean"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/et_passck" />
 
     <EditText
         android:id="@+id/et_Phone_number"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/editext_border"
         android:ems="10"
         android:hint="핸드폰 번호"
         android:inputType="phone"
+        android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="@+id/et_name"
         app:layout_constraintStart_toStartOf="@+id/et_name"
         app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
     <LinearLayout
         android:id="@+id/staticCtgr"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/et_Phone_number"
-        android:orientation="horizontal">
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@+id/et_Phone_number"
+        app:layout_constraintTop_toBottomOf="@+id/et_Phone_number">
 
         <TextView
             android:id="@+id/preferCategoryModify"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="선호 카테고리 변경"
+            android:text="선호 카테고리"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -90,8 +106,12 @@
         android:id="@+id/layoutCtgr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/staticCtgr"
-        android:orientation="horizontal">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/btn_register"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/staticCtgr">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -101,6 +121,7 @@
 
             <CheckBox
                 android:id="@+id/checkButcher"
+                style="@style/MyCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -110,6 +131,7 @@
 
             <CheckBox
                 android:id="@+id/checkFishShop"
+                style="@style/MyCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -119,16 +141,19 @@
 
             <CheckBox
                 android:id="@+id/checkComplete"
+                style="@style/MyCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="완제품" />
 
         </LinearLayout>
 
         <LinearLayout
+            style="@style/MyCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -136,6 +161,7 @@
 
             <CheckBox
                 android:id="@+id/checkGreengrocer"
+                style="@style/MyCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -145,11 +171,13 @@
 
             <CheckBox
                 android:id="@+id/checkGenearl"
+                style="@style/MyCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="잡화점" />
 
         </LinearLayout>
@@ -158,23 +186,27 @@
 
     <Button
         android:id="@+id/btn_register"
+        style="@style/buttonView"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:text="회원가입완료(소비자)"
-        app:layout_constraintStart_toStartOf="@+id/et_Phone_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutCtgr" />
 
 
     <Button
         android:id="@+id/validateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginTop="28dp"
+        style="@style/buttonView"
+        android:layout_width="70dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
         android:text="중복확인"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
-        app:layout_constraintStart_toEndOf="@+id/et_id"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/et_id" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
