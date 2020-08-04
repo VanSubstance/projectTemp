@@ -77,13 +77,13 @@
                     app:layout_constraintTop_toBottomOf="@id/staticName" />
 
                 <TextView
-                    android:id="@+id/textStoreTitle"
+                    android:id="@+id/staicStoreTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="아무개네 가게"
                     android:textSize="20sp"
                     app:layout_constraintLeft_toRightOf="@id/staticStoreTitle"
-                    app:layout_constraintStart_toStartOf="@+id/textName"
+                    app:layout_constraintStart_toStartOf="@id/textName"
                     app:layout_constraintTop_toTopOf="@id/staticStoreTitle" />
 
                 <TextView
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:text="전화번호"
                     android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="@+id/textStoreTitle"
+                    app:layout_constraintStart_toStartOf="@+id/staicStoreTitle"
                     app:layout_constraintTop_toTopOf="@+id/staticPNum" />
                 
 
@@ -196,6 +196,29 @@
                     app:layout_constraintTop_toBottomOf="@+id/staticCtgrMeat"
                     app:layout_constraintBottom_toBottomOf="parent"
                     />
+
+                <TextView
+                    android:id="@+id/staticComfimPw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="비밀번호 확인"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="@id/staticCtgr"
+                    app:layout_constraintStart_toStartOf="@+id/staticCtgr"
+                    app:layout_constraintTop_toBottomOf="@id/staticCtgrMeat" />
+
+                <EditText
+                    android:id="@+id/textConfirmPw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ems="10"
+                    android:hint="현재 비밀번호 입력"
+                    android:inputType="textPassword"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="@id/staticCtgr"
+                    app:layout_constraintTop_toBottomOf="@+id/staticComfimPw" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
