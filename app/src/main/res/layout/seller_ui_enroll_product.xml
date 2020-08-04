@@ -30,16 +30,16 @@
 
         <EditText
             android:id="@+id/textProductTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/editext_border"
             android:ems="10"
             android:inputType="text"
             android:text=""
             android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/staticQuan"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textPrice"
             app:layout_constraintTop_toBottomOf="@id/staticProductTitle" />
 
         <TextView
@@ -61,7 +61,6 @@
             android:layout_height="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/editext_border"
             android:inputType="number"
             android:text=""
             android:textSize="15dp"
@@ -98,7 +97,6 @@
             android:layout_height="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/editext_border"
             android:inputType="number"
             android:text=""
             android:textSize="15dp"
@@ -135,7 +133,6 @@
             android:layout_height="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/editext_border"
             android:inputType="number"
             android:text=""
             android:textSize="15dp"

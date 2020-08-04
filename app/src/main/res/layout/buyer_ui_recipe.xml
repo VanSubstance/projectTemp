@@ -4,9 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/editext_border"
-    android:layout_margin="10dp">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/element_border_black_1dp"
+                android:background="#ffffff"
                 android:src="@drawable/ui_ctgr_meat_off"
                 android:text="육류" />
 
@@ -52,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/element_border_black_1dp"
+                android:background="#ffffff"
                 android:src="@drawable/ui_ctgr_seafood_off"
                 android:text="해산물" />
 
@@ -62,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/element_border_black_1dp"
+                android:background="#ffffff"
                 android:src="@drawable/ui_ctgr_vegetable_off"
                 android:text="채소류" />
 
@@ -73,7 +71,7 @@
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/element_border_black_1dp"
+                android:background="#ffffff"
                 android:src="@drawable/ui_ctgr_etc_off"
                 android:text="기타" />
 
