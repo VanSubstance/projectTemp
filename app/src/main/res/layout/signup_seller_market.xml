@@ -36,6 +36,7 @@
             android:id="@+id/staticMarketTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:gravity="center"
@@ -45,9 +46,12 @@
         <EditText
             android:id="@+id/textMarketTitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="4"
+            android:background="@drawable/editext_border"
+            android:gravity="center"
             android:hint="시장 이름을 입력하세요" />
 
         <Button
@@ -55,6 +59,7 @@
             style="@style/buttonView"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"

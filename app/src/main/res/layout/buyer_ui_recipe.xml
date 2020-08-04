@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/editext_border"
+    android:layout_margin="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,25 +17,32 @@
             android:id="@+id/staticRecipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="레시피"
-            android:textSize="15dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
-            />
+            android:text="레시피"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/view12"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="5dp"
+            android:background="#A9A9A9" />
 
         <GridLayout
             android:id="@+id/layoutBuyerUIMainCtgr1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:columnCount="4">
 
             <ImageButton
                 android:id="@+id/buttonRecipeMeat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_row="0"
-                android:layout_column="0"
                 android:layout_columnWeight="1"
-                android:background="#ffffff"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/element_border_black_1dp"
                 android:src="@drawable/ui_ctgr_meat_off"
                 android:text="육류" />
 
@@ -42,27 +51,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:text="해산물"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/element_border_black_1dp"
                 android:src="@drawable/ui_ctgr_seafood_off"
-                android:background="#ffffff"/>
+                android:text="해산물" />
 
             <ImageButton
                 android:id="@+id/buttonRecipeVegetable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:text="채소류"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/element_border_black_1dp"
                 android:src="@drawable/ui_ctgr_vegetable_off"
-                android:background="#ffffff"/>
+                android:text="채소류" />
 
             <ImageButton
                 android:id="@+id/buttonRecipeEtc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:text="기타"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/element_border_black_1dp"
                 android:src="@drawable/ui_ctgr_etc_off"
-                android:background="#ffffff"/>
+                android:text="기타" />
 
         </GridLayout>
 

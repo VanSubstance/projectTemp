@@ -30,16 +30,17 @@
 
         <EditText
             android:id="@+id/textProductTitle"
-            app:layout_constraintTop_toBottomOf="@id/staticProductTitle"
-            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/editext_border"
             android:ems="10"
             android:inputType="text"
             android:text=""
             android:textSize="15dp"
-            android:layout_marginLeft="20dp"
-            />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/staticProductTitle" />
 
         <TextView
             android:id="@+id/staticPrice"
@@ -56,26 +57,27 @@
 
         <EditText
             android:id="@+id/textPrice"
-            app:layout_constraintTop_toBottomOf="@id/staticPrice"
-            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_width="80dp"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/editext_border"
             android:inputType="number"
             android:text=""
             android:textSize="15dp"
-            android:layout_marginLeft="20dp"
-            />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/staticPrice" />
 
         <TextView
             android:id="@+id/staticPriceUnit"
-            app:layout_constraintTop_toBottomOf="@id/staticPrice"
-            app:layout_constraintLeft_toRightOf="@id/textPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:text="원"
             android:textSize="15dp"
-            android:layout_marginTop="10dp"
-            />
+            app:layout_constraintBottom_toBottomOf="@+id/textPrice"
+            app:layout_constraintLeft_toRightOf="@id/textPrice"
+            app:layout_constraintTop_toTopOf="@+id/textPrice" />
 
         <TextView
             android:id="@+id/staticQuan"
@@ -92,26 +94,27 @@
 
         <EditText
             android:id="@+id/textServing"
-            app:layout_constraintTop_toBottomOf="@id/staticQuan"
-            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_width="80dp"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/editext_border"
             android:inputType="number"
             android:text=""
             android:textSize="15dp"
-            android:layout_marginLeft="20dp"
-            />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/staticQuan" />
 
         <TextView
             android:id="@+id/staticServingUnit"
-            app:layout_constraintTop_toBottomOf="@id/staticQuan"
-            app:layout_constraintLeft_toRightOf="@id/textServing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:text="인분"
             android:textSize="15dp"
-            android:layout_marginTop="10dp"
-            />
+            app:layout_constraintBottom_toBottomOf="@+id/textServing"
+            app:layout_constraintLeft_toRightOf="@id/textServing"
+            app:layout_constraintTop_toTopOf="@+id/textServing" />
 
         <TextView
             android:id="@+id/staticServing"
@@ -128,48 +131,49 @@
 
         <EditText
             android:id="@+id/textQuan"
-            app:layout_constraintTop_toBottomOf="@id/staticServing"
-            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_width="80dp"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/editext_border"
             android:inputType="number"
             android:text=""
             android:textSize="15dp"
-            android:layout_marginLeft="20dp"
-            />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/staticServing" />
 
         <TextView
             android:id="@+id/staticQuanUnit"
-            app:layout_constraintTop_toBottomOf="@id/staticServing"
-            app:layout_constraintLeft_toRightOf="@id/textServing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:text="개"
             android:textSize="15dp"
-            android:layout_marginTop="10dp"
-            />
+            app:layout_constraintBottom_toBottomOf="@+id/textQuan"
+            app:layout_constraintLeft_toRightOf="@id/textServing"
+            app:layout_constraintTop_toTopOf="@+id/textQuan" />
 
         <Button
             android:id="@+id/buttonEnroll"
-            app:layout_constraintTop_toBottomOf="@id/staticServing"
-            app:layout_constraintRight_toLeftOf="@id/buttonCancel"
+            style="@style/buttonView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="추가(등록)"
             android:layout_marginTop="100dp"
             android:layout_marginRight="20dp"
-            />
+            android:text="추가(등록)"
+            app:layout_constraintRight_toLeftOf="@id/buttonCancel"
+            app:layout_constraintTop_toBottomOf="@id/staticServing" />
 
         <Button
             android:id="@+id/buttonCancel"
-            app:layout_constraintTop_toBottomOf="@id/staticServing"
-            app:layout_constraintRight_toRightOf="parent"
+            style="@style/buttonView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="취소"
             android:layout_marginTop="100dp"
             android:layout_marginRight="20dp"
-            />
+            android:text="취소"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/staticServing" />
 
         <TextView
             android:id="@+id/staticImage"
@@ -195,13 +199,14 @@
 
         <Button
             android:id="@+id/buttonChangeImage"
-            app:layout_constraintTop_toBottomOf="@id/imageProduct"
-            app:layout_constraintRight_toRightOf="parent"
+            style="@style/buttonView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="사진 변경"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:text="사진 변경"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageProduct" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/editext_border"
+    android:layout_margin="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,24 +16,26 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:orientation="horizontal"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/buttonMeat"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:background="@drawable/element_border_black_0_5dp"
-                >
+                android:background="@drawable/element_border_black_1dp"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/imageMeat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
                     android:layout_weight="1"
                     android:src="@drawable/ui_ctgr_meat_off"
                     android:text="육류" />
@@ -39,27 +43,27 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="육류"
                     android:layout_gravity="center"
-                    android:gravity="center"/>
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="육류" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/buttonFish"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:background="@drawable/element_border_black_0_5dp"
-                >
+                android:background="@drawable/element_border_black_1dp"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/imageSeafood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_margin="1dp"
                     android:padding="0dp"
                     android:src="@drawable/ui_ctgr_seafood_off"
                     android:text="해산물" />
@@ -67,55 +71,56 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="해산물"
                     android:layout_gravity="center"
-                    android:gravity="center"/>
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="해산물" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/buttonVegetable"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:background="@drawable/element_border_black_0_5dp"
-                >
+                android:background="@drawable/element_border_black_1dp"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/imageVegetable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
                     android:layout_weight="1"
                     android:padding="0dp"
                     android:src="@drawable/ui_ctgr_vegetable_off"
-                    android:text="채소"
-                    />
+                    android:text="채소" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="채소"
                     android:layout_gravity="center"
-                    android:gravity="center"/>
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="채소" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/buttonEtc"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:background="@drawable/element_border_black_0_5dp"
-                >
+                android:background="@drawable/element_border_black_1dp"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/imageEtc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
                     android:layout_weight="1"
                     android:padding="0dp"
                     android:src="@drawable/ui_ctgr_etc_off"
@@ -124,10 +129,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="기타"
                     android:layout_gravity="center"
-                    android:gravity="center"/>
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="기타" />
             </LinearLayout>
 
         </LinearLayout>
