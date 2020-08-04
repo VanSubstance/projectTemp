@@ -1,5 +1,6 @@
 package com.example.contest
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
@@ -10,10 +11,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.buyer_ui_main.*
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.*
-import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.buttonPurchase
-import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textPrice
-import kotlinx.android.synthetic.main.product_buyer_purchase.view.textQuan
-import kotlinx.android.synthetic.main.product_buyer_market_specific.view.*
 
 class buyerUIMain : AppCompatActivity() {
 
@@ -116,36 +113,31 @@ class buyerUIMain : AppCompatActivity() {
 
     // 상품의 세부사항을 보여주는 함수
     fun showProductSpecific(productElement: productElement, usage : Int) {
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         when (usage) {
             // 구매자 장바구니
             1 -> {
-                val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 val view = inflater.inflate(R.layout.product_buyer_basket_specific, null)
-                view.`@+id/textProductTitle`.text = productElement.title
-                view.textPrice.text = productElement.price.toString()
-                view.textServing.text = productElement.serve.toString()
+                // basket_specific 에 productElement의 값 넣어주기
 
-                val alertDialog = AlertDialog.Builder(this)
-                    .setTitle("상품 정보")
-                    .create()
-                // 구매 버튼
-                view.buttonPurchase.setOnClickListener{
+                val alertDialog = AlertDialog.Builder(this).create()
 
-                }
-                // 취소 버튼
-                view.buttonCancel.setOnClickListener {
-                    instantData.productList.remove(productElement)
-                    alertDialog.dismiss()
-                    setBuyerFrag(41)
-                }
+                // 버튼들 기능 선언해주기
+                    // 상품 데이터베이스 딲ㄸ까까따ㅏ까
+                    // 취소 버튼
+                        /**
+                        instantData.productList.remove(productElement)
+                        alertDialog.dismiss()
+                        setBuyerFrag(41)
+                        */
                 alertDialog.setView(view)
                 alertDialog.show()
             }
             // 구매자 완제품
             2 -> {
-                val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 val view = inflater.inflate(R.layout.product_buyer_market_specific, null)
-                view.`@+id/textProductTitle`.text = productElement.title
+                /**
+                view.textProductTitle.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
                 view.textQuan.text = productElement.serve.toString()
                 view.textQuanTotal.setText(productElement.quanTotal).toString()
@@ -156,27 +148,39 @@ class buyerUIMain : AppCompatActivity() {
                     .create()
                 // 구매 버튼
                 view.buttonPurchase.setOnClickListener{
+                    // 상품 데이터베이스 딲ㄸ까까따ㅏ까
 
                 }
                 // 장바구니 버튼
                 view.buttonBasket.setOnClickListener {
-                    val view2 = inflater.inflate(R.layout.product_buyer_purchase, null)
+                    val view3 = inflater.inflate(R.layout.product_buyer_purchase, null)
 
                     val alertDialog2 = AlertDialog.Builder(this)
                         .setTitle("상품 정보")
                         .create()
                     instantData.productList.add(productElement)
-                    alertDialog2.dismiss()
                     setBuyerFrag(24)
+                    // 확인 버튼
+                    view3.buttonConfirm.setOnClickListener {
+                        // 상품 데이터베이스 딲ㄸ까까따ㅏ까
+                        alertDialog2.dismiss()
+                    }
+                    // 취소 버튼
+                    view3.buttonCancel.setOnClickListener {
+                        alertDialog2.cancel()
+                    }
+                    alertDialog2.setView(view3)
+                    alertDialog2.show()
                 }
-                alertDialog.setView(view)
+                alertDialog.setView(view2)
                 alertDialog.show()
+                */
             }
             // 구매자 재료
             3 -> {
-                val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 val view = inflater.inflate(R.layout.product_buyer_market_specific, null)
-                view.`@+id/textProductTitle`.text = productElement.title
+                /**
+                view.textProductTitle.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
                 view.textQuan.text = productElement.serve.toString()
 
@@ -195,6 +199,7 @@ class buyerUIMain : AppCompatActivity() {
                 }
                 alertDialog.setView(view)
                 alertDialog.show()
+                */
             }
         }
     }
