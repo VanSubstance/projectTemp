@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.signup_buyer.*
 import kotlinx.android.synthetic.main.signup_buyer.view.*
 
 class signupBuyer : Fragment() {
@@ -21,7 +19,7 @@ class signupBuyer : Fragment() {
         val mID = view.textId
         val mPasswordText = view.textPw
         val mPasswordcheckText = view.textPwCheck
-        val mName = view.textName
+        val mName = view.staticName
         val mPnum = view.textPNum
 
         view.buttonConfirm.setOnClickListener {

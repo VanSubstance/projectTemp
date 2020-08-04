@@ -23,7 +23,7 @@ class signupSeller : Fragment() {
         val msID = view.textId
         val mPasswordText = view.textPw
         val mPasswordcheckText = view.textPwCheck
-        val mName = view.textName
+        val mName = view.staticName
         val mPnum = view.textPNum
 
         val mPickTimeBt_s = view.buttonTimepickOpen
@@ -40,7 +40,7 @@ class signupSeller : Fragment() {
                 Toast.makeText(requireContext(), "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
             } else if (textMarketTitle.text.equals("시장 이름")) {
                 Toast.makeText(requireContext(), "시장을 선택해주세요", Toast.LENGTH_SHORT).show()
-            } else if (textStoreTitle.text.equals("")) {
+            } else if (staicStoreTitle.text.equals("")) {
                 Toast.makeText(requireContext(), "매장 명을 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
             } else if (textTimeClose.text.equals("개점 시간") || textTimeOpen.text.equals("폐점 시간")) {
                 Toast.makeText(requireContext(), "개점, 폐점 시간을 정해주세요", Toast.LENGTH_SHORT).show()
@@ -53,7 +53,7 @@ class signupSeller : Fragment() {
                 val pnum = mPnum.text.toString()
                 val role: String = "seller"
                 val marketTitle = textMarketTitle.text.toString()
-                val storeTitle = textStoreTitle.text.toString()
+                val storeTitle = staicStoreTitle.text.toString()
                 val storeCtgr = staticSpinnerDate.text.toString()
                 val timeOpen = textTimeOpen.text.toString()
                 val timeClose = textTimeClose.text.toString()

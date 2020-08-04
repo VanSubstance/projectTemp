@@ -57,7 +57,7 @@
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <Button
-                    android:id="@+id/changeImageUser"
+                    android:id="@+id/buttonChangeImage"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="105dp"
@@ -81,7 +81,7 @@
                 android:layout_weight="0.5">
 
                 <TextView
-                    android:id="@+id/textName"
+                    android:id="@+id/staticName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -97,7 +97,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/inputName"
+                    android:id="@+id/textName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -119,7 +119,7 @@
                 android:layout_weight="0.5">
 
                 <TextView
-                    android:id="@+id/textNickName"
+                    android:id="@+id/staticNickName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -135,7 +135,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/inputNickName"
+                    android:id="@+id/textNickName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -163,7 +163,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/changePassword"
+                    android:id="@+id/staticPwChange"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -179,7 +179,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/inputChangePassword"
+                    android:id="@+id/textPwChange"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -206,7 +206,7 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/phoneNumber"
+                    android:id="@+id/staticPNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -222,7 +222,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/inputPhoneNumber"
+                    android:id="@+id/textPNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -249,7 +249,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/preferCategoryModify"
+                    android:id="@+id/staticCtgr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"

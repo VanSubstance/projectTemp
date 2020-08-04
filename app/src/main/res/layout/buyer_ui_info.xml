@@ -34,7 +34,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textName"
+                    android:id="@+id/staticName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
@@ -46,16 +46,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageUser" />
 
                 <TextView
-                    android:id="@+id/outputName"
+                    android:id="@+id/textName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/imageUser"
-                    app:layout_constraintTop_toTopOf="@+id/textName" />
+                    app:layout_constraintTop_toTopOf="@id/staticName" />
 
                 <TextView
-                    android:id="@+id/textNickName"
+                    android:id="@+id/staticNickName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
@@ -64,19 +64,19 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/imageUser"
-                    app:layout_constraintTop_toBottomOf="@+id/textName" />
+                    app:layout_constraintTop_toBottomOf="@id/staticName" />
 
                 <TextView
-                    android:id="@+id/outputNickName"
+                    android:id="@+id/textNickName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/imageUser"
-                    app:layout_constraintTop_toTopOf="@+id/textNickName" />
+                    app:layout_constraintTop_toTopOf="@+id/staticNickName" />
 
                 <TextView
-                    android:id="@+id/phoneNumber"
+                    android:id="@+id/staticPNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -88,19 +88,19 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/imageUser"
-                    app:layout_constraintTop_toBottomOf="@+id/textNickName" />
+                    app:layout_constraintTop_toBottomOf="@+id/staticNickName" />
 
                 <TextView
-                    android:id="@+id/outputPhoneNumber"
+                    android:id="@+id/textPNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/imageUser"
-                    app:layout_constraintTop_toTopOf="@+id/phoneNumber" />
+                    app:layout_constraintTop_toTopOf="@+id/staticPNum" />
 
                 <TextView
-                    android:id="@+id/preferCategory"
+                    android:id="@+id/staticCtgr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
@@ -110,21 +110,21 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/imageUser"
-                    app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+                    app:layout_constraintTop_toBottomOf="@+id/staticPNum" />
 
                 <TextView
-                    android:id="@+id/outputPreferButcher"
+                    android:id="@+id/staticCtgrMeat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:text="정육점"
                     android:textSize="20sp"
                     android:visibility="gone"
-                    app:layout_constraintStart_toStartOf="@+id/preferCategory"
-                    app:layout_constraintTop_toBottomOf="@+id/preferCategory" />
+                    app:layout_constraintStart_toStartOf="@+id/staticCtgr"
+                    app:layout_constraintTop_toBottomOf="@+id/staticCtgr" />
 
                 <TextView
-                    android:id="@+id/outputPreferGreengrocer"
+                    android:id="@+id/staticCtgrVegetable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
@@ -132,11 +132,11 @@
                     android:text="채소가게"
                     android:textSize="20sp"
                     android:visibility="gone"
-                    app:layout_constraintStart_toEndOf="@+id/outputPreferButcher"
-                    app:layout_constraintTop_toTopOf="@+id/outputPreferButcher" />
+                    app:layout_constraintStart_toEndOf="@id/staticCtgrMeat"
+                    app:layout_constraintTop_toTopOf="@id/staticCtgrMeat" />
 
                 <TextView
-                    android:id="@+id/outputPreferFishShop"
+                    android:id="@+id/staticCtgrFish"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
@@ -144,11 +144,11 @@
                     android:text="생선가게"
                     android:textSize="20sp"
                     android:visibility="gone"
-                    app:layout_constraintStart_toEndOf="@+id/outputPreferGreengrocer"
-                    app:layout_constraintTop_toTopOf="@+id/outputPreferGenearl" />
+                    app:layout_constraintStart_toEndOf="@+id/staticCtgrVegetable"
+                    app:layout_constraintTop_toTopOf="@+id/staticCtgrGeneral" />
 
                 <TextView
-                    android:id="@+id/outputPreferGenearl"
+                    android:id="@+id/staticCtgrGeneral"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
@@ -156,11 +156,11 @@
                     android:text="잡화점"
                     android:textSize="20sp"
                     android:visibility="gone"
-                    app:layout_constraintStart_toEndOf="@+id/outputPreferFishShop"
-                    app:layout_constraintTop_toTopOf="@+id/outputPreferGreengrocer" />
+                    app:layout_constraintStart_toEndOf="@+id/staticCtgrFish"
+                    app:layout_constraintTop_toTopOf="@+id/staticCtgrVegetable" />
 
                 <TextView
-                    android:id="@+id/outputPreferComplete"
+                    android:id="@+id/staticCtgrComplete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
@@ -168,8 +168,8 @@
                     android:text="완제품"
                     android:textSize="20sp"
                     android:visibility="gone"
-                    app:layout_constraintStart_toEndOf="@+id/outputPreferGenearl"
-                    app:layout_constraintTop_toTopOf="@+id/outputPreferGreengrocer" />
+                    app:layout_constraintStart_toEndOf="@+id/staticCtgrGeneral"
+                    app:layout_constraintTop_toTopOf="@+id/staticCtgrVegetable" />
 
                 <Button
                     android:id="@+id/buttonConfirm"
@@ -193,12 +193,12 @@
                     android:layout_marginTop="10dp"
                     android:text="비밀번호 확인"
                     android:visibility="gone"
-                    app:layout_constraintLeft_toLeftOf="@id/preferCategory"
-                    app:layout_constraintStart_toStartOf="@+id/preferCategory"
-                    app:layout_constraintTop_toBottomOf="@+id/outputPreferButcher" />
+                    app:layout_constraintLeft_toLeftOf="@id/staticCtgr"
+                    app:layout_constraintStart_toStartOf="@+id/staticCtgr"
+                    app:layout_constraintTop_toBottomOf="@id/staticCtgrMeat" />
 
                 <EditText
-                    android:id="@+id/inputConfirmPw"
+                    android:id="@+id/textConfirmPw"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -206,7 +206,7 @@
                     android:hint="현재 비밀번호 입력"
                     android:inputType="textPassword"
                     android:visibility="gone"
-                    app:layout_constraintLeft_toLeftOf="@id/preferCategory"
+                    app:layout_constraintLeft_toLeftOf="@id/staticCtgr"
                     app:layout_constraintTop_toBottomOf="@+id/staticComfimPw" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
