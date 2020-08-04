@@ -144,21 +144,22 @@
 
             <TextView
                 android:id="@+id/textTimeOpen"
-                android:layout_width="187dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="30dp"
-                android:ems="10"
-                android:gravity="center_horizontal"
-                android:text="개점 시간"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/editext_border"
+                android:gravity="center"
+                android:hint="개점 시간"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/staicStoreTitle"
+                app:layout_constraintEnd_toStartOf="@+id/buttonTimepickOpen"
                 app:layout_constraintStart_toStartOf="@+id/staicStoreTitle"
                 app:layout_constraintTop_toBottomOf="@+id/staicStoreTitle" />
 
             <Button
                 android:id="@+id/buttonTimepickOpen"
                 style="@style/buttonView"
-                android:layout_width="70dp"
+                android:layout_width="80dp"
                 android:layout_height="0dp"
                 android:ems="5"
                 android:text="시간 선택"
@@ -169,21 +170,22 @@
 
             <TextView
                 android:id="@+id/textTimeClose"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="20dp"
-                android:ems="10"
-                android:gravity="center_horizontal"
-                android:text="폐점 시간"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/editext_border"
+                android:gravity="center"
+                android:hint="폐점 시간"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/textTimeOpen"
+                app:layout_constraintEnd_toStartOf="@+id/buttonTimepickClose"
                 app:layout_constraintStart_toStartOf="@+id/textTimeOpen"
                 app:layout_constraintTop_toBottomOf="@+id/textTimeOpen" />
 
             <Button
                 android:id="@+id/buttonTimepickClose"
                 style="@style/buttonView"
-                android:layout_width="70dp"
+                android:layout_width="80dp"
                 android:layout_height="0dp"
                 android:ems="5"
                 android:text="시간 선택"
@@ -194,23 +196,22 @@
 
             <TextView
                 android:id="@+id/staticSpinnerDate"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="20dp"
-                android:ems="10"
-                android:gravity="center_horizontal"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:text="카테고리"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/editext_border"
+                android:gravity="center"
+                android:hint="카테고리"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/textTimeClose"
+                app:layout_constraintEnd_toStartOf="@+id/buttonCtgr"
                 app:layout_constraintStart_toStartOf="@+id/textTimeClose"
                 app:layout_constraintTop_toBottomOf="@+id/textTimeClose" />
 
             <Button
                 android:id="@+id/buttonCtgr"
                 style="@style/buttonView"
-                android:layout_width="70dp"
+                android:layout_width="80dp"
                 android:layout_height="0dp"
                 android:ems="5"
                 android:text="카테고리"
@@ -228,7 +229,7 @@
                 android:layout_marginBottom="10dp"
                 android:text="완료"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/staticSpinnerDate"
+                app:layout_constraintEnd_toEndOf="@+id/buttonCtgr"
                 app:layout_constraintStart_toStartOf="@+id/staticSpinnerDate"
                 app:layout_constraintTop_toBottomOf="@+id/staticSpinnerDate" />
 
