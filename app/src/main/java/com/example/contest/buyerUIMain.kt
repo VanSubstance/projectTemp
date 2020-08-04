@@ -28,18 +28,18 @@ class buyerUIMain : AppCompatActivity() {
         // 구매자 화면 전환
         setBuyerFrag(11)
 
-        buyerHome.setOnClickListener {
+        buttonBuyerRecipe.setOnClickListener {
             setBuyerFrag(11)
         }
 
-        buyerToday.setOnClickListener {
+        buttonBuyerToday.setOnClickListener {
             setBuyerFrag(21)
         }
 
-        buyerInfo.setOnClickListener {
+        buttonBuyerInfo.setOnClickListener {
             setBuyerFrag(31)
         }
-        buyerBasket.setOnClickListener {
+        buttonBuyerBasket.setOnClickListener {
             setBuyerFrag(41)
         }
     }

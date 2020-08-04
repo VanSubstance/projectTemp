@@ -57,11 +57,11 @@ class buyerUIInfoModify : Fragment() {
                 inputName.setText(p0.child("Name").value.toString())
                 inputNickName.setText(p0.child("nickName").value.toString())
                 inputPhoneNumber.setText(p0.child("pNum").value.toString())
-                checkButcher.isChecked = p0.child("ctgr").child("정육점").value as Boolean
-                checkFishShop.isChecked = p0.child("ctgr").child("생선가게").value as Boolean
-                checkGenearl.isChecked = p0.child("ctgr").child("잡화점").value as Boolean
-                checkGreengrocer.isChecked = p0.child("ctgr").child("채소가게").value as Boolean
-                checkComplete.isChecked = p0.child("ctgr").child("완제품").value as Boolean
+                checkCtgrMeat.isChecked = p0.child("ctgr").child("정육점").value as Boolean
+                checkCtgrFish.isChecked = p0.child("ctgr").child("생선가게").value as Boolean
+                checkCtgrGeneral.isChecked = p0.child("ctgr").child("잡화점").value as Boolean
+                checkCtgrVegetable.isChecked = p0.child("ctgr").child("채소가게").value as Boolean
+                checkCtgrEtc.isChecked = p0.child("ctgr").child("완제품").value as Boolean
                 pw = p0.child("pw").value.toString()
             }
         })
@@ -79,11 +79,11 @@ class buyerUIInfoModify : Fragment() {
             data.child("Name").setValue(inputName.text.toString())
             data.child("nickName").setValue(inputNickName.text.toString())
             data.child("pNum").setValue(inputPhoneNumber.text.toString())
-            data.child("ctgr").child("정육점").setValue(checkButcher.isChecked)
-            data.child("ctgr").child("생선가게").setValue(checkFishShop.isChecked)
-            data.child("ctgr").child("잡화점").setValue(checkGenearl.isChecked)
-            data.child("ctgr").child("채소가게").setValue(checkGreengrocer.isChecked)
-            data.child("ctgr").child("완제품").setValue(checkComplete.isChecked)
+            data.child("ctgr").child("정육점").setValue(checkCtgrMeat.isChecked)
+            data.child("ctgr").child("생선가게").setValue(checkCtgrFish.isChecked)
+            data.child("ctgr").child("잡화점").setValue(checkCtgrGeneral.isChecked)
+            data.child("ctgr").child("채소가게").setValue(checkCtgrVegetable.isChecked)
+            data.child("ctgr").child("완제품").setValue(checkCtgrEtc.isChecked)
             if (imageUrl != null) {
                 // 사진 바꿈
                 dataImage.child(userInfo.id + ".png").putFile(imageUrl!!)

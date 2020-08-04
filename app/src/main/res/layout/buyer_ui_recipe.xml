@@ -27,7 +27,7 @@
             android:columnCount="4">
 
             <ImageButton
-                android:id="@+id/buttonRecipe1"
+                android:id="@+id/buttonRecipeMeat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -37,7 +37,7 @@
                 android:background="#00ff0000"/>
 
             <ImageButton
-                android:id="@+id/buttonRecipe2"
+                android:id="@+id/buttonRecipeFish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -47,7 +47,7 @@
                 android:background="#00ff0000"/>
 
             <ImageButton
-                android:id="@+id/buttonRecipe3"
+                android:id="@+id/buttonRecipeVegetable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -57,7 +57,7 @@
                 android:background="#00ff0000"/>
 
             <ImageButton
-                android:id="@+id/buttonRecipe4"
+                android:id="@+id/buttonRecipeEtc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"

@@ -8,23 +8,23 @@ import android.widget.CheckBox
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.sign_up_buyer.*
-import kotlinx.android.synthetic.main.sign_up_buyer.view.*
+import kotlinx.android.synthetic.main.signup_buyer.*
+import kotlinx.android.synthetic.main.signup_buyer.view.*
 
 class signupBuyer : Fragment() {
 
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.sign_up_buyer, container, false)
+        val view = inflater.inflate(R.layout.signup_buyer, container, false)
 
-        val mID = view.et_id
-        val mPasswordText = view.et_pass
-        val mPasswordcheckText = view.et_passck
-        val mName = view.et_name
-        val mPnum = view.et_Phone_number
+        val mID = view.textId
+        val mPasswordText = view.textPw
+        val mPasswordcheckText = view.textPwCheck
+        val mName = view.textName
+        val mPnum = view.textPNum
 
-        view.btn_register.setOnClickListener {
+        view.buttonConfirm.setOnClickListener {
             val DatabaseReference = database.reference
 
             if (mID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
@@ -41,16 +41,16 @@ class signupBuyer : Fragment() {
                 val info = data.toMap()
                 DatabaseReference.child("userDB").child(ID).setValue(info)
                 DatabaseReference.child("userDB").child(ID).child("nickName").setValue(ID)
-                DatabaseReference.child("userDB").child(ID).child("ctgr").child("정육점").setValue(view.checkButcher.isChecked)
-                DatabaseReference.child("userDB").child(ID).child("ctgr").child("생선가게").setValue(view.checkFishShop.isChecked)
-                DatabaseReference.child("userDB").child(ID).child("ctgr").child("채소가게").setValue(view.checkGreengrocer.isChecked)
-                DatabaseReference.child("userDB").child(ID).child("ctgr").child("잡화점").setValue(view.checkGenearl.isChecked)
-                DatabaseReference.child("userDB").child(ID).child("ctgr").child("완제품").setValue(view.checkComplete.isChecked)
+                DatabaseReference.child("userDB").child(ID).child("ctgr").child("정육점").setValue(view.checkCtgrMeat.isChecked)
+                DatabaseReference.child("userDB").child(ID).child("ctgr").child("생선가게").setValue(view.checkCtgrFish.isChecked)
+                DatabaseReference.child("userDB").child(ID).child("ctgr").child("채소가게").setValue(view.checkCtgrVegetable.isChecked)
+                DatabaseReference.child("userDB").child(ID).child("ctgr").child("잡화점").setValue(view.checkCtgrGeneral.isChecked)
+                DatabaseReference.child("userDB").child(ID).child("ctgr").child("완제품").setValue(view.checkCtgrEtc.isChecked)
 
                 (activity as signup_sellect).finish()
             }
         }
-        view.validateButton.setOnClickListener {
+        view.buttonCertifyId.setOnClickListener {
             if (mID.text.toString().equals("")) {
                 Toast.makeText(requireContext(), "아이디를 입력해주세요", Toast.LENGTH_SHORT).show();
             } else {

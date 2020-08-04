@@ -267,7 +267,7 @@
                 android:layout_height="100dp">
 
                 <EditText
-                    android:id="@+id/inputStoreName"
+                    android:id="@+id/inputtextStoreTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="30dp"
@@ -280,7 +280,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/StoreName"
+                    android:id="@+id/textStoreTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -362,7 +362,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <CheckBox
-                    android:id="@+id/checkButcher"
+                    android:id="@+id/checkCtgrMeat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="77dp"
@@ -373,18 +373,18 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <CheckBox
-                    android:id="@+id/checkFishShop"
+                    android:id="@+id/checkCtgrFish"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="10dp"
                     android:text="생선가게"
-                    app:layout_constraintStart_toEndOf="@+id/checkGenearl"
-                    app:layout_constraintTop_toBottomOf="@+id/checkGreengrocer" />
+                    app:layout_constraintStart_toEndOf="@+id/checkCtgrGeneral"
+                    app:layout_constraintTop_toBottomOf="@+id/checkCtgrVegetable" />
 
                 <CheckBox
-                    android:id="@+id/checkGenearl"
+                    android:id="@+id/checkCtgrGeneral"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="77dp"
@@ -392,26 +392,26 @@
                     android:layout_marginTop="10dp"
                     android:text="잡화점"
                     app:layout_constraintStart_toEndOf="@+id/StoreCategory"
-                    app:layout_constraintTop_toBottomOf="@+id/checkButcher" />
+                    app:layout_constraintTop_toBottomOf="@+id/checkCtgrMeat" />
 
                 <CheckBox
-                    android:id="@+id/checkGreengrocer"
+                    android:id="@+id/checkCtgrVegetable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
                     android:layout_marginLeft="30dp"
                     android:text="채소가게"
-                    app:layout_constraintStart_toEndOf="@+id/checkButcher"
-                    app:layout_constraintTop_toTopOf="@+id/checkButcher" />
+                    app:layout_constraintStart_toEndOf="@+id/checkCtgrMeat"
+                    app:layout_constraintTop_toTopOf="@+id/checkCtgrMeat" />
 
                 <CheckBox
-                    android:id="@+id/checkComplete2"
+                    android:id="@+id/checkCtgrEtc2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="완제품"
-                    app:layout_constraintStart_toStartOf="@+id/checkGenearl"
-                    app:layout_constraintTop_toBottomOf="@+id/checkGenearl" />
+                    app:layout_constraintStart_toStartOf="@+id/checkCtgrGeneral"
+                    app:layout_constraintTop_toBottomOf="@+id/checkCtgrGeneral" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

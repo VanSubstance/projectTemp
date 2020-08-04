@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import kotlinx.android.synthetic.main.seller_ui_main.*
-import kotlinx.android.synthetic.main.seller_ui_main.textTime
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -18,26 +17,18 @@ class sellerUIMain : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.seller_ui_main)
 
-        Thread(Runnable {
-            while (!Thread.interrupted()) try {
-                Thread.sleep(1000)
-                runOnUiThread { textTime.setText(getCurrentTime()) }
-            } catch (e: InterruptedException) {
-            }
-        }).start()
-
         //판매자 화면 전환
         setSellerFrag(11)
 
-        sellerHome.setOnClickListener {
+        buttonSellerHome.setOnClickListener {
             setSellerFrag(11)
         }
 
-        SellerHistory.setOnClickListener {
+        buttonSellerHistory.setOnClickListener {
             setSellerFrag(21)
         }
 
-        sellerInfo.setOnClickListener {
+        buttonSellerInfo.setOnClickListener {
             setSellerFrag(41)
         }
     }

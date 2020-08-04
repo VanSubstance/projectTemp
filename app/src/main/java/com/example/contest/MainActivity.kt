@@ -26,10 +26,10 @@ class MainActivity : AppCompatActivity() {
             }
         }).start()
 
-        loginButton.setOnClickListener {
-                login(userID.text.toString(), userPW.text.toString())
+        buttonLogin.setOnClickListener {
+                login(textUserID.text.toString(), textUserPW.text.toString())
         }
-        SignUpButton.setOnClickListener{
+        buttonSignUp.setOnClickListener{
             val SignUp_user=Intent(this,signup_sellect::class.java)
             startActivity(SignUp_user)
         }
@@ -84,11 +84,11 @@ private fun resetDB() {
         override fun onDataChange(p0: DataSnapshot) {
             for (market in p0.children) {
                 var title = market.child("marketTitle").value.toString()
-                var addr = market.child("address").value.toString()
+                var addr = market.child("textMarketAddress").value.toString()
                 var lat = market.child("latitude").value.toString()
                 var lon = market.child("longitude").value.toString()
                 data.child(title).child("marketTitle").setValue(title)
-                data.child(title).child("address").setValue(addr)
+                data.child(title).child("textMarketAddress").setValue(addr)
                 data.child(title).child("latitude").setValue(lat)
                 data.child(title).child("longitude").setValue(lon)
                 data.child(market.key.toString()).removeValue()

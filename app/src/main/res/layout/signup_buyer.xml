@@ -7,7 +7,7 @@
     android:layout_weight="1">
 
     <EditText
-        android:id="@+id/et_id"
+        android:id="@+id/textId"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginStart="20dp"
@@ -18,28 +18,28 @@
         android:background="@drawable/editext_border"
         android:ems="10"
         android:hint="ID"
-        android:inputType="textWebEmailAddress"
+        android:inputType="textWebEmailtextMarketAddress"
         android:paddingLeft="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/validateButton"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCertifyId"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_email"
+        android:id="@+id/textEmail"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/editext_border"
         android:ems="10"
         android:hint="이메일"
-        android:inputType="textEmailAddress"
+        android:inputType="textEmailtextMarketAddress"
         android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/et_id"
-        app:layout_constraintStart_toStartOf="@+id/et_passck"
-        app:layout_constraintTop_toBottomOf="@+id/et_passck" />
+        app:layout_constraintEnd_toEndOf="@+id/textId"
+        app:layout_constraintStart_toStartOf="@+id/textPwCheck"
+        app:layout_constraintTop_toBottomOf="@+id/textPwCheck" />
 
     <EditText
-        android:id="@+id/et_pass"
+        android:id="@+id/textPw"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="40dp"
@@ -48,12 +48,12 @@
         android:hint="패스워드"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/validateButton"
-        app:layout_constraintStart_toStartOf="@+id/et_id"
-        app:layout_constraintTop_toBottomOf="@+id/et_id" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonCertifyId"
+        app:layout_constraintStart_toStartOf="@+id/textId"
+        app:layout_constraintTop_toBottomOf="@+id/textId" />
 
     <EditText
-        android:id="@+id/et_passck"
+        android:id="@+id/textPwCheck"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
@@ -62,12 +62,12 @@
         android:hint="패스워드 확인"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/et_pass"
-        app:layout_constraintStart_toStartOf="@+id/et_pass"
-        app:layout_constraintTop_toBottomOf="@+id/et_pass" />
+        app:layout_constraintEnd_toEndOf="@+id/textPw"
+        app:layout_constraintStart_toStartOf="@+id/textPw"
+        app:layout_constraintTop_toBottomOf="@+id/textPw" />
 
     <EditText
-        android:id="@+id/et_name"
+        android:id="@+id/textName"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="40dp"
@@ -77,12 +77,12 @@
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:privateImeOptions="defaultInputmode=korean"
-        app:layout_constraintEnd_toEndOf="@+id/certify_btn"
-        app:layout_constraintStart_toStartOf="@+id/et_email"
-        app:layout_constraintTop_toBottomOf="@+id/et_email" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonCertifyEmail"
+        app:layout_constraintStart_toStartOf="@+id/textEmail"
+        app:layout_constraintTop_toBottomOf="@+id/textEmail" />
 
     <EditText
-        android:id="@+id/et_Phone_number"
+        android:id="@+id/textPNum"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
@@ -91,21 +91,20 @@
         android:hint="핸드폰 번호"
         android:inputType="phone"
         android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/et_name"
-        app:layout_constraintStart_toStartOf="@+id/et_name"
-        app:layout_constraintTop_toBottomOf="@+id/et_name" />
+        app:layout_constraintEnd_toEndOf="@+id/textName"
+        app:layout_constraintStart_toStartOf="@+id/textName"
+        app:layout_constraintTop_toBottomOf="@+id/textName" />
 
     <LinearLayout
-        android:id="@+id/staticCtgr"
+        android:id="@+id/staticCheckCtgr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@+id/et_Phone_number"
-        app:layout_constraintTop_toBottomOf="@+id/et_Phone_number">
+        app:layout_constraintStart_toStartOf="@+id/textPNum"
+        app:layout_constraintTop_toBottomOf="@+id/textPNum">
 
         <TextView
-            android:id="@+id/preferCategoryModify"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="선호 카테고리"
@@ -117,15 +116,15 @@
 
 
     <LinearLayout
-        android:id="@+id/layoutCtgr"
+        android:id="@+id/layoutCheckCtgr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/btn_register"
+        app:layout_constraintBottom_toTopOf="@+id/buttonConfirm"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/staticCtgr">
+        app:layout_constraintTop_toBottomOf="@id/staticCheckCtgr">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -134,7 +133,7 @@
             android:orientation="vertical">
 
             <CheckBox
-                android:id="@+id/checkButcher"
+                android:id="@+id/checkCtgrMeat"
                 style="@style/MyCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,7 +143,7 @@
                 android:text="정육점" />
 
             <CheckBox
-                android:id="@+id/checkFishShop"
+                android:id="@+id/checkCtgrFish"
                 style="@style/MyCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -154,7 +153,7 @@
                 android:text="생선가게" />
 
             <CheckBox
-                android:id="@+id/checkComplete"
+                android:id="@+id/checkCtgrEtc"
                 style="@style/MyCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -167,14 +166,13 @@
         </LinearLayout>
 
         <LinearLayout
-            style="@style/MyCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <CheckBox
-                android:id="@+id/checkGreengrocer"
+                android:id="@+id/checkCtgrVegetable"
                 style="@style/MyCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -184,7 +182,7 @@
                 android:text="채소가게" />
 
             <CheckBox
-                android:id="@+id/checkGenearl"
+                android:id="@+id/checkCtgrGeneral"
                 style="@style/MyCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -199,7 +197,7 @@
 
 
     <Button
-        android:id="@+id/btn_register"
+        android:id="@+id/buttonConfirm"
         style="@style/buttonView"
         android:layout_width="200dp"
         android:layout_height="45dp"
@@ -207,11 +205,11 @@
         android:text="완료"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutCtgr" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutCheckCtgr" />
 
 
     <Button
-        android:id="@+id/validateButton"
+        android:id="@+id/buttonCertifyId"
         style="@style/buttonView"
         android:layout_width="70dp"
         android:layout_height="0dp"
@@ -219,20 +217,20 @@
         android:layout_marginRight="15dp"
         android:text="중복확인"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/et_id"
+        app:layout_constraintBottom_toBottomOf="@+id/textId"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/et_id" />
+        app:layout_constraintTop_toTopOf="@+id/textId" />
 
     <Button
-        android:id="@+id/certify_btn"
+        android:id="@+id/buttonCertifyEmail"
         style="@style/buttonView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="인증하기"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/et_email"
-        app:layout_constraintEnd_toEndOf="@+id/validateButton"
-        app:layout_constraintStart_toStartOf="@+id/validateButton"
-        app:layout_constraintTop_toTopOf="@+id/et_email" />
+        app:layout_constraintBottom_toBottomOf="@+id/textEmail"
+        app:layout_constraintEnd_toEndOf="@+id/buttonCertifyId"
+        app:layout_constraintStart_toStartOf="@+id/buttonCertifyId"
+        app:layout_constraintTop_toTopOf="@+id/textEmail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,9 +13,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.sign_up_seller.*
-import kotlinx.android.synthetic.main.sign_up_seller_ctgr.view.*
-import kotlinx.android.synthetic.main.sign_up_seller_market.view.*
+import kotlinx.android.synthetic.main.signup_seller.*
 import kotlinx.android.synthetic.main.signup_sellect.*
 
 class signup_sellect : AppCompatActivity() {
@@ -27,12 +25,12 @@ class signup_sellect : AppCompatActivity() {
 
         val ft = supportFragmentManager.beginTransaction()
 
-        signup_buyer.setOnClickListener{
+        buttonSignupBuyer.setOnClickListener{
             main_frame.isVisible = true
             layoutRoleSelection.isVisible = false
             ft.replace(R.id.main_frame,signupBuyer()).commit()
         }
-        signup_seller.setOnClickListener{
+        buttonSignupSeller.setOnClickListener{
             main_frame.isVisible = true
             layoutRoleSelection.isVisible = false
             ft.replace(R.id.main_frame,signupSeller()).commit()
@@ -41,17 +39,17 @@ class signup_sellect : AppCompatActivity() {
 
     fun showCtgr() {
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val view = inflater.inflate(R.layout.sign_up_seller_ctgr, null)
+        val view = inflater.inflate(R.layout.signup_seller_ctgr, null)
 
         val alertDialog = AlertDialog.Builder(this)
             .create()
 
         var checkBoxes : ArrayList<CheckBox> = arrayListOf()
-        checkBoxes.add(view.checkMeat)
-        checkBoxes.add(view.checkSeaFood)
-        checkBoxes.add(view.checkVegetable)
-        checkBoxes.add(view.checkGrocery)
-        checkBoxes.add(view.checkComplete)
+        checkBoxes.add(view.checkCtgrMeat)
+        checkBoxes.add(view.checkCtgrFish)
+        checkBoxes.add(view.checkCtgrVegetable)
+        checkBoxes.add(view.checkCtgrGeneral)
+        checkBoxes.add(view.checkCtgrEtc)
         var settledCtgr : String = ""
 
         for (checkBox in checkBoxes) {
@@ -68,18 +66,18 @@ class signup_sellect : AppCompatActivity() {
                 // 기타 체크박스 체크했을때만 보이게
                 if (checkBoxes[4].isChecked) {
                     view.staticEtc.isVisible = false
-                    view.inputEtc.isVisible = true
+                    view.textEtc.isVisible = true
                 } else {
                     view.staticEtc.isVisible = true
-                    view.inputEtc.isVisible = false
+                    view.textEtc.isVisible = false
                 }
             }
         }
         view.buttonConfirm.setOnClickListener {
             if (checkBoxes[4].isChecked) {
-                settledCtgr = view.inputEtc.text.toString()
+                settledCtgr = view.textEtc.text.toString()
             }
-            seller_cat.setText(settledCtgr)
+            textCtgr.setText(settledCtgr)
             alertDialog.dismiss()
         }
         view.buttonCancel.setOnClickListener {
@@ -102,12 +100,12 @@ class signup_sellect : AppCompatActivity() {
                 for (market in p0.children) {
                     var marketEl = marketElement()
                     marketEl.title = market.child("marketTitle").value.toString()
-                    marketEl.addr = market.child("address").value.toString()
+                    marketEl.addr = market.child("textMarketAddress").value.toString()
                     marketList.add(marketEl)
                 }
 
                 val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-                val view = inflater.inflate(R.layout.sign_up_seller_market, null)
+                val view = inflater.inflate(R.layout.signup_seller_market, null)
                 alertDialog.setView(view)
                 alertDialog.show()
 
@@ -125,8 +123,8 @@ class signup_sellect : AppCompatActivity() {
                         id: Long
                     ) {
                         var item = parent?.getItemAtPosition(position) as marketElement
-                        location.setText(item.title)
-                        address.setText(item.addr)
+                        textMarketTitle.setText(item.title)
+                        textMarketAddress.setText(item.addr)
                         alertDialog.cancel()
                     }
                 }
