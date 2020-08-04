@@ -8,7 +8,8 @@ data class Post_s(
         var Name: String? = "",
         var pNum: String? = "",
         var role: String?="",
-        var market_n: String?=""
+        var market_n: String?="",
+        var market_t:String?=""
 ) {
 
     // [START post_to_map]
@@ -18,7 +19,8 @@ data class Post_s(
                 "Name" to Name,
                 "pNum" to pNum,
                 "role" to role,
-                "marketTitle" to market_n
+                "storeTitle" to market_n,
+                "marketTitle" to market_t
         )
     }
     // [END post_to_map]

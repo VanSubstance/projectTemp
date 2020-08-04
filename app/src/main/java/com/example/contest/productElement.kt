@@ -22,7 +22,7 @@ class productElement() {
     var ctgr: String = ""
     var buyerId: String = "undefined"
     var soldDate: String = ""
-    var soldTime = ""
+    var soldTime: String= ""
 
     // 등록시 사용하는 함수
     fun setInfo(
@@ -43,7 +43,7 @@ class productElement() {
         this.soldDate = SimpleDateFormat("yyyy-MM-dd").format(Date())
         this.quanTotal = quanTotal
         this.ctgr = ctgr
-        this.soldTime = soldTime
+        this.soldTime=soldTime
     }
 
     // 판매시
@@ -64,7 +64,7 @@ class productElement() {
             , "quanTotal" to quanTotal
             , "quanLeft" to quanLeft
             , "quanSold" to quanSold
-            , "soldTime" to soldTime
+            , "soldtime" to soldTime
         )
     }
 
@@ -80,6 +80,6 @@ class productElement() {
         quanLeft = product.child("quanLeft").value.toString().toInt()
         quanSold = product.child("quanSold").value.toString().toInt()
         ctgr = product.child("ctgr").value.toString()
-        soldTime = product.child("soldTime").value.toString()
+        soldTime=product.child("soldTime").value.toString()
     }
 }

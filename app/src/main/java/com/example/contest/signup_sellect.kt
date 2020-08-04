@@ -102,7 +102,7 @@ class signup_sellect : AppCompatActivity() {
                 for (market in p0.children) {
                     var marketEl = marketElement()
                     marketEl.title = market.child("marketTitle").value.toString()
-                    marketEl.addr = market.child("textMarketAddress").value.toString()
+                    marketEl.addr = market.child("address").value.toString()
                     marketList.add(marketEl)
                 }
 
