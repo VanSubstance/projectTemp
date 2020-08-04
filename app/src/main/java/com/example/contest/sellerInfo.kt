@@ -5,6 +5,7 @@ import com.google.firebase.database.Exclude
 
 @IgnoreExtraProperties
 data class Post_s(
+        var pw : String?="",
         var Name: String? = "",
         var pNum: String? = "",
         var role: String?="",
@@ -16,6 +17,7 @@ data class Post_s(
     @Exclude
     fun toMap_s(): Map<String, Any?> {
         return mapOf(
+                "pw" to pw,
                 "Name" to Name,
                 "pNum" to pNum,
                 "role" to role,

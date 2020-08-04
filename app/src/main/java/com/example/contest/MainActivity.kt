@@ -58,15 +58,16 @@ class MainActivity : AppCompatActivity() {
 
                             override fun onDataChange(p0: DataSnapshot) {
                                 if(p0.child("userDB").child(auth?.uid.toString()).child("role").value=="seller"){
+                                    userInfo.id=auth?.uid.toString()
+                                    userInfo.pw=password
                                     userInfo.role = p0.child("userDB").child(auth?.uid.toString()).child("role").value as String
                                     userInfo.pNum = p0.child("userDB").child(auth?.uid.toString()).child("pNum").value as String
-                                    userInfo.ctgrForSeller = p0.child("marketInfo").child("store").child("ctgr").value.toString()
-                                    userInfo.timeOpen = p0.child("marketInfo").child("store").child("timeOpen").value.toString()
-                                    userInfo.timeClose = p0.child("marketInfo").child("timeClose").value.toString()
+                                    userInfo.ctgrForSeller = p0.child("storeDB").child(auth?.uid.toString()).child("ctgr").value.toString()
+                                    userInfo.timeOpen = p0.child("storeDB").child(auth?.uid.toString()).child("timeOpen").value.toString()
+                                    userInfo.timeClose = p0.child("storeDB").child(auth?.uid.toString()).child("timeClose").value.toString()
                                     startActivity(sellerUI)
                                 }
                                 else{
-
                                     userInfo.role = p0.child("userDB").child(auth?.uid.toString()).child("role").value as String
                                     userInfo.pNum = p0.child("userDB").child(auth?.uid.toString()).child("pNum").value as String
                                     startActivity(buyerUI)
@@ -80,9 +81,47 @@ class MainActivity : AppCompatActivity() {
     }
     }
 
+// 이거 한 이유 설명좀 !! 
+private fun resetDB() {
+    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    var data = database.getReference("marketInfo")
+    data.addListenerForSingleValueEvent(object : ValueEventListener {
+        override fun onCancelled(p0: DatabaseError) {
+        }
+        override fun onDataChange(p0: DataSnapshot) {
+            for (market in p0.children) {
+                var title = market.child("marketTitle").value.toString()
+                var addr = market.child("address").value.toString()
+                var lat = market.child("latitude").value.toString()
+                var lon = market.child("longitude").value.toString()
+                data.child(title).child("marketTitle").setValue(title)
+                data.child(title).child("address").setValue(addr)
+                data.child(title).child("latitude").setValue(lat)
+                data.child(title).child("longitude").setValue(lon)
+                data.child(market.key.toString()).removeValue()
+            }
+        }
+
+    })
+}
 
 private fun pushProducts() {
-    // 오늘 자 데이터를 기록으로 밀어주기
+    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    val historyDB = database.getReference("productDB")
+    var todayDB = database.getReference("productTodayDB")
+    todayDB.addListenerForSingleValueEvent(object : ValueEventListener {
+        override fun onCancelled(p0: DatabaseError) {
+        }
+        override fun onDataChange(p0: DataSnapshot) {
+            for (element in p0.children) {
+                var product = productElement()
+                product.setFromDb(element)
+                product.soldDate = SimpleDateFormat("yyyyMMdd").format(Date()).toString()
+                historyDB.child(SimpleDateFormat("yyyyMMdd").format(Date()).toString()).child(product.productId).setValue(product.toMap())
+                todayDB.child(element.key.toString()).removeValue()
+            }
+        }
+    })
 }
 // 앱 실행부터 종료때까지 유저의 정보를 저장해두는 오브젝트
 // 자바의 static 개념으로 보면 됨
