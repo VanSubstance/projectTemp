@@ -17,7 +17,7 @@
         android:background="@drawable/element_border_black_1dp">
 
         <TextView
-            android:id="@+id/staticTitle"
+            android:id="@+id/staticProductTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -27,17 +27,17 @@
             app:layout_constraintLeft_toLeftOf="parent"/>
 
         <TextView
-            android:id="@+id/textTitle"
+            android:id="@+id/textProductTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text=""
             android:textSize="15dp"
-            app:layout_constraintLeft_toLeftOf="@id/staticTitle"
-            app:layout_constraintTop_toBottomOf="@id/staticTitle"/>
+            app:layout_constraintLeft_toLeftOf="@id/staticProductTitle"
+            app:layout_constraintTop_toBottomOf="@id/staticProductTitle"/>
 
         <ImageView
-            android:id="@+id/productImage"
+            android:id="@+id/imageProduct"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
@@ -54,7 +54,7 @@
             android:layout_marginTop="40dp"
             android:text="가격"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/staticTitle"
+            app:layout_constraintTop_toBottomOf="@id/staticProductTitle"
             app:layout_constraintLeft_toLeftOf="parent"
             />
 
@@ -69,7 +69,7 @@
             app:layout_constraintTop_toBottomOf="@id/staticPrice"/>
 
         <TextView
-            android:id="@+id/textPriceUnit"
+            android:id="@+id/staticPriceUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="원"
@@ -102,7 +102,7 @@
             />
 
         <TextView
-            android:id="@+id/textQuanUnit"
+            android:id="@+id/staticServingUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="인분"
@@ -135,7 +135,7 @@
         />
 
         <TextView
-            android:id="@+id/textServingUnit"
+            android:id="@+id/textQuanUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="개"
@@ -144,7 +144,7 @@
             app:layout_constraintTop_toTopOf="@id/textQuan"/>
 
         <TextView
-            android:id="@+id/textServingSlash"
+            android:id="@+id/textQuanSlash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -162,12 +162,12 @@
             android:inputType="text"
             android:text=""
             android:textSize="15dp"
-            app:layout_constraintLeft_toLeftOf="@id/textServingSlash"
+            app:layout_constraintLeft_toLeftOf="@id/textQuanSlash"
             app:layout_constraintTop_toBottomOf="@id/staticQuan"
             />
 
         <TextView
-            android:id="@+id/textServingUnitTotal"
+            android:id="@+id/textQuanUnitTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"

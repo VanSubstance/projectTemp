@@ -77,7 +77,7 @@ class signup_sellect : AppCompatActivity() {
             if (checkBoxes[4].isChecked) {
                 settledCtgr = view.textEtc.text.toString()
             }
-            textCtgr.setText(settledCtgr)
+            staticSpinnerDate.setText(settledCtgr)
             alertDialog.dismiss()
         }
         view.buttonCancel.setOnClickListener {

@@ -44,7 +44,7 @@ class signupSeller : Fragment() {
                 Toast.makeText(requireContext(), "매장 명을 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
             } else if (textTimeClose.text.equals("개점 시간") || textTimeOpen.text.equals("폐점 시간")) {
                 Toast.makeText(requireContext(), "개점, 폐점 시간을 정해주세요", Toast.LENGTH_SHORT).show()
-            } else if (textCtgr.text.equals("카테고리") || textCtgr.text.equals("")) {
+            } else if (staticSpinnerDate.text.equals("카테고리") || staticSpinnerDate.text.equals("")) {
                 Toast.makeText(requireContext(), "카테고리를 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
             } else{
                 val ID = msID.text.toString()
@@ -54,7 +54,7 @@ class signupSeller : Fragment() {
                 val role: String = "seller"
                 val marketTitle = textMarketTitle.text.toString()
                 val storeTitle = textStoreTitle.text.toString()
-                val storeCtgr = textCtgr.text.toString()
+                val storeCtgr = staticSpinnerDate.text.toString()
                 val timeOpen = textTimeOpen.text.toString()
                 val timeClose = textTimeClose.text.toString()
                 DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(storeTitle).child("seller").setValue(ID)

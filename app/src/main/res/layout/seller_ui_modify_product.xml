@@ -7,7 +7,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/staticTitle"
+        android:id="@+id/staticProductTitle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
@@ -19,8 +19,8 @@
         />
 
     <EditText
-        android:id="@+id/textTitle"
-        app:layout_constraintTop_toBottomOf="@id/staticTitle"
+        android:id="@+id/textProductTitle"
+        app:layout_constraintTop_toBottomOf="@id/staticProductTitle"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
 
     <TextView
         android:id="@+id/staticPrice"
-        app:layout_constraintTop_toTopOf="@id/staticTitle"
+        app:layout_constraintTop_toTopOf="@id/staticProductTitle"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
         />
 
     <TextView
-        android:id="@+id/textPriceUnit"
+        android:id="@+id/staticPriceUnit"
         app:layout_constraintTop_toBottomOf="@id/staticPrice"
         app:layout_constraintLeft_toRightOf="@id/textPrice"
         android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
         />
 
     <TextView
-        android:id="@+id/textServingUnit"
+        android:id="@+id/textQuanUnit"
         app:layout_constraintTop_toBottomOf="@id/staticServing"
         app:layout_constraintLeft_toRightOf="@id/textQuan"
         android:layout_width="wrap_content"
@@ -129,7 +129,7 @@
         />
 
     <TextView
-        android:id="@+id/textQuanUnit"
+        android:id="@+id/staticServingUnit"
         app:layout_constraintTop_toBottomOf="@id/staticQuan"
         app:layout_constraintLeft_toRightOf="@id/textQuan"
         android:layout_width="wrap_content"
@@ -163,8 +163,8 @@
 
     <TextView
         android:id="@+id/staticImage"
-        app:layout_constraintBottom_toTopOf="@id/productImage"
-        app:layout_constraintLeft_toLeftOf="@id/productImage"
+        app:layout_constraintBottom_toTopOf="@id/imageProduct"
+        app:layout_constraintLeft_toLeftOf="@id/imageProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="상품 사진"
@@ -173,8 +173,8 @@
         />
 
     <ImageView
-        android:id="@+id/productImage"
-        app:layout_constraintTop_toTopOf="@id/textTitle"
+        android:id="@+id/imageProduct"
+        app:layout_constraintTop_toTopOf="@id/textProductTitle"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="160dp"
         android:layout_height="160dp"
@@ -184,7 +184,7 @@
 
     <Button
         android:id="@+id/buttonChangeImage"
-        app:layout_constraintTop_toBottomOf="@id/productImage"
+        app:layout_constraintTop_toBottomOf="@id/imageProduct"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

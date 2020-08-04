@@ -172,7 +172,7 @@
                     app:layout_constraintTop_toTopOf="@+id/outputPreferGreengrocer" />
 
                 <Button
-                    android:id="@+id/buttonModify"
+                    android:id="@+id/buttonConfirm"
                     style="@style/buttonView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

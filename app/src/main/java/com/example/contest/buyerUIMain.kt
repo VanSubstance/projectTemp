@@ -12,11 +12,8 @@ import kotlinx.android.synthetic.main.buyer_ui_main.*
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.*
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.buttonPurchase
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textPrice
-import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textTitle
 import kotlinx.android.synthetic.main.product_buyer_purchase.view.textQuan
-import kotlinx.android.synthetic.main.product_buyer_purchase.view.textAcquire
 import kotlinx.android.synthetic.main.product_buyer_market_specific.view.*
-import kotlinx.android.synthetic.main.product_buyer_market_specific.view.textServing as textServing1
 
 class buyerUIMain : AppCompatActivity() {
 
@@ -124,7 +121,7 @@ class buyerUIMain : AppCompatActivity() {
             1 -> {
                 val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 val view = inflater.inflate(R.layout.product_buyer_basket_specific, null)
-                view.textTitle.text = productElement.title
+                view.`@+id/textProductTitle`.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
                 view.textServing.text = productElement.serve.toString()
 
@@ -148,7 +145,7 @@ class buyerUIMain : AppCompatActivity() {
             2 -> {
                 val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 val view = inflater.inflate(R.layout.product_buyer_market_specific, null)
-                view.textTitle.text = productElement.title
+                view.`@+id/textProductTitle`.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
                 view.textQuan.text = productElement.serve.toString()
                 view.textQuanTotal.setText(productElement.quanTotal).toString()
@@ -179,7 +176,7 @@ class buyerUIMain : AppCompatActivity() {
             3 -> {
                 val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 val view = inflater.inflate(R.layout.product_buyer_market_specific, null)
-                view.textTitle.text = productElement.title
+                view.`@+id/textProductTitle`.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
                 view.textQuan.text = productElement.serve.toString()
 

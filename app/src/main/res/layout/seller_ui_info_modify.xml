@@ -22,7 +22,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/personalInfoModify"
+                    android:id="@+id/staticUITitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -84,7 +84,7 @@
                 app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
-                    android:id="@+id/textName"
+                    android:id="@+id/staticName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -98,7 +98,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/inputName"
+                    android:id="@+id/textName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="30dp"
@@ -124,42 +124,7 @@
                 android:layout_height="100dp">
 
                 <TextView
-                    android:id="@+id/currentPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="현재 비밀번호"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/inpurtCurrentPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="30dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="현재 비밀번호"
-                    android:inputType="textPassword"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp">
-
-                <TextView
-                    android:id="@+id/changePassword"
+                    android:id="@+id/staticPwChange"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -175,7 +140,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/inputChangePassword"
+                    android:id="@+id/textPwChange"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -201,7 +166,7 @@
                 android:layout_height="100dp">
 
                 <TextView
-                    android:id="@+id/phoneNumber"
+                    android:id="@+id/staticPNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -217,7 +182,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/inputPhoneNumber"
+                    android:id="@+id/textPNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -301,41 +266,6 @@
                 android:layout_marginTop="5dp"
                 android:background="#A9A9A9" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp">
-
-                <TextView
-                    android:id="@+id/storeNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="매장번호"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/inputPhoneNumber2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="30dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="매장번호를 입력하세요"
-                    android:inputType="phone"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
             <View
                 android:id="@+id/view4"
                 android:layout_width="match_parent"
@@ -348,7 +278,7 @@
                 android:layout_height="150dp">
 
                 <TextView
-                    android:id="@+id/StoreCategory"
+                    android:id="@+id/staticCtgr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -369,7 +299,7 @@
                     android:layout_marginLeft="77dp"
                     android:layout_marginTop="20dp"
                     android:text="정육점"
-                    app:layout_constraintStart_toEndOf="@+id/StoreCategory"
+                    app:layout_constraintStart_toEndOf="@+id/staticCtgr"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <CheckBox
@@ -391,7 +321,7 @@
                     android:layout_marginLeft="77dp"
                     android:layout_marginTop="10dp"
                     android:text="잡화점"
-                    app:layout_constraintStart_toEndOf="@+id/StoreCategory"
+                    app:layout_constraintStart_toEndOf="@+id/staticCtgr"
                     app:layout_constraintTop_toBottomOf="@+id/checkCtgrMeat" />
 
                 <CheckBox
@@ -405,7 +335,7 @@
                     app:layout_constraintTop_toTopOf="@+id/checkCtgrMeat" />
 
                 <CheckBox
-                    android:id="@+id/checkCtgrEtc2"
+                    android:id="@+id/checkCtgrEtc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"

@@ -157,7 +157,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textEmail" />
 
             <TextView
-                android:id="@+id/textCtgr"
+                android:id="@+id/staticSpinnerDate"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -207,9 +207,9 @@
                 android:ems="5"
                 android:text="카테고리"
                 android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textCtgr"
+                app:layout_constraintBottom_toBottomOf="@+id/staticSpinnerDate"
                 app:layout_constraintEnd_toEndOf="@+id/buttonTimepickClose"
-                app:layout_constraintTop_toTopOf="@+id/textCtgr" />
+                app:layout_constraintTop_toTopOf="@+id/staticSpinnerDate" />
 
             <Button
                 android:id="@+id/buttonSelectMarket"
@@ -232,9 +232,9 @@
                 android:layout_marginBottom="10dp"
                 android:text="완료"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/textCtgr"
-                app:layout_constraintStart_toStartOf="@+id/textCtgr"
-                app:layout_constraintTop_toBottomOf="@+id/textCtgr" />
+                app:layout_constraintEnd_toEndOf="@+id/staticSpinnerDate"
+                app:layout_constraintStart_toStartOf="@+id/staticSpinnerDate"
+                app:layout_constraintTop_toBottomOf="@+id/staticSpinnerDate" />
 
             <Button
                 android:id="@+id/buttonCertifyId"
