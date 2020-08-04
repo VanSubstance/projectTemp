@@ -16,7 +16,7 @@ import java.time.LocalDateTime
 class productElementViewHolder(elementView : View, usage : Int, productClick: (productElement) -> Unit) : RecyclerView.ViewHolder(elementView) {
     val productImage = elementView.findViewById<ImageView>(R.id.imageProduct)
     val productTitle = elementView.findViewById<TextView>(R.id.textProductTitle)
-    val productPrice = elementView.findViewById<TextView>(R.id.productPrice)
+    val productPrice = elementView.findViewById<TextView>(R.id.textPrice)
     val productQuan = elementView.findViewById<TextView>(R.id.textQuan)
     val textCloseTime = elementView.findViewById<TextView>(R.id.textCloseTime)
     val usage : Int = usage
