@@ -13,6 +13,7 @@ import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     var auth : FirebaseAuth?= null
+    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +41,8 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun loginUserId(email: String, password: String) {
-        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-        val data = database.getReference("userDB")
+        val DatabaseReference = database.reference
+
         val sellerUI = Intent(this, sellerUIMain :: class.java)
         val buyerUI = Intent(this, buyerUIMain :: class.java)
 
@@ -50,16 +51,24 @@ class MainActivity : AppCompatActivity() {
                 ?.addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) { // 로그인 성공 시 이벤트 발생
                         Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
-                        data.addListenerForSingleValueEvent(object :ValueEventListener{
+                        DatabaseReference.addListenerForSingleValueEvent(object :ValueEventListener{
                             override fun onCancelled(p0: DatabaseError) {
                                 TODO("Not yet implemented")
                             }
 
                             override fun onDataChange(p0: DataSnapshot) {
-                                if(p0.child(auth?.uid.toString()).child("role").value=="seller"){
+                                if(p0.child("userDB").child(auth?.uid.toString()).child("role").value=="seller"){
+                                    userInfo.role = p0.child("userDB").child(auth?.uid.toString()).child("role").value as String
+                                    userInfo.pNum = p0.child("userDB").child(auth?.uid.toString()).child("pNum").value as String
+                                    userInfo.ctgrForSeller = p0.child("marketInfo").child("store").child("ctgr").value.toString()
+                                    userInfo.timeOpen = p0.child("marketInfo").child("store").child("timeOpen").value.toString()
+                                    userInfo.timeClose = p0.child("marketInfo").child("timeClose").value.toString()
                                     startActivity(sellerUI)
                                 }
                                 else{
+
+                                    userInfo.role = p0.child("userDB").child(auth?.uid.toString()).child("role").value as String
+                                    userInfo.pNum = p0.child("userDB").child(auth?.uid.toString()).child("pNum").value as String
                                     startActivity(buyerUI)
                                 }
                             }
