@@ -46,7 +46,7 @@ class signupBuyer : Fragment() {
                                 // 아이디 생성이 완료되었을 때
                                 val user = auth?.getCurrentUser()
                                 val uid=user?.uid
-                                val data = Post(name, pnum, role,nick)
+                                val data = Post(password,name, pnum, role,nick)
                                 val info = data.toMap()
                                 DatabaseReference.child("userDB").child(uid.toString()).setValue(info)
                                 DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("정육점").setValue(view.checkCtgrMeat.isChecked)

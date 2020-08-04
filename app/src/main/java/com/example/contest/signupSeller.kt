@@ -79,7 +79,7 @@ class signupSeller : Fragment() {
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("timeOpen").setValue(timeOpen)
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("timeClose").setValue(timeClose)
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("title").setValue(storeTitle)
-                                val data = Post_s(name, pnum, role,storeTitle,marketTitle)
+                                val data = Post_s(password,name, pnum, role,storeTitle,marketTitle)
                                 val info = data.toMap_s()
                                 DatabaseReference.child("userDB").child(uid.toString()).setValue(info)
                                 Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
