@@ -18,13 +18,13 @@ import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.overlay.InfoWindow.DefaultTextAdapter
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.Overlay
-import com.naver.maps.map.util.FusedtextMarketTitleSource
+import com.naver.maps.map.util.FusedLocationSource
 
 
 class buyerUIToday : Fragment(), OnMapReadyCallback {
 
-    private val ACCESS_textMarketTitle_PERMISSION_REQUEST_CODE = 100
-    private var textMarketTitleSource: FusedtextMarketTitleSource? = null
+    private val ACCESS_LOCATION_PERMISSION_REQUEST_CODE = 100
+    private var locationSource: FusedLocationSource? = null
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
@@ -43,10 +43,10 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
     }
 
     override fun onMapReady(naverMap: NaverMap) {
-        textMarketTitleSource = FusedtextMarketTitleSource(this, ACCESS_textMarketTitle_PERMISSION_REQUEST_CODE)
-        naverMap.settextMarketTitleSource(textMarketTitleSource);
+        locationSource = FusedLocationSource(this, ACCESS_LOCATION_PERMISSION_REQUEST_CODE)
+        naverMap.setLocationSource(locationSource);
         val uiSettings: UiSettings = naverMap.uiSettings
-        uiSettings.settextMarketTitleButtonEnabled(true)
+        uiSettings.setLocationButtonEnabled(true)
 
         var marketList : ArrayList<Marker> = arrayListOf()
         var infoWindowList : ArrayList<InfoWindow> = arrayListOf()
@@ -116,8 +116,8 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
-            ACCESS_textMarketTitle_PERMISSION_REQUEST_CODE -> {
-                textMarketTitleSource!!.onRequestPermissionsResult(requestCode, permissions, grantResults)
+            ACCESS_LOCATION_PERMISSION_REQUEST_CODE -> {
+                locationSource!!.onRequestPermissionsResult(requestCode, permissions, grantResults)
                 return
             }
         }
