@@ -11,6 +11,14 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.buyer_ui_main.*
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.*
+import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.buttonCancel
+import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.imageProduct
+import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textPrice
+import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textProductTitle
+import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textQuan
+import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textServing
+import kotlinx.android.synthetic.main.product_buyer_market_specific.view.*
+import kotlinx.android.synthetic.main.product_buyer_put.view.*
 
 class buyerUIMain : AppCompatActivity() {
 
@@ -116,90 +124,112 @@ class buyerUIMain : AppCompatActivity() {
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         when (usage) {
             // 구매자 장바구니
+
             1 -> {
                 val view = inflater.inflate(R.layout.product_buyer_basket_specific, null)
                 // basket_specific 에 productElement의 값 넣어주기
+                view.textProductTitle.text = productElement.title
+                view.imageProduct.setImageResource(R.drawable.test_02)
+                view.textPrice.text = productElement.price.toString()
+                view.textServing.text = productElement.serve.toString()
+                view.textQuan.text = productElement.quanTotal.toString()
 
                 val alertDialog = AlertDialog.Builder(this).create()
 
-                // 버튼들 기능 선언해주기
-                    // 상품 데이터베이스 딲ㄸ까까따ㅏ까
-                    // 취소 버튼
-                        /**
-                        instantData.productList.remove(productElement)
-                        alertDialog.dismiss()
-                        setBuyerFrag(41)
-                        */
+                // 장바구니 빼기 버튼 기능 구현
+
+                view.buttonCancel.setOnClickListener {
+                    instantData.productList.remove(productElement)
+                    alertDialog.dismiss()
+                    setBuyerFrag(41)
+                }
+
                 alertDialog.setView(view)
                 alertDialog.show()
             }
             // 구매자 완제품
             2 -> {
                 val view = inflater.inflate(R.layout.product_buyer_market_specific, null)
-                /**
+
                 view.textProductTitle.text = productElement.title
+                view.imageProduct.setImageResource(R.drawable.test_02)
                 view.textPrice.text = productElement.price.toString()
-                view.textQuan.text = productElement.serve.toString()
-                view.textQuanTotal.setText(productElement.quanTotal).toString()
-                view.textQuan.setText(productElement.quanLeft)
+                view.textServing.text = productElement.serve.toString()
+                view.textQuan.text = productElement.quanLeft.toString()
+                view.textQuanTotal.text = productElement.quanTotal.toString()
 
-                val alertDialog = AlertDialog.Builder(this)
-                    .setTitle("상품 정보")
-                    .create()
-                // 구매 버튼
-                view.buttonPurchase.setOnClickListener{
-                    // 상품 데이터베이스 딲ㄸ까까따ㅏ까
+                val alertDialog = AlertDialog.Builder(this).create()
 
-                }
-                // 장바구니 버튼
+                // 장바구니 담기 버튼
                 view.buttonBasket.setOnClickListener {
-                    val view3 = inflater.inflate(R.layout.product_buyer_purchase, null)
+                    val view2 = inflater.inflate(R.layout.product_buyer_put, null)
 
-                    val alertDialog2 = AlertDialog.Builder(this)
-                        .setTitle("상품 정보")
-                        .create()
+                    val alertDialog2 = AlertDialog.Builder(this).create()
+
                     instantData.productList.add(productElement)
                     setBuyerFrag(24)
-                    // 확인 버튼
-                    view3.buttonConfirm.setOnClickListener {
-                        // 상품 데이터베이스 딲ㄸ까까따ㅏ까
+
+                    // 장바구니 확인 버튼
+                    view2.buttonConfirm.setOnClickListener {
                         alertDialog2.dismiss()
                     }
-                    // 취소 버튼
-                    view3.buttonCancel.setOnClickListener {
+
+                    // 장바구니 취소 버튼
+                    view2.buttonCancel.setOnClickListener {
                         alertDialog2.cancel()
                     }
-                    alertDialog2.setView(view3)
+
+                    alertDialog2.setView(view2)
                     alertDialog2.show()
+
+
                 }
-                alertDialog.setView(view2)
+                alertDialog.setView(view)
                 alertDialog.show()
-                */
+
             }
             // 구매자 재료
             3 -> {
                 val view = inflater.inflate(R.layout.product_buyer_market_specific, null)
-                /**
+
                 view.textProductTitle.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
-                view.textQuan.text = productElement.serve.toString()
+                view.textQuan.text = productElement.quanLeft.toString()
+                view.textServing.text = productElement.serve.toString()
+                view.textQuanTotal.text = productElement.quanTotal.toString()
+                view.imageProduct.setImageResource(R.drawable.test_02)
 
-                val alertDialog = AlertDialog.Builder(this)
-                    .setTitle("상품 정보")
-                    .create()
+
+                val alertDialog = AlertDialog.Builder(this).setTitle("상품 정보").create()
                 // 구매 버튼
-                view.buttonPurchase.setOnClickListener{
 
-                }
                 // 장바구니 버튼
                 view.buttonBasket.setOnClickListener {
+                    val view2 = inflater.inflate(R.layout.product_buyer_put, null)
+
+                    val alertDialog2 = AlertDialog.Builder(this).create()
+
                     instantData.productList.add(productElement)
-                    alertDialog.dismiss()
                     setBuyerFrag(25)
+
+                    // 장바구니 확인 버튼
+                    view2.buttonConfirm.setOnClickListener {
+                        alertDialog2.dismiss()
+                    }
+
+                    // 장바구니 취소 버튼
+                    view2.buttonCancel.setOnClickListener {
+                        alertDialog2.cancel()
+                    }
+
+                    alertDialog2.setView(view2)
+                    alertDialog2.show()
+
+
                 }
                 alertDialog.setView(view)
                 alertDialog.show()
-                */
+
             }
         }
     }
