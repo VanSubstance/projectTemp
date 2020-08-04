@@ -46,7 +46,7 @@ class sellerUIHistoryAdapter(var historyElementListList: MutableMap<String, Arra
                 productElement ->
                 // 상품 정보가 떠야함 팝업으로
                 val view = LayoutInflater.from(context).inflate(R.layout.product_seller_history_specific, null)
-                view.`@+id/textProductTitle`.text = productElement.title
+                view.textProductTitle.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
                 view.textServing.text = productElement.serve.toString()
                 view.textSoldDate.text = productElement.soldDate
