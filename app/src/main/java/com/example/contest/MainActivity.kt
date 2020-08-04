@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
@@ -11,6 +12,8 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
+    var auth : FirebaseAuth?= null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         }).start()
 
         loginButton.setOnClickListener {
-                login(userID.text.toString(), userPW.text.toString())
+                loginUserId(userID.text.toString(), userPW.text.toString())
         }
         SignUpButton.setOnClickListener{
             val SignUp_user=Intent(this,signup_sellect::class.java)
@@ -36,44 +39,38 @@ class MainActivity : AppCompatActivity() {
         
 
     }
-
-    private fun login(id: String, pw: String) {
-        var err : Int = 0
-        userInfo.id = id
-        userInfo.pw = pw
+    fun loginUserId(email: String, password: String) {
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-
         val data = database.getReference("userDB")
         val sellerUI = Intent(this, sellerUIMain :: class.java)
         val buyerUI = Intent(this, buyerUIMain :: class.java)
-        data.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {
-            }
-            override fun onDataChange(p0: DataSnapshot) {
-                for (client in p0.children) {
-                    if (userInfo.id.equals(client.child("id").value) && userInfo.pw.equals(client.child("pw").value)) {
-                        err = 1
-                        userInfo.role = client.child("role").value as String
-                        userInfo.pNum = client.child("pNum").value as String
-                        if (userInfo.role.equals("seller")) {
-                            userInfo.ctgrForSeller = client.child("store").child("ctgr").value.toString()
-                            userInfo.timeOpen = client.child("store").child("timeOpen").value.toString()
-                            userInfo.timeClose = client.child("store").child("timeClose").value.toString()
-                            startActivity(sellerUI)
-                        } else {
-                            startActivity(buyerUI)
-                        }
+
+        auth = FirebaseAuth.getInstance()
+        auth?.signInWithEmailAndPassword(email, password)
+                ?.addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) { // 로그인 성공 시 이벤트 발생
+                        Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
+                        data.addListenerForSingleValueEvent(object :ValueEventListener{
+                            override fun onCancelled(p0: DatabaseError) {
+                                TODO("Not yet implemented")
+                            }
+
+                            override fun onDataChange(p0: DataSnapshot) {
+                                if(p0.child(auth?.uid.toString()).child("role").value=="seller"){
+                                    startActivity(sellerUI)
+                                }
+                                else{
+                                    startActivity(buyerUI)
+                                }
+                            }
+                        })
+                    } else {
+                        Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
                     }
                 }
-                if (err == 0) {
-                    // 아이디 비밀번호를 틀렸을 경우
-                    Toast.makeText(this@MainActivity, "아이디 또는 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()
-                }
-                err = 0
-            }
-        })
     }
-}
+    }
+
 
 private fun resetDB() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
