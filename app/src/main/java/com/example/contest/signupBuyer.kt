@@ -18,11 +18,11 @@ class signupBuyer : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.signup_buyer, container, false)
 
-        val mID = view.et_id
-        val mPasswordText = view.et_pass
-        val mPasswordcheckText = view.et_passck
-        val mName = view.et_name
-        val mPnum = view.et_Phone_number
+        val mID = view.textId
+        val mPasswordText = view.textPw
+        val mPasswordcheckText = view.textPwCheck
+        val mName = view.staticName
+        val mPnum = view.textPNum
         val mnick=view.buyer_nick
 
         view.buttonConfirm.setOnClickListener {
@@ -49,11 +49,11 @@ class signupBuyer : Fragment() {
                                 val data = Post(name, pnum, role,nick)
                                 val info = data.toMap()
                                 DatabaseReference.child("userDB").child(uid.toString()).setValue(info)
-                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("정육점").setValue(view.checkButcher.isChecked)
-                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("생선가게").setValue(view.checkFishShop.isChecked)
-                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("채소가게").setValue(view.checkGreengrocer.isChecked)
-                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("잡화점").setValue(view.checkGenearl.isChecked)
-                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("완제품").setValue(view.checkComplete.isChecked)
+                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("정육점").setValue(view.checkCtgrMeat.isChecked)
+                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("생선가게").setValue(view.checkCtgrFish.isChecked)
+                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("채소가게").setValue(view.checkCtgrVegetable.isChecked)
+                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("잡화점").setValue(view.checkCtgrGeneral.isChecked)
+                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("완제품").setValue(view.checkCtgrEtc.isChecked)
 
                                 Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
                                 (activity as signup_sellect).finish()
@@ -64,7 +64,7 @@ class signupBuyer : Fragment() {
                         }
             }
         }
-        view.validateButton.setOnClickListener{
+        view.buttonCertifyId.setOnClickListener{
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()
             val data = database.getReference("userDB")
             data.addListenerForSingleValueEvent(object:ValueEventListener{

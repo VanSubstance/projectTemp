@@ -9,7 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.seller_ui_info.*
 import kotlinx.android.synthetic.main.signup_seller.*
+import kotlinx.android.synthetic.main.signup_seller.staicStoreTitle
 import kotlinx.android.synthetic.main.signup_seller.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -57,11 +59,11 @@ class signupSeller : Fragment() {
                 val name = mName.text.toString()
                 val pnum = mPnum.text.toString()
                 val role: String = "seller"
-                val marketTitle = location.text.toString()
-                val storeTitle = storeName.text.toString()
-                val storeCtgr = seller_cat.text.toString()
-                val timeOpen = time_s.text.toString()
-                val timeClose = time_E.text.toString()
+                val marketTitle = textMarketTitle.text.toString()
+                val storeTitle = staticStoreTitle.text.toString()
+                val storeCtgr = staticSpinnerDate.text.toString()
+                val timeOpen = textTimeOpen.text.toString()
+                val timeClose = textTimeClose.text.toString()
                 auth?.createUserWithEmailAndPassword(ID, password)
                         ?.addOnCompleteListener(requireActivity()) { task ->
                             if (task.isSuccessful) {

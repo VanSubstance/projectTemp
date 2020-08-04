@@ -40,7 +40,7 @@
                 android:background="@drawable/editext_border2"
                 android:ems="10"
                 android:hint="아이디"
-                android:inputType="textEmailtextMarketAddress"
+                android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView2"
                 app:layout_constraintStart_toStartOf="@+id/imageView2"
