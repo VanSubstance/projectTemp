@@ -15,6 +15,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.signup_seller.*
 import kotlinx.android.synthetic.main.signup_sellect.*
+import kotlinx.android.synthetic.main.signup_seller_ctgr.view.*
+import kotlinx.android.synthetic.main.signup_seller_market.view.*
 
 class signup_sellect : AppCompatActivity() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
@@ -132,8 +134,8 @@ class signup_sellect : AppCompatActivity() {
                 view.buttonSearchMarket.setOnClickListener {
                     adapter.dropItem()
                     for (market in marketList) {
-                        var keyword = view.inputMarketTitle.text.toString()
-                        if (keyword == "" || market.title.contains(view.inputMarketTitle.text.toString())) {
+                        var keyword = view.textMarketTitle.text.toString()
+                        if (keyword == "" || market.title.contains(view.textMarketTitle.text.toString())) {
                             adapter.addItem(market)
                         }
                     }

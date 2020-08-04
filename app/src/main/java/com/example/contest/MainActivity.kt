@@ -3,12 +3,18 @@ package com.example.contest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
+    var auth : FirebaseAuth?= null
+    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         }).start()
 
         buttonLogin.setOnClickListener {
-                login(textUserID.text.toString(), textUserPW.text.toString())
+                loginUserId(textUserID.text.toString(), textUserPW.text.toString())
         }
         buttonSignUp.setOnClickListener{
             val SignUp_user=Intent(this,signup_sellect::class.java)
@@ -34,15 +40,46 @@ class MainActivity : AppCompatActivity() {
         
 
     }
+    fun loginUserId(email: String, password: String) {
+        val DatabaseReference = database.reference
 
-    private fun login(id: String, pw: String) {
-        var err : Int = 0
-        userInfo.id = id
-        userInfo.pw = pw
-        // 소비자 -> startActivity(buyerUI)
-        // 판매자 -> startActivity(sellerUI)
+        val sellerUI = Intent(this, sellerUIMain :: class.java)
+        val buyerUI = Intent(this, buyerUIMain :: class.java)
+
+        auth = FirebaseAuth.getInstance()
+        auth?.signInWithEmailAndPassword(email, password)
+                ?.addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) { // 로그인 성공 시 이벤트 발생
+                        Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
+                        DatabaseReference.addListenerForSingleValueEvent(object :ValueEventListener{
+                            override fun onCancelled(p0: DatabaseError) {
+                                TODO("Not yet implemented")
+                            }
+
+                            override fun onDataChange(p0: DataSnapshot) {
+                                if(p0.child("userDB").child(auth?.uid.toString()).child("role").value=="seller"){
+                                    userInfo.role = p0.child("userDB").child(auth?.uid.toString()).child("role").value as String
+                                    userInfo.pNum = p0.child("userDB").child(auth?.uid.toString()).child("pNum").value as String
+                                    userInfo.ctgrForSeller = p0.child("marketInfo").child("store").child("ctgr").value.toString()
+                                    userInfo.timeOpen = p0.child("marketInfo").child("store").child("timeOpen").value.toString()
+                                    userInfo.timeClose = p0.child("marketInfo").child("timeClose").value.toString()
+                                    startActivity(sellerUI)
+                                }
+                                else{
+
+                                    userInfo.role = p0.child("userDB").child(auth?.uid.toString()).child("role").value as String
+                                    userInfo.pNum = p0.child("userDB").child(auth?.uid.toString()).child("pNum").value as String
+                                    startActivity(buyerUI)
+                                }
+                            }
+                        })
+                    } else {
+                        Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
+                    }
+                }
     }
-}
+    }
+
 
 private fun pushProducts() {
     // 오늘 자 데이터를 기록으로 밀어주기

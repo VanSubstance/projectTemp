@@ -7,8 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.seller_ui_info.*
 import kotlinx.android.synthetic.main.signup_seller.*
+import kotlinx.android.synthetic.main.signup_seller.staicStoreTitle
 import kotlinx.android.synthetic.main.signup_seller.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -16,6 +19,8 @@ import java.util.*
 class signupSeller : Fragment() {
 
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    var auth : FirebaseAuth?= null
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.signup_seller, container, false)
@@ -34,6 +39,8 @@ class signupSeller : Fragment() {
 
         view.buttonConfirm.setOnClickListener {
             val DatabaseReference = database.reference
+            auth = FirebaseAuth.getInstance()
+
             if (msID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
                 Toast.makeText(requireContext(), "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
             } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
@@ -53,51 +60,30 @@ class signupSeller : Fragment() {
                 val pnum = mPnum.text.toString()
                 val role: String = "seller"
                 val marketTitle = textMarketTitle.text.toString()
-                val storeTitle = staicStoreTitle.text.toString()
+                val storeTitle = staticStoreTitle.text.toString()
                 val storeCtgr = staticSpinnerDate.text.toString()
                 val timeOpen = textTimeOpen.text.toString()
                 val timeClose = textTimeClose.text.toString()
-                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(storeTitle).child("seller").setValue(ID)
-                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(storeTitle).child("textStoreTitle").setValue(storeTitle)
-                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(storeTitle).child("ctgr").setValue(storeCtgr)
-                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(storeTitle).child("timeOpen").setValue(timeOpen)
-                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(storeTitle).child("timeClose").setValue(timeClose)
-                val data = Post(ID, password, name, pnum, role)
-                val info = data.toMap()
-                DatabaseReference.child("userDB").child(ID).setValue(info)
-                DatabaseReference.child("userDB").child(ID).child("marketTitle").setValue(marketTitle)
-                DatabaseReference.child("userDB").child(ID).child("store").child("seller").setValue(ID)
-                DatabaseReference.child("userDB").child(ID).child("store").child("textStoreTitle").setValue(storeTitle)
-                DatabaseReference.child("userDB").child(ID).child("store").child("ctgr").setValue(storeCtgr)
-                DatabaseReference.child("userDB").child(ID).child("store").child("timeOpen").setValue(timeOpen)
-                DatabaseReference.child("userDB").child(ID).child("store").child("timeClose").setValue(timeClose)
-                Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
-                (activity as signup_sellect).finish()
-            }
-        }
-        view.buttonCertifyId.setOnClickListener{
-            if (msID.text.toString().equals("")) {
-                Toast.makeText(requireContext(), "아이디를 입력해주세요", Toast.LENGTH_SHORT).show();
-            } else {
-                val database :FirebaseDatabase= FirebaseDatabase.getInstance()
-                val myref: DatabaseReference =database.getReference("userDB")
-                myref.addValueEventListener(object : ValueEventListener {
-                    override fun onCancelled(p0: DatabaseError) {
-                    }
-                    override fun onDataChange(p0: DataSnapshot) {
-                        var err = 0
-                        for (account in p0.children) {
-                            if(msID.text.toString().equals(account.key.toString())) {
-                                err = 1
-                                Toast.makeText(requireContext(), "존재하는 아이디 입니다", Toast.LENGTH_SHORT).show();
+                auth?.createUserWithEmailAndPassword(ID, password)
+                        ?.addOnCompleteListener(requireActivity()) { task ->
+                            if (task.isSuccessful) {
+                                // 아이디 생성이 완료되었을 때
+                                val user = auth?.getCurrentUser()
+                                val uid=user?.uid
+                                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(uid.toString()).child("storeName").setValue(storeTitle)
+                                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(uid.toString()).child("ctgr").setValue(storeCtgr)
+                                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(uid.toString()).child("timeOpen").setValue(timeOpen)
+                                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(uid.toString()).child("timeClose").setValue(timeClose)
+                                val data = Post_s(name, pnum, role,marketTitle)
+                                val info = data.toMap_s()
+                                DatabaseReference.child("userDB").child(uid.toString()).setValue(info)
+                                Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
+                                (activity as signup_sellect).finish()
+
+                            } else { // 아이디 생성이 실패했을 경우
+                                Toast.makeText(requireContext(), "이미 가입된 이메일이거나 잘못된 이메일입니다.", Toast.LENGTH_SHORT).show()
                             }
                         }
-                        if (err == 0) {
-                            Toast.makeText(requireContext(), "사용가능한 아이디입니다", Toast.LENGTH_SHORT).show();
-                        }
-                        err = 0
-                    }
-                })
             }
         }
 

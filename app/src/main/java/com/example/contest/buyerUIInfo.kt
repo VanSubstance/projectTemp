@@ -53,9 +53,9 @@ class buyerUIInfo : Fragment() {
                 view.textPNum.setText(p0.child("pNum").value.toString())
                 view.textNickName.setText(p0.child("nickName").value.toString())
                 if (p0.child("ctgr").child("정육점").value.toString().equals("true")) {
-                    view.outputPreferButcher.isVisible = true
+                    view.staticCtgrMeat.isVisible = true
                 } else {
-                    view.outputPreferButcher.isVisible = false
+                    view.staticCtgrMeat.isVisible = false
                 }
                 if (p0.child("ctgr").child("생선가게").value.toString().equals("true")) {
                     view.staticCtgrFish.isVisible = true
