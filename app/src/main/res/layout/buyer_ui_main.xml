@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".sellerUIMain"
-    android:background="@drawable/editext_border"
     android:layout_margin="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="9">
+        android:layout_weight="9"
+        android:background="@drawable/editext_border">
 
         <FrameLayout
             android:id="@+id/main_frame"
@@ -28,12 +28,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@drawable/editext_border"
         >
 
 
         <LinearLayout
-            android:id="@+id/buyerHome"
+            android:id="@+id/buttonBuyerRecipe"
             style="@style/fragment"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -57,7 +56,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/buyerToday"
+            android:id="@+id/buttonBuyerToday"
             style="@style/fragment"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -80,7 +79,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/buyerBasket"
+            android:id="@+id/buttonBuyerBasket"
             style="@style/fragment"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -103,7 +102,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/buyerInfo"
+            android:id="@+id/buttonBuyerInfo"
             style="@style/fragment"
             android:layout_width="0dp"
             android:layout_height="40dp"

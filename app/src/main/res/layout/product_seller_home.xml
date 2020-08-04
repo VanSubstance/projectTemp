@@ -7,7 +7,7 @@
     android:background="@drawable/element_border">
 
     <ImageView
-        android:id="@+id/productImage"
+        android:id="@+id/imageProduct"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginLeft="10dp"
@@ -19,58 +19,58 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textTitle"
+        android:id="@+id/staticProductTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:text="상품 이름"
         android:textSize="15dp"
-        app:layout_constraintLeft_toRightOf="@id/productImage"
+        app:layout_constraintLeft_toRightOf="@id/imageProduct"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/productTitle"
+        android:id="@+id/textProductTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="10dp"
         android:text="이름"
         android:textSize="15dp"
-        app:layout_constraintLeft_toRightOf="@id/textTitle"
+        app:layout_constraintLeft_toRightOf="@id/staticProductTitle"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textPrice"
+        android:id="@+id/staticPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:text="가격"
         android:textSize="15dp"
-        app:layout_constraintLeft_toRightOf="@id/productImage"
-        app:layout_constraintTop_toBottomOf="@id/textTitle" />
+        app:layout_constraintLeft_toRightOf="@id/imageProduct"
+        app:layout_constraintTop_toBottomOf="@id/staticProductTitle" />
 
     <TextView
-        android:id="@+id/productPrice"
+        android:id="@+id/textPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="얼마"
         android:textSize="15dp"
-        app:layout_constraintRight_toLeftOf="@id/textPriceUnit"
-        app:layout_constraintTop_toBottomOf="@id/textTitle" />
+        app:layout_constraintRight_toLeftOf="@id/staticPriceUnit"
+        app:layout_constraintTop_toBottomOf="@id/staticProductTitle" />
 
     <TextView
-        android:id="@+id/textPriceUnit"
+        android:id="@+id/staticPriceUnit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="10dp"
         android:text="원"
         android:textSize="15dp"
-        app:layout_constraintLeft_toRightOf="@id/textPrice"
-        app:layout_constraintTop_toBottomOf="@id/textTitle" />
+        app:layout_constraintLeft_toRightOf="@id/staticPrice"
+        app:layout_constraintTop_toBottomOf="@id/staticProductTitle" />
 
     <TextView
         android:id="@+id/staticQuan"
@@ -80,21 +80,21 @@
         android:layout_marginTop="10dp"
         android:text="양"
         android:textSize="15dp"
-        app:layout_constraintLeft_toRightOf="@id/textPrice"
+        app:layout_constraintLeft_toRightOf="@id/staticPrice"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/productQuan"
+        android:id="@+id/textQuan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="몇"
         android:textSize="15dp"
-        app:layout_constraintRight_toLeftOf="@id/textQuanUnit"
+        app:layout_constraintRight_toLeftOf="@id/staticServingUnit"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textQuanUnit"
+        android:id="@+id/staticServingUnit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
@@ -112,7 +112,7 @@
         android:layout_marginTop="10dp"
         android:text="남은 시간"
         android:textSize="15dp"
-        app:layout_constraintLeft_toRightOf="@id/textPrice"
+        app:layout_constraintLeft_toRightOf="@id/staticPrice"
         app:layout_constraintTop_toBottomOf="@id/staticQuan" />
 
     <TextView

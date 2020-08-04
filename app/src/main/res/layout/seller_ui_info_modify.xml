@@ -22,7 +22,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/personalInfoModify"
+                    android:id="@+id/staticUITitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -59,7 +59,7 @@
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <Button
-                    android:id="@+id/changeImageUser"
+                    android:id="@+id/buttonChangeImage"
                     style="@style/buttonView"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
                 app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
-                    android:id="@+id/textName"
+                    android:id="@+id/staticName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -98,7 +98,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/inputName"
+                    android:id="@+id/textName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="30dp"
@@ -124,42 +124,7 @@
                 android:layout_height="100dp">
 
                 <TextView
-                    android:id="@+id/currentPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="현재 비밀번호"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/inpurtCurrentPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="30dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="현재 비밀번호"
-                    android:inputType="textPassword"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp">
-
-                <TextView
-                    android:id="@+id/changePassword"
+                    android:id="@+id/staticPwChange"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -175,7 +140,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/inputChangePassword"
+                    android:id="@+id/textPwChange"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -201,7 +166,7 @@
                 android:layout_height="100dp">
 
                 <TextView
-                    android:id="@+id/phoneNumber"
+                    android:id="@+id/staticPNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -217,7 +182,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/inputPhoneNumber"
+                    android:id="@+id/textPNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -244,7 +209,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/storeInfoModify"
+                    android:id="@+id/staticStoreInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -266,21 +231,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp">
 
-                <EditText
-                    android:id="@+id/inputStoreName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginRight="30dp"
-                    android:ems="10"
-                    android:hint="가게명을 입력하세요"
-                    android:inputType="textPersonName"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <TextView
-                    android:id="@+id/StoreName"
+                    android:id="@+id/staicStoreTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -292,6 +244,20 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/textStoreTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginRight="30dp"
+                    android:ems="10"
+                    android:hint="가게명을 입력하세요"
+                    android:inputType="textPersonName"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
@@ -300,41 +266,6 @@
                 android:layout_height="0.5dp"
                 android:layout_marginTop="5dp"
                 android:background="#A9A9A9" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp">
-
-                <TextView
-                    android:id="@+id/storeNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="매장번호"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/inputPhoneNumber2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="30dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="매장번호를 입력하세요"
-                    android:inputType="phone"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:id="@+id/view4"
@@ -348,7 +279,7 @@
                 android:layout_height="150dp">
 
                 <TextView
-                    android:id="@+id/StoreCategory"
+                    android:id="@+id/staticCtgr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -362,56 +293,56 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <CheckBox
-                    android:id="@+id/checkButcher"
+                    android:id="@+id/checkCtgrMeat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="77dp"
                     android:layout_marginLeft="77dp"
                     android:layout_marginTop="20dp"
                     android:text="정육점"
-                    app:layout_constraintStart_toEndOf="@+id/StoreCategory"
+                    app:layout_constraintStart_toEndOf="@+id/staticCtgr"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <CheckBox
-                    android:id="@+id/checkFishShop"
+                    android:id="@+id/checkCtgrFish"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="10dp"
                     android:text="생선가게"
-                    app:layout_constraintStart_toEndOf="@+id/checkGenearl"
-                    app:layout_constraintTop_toBottomOf="@+id/checkGreengrocer" />
+                    app:layout_constraintStart_toEndOf="@+id/checkCtgrGeneral"
+                    app:layout_constraintTop_toBottomOf="@+id/checkCtgrVegetable" />
 
                 <CheckBox
-                    android:id="@+id/checkGenearl"
+                    android:id="@+id/checkCtgrGeneral"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="77dp"
                     android:layout_marginLeft="77dp"
                     android:layout_marginTop="10dp"
                     android:text="잡화점"
-                    app:layout_constraintStart_toEndOf="@+id/StoreCategory"
-                    app:layout_constraintTop_toBottomOf="@+id/checkButcher" />
+                    app:layout_constraintStart_toEndOf="@+id/staticCtgr"
+                    app:layout_constraintTop_toBottomOf="@+id/checkCtgrMeat" />
 
                 <CheckBox
-                    android:id="@+id/checkGreengrocer"
+                    android:id="@+id/checkCtgrVegetable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
                     android:layout_marginLeft="30dp"
                     android:text="채소가게"
-                    app:layout_constraintStart_toEndOf="@+id/checkButcher"
-                    app:layout_constraintTop_toTopOf="@+id/checkButcher" />
+                    app:layout_constraintStart_toEndOf="@+id/checkCtgrMeat"
+                    app:layout_constraintTop_toTopOf="@+id/checkCtgrMeat" />
 
                 <CheckBox
-                    android:id="@+id/checkComplete2"
+                    android:id="@+id/checkCtgrEtc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="완제품"
-                    app:layout_constraintStart_toStartOf="@+id/checkGenearl"
-                    app:layout_constraintTop_toBottomOf="@+id/checkGenearl" />
+                    app:layout_constraintStart_toStartOf="@+id/checkCtgrGeneral"
+                    app:layout_constraintTop_toBottomOf="@+id/checkCtgrGeneral" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -14,10 +14,10 @@ import java.time.LocalDateTime
 
 
 class productElementViewHolder(elementView : View, usage : Int, productClick: (productElement) -> Unit) : RecyclerView.ViewHolder(elementView) {
-    val productImage = elementView.findViewById<ImageView>(R.id.productImage)
-    val productTitle = elementView.findViewById<TextView>(R.id.productTitle)
-    val productPrice = elementView.findViewById<TextView>(R.id.productPrice)
-    val productQuan = elementView.findViewById<TextView>(R.id.productQuan)
+    val productImage = elementView.findViewById<ImageView>(R.id.imageProduct)
+    val productTitle = elementView.findViewById<TextView>(R.id.textProductTitle)
+    val productPrice = elementView.findViewById<TextView>(R.id.textPrice)
+    val productQuan = elementView.findViewById<TextView>(R.id.textQuan)
     val textCloseTime = elementView.findViewById<TextView>(R.id.textCloseTime)
     val usage : Int = usage
     val elementView = elementView
@@ -30,7 +30,7 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
     fun bind (productElements : productElement, context : Context) {
         productTitle.text = productElements.title
         productPrice.text = productElements.price.toString()
-        productQuan.text = productElements.quantity.toString()
+        productQuan.text = productElements.serve.toString()
         val imagePath = mStorageRef.child(productElements.productId + ".png")
         val imageSize: Long = 1024 * 1024 * 10
         imagePath.getBytes(imageSize).addOnSuccessListener {
@@ -47,7 +47,7 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
             }
             // 판매자 날짜에 따른 이력
             22 -> {
-                elementView.findViewById<TextView>(R.id.textDate).text = LocalDateTime.now().toString()
+                elementView.findViewById<TextView>(R.id.staticDate).text = LocalDateTime.now().toString()
                 elementView.setOnClickListener {
                     productClick(productElements)
                 }

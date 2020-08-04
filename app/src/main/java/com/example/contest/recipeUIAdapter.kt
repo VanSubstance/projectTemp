@@ -32,10 +32,10 @@ class recipeUIAdapter(var recipeElementList: ArrayList<recipeElement>, val conte
 
     inner class recipeUIViewHolder(elementView: View, productClick: (recipeElement) -> Unit) : RecyclerView.ViewHolder(elementView) {
 
-        val recipeImage = elementView.findViewById<ImageView>(R.id.recipeImage)
-        val recipeTitle = elementView.findViewById<TextView>(R.id.recipeTitle)
-        val recipeCtgr = elementView.findViewById<TextView>(R.id.recipeCtgr)
-        val recipeLevel = elementView.findViewById<ImageView>(R.id.recipeLevel)
+        val recipeImage = elementView.findViewById<ImageView>(R.id.imageRecipe)
+        val recipeTitle = elementView.findViewById<TextView>(R.id.textRecipeTitle)
+        val recipeCtgr = elementView.findViewById<TextView>(R.id.textRecipeCtgr)
+        val recipeLevel = elementView.findViewById<ImageView>(R.id.imageRecipeLevel)
         val elementView = elementView
         val productClick = productClick
 

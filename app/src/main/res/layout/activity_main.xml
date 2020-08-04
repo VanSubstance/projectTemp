@@ -32,7 +32,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/userID"
+                android:id="@+id/textUserID"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
@@ -40,14 +40,14 @@
                 android:background="@drawable/editext_border2"
                 android:ems="10"
                 android:hint="아이디"
-                android:inputType="textEmailAddress"
+                android:inputType="textEmailtextMarketAddress"
                 android:paddingLeft="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView2"
                 app:layout_constraintStart_toStartOf="@+id/imageView2"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
             <EditText
-                android:id="@+id/userPW"
+                android:id="@+id/textUserPW"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
@@ -59,10 +59,10 @@
                 android:paddingLeft="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView2"
                 app:layout_constraintStart_toStartOf="@+id/imageView2"
-                app:layout_constraintTop_toBottomOf="@+id/userID" />
+                app:layout_constraintTop_toBottomOf="@+id/textUserID" />
 
             <Button
-                android:id="@+id/loginButton"
+                android:id="@+id/buttonLogin"
                 style="@style/buttonView2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -70,22 +70,23 @@
                 android:layout_marginTop="50dp"
                 android:text="로그인"
                 android:textColor="#FFFFFF"
-                app:layout_constraintEnd_toEndOf="@+id/userID"
-                app:layout_constraintStart_toStartOf="@+id/userID"
-                app:layout_constraintTop_toBottomOf="@+id/userPW"
+                app:layout_constraintEnd_toEndOf="@+id/textUserID"
+                app:layout_constraintStart_toStartOf="@+id/textUserID"
+                app:layout_constraintTop_toBottomOf="@+id/textUserPW"
 />
 
             <Button
-                android:id="@+id/SignUpButton"
+                android:id="@+id/buttonSignUp"
                 style="@style/buttonView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="28dp"
                 android:text="회원가입"
-                app:layout_constraintEnd_toEndOf="@+id/loginButton"
-                app:layout_constraintStart_toStartOf="@+id/loginButton"
-                app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+                app:layout_constraintEnd_toEndOf="@+id/buttonLogin"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/buttonLogin"
+                app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

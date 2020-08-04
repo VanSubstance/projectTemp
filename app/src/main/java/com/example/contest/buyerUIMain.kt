@@ -1,5 +1,6 @@
 package com.example.contest
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
@@ -10,16 +11,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.buyer_ui_main.*
 import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.*
-import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.buttonPurchase
-import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textPrice
-import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textTitle
-import kotlinx.android.synthetic.main.product_buyer_market.view.*
-import kotlinx.android.synthetic.main.product_buyer_market_specific.view.*
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.concurrent.timer
-import kotlinx.android.synthetic.main.product_buyer_market_specific.view.textServing as textServing1
 
 class buyerUIMain : AppCompatActivity() {
 
@@ -31,18 +22,18 @@ class buyerUIMain : AppCompatActivity() {
         // 구매자 화면 전환
         setBuyerFrag(11)
 
-        buyerHome.setOnClickListener {
+        buttonBuyerRecipe.setOnClickListener {
             setBuyerFrag(11)
         }
 
-        buyerToday.setOnClickListener {
+        buttonBuyerToday.setOnClickListener {
             setBuyerFrag(21)
         }
 
-        buyerInfo.setOnClickListener {
+        buttonBuyerInfo.setOnClickListener {
             setBuyerFrag(31)
         }
-        buyerBasket.setOnClickListener {
+        buttonBuyerBasket.setOnClickListener {
             setBuyerFrag(41)
         }
     }
@@ -122,112 +113,76 @@ class buyerUIMain : AppCompatActivity() {
 
     // 상품의 세부사항을 보여주는 함수
     fun showProductSpecific(productElement: productElement, usage : Int) {
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         when (usage) {
             // 구매자 장바구니
             1 -> {
-                val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 val view = inflater.inflate(R.layout.product_buyer_basket_specific, null)
-                view.textTitle.text = productElement.title
-                view.textPrice.text = productElement.price.toString()
-                view.textServing.text = productElement.quantity.toString()
+                // basket_specific 에 productElement의 값 넣어주기
 
-                val alertDialog = AlertDialog.Builder(this)
-                    .setTitle("상품 정보")
-                    .create()
-                // 구매 버튼
-                view.buttonPurchase.setOnClickListener{
+                val alertDialog = AlertDialog.Builder(this).create()
 
-                }
-                // 취소 버튼
-                view.buttonCancel.setOnClickListener {
-                    instantData.productList.remove(productElement)
-                    alertDialog.dismiss()
-                    setBuyerFrag(41)
-                }
+                // 버튼들 기능 선언해주기
+                    // 상품 데이터베이스 딲ㄸ까까따ㅏ까
+                    // 취소 버튼
+                        /**
+                        instantData.productList.remove(productElement)
+                        alertDialog.dismiss()
+                        setBuyerFrag(41)
+                        */
                 alertDialog.setView(view)
                 alertDialog.show()
             }
             // 구매자 완제품
             2 -> {
-                val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 val view = inflater.inflate(R.layout.product_buyer_market_specific, null)
-                view.textTitle.text = productElement.title
+                /**
+                view.textProductTitle.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
-                view.textServing.text = productElement.quantity.toString()
-
-                // 타이머
-                var openTime = "20:00" + ":00"
-                var openTimeList = openTime.split(":")
-                var openTimeSec = (openTimeList[0].toInt() * 60 + openTimeList[1].toInt()) * 60 + openTimeList[2].toInt()
-                var closeTime = "21:00" + ":00"
-                var closeTimeList = closeTime.split(":")
-                var closeTimeSec = (closeTimeList[0].toInt() * 60 + closeTimeList[1].toInt()) * 60 + closeTimeList[2].toInt()
-                timer(period = 1000) {
-                    var currentTime = SimpleDateFormat("HH:mm:ss").format(Date())
-                    var currentTimeList = currentTime.split(":")
-                    var currentTimeSec = (currentTimeList[0].toInt() * 60 + currentTimeList[1].toInt()) * 60 + currentTimeList[2].toInt()
-
-                    if (currentTimeSec > openTimeSec) {
-                        view.textCloseTime.setText("준비중")
-                    } else {
-                        var leftTimeSec = closeTimeSec - currentTimeSec
-                        var leftTimeList : ArrayList<Int> = arrayListOf()
-                        leftTimeList[0] = leftTimeSec / 60 / 60
-                        leftTimeList[1] = leftTimeSec / 60 % 60
-                        leftTimeList[2] = leftTimeSec % 60
-                        var leftTime = leftTimeList[0].toString() + ":" + leftTimeList[1].toString() + ":" + leftTimeList[2].toString()
-                        view.textCloseTime.setText(leftTime)
-                    }
-                }
+                view.textQuan.text = productElement.serve.toString()
+                view.textQuanTotal.setText(productElement.quanTotal).toString()
+                view.textQuan.setText(productElement.quanLeft)
 
                 val alertDialog = AlertDialog.Builder(this)
                     .setTitle("상품 정보")
                     .create()
                 // 구매 버튼
                 view.buttonPurchase.setOnClickListener{
+                    // 상품 데이터베이스 딲ㄸ까까따ㅏ까
 
                 }
                 // 장바구니 버튼
                 view.buttonBasket.setOnClickListener {
+                    val view3 = inflater.inflate(R.layout.product_buyer_purchase, null)
+
+                    val alertDialog2 = AlertDialog.Builder(this)
+                        .setTitle("상품 정보")
+                        .create()
                     instantData.productList.add(productElement)
-                    alertDialog.dismiss()
                     setBuyerFrag(24)
+                    // 확인 버튼
+                    view3.buttonConfirm.setOnClickListener {
+                        // 상품 데이터베이스 딲ㄸ까까따ㅏ까
+                        alertDialog2.dismiss()
+                    }
+                    // 취소 버튼
+                    view3.buttonCancel.setOnClickListener {
+                        alertDialog2.cancel()
+                    }
+                    alertDialog2.setView(view3)
+                    alertDialog2.show()
                 }
-                alertDialog.setView(view)
+                alertDialog.setView(view2)
                 alertDialog.show()
+                */
             }
             // 구매자 재료
             3 -> {
-                val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 val view = inflater.inflate(R.layout.product_buyer_market_specific, null)
-                view.textTitle.text = productElement.title
+                /**
+                view.textProductTitle.text = productElement.title
                 view.textPrice.text = productElement.price.toString()
-                view.textServing.text = productElement.quantity.toString()
-
-                // 타이머
-                var openTime = "20:00" + ":00"
-                var openTimeList = openTime.split(":")
-                var openTimeSec = (openTimeList[0].toInt() * 60 + openTimeList[1].toInt()) * 60 + openTimeList[2].toInt()
-                var closeTime = "21:00" + ":00"
-                var closeTimeList = closeTime.split(":")
-                var closeTimeSec = (closeTimeList[0].toInt() * 60 + closeTimeList[1].toInt()) * 60 + closeTimeList[2].toInt()
-                timer(period = 1000) {
-                    var currentTime = SimpleDateFormat("HH:mm:ss").format(Date())
-                    var currentTimeList = currentTime.split(":")
-                    var currentTimeSec = (currentTimeList[0].toInt() * 60 + currentTimeList[1].toInt()) * 60 + currentTimeList[2].toInt()
-
-                    if (currentTimeSec > openTimeSec) {
-                        view.textCloseTime.setText("준비중")
-                    } else {
-                        var leftTimeSec = closeTimeSec - currentTimeSec
-                        var leftTimeList : ArrayList<Int> = arrayListOf()
-                        leftTimeList[0] = leftTimeSec / 60 / 60
-                        leftTimeList[1] = leftTimeSec / 60 % 60
-                        leftTimeList[2] = leftTimeSec % 60
-                        var leftTime = leftTimeList[0].toString() + ":" + leftTimeList[1].toString() + ":" + leftTimeList[2].toString()
-                        view.textCloseTime.setText(leftTime)
-                    }
-                }
+                view.textQuan.text = productElement.serve.toString()
 
                 val alertDialog = AlertDialog.Builder(this)
                     .setTitle("상품 정보")
@@ -244,6 +199,7 @@ class buyerUIMain : AppCompatActivity() {
                 }
                 alertDialog.setView(view)
                 alertDialog.show()
+                */
             }
         }
     }

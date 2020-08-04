@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -54,36 +53,36 @@ class buyerUIInfoModify : Fragment() {
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                inputName.setText(p0.child("Name").value.toString())
-                inputNickName.setText(p0.child("nickName").value.toString())
-                inputPhoneNumber.setText(p0.child("pNum").value.toString())
-                checkButcher.isChecked = p0.child("ctgr").child("정육점").value as Boolean
-                checkFishShop.isChecked = p0.child("ctgr").child("생선가게").value as Boolean
-                checkGenearl.isChecked = p0.child("ctgr").child("잡화점").value as Boolean
-                checkGreengrocer.isChecked = p0.child("ctgr").child("채소가게").value as Boolean
-                checkComplete.isChecked = p0.child("ctgr").child("완제품").value as Boolean
+                textName.setText(p0.child("Name").value.toString())
+                textNickName.setText(p0.child("nickName").value.toString())
+                textPNum.setText(p0.child("pNum").value.toString())
+                checkCtgrMeat.isChecked = p0.child("ctgr").child("정육점").value as Boolean
+                checkCtgrFish.isChecked = p0.child("ctgr").child("생선가게").value as Boolean
+                checkCtgrGeneral.isChecked = p0.child("ctgr").child("잡화점").value as Boolean
+                checkCtgrVegetable.isChecked = p0.child("ctgr").child("채소가게").value as Boolean
+                checkCtgrEtc.isChecked = p0.child("ctgr").child("완제품").value as Boolean
                 pw = p0.child("pw").value.toString()
             }
         })
 
-        view.changeImageUser.setOnClickListener {
+        view.buttonChangeImage.setOnClickListener {
             val intent: Intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.setType("image/*")
             startActivityForResult(Intent.createChooser(intent, "사용할 애플리케이션"), 1)
         }
 
         view.buttonConfirm.setOnClickListener {
-            if (!inputChangePassword.text.toString().isEmpty()) {
-                data.child("pw").setValue(inputChangePassword.text.toString())
+            if (!textPwChange.text.toString().isEmpty()) {
+                data.child("pw").setValue(textPwChange.text.toString())
             }
-            data.child("Name").setValue(inputName.text.toString())
-            data.child("nickName").setValue(inputNickName.text.toString())
-            data.child("pNum").setValue(inputPhoneNumber.text.toString())
-            data.child("ctgr").child("정육점").setValue(checkButcher.isChecked)
-            data.child("ctgr").child("생선가게").setValue(checkFishShop.isChecked)
-            data.child("ctgr").child("잡화점").setValue(checkGenearl.isChecked)
-            data.child("ctgr").child("채소가게").setValue(checkGreengrocer.isChecked)
-            data.child("ctgr").child("완제품").setValue(checkComplete.isChecked)
+            data.child("Name").setValue(textName.text.toString())
+            data.child("nickName").setValue(textNickName.text.toString())
+            data.child("pNum").setValue(textPNum.text.toString())
+            data.child("ctgr").child("정육점").setValue(checkCtgrMeat.isChecked)
+            data.child("ctgr").child("생선가게").setValue(checkCtgrFish.isChecked)
+            data.child("ctgr").child("잡화점").setValue(checkCtgrGeneral.isChecked)
+            data.child("ctgr").child("채소가게").setValue(checkCtgrVegetable.isChecked)
+            data.child("ctgr").child("완제품").setValue(checkCtgrEtc.isChecked)
             if (imageUrl != null) {
                 // 사진 바꿈
                 dataImage.child(userInfo.id + ".png").putFile(imageUrl!!)

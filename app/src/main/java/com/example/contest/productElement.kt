@@ -15,10 +15,10 @@ class productElement() {
     var sellerId: String = ""
     var title: String = ""
     var price: Int = 0
-    var quantity: Int = 0
-    var serveTotal = 0
-    var serveLeft = 0
-    var serveSold = 0
+    var serve: Int = 0
+    var quanTotal = 0
+    var quanLeft = 0
+    var quanSold = 0
     var ctgr: String = ""
     var buyerId: String = "undefined"
     var soldDate: String = ""
@@ -28,20 +28,20 @@ class productElement() {
     fun setInfo(
         title: String,
         price: Int,
-        quantity: Int,
+        serve: Int,
         productId: String,
-        serveTotal: Int,
+        quanTotal: Int,
         ctgr: String,
         soldTime : String
     ) {
         this.productId = productId
         this.title = title
         this.price = price
-        this.quantity = quantity
+        this.serve = serve
         this.sellerId = userInfo.id
         buyerId = "undefined"
         this.soldDate = SimpleDateFormat("yyyy-MM-dd").format(Date())
-        this.serveTotal = serveTotal
+        this.quanTotal = quanTotal
         this.ctgr = ctgr
         this.soldTime = soldTime
     }
@@ -56,14 +56,14 @@ class productElement() {
         return mapOf(
             "title" to title
             , "price" to price
-            , "quantity" to quantity
+            , "serve" to serve
             , "seller" to sellerId
             , "buyer" to buyerId
             , "soldDate" to soldDate
             , "ctgr" to ctgr
-            , "serveTotal" to serveTotal
-            , "serveLeft" to serveLeft
-            , "serveSold" to serveSold
+            , "quanTotal" to quanTotal
+            , "quanLeft" to quanLeft
+            , "quanSold" to quanSold
             , "soldTime" to soldTime
         )
     }
@@ -72,13 +72,13 @@ class productElement() {
         productId = product.key.toString()
         title = product.child("title").value.toString()
         price = product.child("price").value.toString().toInt()
-        quantity = product.child("quantity").value.toString().toInt()
+        serve = product.child("serve").value.toString().toInt()
         sellerId = product.child("seller").value.toString()
         buyerId = product.child("buyer").value.toString()
         soldDate = product.child("soldDate").value.toString()
-        serveTotal = product.child("serveTotal").value.toString().toInt()
-        serveLeft = product.child("serveLeft").value.toString().toInt()
-        serveSold = product.child("serveSold").value.toString().toInt()
+        quanTotal = product.child("quanTotal").value.toString().toInt()
+        quanLeft = product.child("quanLeft").value.toString().toInt()
+        quanSold = product.child("quanSold").value.toString().toInt()
         ctgr = product.child("ctgr").value.toString()
         soldTime = product.child("soldTime").value.toString()
     }

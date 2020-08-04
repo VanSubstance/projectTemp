@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.sign_up_seller.*
-import kotlinx.android.synthetic.main.sign_up_seller.view.*
+import kotlinx.android.synthetic.main.signup_seller.*
+import kotlinx.android.synthetic.main.signup_seller.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -21,21 +21,21 @@ class signupSeller : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.sign_up_seller, container, false)
+        val view = inflater.inflate(R.layout.signup_seller, container, false)
 
-        val msID = view.seller_id
-        val mPasswordText = view.seller_pass
-        val mPasswordcheckText = view.seller_passck
-        val mName = view.seller_name
-        val mPnum = view.seller_Phone_number
+        val msID = view.textId
+        val mPasswordText = view.textPw
+        val mPasswordcheckText = view.textPwCheck
+        val mName = view.staticName
+        val mPnum = view.textPNum
 
-        val mPickTimeBt_s = view.picktimebtn_S
-        val textView_s = view.time_s
+        val mPickTimeBt_s = view.buttonTimepickOpen
+        val textView_s = view.textTimeOpen
 
-        val mPickTimeBt_e = view.picktimebtn_E
-        val textView_e = view.time_E
+        val mPickTimeBt_e = view.buttonTimepickClose
+        val textView_e = view.textTimeClose
 
-        view.btn_register_seller.setOnClickListener {
+        view.buttonConfirm.setOnClickListener {
             val DatabaseReference = database.reference
             auth = FirebaseAuth.getInstance()
 
@@ -43,13 +43,13 @@ class signupSeller : Fragment() {
                 Toast.makeText(requireContext(), "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
             } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
                 Toast.makeText(requireContext(), "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
-            } else if (location.text.equals("시장 이름")) {
+            } else if (textMarketTitle.text.equals("시장 이름")) {
                 Toast.makeText(requireContext(), "시장을 선택해주세요", Toast.LENGTH_SHORT).show()
-            } else if (storeName.text.equals("")) {
+            } else if (staicStoreTitle.text.equals("")) {
                 Toast.makeText(requireContext(), "매장 명을 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
-            } else if (time_E.text.equals("개점 시간") || time_s.text.equals("폐점 시간")) {
+            } else if (textTimeClose.text.equals("개점 시간") || textTimeOpen.text.equals("폐점 시간")) {
                 Toast.makeText(requireContext(), "개점, 폐점 시간을 정해주세요", Toast.LENGTH_SHORT).show()
-            } else if (seller_cat.text.equals("카테고리") || seller_cat.text.equals("")) {
+            } else if (staticSpinnerDate.text.equals("카테고리") || staticSpinnerDate.text.equals("")) {
                 Toast.makeText(requireContext(), "카테고리를 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
             } else{
                 val ID = msID.text.toString()

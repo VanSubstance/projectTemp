@@ -13,7 +13,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.seller_ui_modify_product.*
 import kotlinx.android.synthetic.main.seller_ui_modify_product.view.*
-import kotlinx.android.synthetic.main.seller_ui_modify_product.view.productImage
+import kotlinx.android.synthetic.main.seller_ui_modify_product.view.imageProduct
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -36,13 +36,13 @@ class sellerUIHomeProductModify : Fragment() {
         val intent: Intent = Intent(Intent.ACTION_GET_CONTENT)
         var byteArr: ByteArray = byteArrayOf()
 
-        view.textTitle.setText(productElement.title)
+        view.textProductTitle.setText(productElement.title)
         view.textPrice.setText(productElement.price.toString())
-        view.textQuan.setText(productElement.quantity.toString())
+        view.textQuan.setText(productElement.serve.toString())
         imageData.getBytes(imageSize).addOnSuccessListener {
             byteArr = it
             val imageBitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
-            view.productImage.setImageBitmap(imageBitmap)
+            view.imageProduct.setImageBitmap(imageBitmap)
         }
 
         view.buttonChangeImage.setOnClickListener {
@@ -52,13 +52,13 @@ class sellerUIHomeProductModify : Fragment() {
         view.buttonConfirm.setOnClickListener {
             var modifiedProduct = productElement()
             modifiedProduct.setInfo(
-                view.textTitle.text.toString()
+                view.textProductTitle.text.toString()
                 ,
                 Integer.parseInt(view.textPrice.text.toString())
                 ,
                 Integer.parseInt(view.textQuan.text.toString())
                 ,
-                SimpleDateFormat("yyyyMMdd").format(Date()) + userInfo.id + view.textTitle.text.toString()
+                SimpleDateFormat("yyyyMMdd").format(Date()) + userInfo.id + view.textProductTitle.text.toString()
                 ,
                 textQuan.text.toString().toInt()
                 ,
@@ -93,7 +93,7 @@ class sellerUIHomeProductModify : Fragment() {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 1) {
                 imageUrl = data?.data
-                productImage.setImageURI(imageUrl)
+                imageProduct.setImageURI(imageUrl)
             }
         }
     }

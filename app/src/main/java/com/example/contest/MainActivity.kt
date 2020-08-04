@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         loginButton.setOnClickListener {
                 loginUserId(userID.text.toString(), userPW.text.toString())
         }
-        SignUpButton.setOnClickListener{
+        buttonSignUp.setOnClickListener{
             val SignUp_user=Intent(this,signup_sellect::class.java)
             startActivity(SignUp_user)
         }
@@ -72,47 +72,8 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-private fun resetDB() {
-    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    var data = database.getReference("marketInfo")
-    data.addListenerForSingleValueEvent(object : ValueEventListener {
-        override fun onCancelled(p0: DatabaseError) {
-        }
-        override fun onDataChange(p0: DataSnapshot) {
-            for (market in p0.children) {
-                var title = market.child("marketTitle").value.toString()
-                var addr = market.child("address").value.toString()
-                var lat = market.child("latitude").value.toString()
-                var lon = market.child("longitude").value.toString()
-                data.child(title).child("marketTitle").setValue(title)
-                data.child(title).child("address").setValue(addr)
-                data.child(title).child("latitude").setValue(lat)
-                data.child(title).child("longitude").setValue(lon)
-                data.child(market.key.toString()).removeValue()
-            }
-        }
-
-    })
-}
-
 private fun pushProducts() {
-    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    val historyDB = database.getReference("productDB")
-    var todayDB = database.getReference("productTodayDB")
-    todayDB.addListenerForSingleValueEvent(object : ValueEventListener {
-        override fun onCancelled(p0: DatabaseError) {
-        }
-        override fun onDataChange(p0: DataSnapshot) {
-            for (element in p0.children) {
-                var product = productElement()
-                product.setFromDb(element)
-                product.soldDate = SimpleDateFormat("yyyyMMdd").format(Date()).toString()
-                historyDB.child(SimpleDateFormat("yyyyMMdd").format(Date()).toString()).child(product.productId).setValue(product.toMap())
-                todayDB.child(element.key.toString()).removeValue()
-            }
-        }
-    })
-
+    // 오늘 자 데이터를 기록으로 밀어주기
 }
 // 앱 실행부터 종료때까지 유저의 정보를 저장해두는 오브젝트
 // 자바의 static 개념으로 보면 됨

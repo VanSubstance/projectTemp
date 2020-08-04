@@ -23,19 +23,19 @@ class sellerUIHomeProductSpecific: Fragment() {
         val imagePath = mStorageRef.child(productElement.productId + ".png")
         val imageSize: Long = 1024 * 1024 * 10
 
-        view.textTitle.text = productElement.title
+        view.textProductTitle.text = productElement.title
         view.textPrice.text = productElement.price.toString()
-        view.textServing.text = productElement.quantity.toString()
+        view.textServing.text = productElement.serve.toString()
         imagePath.getBytes(imageSize).addOnSuccessListener {
             val imageBitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
-            view.productImage.setImageBitmap(imageBitmap)
+            view.imageProduct.setImageBitmap(imageBitmap)
         }
 
-        view.buttonModify.setOnClickListener {
+        view.buttonConfirm.setOnClickListener {
             (activity as sellerUIMain).setSellerFrag(14)
         }
 
-        view.buttonDelete.setOnClickListener {
+        view.buttonCancel.setOnClickListener {
             data.child(productElement.productId).removeValue()
             imagePath.delete()
             (activity as sellerUIMain).setSellerFrag(11)

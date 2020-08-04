@@ -27,44 +27,42 @@
             android:columnCount="4">
 
             <ImageButton
-                android:id="@+id/buttonRecipe1"
+                android:id="@+id/buttonRecipeMeat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="0"
                 android:layout_columnWeight="1"
-                android:text="육류"
+                android:background="#ffffff"
                 android:src="@drawable/ui_ctgr_meat_off"
-                android:padding="0dp"
-                android:background="#00ff0000"/>
+                android:text="육류" />
 
             <ImageButton
-                android:id="@+id/buttonRecipe2"
+                android:id="@+id/buttonRecipeFish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="해산물"
                 android:src="@drawable/ui_ctgr_seafood_off"
-                android:padding="0dp"
-                android:background="#00ff0000"/>
+                android:background="#ffffff"/>
 
             <ImageButton
-                android:id="@+id/buttonRecipe3"
+                android:id="@+id/buttonRecipeVegetable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="채소류"
                 android:src="@drawable/ui_ctgr_vegetable_off"
-                android:padding="0dp"
-                android:background="#00ff0000"/>
+                android:background="#ffffff"/>
 
             <ImageButton
-                android:id="@+id/buttonRecipe4"
+                android:id="@+id/buttonRecipeEtc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:text="기타"
                 android:src="@drawable/ui_ctgr_etc_off"
-                android:padding="0dp"
-                android:background="#00ff0000"/>
+                android:background="#ffffff"/>
 
         </GridLayout>
 

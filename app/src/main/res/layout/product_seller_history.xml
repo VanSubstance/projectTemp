@@ -18,7 +18,7 @@
         >
 
         <ImageView
-            android:id="@+id/productImage"
+            android:id="@+id/imageProduct"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
@@ -33,7 +33,7 @@
             />
 
         <TextView
-            android:id="@+id/textTitle"
+            android:id="@+id/staticProductTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -42,19 +42,19 @@
             android:text="상품 이름"
             android:textSize="15dp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/productImage"
-            app:layout_constraintTop_toTopOf="@+id/productImage" />
+            app:layout_constraintStart_toEndOf="@+id/imageProduct"
+            app:layout_constraintTop_toTopOf="@+id/imageProduct" />
 
         <TextView
-            android:id="@+id/productTitle"
+            android:id="@+id/textProductTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="이름"
             android:textSize="15dp"
-            app:layout_constraintStart_toEndOf="@+id/textTitle"
-            app:layout_constraintTop_toTopOf="@+id/textTitle" />
+            app:layout_constraintStart_toEndOf="@+id/staticProductTitle"
+            app:layout_constraintTop_toTopOf="@+id/staticProductTitle" />
 
         <TextView
             android:id="@+id/staticQuan"
@@ -65,11 +65,11 @@
             android:text="수량"
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/productTitle"
-            app:layout_constraintTop_toTopOf="@+id/productTitle" />
+            app:layout_constraintStart_toEndOf="@+id/textProductTitle"
+            app:layout_constraintTop_toTopOf="@+id/textProductTitle" />
 
         <TextView
-            android:id="@+id/productQuan"
+            android:id="@+id/textQuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -80,80 +80,80 @@
             app:layout_constraintTop_toTopOf="@+id/staticQuan" />
 
         <TextView
-            android:id="@+id/unitQuan"
+            android:id="@+id/staticQuanUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:text="개"
             android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/productQuan"
-            app:layout_constraintTop_toTopOf="@+id/productQuan"/>
+            app:layout_constraintStart_toEndOf="@+id/textQuan"
+            app:layout_constraintTop_toTopOf="@+id/textQuan"/>
 
         <TextView
-            android:id="@+id/textPrice"
+            android:id="@+id/staticPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="가격"
             android:textSize="15dp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="@id/productServing"
+            app:layout_constraintTop_toTopOf="@id/staticServing"
             app:layout_constraintLeft_toLeftOf="@id/staticQuan"/>
 
         <TextView
-            android:id="@+id/productPrice"
+            android:id="@+id/textPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="얼마"
             android:textSize="15dp"
-            app:layout_constraintStart_toEndOf="@+id/textPrice"
-            app:layout_constraintTop_toTopOf="@+id/textPrice" />
+            app:layout_constraintStart_toEndOf="@+id/staticPrice"
+            app:layout_constraintTop_toTopOf="@+id/staticPrice" />
 
         <TextView
-            android:id="@+id/textPriceUnit"
+            android:id="@+id/staticPriceUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:text="원"
             android:textSize="15dp"
-            app:layout_constraintStart_toEndOf="@+id/productPrice"
-            app:layout_constraintTop_toTopOf="@+id/productPrice" />
+            app:layout_constraintStart_toEndOf="@+id/textPrice"
+            app:layout_constraintTop_toTopOf="@+id/textPrice" />
 
         <TextView
-            android:id="@+id/textServing"
+            android:id="@+id/staticServing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="양"
             android:textSize="15dp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textTitle"
-            app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+            app:layout_constraintStart_toStartOf="@+id/staticProductTitle"
+            app:layout_constraintTop_toBottomOf="@+id/staticProductTitle" />
 
         <TextView
-            android:id="@+id/productServing"
+            android:id="@+id/textServing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="몇"
             android:textSize="15dp"
-            app:layout_constraintStart_toEndOf="@+id/textServing"
-            app:layout_constraintTop_toTopOf="@+id/textServing" />
+            app:layout_constraintStart_toEndOf="@+id/staticServing"
+            app:layout_constraintTop_toTopOf="@+id/staticServing" />
 
         <TextView
-            android:id="@+id/textServingUnit"
+            android:id="@+id/staticServingUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:text="인분"
             android:textSize="15dp"
-            app:layout_constraintStart_toEndOf="@+id/productServing"
-            app:layout_constraintTop_toTopOf="@+id/productServing" />
+            app:layout_constraintStart_toEndOf="@+id/textServing"
+            app:layout_constraintTop_toTopOf="@+id/textServing" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

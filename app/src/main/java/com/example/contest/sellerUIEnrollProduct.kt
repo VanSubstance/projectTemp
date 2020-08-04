@@ -36,10 +36,10 @@ class sellerUIEnrollProduct : Fragment() {
             startActivityForResult(Intent.createChooser(intent, "사용할 애플리케이션"), 1)
         }
         view.buttonEnroll.setOnClickListener {
-            if (view.textTitle.text.isEmpty() || view.textPrice.text.isEmpty() || view.textQuan.text.isEmpty() || view.textServing.text.isEmpty()) {
+            if (view.textProductTitle.text.isEmpty() || view.textPrice.text.isEmpty() || view.textQuan.text.isEmpty() || view.textServing.text.isEmpty()) {
                 Toast.makeText(requireContext(), "제대로 입력해야 합니다.", Toast.LENGTH_SHORT).show()
             } else {
-                var title = view.textTitle.text.toString()
+                var title = view.textProductTitle.text.toString()
                 var price = Integer.parseInt(view.textPrice.text.toString())
                 var serve = Integer.parseInt(view.textServing.text.toString())
                 var quan = Integer.parseInt(view.textQuan.text.toString())
@@ -67,7 +67,7 @@ class sellerUIEnrollProduct : Fragment() {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 1) {
                 imageUrl = data?.data
-                productImage.setImageURI(imageUrl)
+                imageProduct.setImageURI(imageUrl)
             }
         }
     }

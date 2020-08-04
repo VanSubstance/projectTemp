@@ -4,13 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.sign_up_buyer.*
-import kotlinx.android.synthetic.main.sign_up_buyer.view.*
+import kotlinx.android.synthetic.main.signup_buyer.view.*
 
 class signupBuyer : Fragment() {
 
@@ -18,7 +16,7 @@ class signupBuyer : Fragment() {
     var auth : FirebaseAuth?= null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.sign_up_buyer, container, false)
+        val view = inflater.inflate(R.layout.signup_buyer, container, false)
 
         val mID = view.et_id
         val mPasswordText = view.et_pass
@@ -27,7 +25,7 @@ class signupBuyer : Fragment() {
         val mPnum = view.et_Phone_number
         val mnick=view.buyer_nick
 
-        view.btn_register.setOnClickListener {
+        view.buttonConfirm.setOnClickListener {
             val DatabaseReference = database.reference
 
             if (mID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
