@@ -1,94 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:background="@drawable/element_border"
-    >
+    android:layout_height="wrap_content"
+    android:background="@drawable/element_border">
 
-    <ImageView
-        android:id="@+id/imageRecipe"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:background="@drawable/element_border_thin"
-        tools:srcCompat="@tools:sample/avatars" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@drawable/element_border_black_1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/staticRecipeTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/imageRecipe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="레시피 이름"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        />
+        <ImageView
+            android:id="@+id/imageRecipe"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/element_border_thin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/textRecipeTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/staticRecipeTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="개쩌는 레시피"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        />
+        <TextView
+            android:id="@+id/staticRecipeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="레시피 이름"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/imageRecipe"
+            app:layout_constraintTop_toTopOf="@+id/imageRecipe" />
 
-    <TextView
-        android:id="@+id/staticRecipeCtgr"
-        app:layout_constraintTop_toBottomOf="@id/staticRecipeTitle"
-        app:layout_constraintLeft_toRightOf="@id/imageRecipe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="종류"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        />
+        <TextView
+            android:id="@+id/textRecipeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="개쩌는 레시피"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/staticRecipeTitle"
+            app:layout_constraintTop_toTopOf="@+id/staticRecipeTitle" />
 
-    <TextView
-        android:id="@+id/textRecipeCtgr"
-        app:layout_constraintTop_toBottomOf="@id/staticRecipeTitle"
-        app:layout_constraintLeft_toRightOf="@id/staticRecipeCtgr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="주 카테고리"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        />
+        <TextView
+            android:id="@+id/staticRecipeCtgr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="종류"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textRecipeCtgr"
+            app:layout_constraintTop_toTopOf="@+id/textRecipeCtgr" />
 
-    <TextView
-        android:id="@+id/staticRecipeLevel"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="조리 난이도"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:textSize="15dp"
-        />
+        <TextView
+            android:id="@+id/textRecipeCtgr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="주 카테고리"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="@+id/staticRecipeTitle"
+            app:layout_constraintTop_toTopOf="@+id/imageRecipe" />
 
-    <ImageView
-        android:id="@+id/imageRecipeLevel"
-        app:layout_constraintTop_toBottomOf="@id/staticRecipeLevel"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="25dp"
-        android:textSize="15dp"
-        />
+        <TextView
+            android:id="@+id/staticRecipeLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:text="조리 난이도"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textRecipeTitle" />
+
+        <ImageView
+            android:id="@+id/imageRecipeLevel"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/staticRecipeLevel"
+            app:layout_constraintStart_toStartOf="@+id/staticRecipeLevel"
+            app:layout_constraintTop_toBottomOf="@+id/staticRecipeLevel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

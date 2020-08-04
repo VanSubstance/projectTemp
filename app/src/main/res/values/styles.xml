@@ -18,7 +18,7 @@
     </style>
     
     <style name="fragment">
-        <item name="background">@drawable/element_border_thin</item>
+        <item name="android:background">@drawable/editext_border3</item>
     </style>
 
     <style name="buttonView">

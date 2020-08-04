@@ -6,34 +6,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".sellerUIMain"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:background="@drawable/editext_border"
+
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="9"
-        android:background="@drawable/editext_border">
+        >
+
 
         <FrameLayout
             android:id="@+id/main_frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
 
         </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        style="@style/fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
 
-
         <LinearLayout
             android:id="@+id/buttonBuyerRecipe"
-            style="@style/fragment"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -46,13 +49,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ui_main_home" />
-
-            <View
-                android:id="@+id/view12"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="#000000" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -61,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@drawable/navi_press_event"
+            android:background="@drawable/navi_press_event2"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -70,11 +66,6 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/ui_main_location" />
 
-            <View
-                android:id="@+id/view13"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="#000000" />
 
         </LinearLayout>
 
@@ -84,7 +75,7 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@drawable/navi_press_event"
+            android:background="@drawable/navi_press_event2"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -92,12 +83,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ui_main_basket" />
-
-            <View
-                android:id="@+id/view15"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="#000000" />
 
         </LinearLayout>
 
@@ -107,7 +92,7 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@drawable/navi_press_event"
+            android:background="@drawable/navi_press_event3"
             android:gravity="center"
             android:orientation="horizontal">
 

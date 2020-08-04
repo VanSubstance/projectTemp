@@ -4,17 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/editext_border"
+    android:layout_margin="10dp">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -25,8 +30,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/element_border_black_1dp"
-                >
+                android:background="@drawable/element_border_black_1dp">
 
                 <ImageView
                     android:id="@+id/imageUser"
@@ -109,7 +113,7 @@
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/staicStoreTitle"
                     app:layout_constraintTop_toTopOf="@+id/staticPNum" />
-                
+
 
                 <TextView
                     android:id="@+id/staticCtgr"
@@ -192,10 +196,9 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
                     android:text="수정"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/staticCtgrMeat"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/staticCtgrMeat" />
 
                 <TextView
                     android:id="@+id/staticComfimPw"
