@@ -75,7 +75,7 @@
                         app:layout_constraintTop_toBottomOf="@id/staticRecipeTitle" />
 
                     <TextView
-                        android:id="@+id/staticCheckCtgrSpecific"
+                        android:id="@+id/staticCtgrSpecific"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -94,7 +94,7 @@
                         android:text="돼지고기나 그런거"
                         android:textSize="15dp"
                         app:layout_constraintLeft_toRightOf="@id/imageRecipe"
-                        app:layout_constraintTop_toBottomOf="@id/staticCheckCtgrSpecific" />
+                        app:layout_constraintTop_toBottomOf="@id/staticCtgrSpecific" />
 
                     <TextView
                         android:id="@+id/staticRecipeLevel"
@@ -108,7 +108,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:id="@+id/recipeLevel"
+                        android:id="@+id/imageRecipeLevel"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"

@@ -9,7 +9,7 @@
     >
 
     <ImageView
-        android:id="@+id/recipeImage"
+        android:id="@+id/imageRecipe"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="60dp"
@@ -22,7 +22,7 @@
     <TextView
         android:id="@+id/staticRecipeTitle"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/recipeImage"
+        app:layout_constraintLeft_toRightOf="@id/imageRecipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="레시피 이름"
@@ -32,7 +32,7 @@
         />
 
     <TextView
-        android:id="@+id/recipeTitle"
+        android:id="@+id/textRecipeTitle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/staticRecipeTitle"
         android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
     <TextView
         android:id="@+id/staticRecipeCtgr"
         app:layout_constraintTop_toBottomOf="@id/staticRecipeTitle"
-        app:layout_constraintLeft_toRightOf="@id/recipeImage"
+        app:layout_constraintLeft_toRightOf="@id/imageRecipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="종류"
@@ -56,7 +56,7 @@
         />
 
     <TextView
-        android:id="@+id/recipeCtgr"
+        android:id="@+id/textRecipeCtgr"
         app:layout_constraintTop_toBottomOf="@id/staticRecipeTitle"
         app:layout_constraintLeft_toRightOf="@id/staticRecipeCtgr"
         android:layout_width="wrap_content"
@@ -80,7 +80,7 @@
         />
 
     <ImageView
-        android:id="@+id/recipeLevel"
+        android:id="@+id/imageRecipeLevel"
         app:layout_constraintTop_toBottomOf="@id/staticRecipeLevel"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="40dp"
