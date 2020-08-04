@@ -69,7 +69,7 @@ class productElementAdapter(
 
         // 타이머
         val currentTime = Calendar.getInstance().time
-        val endDateDay = LocalDate.now().toString() + " " + productElementList[position].soldTime + ":00"
+        val endDateDay = LocalDate.now().toString() + " " + productElementList[position].soldTime
         val format1 = SimpleDateFormat("yyyy-MM-dd hh:mm:ss",Locale.getDefault())
         val endDate = format1.parse(endDateDay)
         // 차이
@@ -77,7 +77,7 @@ class productElementAdapter(
         holder.CountDownTimer = object : CountDownTimer(tick, 1000) {
             override fun onFinish() {
                 holder.textCloseTime.setText("마감")
-                productElementList[position].soldTime = "00:00:00"
+                productElementList[position].soldTime = "00:00"
             }
             override fun onTick(millisUntilFinished: Long) {
                 var diff = millisUntilFinished
