@@ -21,7 +21,7 @@ class signupBuyer : Fragment() {
         val mID = view.textId
         val mPasswordText = view.textPw
         val mPasswordcheckText = view.textPwCheck
-        val mName = view.staticName
+        val mName = view.textName
         val mPnum = view.textPNum
         val mnick=view.buyer_nick
 
@@ -64,7 +64,7 @@ class signupBuyer : Fragment() {
                         }
             }
         }
-        view.buttonCertifyId.setOnClickListener{
+        view.buttonCertifyNick.setOnClickListener{
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()
             val data = database.getReference("userDB")
             data.addListenerForSingleValueEvent(object:ValueEventListener{
