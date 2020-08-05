@@ -14,7 +14,6 @@ import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.signup_buyer.view.*
 
 
-
 class signupBuyer : Fragment() {
     private val TAG = "FirebaseService"
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
@@ -23,12 +22,17 @@ class signupBuyer : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.signup_buyer, container, false)
 
+        //*************************************************************************************//
+        //sign up sellect로 옮기는 바람에 오류가 뜨는중
+
+
         val mID = view.textId
         val mPasswordText = view.textPw
         val mPasswordcheckText = view.textPwCheck
         val mName = view.textName
         val mPnum = view.textPNum
         val mnick=view.buyer_nick
+
 
         view.buttonConfirm.setOnClickListener {
             val DatabaseReference = database.reference

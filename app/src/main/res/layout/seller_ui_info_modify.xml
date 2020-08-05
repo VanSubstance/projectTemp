@@ -61,7 +61,6 @@
 
                 <Button
                     android:id="@+id/buttonChangeImage"
-                    style="@style/buttonView"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="105dp"
@@ -353,7 +352,6 @@
 
                 <Button
                     android:id="@+id/buttonConfirm"
-                    style="@style/buttonView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -367,7 +365,6 @@
 
                 <Button
                     android:id="@+id/buttonCancel"
-                    style="@style/buttonView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"

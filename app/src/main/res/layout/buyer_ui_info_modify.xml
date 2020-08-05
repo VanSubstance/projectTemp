@@ -68,8 +68,7 @@
                     android:layout_marginRight="105dp"
                     android:text="사진 변경"
                     app:layout_constraintBottom_toBottomOf="@+id/imageUser"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    style="@style/buttonView"/>
+                    app:layout_constraintEnd_toEndOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
@@ -351,7 +350,6 @@
 
                 <Button
                     android:id="@+id/buttonConfirm"
-                    style="@style/buttonView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -365,7 +363,6 @@
 
                 <Button
                     android:id="@+id/buttonCancel"
-                    style="@style/buttonView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"

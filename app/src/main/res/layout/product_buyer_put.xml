@@ -83,7 +83,6 @@
 
         <Button
             android:id="@+id/buttonConfirm"
-            style="@style/buttonView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toLeftOf="@id/buttonCancel"
             android:layout_width="80dp"
@@ -95,7 +94,6 @@
 
         <Button
             android:id="@+id/buttonCancel"
-            style="@style/buttonView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textAcquire"

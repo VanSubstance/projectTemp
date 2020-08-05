@@ -59,4 +59,4 @@ class signupSellerMarketAdapter : BaseAdapter() {
     fun dropItem() {
         listViewItemList = ArrayList<marketElement>()
     }
-}
+}*/
