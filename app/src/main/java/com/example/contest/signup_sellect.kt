@@ -89,6 +89,7 @@ class signup_sellect : AppCompatActivity() {
         alertDialog.setView(view)
         alertDialog.show()
     }
+
     fun showMarket() {
         var marketList : ArrayList<marketElement> = arrayListOf()
         var data = database.getReference("marketInfo")
@@ -146,6 +147,9 @@ class signup_sellect : AppCompatActivity() {
 
             }
         })
+
+    }
+    override fun onBackPressed() {
 
     }
 }
