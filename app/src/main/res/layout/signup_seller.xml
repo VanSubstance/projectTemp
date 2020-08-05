@@ -41,7 +41,7 @@
                 android:layout_height="45dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/editext_border"
-                android:hint="패스워드"
+                android:hint="패스워드: 6자(영문 기준) 이상"
                 android:inputType="textPassword"
                 android:paddingLeft="20dp"
                 app:layout_constraintEnd_toEndOf="@+id/textId"

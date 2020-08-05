@@ -1,23 +1,36 @@
 package com.example.contest
 
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
+
     var auth : FirebaseAuth?= null
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // push test 용 코드니 신경 쓰지 마세용 나중에 지울게용 ㅎ
+
         Thread(Runnable {
             while (!Thread.interrupted()) try {
                 Thread.sleep(1000)
@@ -37,9 +50,9 @@ class MainActivity : AppCompatActivity() {
             val SignUp_user=Intent(this,signup_sellect::class.java)
             startActivity(SignUp_user)
         }
-        
-
     }
+
+
     fun loginUserId(email: String, password: String) {
         val DatabaseReference = database.reference
 
@@ -80,6 +93,8 @@ class MainActivity : AppCompatActivity() {
                 }
     }
     }
+
+
 
 // 이거 한 이유 설명좀 !! 
 private fun resetDB() {
@@ -123,6 +138,7 @@ private fun pushProducts() {
         }
     })
 }
+
 // 앱 실행부터 종료때까지 유저의 정보를 저장해두는 오브젝트
 // 자바의 static 개념으로 보면 됨
 object userInfo {
