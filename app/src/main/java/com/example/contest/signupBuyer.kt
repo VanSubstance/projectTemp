@@ -50,18 +50,8 @@ class signupBuyer : Fragment() {
                             if (task.isSuccessful) {
                                 // 아이디 생성이 완료되었을 때
                                 val user = auth?.getCurrentUser()
-                                var token_r:String=""
                                 val uid=user?.uid
-                                FirebaseInstanceId.getInstance().instanceId
-                                        .addOnCompleteListener(OnCompleteListener { task ->
-                                            if(!task.isSuccessful){
-                                                Log.w(TAG, "getInstanceId failed", task.exception)
-                                                return@OnCompleteListener
-                                            }
-                                            val token=task.result?.token
-                                            token_r=token.toString()})
-
-                                val data = Post(password,name, pnum, role,nick,token_r)
+                                val data = Post(password,name, pnum, role,nick)
                                 val info = data.toMap()
 
                                 DatabaseReference.child("userDB").child(uid.toString()).setValue(info)

@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         
 
     }
+
     fun loginUserId(email: String, password: String) {
         val DatabaseReference = database.reference
 
@@ -86,6 +87,7 @@ class MainActivity : AppCompatActivity() {
                 }
     }
     }
+
 
 // 이거 한 이유 설명좀 !! 
 private fun resetDB() {

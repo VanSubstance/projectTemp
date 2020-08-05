@@ -71,7 +71,6 @@ class signupSeller : Fragment() {
                 val storeCtgr = staticSpinnerDate.text.toString()
                 val timeOpen =textView_s.text.toString()
                 val timeClose = textView_e.text.toString()
-                var token_r:String=""
 
                 auth?.createUserWithEmailAndPassword(ID, password)
                         ?.addOnCompleteListener(requireActivity()) { task ->
@@ -79,21 +78,13 @@ class signupSeller : Fragment() {
                                 // 아이디 생성이 완료되었을 때
                                 val user = auth?.getCurrentUser()
                                 val uid=user?.uid
-                                FirebaseInstanceId.getInstance().instanceId
-                                        .addOnCompleteListener(OnCompleteListener { task ->
-                                            if(!task.isSuccessful){
-                                                Log.w(TAG, "getInstanceId failed", task.exception)
-                                                return@OnCompleteListener
-                                            }
-                                            val token=task.result?.token
-                                            token_r=token.toString()})
 
                                 DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(uid.toString()).setValue(""   )
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("ctgr").setValue(storeCtgr)
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("timeOpen").setValue(timeOpen)
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("timeClose").setValue(timeClose)
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("title").setValue(storeTitle)
-                                val data = Post_s(password,name, pnum, role,storeTitle,marketTitle,token_r)
+                                val data = Post_s(password,name, pnum, role,storeTitle,marketTitle)
                                 val info = data.toMap_s()
                                 DatabaseReference.child("userDB").child(uid.toString()).setValue(info)
                                 Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
