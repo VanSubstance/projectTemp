@@ -109,7 +109,7 @@
                 android:layout_height="0dp"
                 android:ems="5"
                 android:text="찾기"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textMarketTitle"
                 app:layout_constraintEnd_toEndOf="@+id/textPNum"
                 app:layout_constraintTop_toTopOf="@+id/textMarketTitle" />
@@ -163,7 +163,7 @@
                 android:layout_height="0dp"
                 android:ems="5"
                 android:text="시간 선택"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textTimeOpen"
                 app:layout_constraintEnd_toEndOf="@+id/staicStoreTitle"
                 app:layout_constraintTop_toTopOf="@+id/textTimeOpen" />
@@ -189,7 +189,7 @@
                 android:layout_height="0dp"
                 android:ems="5"
                 android:text="시간 선택"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textTimeClose"
                 app:layout_constraintEnd_toEndOf="@+id/buttonTimepickOpen"
                 app:layout_constraintTop_toTopOf="@+id/textTimeClose" />
@@ -215,7 +215,7 @@
                 android:layout_height="0dp"
                 android:ems="5"
                 android:text="카테고리"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/staticSpinnerDate"
                 app:layout_constraintEnd_toEndOf="@+id/buttonTimepickClose"
                 app:layout_constraintTop_toTopOf="@+id/staticSpinnerDate" />

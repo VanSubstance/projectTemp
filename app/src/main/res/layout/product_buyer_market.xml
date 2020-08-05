@@ -45,7 +45,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:text="상품 이름"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageProduct"
             app:layout_constraintTop_toTopOf="@+id/imageProduct" />
@@ -57,7 +57,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="이름"
-            android:textSize="15sp"
+            android:textSize="13sp"
             app:layout_constraintStart_toEndOf="@+id/staticProductTitle"
             app:layout_constraintTop_toTopOf="@+id/staticProductTitle" />
 
@@ -68,7 +68,7 @@
             android:layout_marginLeft="180dp"
             android:layout_marginTop="5dp"
             android:text="수량"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageProduct"
             app:layout_constraintTop_toTopOf="@+id/imageProduct" />
@@ -80,7 +80,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="몇"
-            android:textSize="15sp"
+            android:textSize="13sp"
             app:layout_constraintStart_toEndOf="@+id/staticQuan"
             app:layout_constraintTop_toTopOf="@+id/staticQuan" />
 
@@ -89,7 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="개"
-            android:textSize="15sp"
+            android:textSize="13sp"
             app:layout_constraintStart_toEndOf="@+id/textQuan"
             app:layout_constraintTop_toTopOf="@+id/textQuan" />
 
@@ -101,7 +101,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="40dp"
             android:text="가격"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageProduct"
             app:layout_constraintTop_toTopOf="@+id/imageProduct"
@@ -114,7 +114,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="가격"
-            android:textSize="15sp"
+            android:textSize="13sp"
             app:layout_constraintStart_toEndOf="@+id/staticPrice"
             app:layout_constraintTop_toTopOf="@+id/staticPrice" />
 
@@ -123,7 +123,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="원"
-            android:textSize="15sp"
+            android:textSize="13sp"
             app:layout_constraintStart_toEndOf="@+id/textPrice"
             app:layout_constraintTop_toTopOf="@+id/textPrice" />
 
@@ -132,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="남은 시간"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/staticQuan"
             app:layout_constraintTop_toTopOf="@+id/staticPriceUnit" />
@@ -144,7 +144,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="hh:MM:ss"
-            android:textSize="15sp"
+            android:textSize="13sp"
             app:layout_constraintStart_toEndOf="@+id/staticCloseTime"
             app:layout_constraintTop_toTopOf="@+id/staticCloseTime" />
 
@@ -166,7 +166,7 @@
             app:layout_constraintLeft_toLeftOf="@id/staticPrice"
             app:layout_constraintRight_toRightOf="@id/textCloseTime"
             app:layout_constraintTop_toBottomOf="@id/imageProduct"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/staticServing"
@@ -184,7 +184,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 android:text="무게"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 app:layout_constraintStart_toEndOf="@+id/staticServing"
                 app:layout_constraintTop_toTopOf="@+id/staticServing" />
 
@@ -192,8 +192,8 @@
                 android:id="@+id/staticServingUnit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="g"
-                android:textSize="15sp"
+                android:text="인분"
+                android:textSize="13sp"
                 app:layout_constraintStart_toEndOf="@+id/textServing"
                 app:layout_constraintTop_toTopOf="@+id/textServing" />
 
@@ -203,7 +203,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:text="종류"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -234,7 +234,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 android:text="판매자 이름?"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 app:layout_constraintStart_toEndOf="@+id/staticSellerId"
                 app:layout_constraintTop_toTopOf="@+id/staticSellerId" />
 

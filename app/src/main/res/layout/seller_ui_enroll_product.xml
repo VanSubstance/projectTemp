@@ -191,7 +191,8 @@
             android:layout_height="160dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/element_border_black_0_5dp"/>
+            android:background="@drawable/element_border_black_0_5dp"
+            android:src="@drawable/test_02"/>
 
         <Button
             android:id="@+id/buttonChangeImage"
