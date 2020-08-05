@@ -129,7 +129,6 @@ class signupSeller : Fragment() {
         return view
 
     }
-
     fun pushToken(ID:String){
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
         val DatabaseReference = database.reference

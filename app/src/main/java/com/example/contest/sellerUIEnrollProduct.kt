@@ -26,7 +26,6 @@ import kotlin.collections.ArrayList
 
 
 class sellerUIEnrollProduct : Fragment() {
-    var auth : FirebaseAuth?= null
     private val mStorageRef = FirebaseStorage.getInstance()
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     var imageUrl : Uri? = null
@@ -73,34 +72,18 @@ class sellerUIEnrollProduct : Fragment() {
                 var productId = SimpleDateFormat("yyyyMMdd").format(Date()) + userInfo.id + title
                 var imageTitle = productId + ".png"
 
-
                 imageData.child(imageTitle).putFile(imageUrl!!)
                 if (view.checkCtgrComplete.isChecked) {
                     newProduct.setInfo(title, price, serve, productId, quan, "완제품", userInfo.timeClose)
-
-                    DatabaseReference.addValueEventListener(object :ValueEventListener{
-                        override fun onCancelled(p0: DatabaseError) {
-                        }
-
-                        override fun onDataChange(p0: DataSnapshot) {
-                            for(id in p0.child("userDB").children){
-                                if(id.child("ctgr").child("완제품").value==true){
-                                    sendMessage(id.toString(),"새로운 상품","완제품 새로운 상품이 등록되었습니다")
-                                }
-                           }
-                        }
-                    })
+                    val message=MessagePush()
+                    message.sendMessage()
                 } else {
                     newProduct.setInfo(title, price, serve, productId, quan, userInfo.ctgrForSeller, userInfo.timeClose)
-
                 }
                 data.child(productId).setValue(newProduct.toMap())
-
-
                 (activity as sellerUIMain).setSellerFrag(11)
             }
         }
-
         view.buttonCancel.setOnClickListener {
             (activity as sellerUIMain).setSellerFrag(11)
         }
@@ -118,43 +101,5 @@ class sellerUIEnrollProduct : Fragment() {
             }
         }
     }
-    fun sendMessage(member:String,title:String,message:String){
-        val Data = FirebaseDatabase.getInstance().getReference("TokenDB")
 
-        val JSON=MediaType.parse("application/json; charset=utf-8")
-        val url="https://fcm.googleapis.com/fcm/send"
-        val serverkey="AAAAv115-6g:APA91bHF9UX5qTiV2JmhM5oJrjq8NL6VuYciFPmV3cvyc3Z9qUJtRNE-y3E5aOMqn6e0prefmXEg2riitvF22PMHZywxcQtotCSEMZJEGPyXFwEN9642neblUBtlk492JHeTCG8CIhcO"
-        var okHttpClient:OkHttpClient=OkHttpClient()
-        var gson:Gson=Gson()
-        Data.addValueEventListener(object: ValueEventListener{
-            override fun onCancelled(p0: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-            override fun onDataChange(p0: DataSnapshot) {
-                    for(id in p0.children){
-                        if(member==id.toString()){
-                            var pushDTO=pushDTO()
-                            pushDTO.to=id.toString()
-                            pushDTO.notification?.title=title
-                            pushDTO.notification?.body=message
-                            var body =RequestBody.create(JSON,gson?.toJson(pushDTO))
-                            var request =Request
-                                    .Builder()
-                                    .addHeader("Content-Type","application/json")
-                                    .addHeader("Authorization","key="+serverkey)
-                                    .url(url)
-                                    .post(body)
-                                    .build()
-                            okHttpClient?.newCall(request)?.enqueue(object : Callback {//푸시 전송
-                                override fun onFailure(call: Call?, e: IOException?) {
-                            }
-                                override fun onResponse(call: Call?, response: Response?) {
-                                    Toast.makeText(requireContext(), response?.body().toString(), Toast.LENGTH_SHORT).show()
-                                }
-                            })
-                        }
-                    }
-                }
-        })
-    }
 }
