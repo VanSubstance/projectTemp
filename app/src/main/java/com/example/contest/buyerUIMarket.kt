@@ -73,7 +73,7 @@ class buyerUIMarket : Fragment() {
                         }
                         adapter = productElementAdapter(productElementList, requireContext(), 41) {
                                 productElement ->
-                            (activity as buyerUIMain).recyclerViewFun()
+                            (activity as buyerUIMain).recyclerViewFun(productElement)
                         }
                     }
                     // 완제품
@@ -85,7 +85,7 @@ class buyerUIMarket : Fragment() {
                         }
                         adapter = productElementAdapter(productElementList, requireContext(), 42) {
                                 productElement ->
-                            (activity as buyerUIMain).recyclerViewFun()
+                            (activity as buyerUIMain).recyclerViewFun(productElement)
                         }
                     }
                 }
