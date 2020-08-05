@@ -86,6 +86,7 @@ class signupSeller : Fragment() {
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("title").setValue(storeTitle)
                                 val data = Post_s(password,name, pnum, role,storeTitle,marketTitle)
                                 val info = data.toMap_s()
+                                pushToken(uid.toString())
                                 DatabaseReference.child("userDB").child(uid.toString()).setValue(info)
                                 Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
                                 (activity as signup_sellect).finish()
@@ -126,5 +127,22 @@ class signupSeller : Fragment() {
         }
 
         return view
+
+    }
+
+    fun pushToken(ID:String){
+        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        val DatabaseReference = database.reference
+        FirebaseInstanceId.getInstance().instanceId
+                .addOnCompleteListener(OnCompleteListener { task ->
+                    if (!task.isSuccessful) {
+                        Log.w(TAG, "getInstanceId failed", task.exception)
+                        return@OnCompleteListener
+                    }
+
+                    // Get new Instance ID token
+                    val token = task.result?.token
+                    DatabaseReference.child("tokenDB").child(ID).setValue(token)
+                })
     }
 }

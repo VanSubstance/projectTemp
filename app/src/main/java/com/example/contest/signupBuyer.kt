@@ -60,7 +60,7 @@ class signupBuyer : Fragment() {
                                 DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("채소가게").setValue(view.checkCtgrVegetable.isChecked)
                                 DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("잡화점").setValue(view.checkCtgrGeneral.isChecked)
                                 DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("완제품").setValue(view.checkCtgrEtc.isChecked)
-
+                                pushToken(uid.toString())
                                 Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
                                 (activity as signup_sellect).finish()
 
@@ -92,5 +92,21 @@ class signupBuyer : Fragment() {
         }
 
         return view
+    }
+
+    fun pushToken(ID:String){
+        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        val DatabaseReference = database.reference
+        FirebaseInstanceId.getInstance().instanceId
+                .addOnCompleteListener(OnCompleteListener { task ->
+                    if (!task.isSuccessful) {
+                        Log.w(TAG, "getInstanceId failed", task.exception)
+                        return@OnCompleteListener
+                    }
+
+                    // Get new Instance ID token
+                    val token = task.result?.token
+                    DatabaseReference.child("tokenDB").child(ID).setValue(token)
+                })
     }
 }

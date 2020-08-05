@@ -12,17 +12,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.*
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.view.*
+import okhttp3.MediaType
+import okhttp3.OkHttpClient
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class sellerUIEnrollProduct : Fragment() {
+    var auth : FirebaseAuth?= null
     private val mStorageRef = FirebaseStorage.getInstance()
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     var imageUrl : Uri? = null
@@ -94,5 +103,35 @@ class sellerUIEnrollProduct : Fragment() {
                 imageProduct.setImageURI(imageUrl)
             }
         }
+    }
+    fun sendMessage(member:ArrayList<String>){
+        val auth=FirebaseAuth.getInstance()
+
+        val Data = FirebaseDatabase.getInstance().getReference("TokenDB")
+
+        val JSON=MediaType.parse("application/json; charset=utf-8")
+        val url="https://fcm.googleapis.com/fcm/send"
+        val serverkey="AAAAv115-6g:APA91bHF9UX5qTiV2JmhM5oJrjq8NL6VuYciFPmV3cvyc3Z9qUJtRNE-y3E5aOMqn6e0prefmXEg2riitvF22PMHZywxcQtotCSEMZJEGPyXFwEN9642neblUBtlk492JHeTCG8CIhcO"
+        var okHttpClient:OkHttpClient=OkHttpClient()
+        var gson:Gson=Gson()
+        Data.addValueEventListener(object: ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                for(id_s in member){
+                    for(id in p0.children){
+                        if(id_s==id.toString()){
+                            
+                        }
+                    }
+                }
+            }
+
+        })
+
+
+
     }
 }

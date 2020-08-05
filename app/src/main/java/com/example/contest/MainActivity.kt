@@ -17,6 +17,7 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity() {
     var auth : FirebaseAuth?= null
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    private val TAG = "FirebaseService"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,6 +87,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
     }
+
     }
 
 
