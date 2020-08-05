@@ -5,8 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/editext_border"
-    android:layout_margin="10dp"
     >
 
     <LinearLayout
@@ -55,8 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/element_border_black_0_5dp">
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:id="@+id/buttonComplete"
@@ -83,7 +80,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:text="완제품"
-                        android:textSize="15dp" />
+                        android:textSize="13sp" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -91,8 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/element_border_black_0_5dp">
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:id="@+id/buttonRaw"
@@ -117,7 +113,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:text="재료"
-                        android:textSize="15dp" />
+                        android:textSize="13sp" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -40,7 +40,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:text="상품 이름"
-            android:textSize="15dp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageProduct"
             app:layout_constraintTop_toTopOf="@+id/imageProduct" />
@@ -52,53 +52,54 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="이름"
-            android:textSize="15dp"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/staticProductTitle"
             app:layout_constraintTop_toTopOf="@+id/staticProductTitle" />
 
         <TextView
-            android:id="@+id/staticQuan"
+            android:id="@+id/staticQuanTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:text="수량"
-            android:textSize="15sp"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="5dp"
+            android:text="전체 수량"
+            android:textSize="13sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/textProductTitle"
-            app:layout_constraintTop_toTopOf="@+id/textProductTitle" />
+            app:layout_constraintStart_toEndOf="@+id/imageProduct"
+            app:layout_constraintTop_toTopOf="@+id/imageProduct" />
 
         <TextView
-            android:id="@+id/textQuan"
+            android:id="@+id/textQuanTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="몇"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/staticQuan"
-            app:layout_constraintTop_toTopOf="@+id/staticQuan" />
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/staticQuanTotal"
+            app:layout_constraintTop_toTopOf="@+id/staticQuanTotal" />
 
         <TextView
-            android:id="@+id/staticQuanUnit"
+            android:id="@+id/staticQuanTotalUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
             android:text="개"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/textQuan"
-            app:layout_constraintTop_toTopOf="@+id/textQuan"/>
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/textQuanTotal"
+            app:layout_constraintTop_toTopOf="@+id/textQuanTotal"/>
 
         <TextView
             android:id="@+id/staticPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
             android:text="가격"
-            android:textSize="15dp"
+            android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="@id/staticServing"
-            app:layout_constraintLeft_toLeftOf="@id/staticQuan"/>
+            app:layout_constraintStart_toEndOf="@+id/imageProduct"
+            app:layout_constraintTop_toTopOf="@+id/imageProduct" />
 
         <TextView
             android:id="@+id/textPrice"
@@ -106,8 +107,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:text="얼마"
-            android:textSize="15dp"
+            android:text="가격"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/staticPrice"
             app:layout_constraintTop_toTopOf="@+id/staticPrice" />
 
@@ -115,45 +116,165 @@
             android:id="@+id/staticPriceUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
             android:text="원"
-            android:textSize="15dp"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/textPrice"
             app:layout_constraintTop_toTopOf="@+id/textPrice" />
 
         <TextView
-            android:id="@+id/staticServing"
+            android:id="@+id/staticQuanSold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="양"
-            android:textSize="15dp"
+            android:text="판매 수량"
+            android:textSize="13sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/staticProductTitle"
-            app:layout_constraintTop_toBottomOf="@+id/staticProductTitle" />
+            app:layout_constraintStart_toStartOf="@+id/staticQuanTotal"
+            app:layout_constraintTop_toTopOf="@+id/staticPriceUnit" />
 
         <TextView
-            android:id="@+id/textServing"
+            android:id="@+id/textQuanSold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="몇"
-            android:textSize="15dp"
-            app:layout_constraintStart_toEndOf="@+id/staticServing"
-            app:layout_constraintTop_toTopOf="@+id/staticServing" />
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/staticQuanSold"
+            app:layout_constraintTop_toTopOf="@+id/staticQuanSold" />
 
         <TextView
-            android:id="@+id/staticServingUnit"
+            android:id="@+id/staticQuanSoldUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:text="인분"
-            android:textSize="15dp"
-            app:layout_constraintStart_toEndOf="@+id/textServing"
-            app:layout_constraintTop_toTopOf="@+id/textServing" />
+            android:text="개"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/textQuanSold"
+            app:layout_constraintTop_toTopOf="@+id/textQuanSold" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/imageProduct"
+            app:layout_constraintTop_toBottomOf="@id/imageProduct" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutProductSpecific"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/staticPrice"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageProduct"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/staticServing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="양"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textServing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="무게"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/staticServing"
+                app:layout_constraintTop_toTopOf="@+id/staticServing" />
+
+            <TextView
+                android:id="@+id/staticServingUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="인분"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/textServing"
+                app:layout_constraintTop_toTopOf="@+id/textServing" />
+
+            <TextView
+                android:id="@+id/staticCtgr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="종류"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageCtgr"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ui_ctgr_meat"
+                app:layout_constraintLeft_toRightOf="@id/staticCtgr"
+                app:layout_constraintTop_toTopOf="@id/staticCtgr" />
+
+            <TextView
+                android:id="@+id/staticSalary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="총 판매 금액"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@id/staticSoldDate"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textSalary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="얼마"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/staticSalary"
+                app:layout_constraintTop_toTopOf="@id/staticSalary" />
+
+            <TextView
+                android:id="@+id/staticSalaryUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="원"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/textSalary"
+                app:layout_constraintTop_toTopOf="@+id/textSalary" />
+
+            <TextView
+                android:id="@+id/staticSoldDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="판매 날짜"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintRight_toLeftOf="@id/textSoldDate"
+                app:layout_constraintTop_toTopOf="@id/staticCtgr" />
+
+            <TextView
+                android:id="@+id/textSoldDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="yyyy-MM-dd"
+                android:textSize="14sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/staticCtgr" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

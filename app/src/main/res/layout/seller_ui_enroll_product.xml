@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,61 +9,57 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/element_border_black_1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:background="@drawable/element_border_black_1dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/staticProductTitle"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="상품 이름"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:layout_marginTop="100dp"
             android:layout_marginLeft="20dp"
-            />
+            android:layout_marginTop="100dp"
+            android:text="상품 이름"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/textProductTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/editext_border"
             android:ems="10"
             android:inputType="text"
-            android:text=""
-            android:textSize="15dp"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/staticQuan"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textPrice"
             app:layout_constraintTop_toBottomOf="@id/staticProductTitle" />
 
         <TextView
             android:id="@+id/staticPrice"
-            app:layout_constraintTop_toTopOf="@id/staticProductTitle"
-            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="가격"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:layout_marginTop="100dp"
             android:layout_marginLeft="20dp"
-            />
+            android:layout_marginTop="80dp"
+            android:text="가격"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/staticProductTitle" />
 
         <EditText
             android:id="@+id/textPrice"
             android:layout_width="80dp"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/editext_border"
             android:inputType="number"
             android:text=""
-            android:textSize="15dp"
+            android:textSize="13sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/staticPrice" />
 
@@ -74,34 +69,32 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="원"
-            android:textSize="15dp"
+            android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@+id/textPrice"
             app:layout_constraintLeft_toRightOf="@id/textPrice"
             app:layout_constraintTop_toTopOf="@+id/textPrice" />
 
         <TextView
             android:id="@+id/staticQuan"
-            app:layout_constraintTop_toTopOf="@id/staticPrice"
-            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="양 (몇인분인가요?)"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:layout_marginTop="80dp"
             android:layout_marginLeft="20dp"
-            />
+            android:layout_marginTop="80dp"
+            android:text="양 (몇인분인가요?)"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/staticPrice" />
 
         <EditText
             android:id="@+id/textServing"
             android:layout_width="80dp"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/editext_border"
             android:inputType="number"
             android:text=""
-            android:textSize="15dp"
+            android:textSize="13sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/staticQuan" />
 
@@ -111,34 +104,32 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="인분"
-            android:textSize="15dp"
+            android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@+id/textServing"
             app:layout_constraintLeft_toRightOf="@id/textServing"
             app:layout_constraintTop_toTopOf="@+id/textServing" />
 
         <TextView
             android:id="@+id/staticServing"
-            app:layout_constraintTop_toTopOf="@id/staticQuan"
-            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="수량 (얼마나 파실껀가요?)"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:layout_marginTop="80dp"
             android:layout_marginLeft="20dp"
-            />
+            android:layout_marginTop="80dp"
+            android:text="수량 (얼마나 파실껀가요?)"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/staticQuan" />
 
         <EditText
             android:id="@+id/textQuan"
             android:layout_width="80dp"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/editext_border"
             android:inputType="number"
             android:text=""
-            android:textSize="15dp"
+            android:textSize="13sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/staticServing" />
 
@@ -148,54 +139,100 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="개"
-            android:textSize="15dp"
+            android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@+id/textQuan"
             app:layout_constraintLeft_toRightOf="@id/textServing"
             app:layout_constraintTop_toTopOf="@+id/textQuan" />
+
+        <TextView
+            android:id="@+id/staticCtgr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="80dp"
+            android:text="제품 카테고리 선택"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/staticServing" />
+
+        <LinearLayout
+            android:id="@+id/layoutCheckCtgr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/editext_border"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/staticCtgr"
+            app:layout_constraintTop_toBottomOf="@id/staticCtgr">
+
+            <CheckBox
+                android:id="@+id/checkCtgrComplete"
+                style="@style/MyCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:text="완제품" />
+
+            <CheckBox
+                android:id="@+id/checkCtgrRaw"
+                style="@style/MyCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="재료" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/buttonEnroll"
             style="@style/buttonView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="40dp"
             android:layout_marginRight="20dp"
             android:text="추가(등록)"
             app:layout_constraintRight_toLeftOf="@id/buttonCancel"
-            app:layout_constraintTop_toBottomOf="@id/staticServing" />
+            app:layout_constraintTop_toBottomOf="@id/layoutCheckCtgr" />
 
         <Button
             android:id="@+id/buttonCancel"
             style="@style/buttonView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="40dp"
             android:layout_marginRight="20dp"
             android:text="취소"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/staticServing" />
+            app:layout_constraintTop_toBottomOf="@id/layoutCheckCtgr" />
 
         <TextView
             android:id="@+id/staticImage"
-            app:layout_constraintBottom_toTopOf="@id/imageProduct"
-            app:layout_constraintLeft_toLeftOf="@id/imageProduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="상품 사진"
-            android:textSize="15dp"
-            android:textStyle="bold"
             android:layout_marginBottom="20dp"
-            />
+            android:text="상품 사진"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/imageProduct"
+            app:layout_constraintLeft_toLeftOf="@id/imageProduct" />
 
         <ImageView
             android:id="@+id/imageProduct"
-            app:layout_constraintTop_toTopOf="@id/textProductTitle"
-            app:layout_constraintRight_toRightOf="parent"
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/element_border_black_0_5dp"/>
+            android:background="@drawable/element_border_black_0_5dp"
+            android:src="@drawable/test_02"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textProductTitle" />
 
         <Button
             android:id="@+id/buttonChangeImage"

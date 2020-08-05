@@ -152,7 +152,7 @@ object userInfo {
 }
 // 오늘을 위한 데이터
 // 소비자 -> 장바구니
-object instantData {
+object productBasket {
     var productList : ArrayList<productElement> = ArrayList()
 
 }
@@ -172,4 +172,5 @@ object currentCondition {
 
 object currentProductElement {
     var currentProductElement = productElement()
+    var function = ""
 }

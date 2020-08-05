@@ -50,8 +50,7 @@ class sellerUIHome : Fragment() {
                 }
                 adapter = productElementAdapter(productElementList, requireContext(), 3) {
                         productElement ->
-                    // 팝업창 띄우기
-                    (activity as sellerUIMain).showProductSpecific(productElement, 1)
+                    (activity as sellerUIMain).recyclerViewFun()
                 }
                 RecyclerView.adapter = adapter
             }

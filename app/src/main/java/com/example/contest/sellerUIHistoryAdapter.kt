@@ -5,12 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.product_seller_history_specific.view.*
-import kotlinx.android.synthetic.main.product_seller_home_specific.view.textPrice
-import kotlinx.android.synthetic.main.product_seller_home_specific.view.textServing
 import kotlin.collections.ArrayList
 
 class sellerUIHistoryAdapter(var historyElementListList: MutableMap<String, ArrayList<productElement>>, val context: Context, var usage : Int) : RecyclerView.Adapter<sellerUIHistoryAdapter.sellerUIHistoryViewHolder>() {
@@ -44,17 +40,6 @@ class sellerUIHistoryAdapter(var historyElementListList: MutableMap<String, Arra
             val s = itemView.findViewById<RecyclerView>(R.id.RecyclerView11)
             val sAdapter = productElementAdapter(historyElements, context, 2) {
                 productElement ->
-                // 상품 정보가 떠야함 팝업으로
-                val view = LayoutInflater.from(context).inflate(R.layout.product_seller_history_specific, null)
-                view.textProductTitle.text = productElement.title
-                view.textPrice.text = productElement.price.toString()
-                view.textServing.text = productElement.serve.toString()
-                view.textSoldDate.text = productElement.soldDate
-                val alertDialog = AlertDialog.Builder(context)
-                    .setTitle("상품 정보")
-                    .create()
-                alertDialog.setView(view)
-                alertDialog.show()
             }
             s.adapter = sAdapter
             val layoutManager = LinearLayoutManager(context)

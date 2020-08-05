@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#36BC9B"
+    >
 
 
     <LinearLayout
@@ -32,7 +34,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="소비자"
-                android:textSize="15dp" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/buttonSignupSeller"
@@ -43,7 +45,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="판매자"
-                android:textSize="15dp" />
+                android:textSize="13sp" />
         </LinearLayout>
     </LinearLayout>
 

@@ -37,7 +37,7 @@ class productElementAdapter(
                     .inflate(R.layout.product_seller_home, parent, false)
             }
             // 구매자 재료
-            4 -> {
+            41 -> {
                 view = LayoutInflater.from(context)
                     .inflate(R.layout.product_buyer_market, parent, false)
             }
@@ -69,7 +69,7 @@ class productElementAdapter(
 
         // 타이머
         val currentTime = Calendar.getInstance().time
-        val endDateDay = LocalDate.now().toString() + " " + productElementList[position].soldTime
+        val endDateDay = LocalDate.now().toString() + " " + productElementList[position].soldTime + ":00"
         val format1 = SimpleDateFormat("yyyy-MM-dd hh:mm:ss",Locale.getDefault())
         val endDate = format1.parse(endDateDay)
         // 차이

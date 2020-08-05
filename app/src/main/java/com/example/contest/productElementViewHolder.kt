@@ -8,8 +8,17 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.product_buyer_basket.view.*
+import kotlinx.android.synthetic.main.product_buyer_market.view.*
+import kotlinx.android.synthetic.main.product_buyer_market.view.buttonPurchase
+import kotlinx.android.synthetic.main.product_seller_home.view.*
 import java.time.LocalDateTime
 
 
@@ -17,20 +26,47 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
     val productImage = elementView.findViewById<ImageView>(R.id.imageProduct)
     val productTitle = elementView.findViewById<TextView>(R.id.textProductTitle)
     val productPrice = elementView.findViewById<TextView>(R.id.textPrice)
-    val productQuan = elementView.findViewById<TextView>(R.id.textQuan)
+    val productQuanTotal = elementView.findViewById<TextView>(R.id.textQuanTotal)
+    val productQuanLeft = elementView.findViewById<TextView>(R.id.textQuanLeft)
+    val productQuanBasket = elementView.findViewById<TextView>(R.id.textQuanBasket)
+    val productServing = elementView.findViewById<TextView>(R.id.textServing)
     val textCloseTime = elementView.findViewById<TextView>(R.id.textCloseTime)
+    val imageCtgr = elementView.findViewById<ImageView>(R.id.imageCtgr)
+    val textSellerId = elementView.findViewById<TextView>(R.id.textSellerId)
     val usage : Int = usage
     val elementView = elementView
     val productClick = productClick
     var CountDownTimer : CountDownTimer? = null
+    var layoutProductSpecific = elementView.findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.layoutProductSpecific)
 
     private val mStorageRef = FirebaseStorage.getInstance().getReference("productImageDB")
+    val data = FirebaseDatabase.getInstance().getReference("storeDB")
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun bind (productElements : productElement, context : Context) {
+        when (productElements.ctgr) {
+            "완제품" -> {
+                imageCtgr.setImageResource(R.drawable.ui_ctgr_complete)
+            }
+            "정육점" -> {
+                imageCtgr.setImageResource(R.drawable.ui_ctgr_meat)
+            }
+            "생선가게" -> {
+                imageCtgr.setImageResource(R.drawable.ui_ctgr_seafood)
+            }
+            "잡화점" -> {
+                imageCtgr.setImageResource(R.drawable.ui_ctgr_etc)
+            }
+            "채소가게" -> {
+                imageCtgr.setImageResource(R.drawable.ui_ctgr_vegetable)
+            }
+            else -> {
+                imageCtgr.setImageResource(R.drawable.ui_ctgr_etc)
+            }
+        }
         productTitle.text = productElements.title
         productPrice.text = productElements.price.toString()
-        productQuan.text = productElements.serve.toString()
+        productServing.text = productElements.serve.toString()
         val imagePath = mStorageRef.child(productElements.productId + ".png")
         val imageSize: Long = 1024 * 1024 * 10
         imagePath.getBytes(imageSize).addOnSuccessListener {
@@ -49,31 +85,116 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
             22 -> {
                 elementView.findViewById<TextView>(R.id.staticDate).text = LocalDateTime.now().toString()
                 elementView.setOnClickListener {
-                    productClick(productElements)
+                    if (layoutProductSpecific.isGone) {
+                        layoutProductSpecific.isGone = false
+                    } else {
+                        layoutProductSpecific.isGone = true
+                    }
                 }
             }
             // 판매자 오늘 상품
             3 -> {
-                elementView.setOnClickListener {
+                productQuanTotal.text = productElements.quanTotal.toString()
+                productQuanLeft.text = productElements.quanLeft.toString()
+                elementView.buttonDelete.setOnClickListener {
+                    currentProductElement.currentProductElement = productElements
+                    currentProductElement.function = "delete"
                     productClick(productElements)
+                }
+                elementView.setOnClickListener {
+                    if (layoutProductSpecific.isGone) {
+                        layoutProductSpecific.isGone = false
+                    } else {
+                        layoutProductSpecific.isGone = true
+                    }
                 }
             }
             // 소비자 재료
-            4 -> {
-                elementView.setOnClickListener {
+            41 -> {
+                productQuanLeft.text = productElements.quanLeft.toString()
+                data.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(p0: DatabaseError) {
+                    }
+                    override fun onDataChange(p0: DataSnapshot) {
+                        textSellerId.text = p0.child(productElements.sellerId).child("title").value.toString()
+                    }
+                })
+                elementView.buttonPlus.setOnClickListener {
+                    currentProductElement.currentProductElement = productElements
+                    currentProductElement.function = "plus"
+                    currentCondition.ctgr01 = "raw"
                     productClick(productElements)
+                }
+                elementView.buttonPurchase.setOnClickListener {
+                    currentProductElement.currentProductElement = productElements
+                    currentProductElement.function = "purchase"
+                    currentCondition.ctgr01 = "raw"
+                    productClick(productElements)
+                }
+                elementView.setOnClickListener {
+                    if (layoutProductSpecific.isGone) {
+                        layoutProductSpecific.isGone = false
+                    } else {
+                        layoutProductSpecific.isGone = true
+                    }
                 }
             }
             // 소비자 완제품
             42 -> {
-                elementView.setOnClickListener {
+                productQuanLeft.text = productElements.quanLeft.toString()
+                data.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(p0: DatabaseError) {
+                    }
+                    override fun onDataChange(p0: DataSnapshot) {
+                        textSellerId.text = p0.child(productElements.sellerId).child("title").value.toString()
+                    }
+                })
+                elementView.buttonPlus.setOnClickListener {
+                    currentProductElement.currentProductElement = productElements
+                    currentProductElement.function = "plus"
+                    currentCondition.ctgr01 = "complete"
                     productClick(productElements)
+                }
+                elementView.buttonPurchase.setOnClickListener {
+                    currentProductElement.currentProductElement = productElements
+                    currentProductElement.function = "purchase"
+                    currentCondition.ctgr01 = "complete"
+                    productClick(productElements)
+                }
+                elementView.setOnClickListener {
+                    if (layoutProductSpecific.isGone) {
+                        layoutProductSpecific.isGone = false
+                    } else {
+                        layoutProductSpecific.isGone = true
+                    }
                 }
             }
             // 소비자 장바구니
             5 -> {
-                elementView.setOnClickListener {
+                productQuanBasket.text = "담은양"
+                data.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(p0: DatabaseError) {
+                    }
+                    override fun onDataChange(p0: DataSnapshot) {
+                        textSellerId.text = p0.child(productElements.sellerId).child("title").value.toString()
+                    }
+                })
+                elementView.buttonMinus.setOnClickListener {
+                    currentProductElement.currentProductElement = productElements
+                    currentProductElement.function = "minus"
                     productClick(productElements)
+                }
+                elementView.buttonPurchase.setOnClickListener {
+                    currentProductElement.currentProductElement = productElements
+                    currentProductElement.function = "purchase"
+                    productClick(productElements)
+                }
+                elementView.setOnClickListener {
+                    if (layoutProductSpecific.isGone) {
+                        layoutProductSpecific.isGone = false
+                    } else {
+                        layoutProductSpecific.isGone = true
+                    }
                 }
             }
 

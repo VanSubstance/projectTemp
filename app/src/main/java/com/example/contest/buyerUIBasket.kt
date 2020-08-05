@@ -29,12 +29,12 @@ class buyerUIBasket : Fragment() {
 
         productElementList = ArrayList()
 
-        productElementList = instantData.productList
+        productElementList = productBasket.productList
 
         adapter = productElementAdapter(productElementList, requireContext(),5) {
                 productElement ->
             // 팝업창 띄우기
-            (activity as buyerUIMain).showProductSpecific(productElement, 1)
+            (activity as buyerUIMain).recyclerViewFun()
         }
         RecyclerView.adapter = adapter
 
