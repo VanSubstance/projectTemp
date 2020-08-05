@@ -1,17 +1,22 @@
 package com.example.contest
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.signup_buyer.view.*
 
-class signupBuyer : Fragment() {
 
+
+class signupBuyer : Fragment() {
+    private val TAG = "FirebaseService"
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     var auth : FirebaseAuth?= null
 
@@ -48,6 +53,7 @@ class signupBuyer : Fragment() {
                                 val uid=user?.uid
                                 val data = Post(password,name, pnum, role,nick)
                                 val info = data.toMap()
+
                                 DatabaseReference.child("userDB").child(uid.toString()).setValue(info)
                                 DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("정육점").setValue(view.checkCtgrMeat.isChecked)
                                 DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("생선가게").setValue(view.checkCtgrFish.isChecked)

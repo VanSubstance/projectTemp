@@ -33,6 +33,10 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
     val textCloseTime = elementView.findViewById<TextView>(R.id.textCloseTime)
     val imageCtgr = elementView.findViewById<ImageView>(R.id.imageCtgr)
     val textSellerId = elementView.findViewById<TextView>(R.id.textSellerId)
+    var textBuyerId = elementView.findViewById<TextView>(R.id.textBuyerId)
+    var staticBuyerMark = elementView.findViewById<TextView>(R.id.staticBuyerMark)
+    var textBuyerQuan = elementView.findViewById<TextView>(R.id.textBuyerQuan)
+    var staticBuyerQuanUnit = elementView.findViewById<TextView>(R.id.staticBuyerQuanUnit)
     val usage : Int = usage
     val elementView = elementView
     val productClick = productClick
@@ -41,6 +45,7 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
 
     private val mStorageRef = FirebaseStorage.getInstance().getReference("productImageDB")
     val data = FirebaseDatabase.getInstance().getReference("storeDB")
+    var data2 = FirebaseDatabase.getInstance().getReference("userDB")
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun bind (productElements : productElement, context : Context) {
@@ -94,6 +99,21 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
             }
             // 판매자 오늘 상품
             3 -> {
+                // 구매한 소비자들 이름 따라락
+                for (buyer in productElements.buyerId) {
+                    var nick : String = ""
+                    data2.addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onCancelled(p0: DatabaseError) {
+                        }
+                        override fun onDataChange(p0: DataSnapshot) {
+                            nick = p0.child(buyer.key).child("nick").value.toString()
+                            textBuyerId.text = textBuyerId.text.toString() + nick + "\n"
+                            staticBuyerMark.text = staticBuyerMark.text.toString() + ":\n"
+                            textBuyerQuan.text = textBuyerQuan.text.toString() + buyer.value + "\n"
+                            staticBuyerQuanUnit.text = staticBuyerQuanUnit.text.toString() + "개\n"
+                        }
+                    })
+                }
                 productQuanTotal.text = productElements.quanTotal.toString()
                 productQuanLeft.text = productElements.quanLeft.toString()
                 elementView.buttonDelete.setOnClickListener {
