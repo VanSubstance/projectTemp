@@ -38,8 +38,24 @@ class sellerUIEnrollProduct : Fragment() {
             intent.setType("image/*")
             startActivityForResult(Intent.createChooser(intent, "사용할 애플리케이션"), 1)
         }
+        view.checkCtgrComplete.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                view.checkCtgrRaw.isChecked = false
+            } else {
+                view.checkCtgrRaw.isChecked = true
+            }
+        }
+        view.checkCtgrRaw.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                view.checkCtgrComplete.isChecked = false
+            } else {
+                view.checkCtgrComplete.isChecked = true
+            }
+        }
         view.buttonEnroll.setOnClickListener {
-            if (view.textProductTitle.text.isEmpty() || view.textPrice.text.isEmpty() || view.textQuan.text.isEmpty() || view.textServing.text.isEmpty()) {
+            if (!view.checkCtgrComplete.isChecked && !view.checkCtgrRaw.isChecked) {
+                Toast.makeText(requireContext(), "제품 카테고리를 골라주세요", Toast.LENGTH_SHORT).show()
+            } else if (view.textProductTitle.text.isEmpty() || view.textPrice.text.isEmpty() || view.textQuan.text.isEmpty() || view.textServing.text.isEmpty()) {
                 Toast.makeText(requireContext(), "제대로 입력해야 합니다", Toast.LENGTH_SHORT).show()
             } else if (imageUrl == null) {
                 Toast.makeText(requireContext(), "사진을 등록해주세요", Toast.LENGTH_SHORT).show()
@@ -52,7 +68,11 @@ class sellerUIEnrollProduct : Fragment() {
                 var productId = SimpleDateFormat("yyyyMMdd").format(Date()) + userInfo.id + title
                 var imageTitle = productId + ".png"
                 imageData.child(imageTitle).putFile(imageUrl!!)
-                newProduct.setInfo(title, price, serve, productId, quan, userInfo.ctgrForSeller, userInfo.timeClose)
+                if (view.checkCtgrComplete.isChecked) {
+                    newProduct.setInfo(title, price, serve, productId, quan, "완제품", userInfo.timeClose)
+                } else {
+                    newProduct.setInfo(title, price, serve, productId, quan, userInfo.ctgrForSeller, userInfo.timeClose)
+                }
                 data.child(productId).setValue(newProduct.toMap())
                 (activity as sellerUIMain).setSellerFrag(11)
             }

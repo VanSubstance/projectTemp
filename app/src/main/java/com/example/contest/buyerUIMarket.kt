@@ -42,7 +42,7 @@ class buyerUIMarket : Fragment() {
             override fun onDataChange(p0: DataSnapshot) {
                 // 해당 시장의 판매자 리스트 생성
                 for (market in p0.children) {
-                    sellers.add(market.child("seller").value.toString())
+                    sellers.add(market.key.toString())
                 }
             }
         })
@@ -60,16 +60,29 @@ class buyerUIMarket : Fragment() {
                         productElementList.add(productEl)
                     }
                 }
+                val origin = arrayListOf<productElement>()
+                origin.addAll(productElementList)
+
                 when (arguments?.getInt("usage")) {
                     // 재료
-                    2 -> {
+                    3 -> {
+                        for (product in origin) {
+                            if(!product.ctgr.equals(currentCondition.ctgr02)) {
+                                productElementList.remove(product)
+                            }
+                        }
                         adapter = productElementAdapter(productElementList, requireContext(), 41) {
                                 productElement ->
                             (activity as buyerUIMain).recyclerViewFun(productElement)
                         }
                     }
                     // 완제품
-                    3 -> {
+                    2 -> {
+                        for (product in origin) {
+                            if(!product.ctgr.equals("완제품")) {
+                                productElementList.remove(product)
+                            }
+                        }
                         adapter = productElementAdapter(productElementList, requireContext(), 42) {
                                 productElement ->
                             (activity as buyerUIMain).recyclerViewFun(productElement)

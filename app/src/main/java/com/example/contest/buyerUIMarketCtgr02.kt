@@ -19,6 +19,7 @@ class buyerUIMarketCtgr02 : Fragment() {
             imageSeafood.setImageResource(R.drawable.ui_ctgr_seafood_off)
             imageVegetable.setImageResource(R.drawable.ui_ctgr_vegetable_off)
             imageEtc.setImageResource(R.drawable.ui_ctgr_etc_off)
+            currentCondition.ctgr02 = "정육점"
             (activity as buyerUIMain).setBuyerFrag(25)
         }
         view.buttonFish.setOnClickListener {
@@ -28,6 +29,7 @@ class buyerUIMarketCtgr02 : Fragment() {
             imageSeafood.setImageResource(R.drawable.ui_ctgr_seafood)
             imageVegetable.setImageResource(R.drawable.ui_ctgr_vegetable_off)
             imageEtc.setImageResource(R.drawable.ui_ctgr_etc_off)
+            currentCondition.ctgr02 = "생선가게"
             (activity as buyerUIMain).setBuyerFrag(25)
         }
         view.buttonVegetable.setOnClickListener {
@@ -37,6 +39,7 @@ class buyerUIMarketCtgr02 : Fragment() {
             imageSeafood.setImageResource(R.drawable.ui_ctgr_seafood_off)
             imageVegetable.setImageResource(R.drawable.ui_ctgr_vegetable)
             imageEtc.setImageResource(R.drawable.ui_ctgr_etc_off)
+            currentCondition.ctgr02 = "채소가게"
             (activity as buyerUIMain).setBuyerFrag(25)
         }
         view.buttonEtc.setOnClickListener {
@@ -46,6 +49,7 @@ class buyerUIMarketCtgr02 : Fragment() {
             imageSeafood.setImageResource(R.drawable.ui_ctgr_seafood_off)
             imageVegetable.setImageResource(R.drawable.ui_ctgr_vegetable_off)
             imageEtc.setImageResource(R.drawable.ui_ctgr_etc)
+            currentCondition.ctgr02 = "잡화점"
             (activity as buyerUIMain).setBuyerFrag(25)
         }
         return view
