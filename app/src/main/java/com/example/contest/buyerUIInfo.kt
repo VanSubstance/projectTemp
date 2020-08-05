@@ -49,7 +49,7 @@ class buyerUIInfo : Fragment() {
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                view.staticName.setText(p0.child("Name").value.toString())
+                view.textName.setText(p0.child("Name").value.toString())
                 view.textPNum.setText(p0.child("pNum").value.toString())
                 view.textNickName.setText(p0.child("nickName").value.toString())
                 if (p0.child("ctgr").child("정육점").value.toString().equals("true")) {

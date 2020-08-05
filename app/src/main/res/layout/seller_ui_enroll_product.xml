@@ -31,11 +31,10 @@
         <EditText
             android:id="@+id/textProductTitle"
             android:layout_width="0dp"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:ems="10"
             android:inputType="text"
-            android:text=""
             android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="@+id/staticQuan"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -58,7 +57,7 @@
         <EditText
             android:id="@+id/textPrice"
             android:layout_width="80dp"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:inputType="number"
@@ -94,7 +93,7 @@
         <EditText
             android:id="@+id/textServing"
             android:layout_width="80dp"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:inputType="number"
@@ -130,7 +129,7 @@
         <EditText
             android:id="@+id/textQuan"
             android:layout_width="80dp"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:inputType="number"
