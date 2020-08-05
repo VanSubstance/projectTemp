@@ -89,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:text="기타 입력"
-                android:textSize="15dp"
+                android:textSize="13sp"
                 android:gravity="center"
                 android:visibility="visible"/>
 
@@ -99,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:hint="기타 입력"
-                android:textSize="15dp"
+                android:textSize="13sp"
                 android:inputType="textPersonName"
                 android:gravity="center"
                 android:visibility="gone"/>

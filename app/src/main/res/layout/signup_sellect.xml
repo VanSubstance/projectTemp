@@ -32,7 +32,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="소비자"
-                android:textSize="15dp" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/buttonSignupSeller"
@@ -43,7 +43,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="판매자"
-                android:textSize="15dp" />
+                android:textSize="13sp" />
         </LinearLayout>
     </LinearLayout>
 

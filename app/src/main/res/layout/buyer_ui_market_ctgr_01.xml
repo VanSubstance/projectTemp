@@ -80,7 +80,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:text="완제품"
-                        android:textSize="15dp" />
+                        android:textSize="13sp" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -113,7 +113,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:text="재료"
-                        android:textSize="15dp" />
+                        android:textSize="13sp" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
