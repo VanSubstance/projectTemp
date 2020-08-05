@@ -62,36 +62,36 @@
             app:layout_constraintTop_toTopOf="@+id/staticProductTitle" />
 
         <TextView
-            android:id="@+id/staticQuan"
+            android:id="@+id/staticQuanLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="180dp"
             android:layout_marginTop="5dp"
-            android:text="수량"
-            android:textSize="14sp"
+            android:text="남은 수량"
+            android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageProduct"
             app:layout_constraintTop_toTopOf="@+id/imageProduct" />
 
         <TextView
-            android:id="@+id/textQuan"
+            android:id="@+id/textQuanLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="몇"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@+id/staticQuan"
-            app:layout_constraintTop_toTopOf="@+id/staticQuan" />
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/staticQuanLeft"
+            app:layout_constraintTop_toTopOf="@+id/staticQuanLeft" />
 
         <TextView
-            android:id="@+id/staticQuanUnit"
+            android:id="@+id/staticQuanLeftUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="개"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@+id/textQuan"
-            app:layout_constraintTop_toTopOf="@+id/textQuan" />
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/textQuanLeft"
+            app:layout_constraintTop_toTopOf="@+id/textQuanLeft" />
 
         <TextView
             android:id="@+id/staticPrice"
@@ -133,7 +133,7 @@
             android:text="남은 시간"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/staticQuan"
+            app:layout_constraintStart_toStartOf="@+id/staticQuanLeft"
             app:layout_constraintTop_toTopOf="@+id/staticPriceUnit" />
 
         <TextView
@@ -166,7 +166,8 @@
             app:layout_constraintLeft_toLeftOf="@id/staticPrice"
             app:layout_constraintRight_toRightOf="@id/textCloseTime"
             app:layout_constraintTop_toBottomOf="@id/imageProduct"
-            android:visibility="gone">
+            android:visibility="gone"
+            >
 
             <TextView
                 android:id="@+id/staticServing"
@@ -246,7 +247,7 @@
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:text="장바구니에 담기"
-                android:textSize="15dp"
+                android:textSize="13sp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 />
@@ -257,7 +258,7 @@
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:text="구매"
-                android:textSize="15dp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 />

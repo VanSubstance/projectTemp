@@ -57,36 +57,36 @@
             app:layout_constraintTop_toTopOf="@+id/staticProductTitle" />
 
         <TextView
-            android:id="@+id/staticQuanSold"
+            android:id="@+id/staticQuanTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="180dp"
             android:layout_marginTop="5dp"
-            android:text="판매 수량"
-            android:textSize="14sp"
+            android:text="전체 수량"
+            android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageProduct"
             app:layout_constraintTop_toTopOf="@+id/imageProduct" />
 
         <TextView
-            android:id="@+id/textQuanSold"
+            android:id="@+id/textQuanTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="몇"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@+id/staticQuanSold"
-            app:layout_constraintTop_toTopOf="@+id/staticQuanSold" />
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/staticQuanTotal"
+            app:layout_constraintTop_toTopOf="@+id/staticQuanTotal" />
 
         <TextView
-            android:id="@+id/staticQuanSoldUnit"
+            android:id="@+id/staticQuanTotalUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="개"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@+id/textQuanSold"
-            app:layout_constraintTop_toTopOf="@+id/textQuanSold" />
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/textQuanTotal"
+            app:layout_constraintTop_toTopOf="@+id/textQuanTotal"/>
 
         <TextView
             android:id="@+id/staticPrice"
@@ -122,34 +122,34 @@
             app:layout_constraintTop_toTopOf="@+id/textPrice" />
 
         <TextView
-            android:id="@+id/staticQuanTotal"
+            android:id="@+id/staticQuanSold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="전체 수량"
-            android:textSize="14sp"
+            android:text="판매 수량"
+            android:textSize="13sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/staticQuanSold"
+            app:layout_constraintStart_toStartOf="@+id/staticQuanTotal"
             app:layout_constraintTop_toTopOf="@+id/staticPriceUnit" />
 
         <TextView
-            android:id="@+id/textQuanTotal"
+            android:id="@+id/textQuanSold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="몇"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@+id/staticQuanTotal"
-            app:layout_constraintTop_toTopOf="@+id/staticQuanTotal" />
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/staticQuanSold"
+            app:layout_constraintTop_toTopOf="@+id/staticQuanSold" />
 
         <TextView
-            android:id="@+id/staticQuanTotalUnit"
+            android:id="@+id/staticQuanSoldUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="개"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@+id/textQuanTotal"
-            app:layout_constraintTop_toTopOf="@+id/textQuanTotal" />
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/textQuanSold"
+            app:layout_constraintTop_toTopOf="@+id/textQuanSold" />
 
         <TextView
             android:id="@+id/textView"
@@ -167,11 +167,11 @@
             android:layout_marginTop="18dp"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
-            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/staticPrice"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageProduct">
+            app:layout_constraintTop_toBottomOf="@id/imageProduct"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/staticServing"
@@ -216,8 +216,8 @@
 
             <ImageView
                 android:id="@+id/imageCtgr"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/ui_ctgr_meat"
                 app:layout_constraintLeft_toRightOf="@id/staticCtgr"
