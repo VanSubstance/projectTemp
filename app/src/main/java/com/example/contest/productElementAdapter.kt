@@ -66,34 +66,34 @@ class productElementAdapter(
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: productElementViewHolder, position: Int) {
+        if (usage != 2) {
+            // 타이머
+            val currentTime = Calendar.getInstance().time
+            val endDateDay = LocalDate.now().toString() + " " + productElementList[position].soldTime + ":00"
+            val format1 = SimpleDateFormat("yyyy-MM-dd hh:mm:ss",Locale.getDefault())
+            val endDate = format1.parse(endDateDay)
+            // 차이
+            var tick = endDate.time - currentTime.time
+            holder.CountDownTimer = object : CountDownTimer(tick, 1000) {
+                override fun onFinish() {
+                    holder.textCloseTime.setText("마감")
+                    productElementList[position].soldTime = "00:00"
+                }
+                override fun onTick(millisUntilFinished: Long) {
+                    var diff = millisUntilFinished
+                    val secondsInMilli: Long = 1000
+                    val minutesInMilli = secondsInMilli * 60
+                    val hoursInMilli = minutesInMilli * 60
+                    val Hours = diff / hoursInMilli
+                    diff %= hoursInMilli
+                    val Minutes = diff / minutesInMilli
+                    diff %= minutesInMilli
+                    val Seconds = diff / secondsInMilli
+                    holder.textCloseTime.setText(Hours.toString() + ":" + Minutes.toString() + ":" + Seconds.toString())
+                }
 
-        // 타이머
-        val currentTime = Calendar.getInstance().time
-        val endDateDay = LocalDate.now().toString() + " " + productElementList[position].soldTime + ":00"
-        val format1 = SimpleDateFormat("yyyy-MM-dd hh:mm:ss",Locale.getDefault())
-        val endDate = format1.parse(endDateDay)
-        // 차이
-        var tick = endDate.time - currentTime.time
-        holder.CountDownTimer = object : CountDownTimer(tick, 1000) {
-            override fun onFinish() {
-                holder.textCloseTime.setText("마감")
-                productElementList[position].soldTime = "00:00"
-            }
-            override fun onTick(millisUntilFinished: Long) {
-                var diff = millisUntilFinished
-                val secondsInMilli: Long = 1000
-                val minutesInMilli = secondsInMilli * 60
-                val hoursInMilli = minutesInMilli * 60
-                val Hours = diff / hoursInMilli
-                diff %= hoursInMilli
-                val Minutes = diff / minutesInMilli
-                diff %= minutesInMilli
-                val Seconds = diff / secondsInMilli
-                holder.textCloseTime.setText(Hours.toString() + ":" + Minutes.toString() + ":" + Seconds.toString())
-            }
-
-        }.start()
-
+            }.start()
+        }
         holder.bind(productElementList[position], context)
     }
 

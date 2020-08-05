@@ -171,12 +171,43 @@
             app:layout_constraintLeft_toLeftOf="@id/staticPrice"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageProduct"
-            android:visibility="gone">
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:id="@+id/staticSalary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="총 판매 금액"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/textSalary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="얼마"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/staticSalary"
+                app:layout_constraintTop_toTopOf="@id/staticSalary" />
+
+            <TextView
+                android:id="@+id/staticSalaryUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="원"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/textSalary"
+                app:layout_constraintTop_toTopOf="@+id/textSalary" />
 
             <TextView
                 android:id="@+id/staticServing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="170dp"
                 android:text="양"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -211,8 +242,8 @@
                 android:text="종류"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintLeft_toLeftOf="@id/staticServing"
+                app:layout_constraintTop_toTopOf="@id/staticServing" />
 
             <ImageView
                 android:id="@+id/imageCtgr"
@@ -224,53 +255,64 @@
                 app:layout_constraintTop_toTopOf="@id/staticCtgr" />
 
             <TextView
-                android:id="@+id/staticSalary"
+                android:id="@+id/staticBuyerId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="총 판매 금액"
+                android:layout_marginTop="40dp"
+                android:text="구매자"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="@id/staticSoldDate"
+                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textSalary"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutBuyerList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="얼마"
-                android:textSize="14sp"
-                app:layout_constraintStart_toEndOf="@id/staticSalary"
-                app:layout_constraintTop_toTopOf="@id/staticSalary" />
+                android:layout_marginTop="20dp"
+                app:layout_constraintLeft_toLeftOf="@id/staticBuyerId"
+                app:layout_constraintTop_toTopOf="@+id/staticBuyerId"
+                >
 
-            <TextView
-                android:id="@+id/staticSalaryUnit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="원"
-                android:textSize="14sp"
-                app:layout_constraintStart_toEndOf="@+id/textSalary"
-                app:layout_constraintTop_toTopOf="@+id/textSalary" />
+                <TextView
+                    android:id="@+id/textBuyerId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="@id/layoutBuyerList"
+                    app:layout_constraintTop_toTopOf="@+id/layoutBuyerList" />
 
-            <TextView
-                android:id="@+id/staticSoldDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:text="판매 날짜"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_constraintRight_toLeftOf="@id/textSoldDate"
-                app:layout_constraintTop_toTopOf="@id/staticCtgr" />
+                <TextView
+                    android:id="@+id/staticBuyerMark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text=""
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@+id/textBuyerId"
+                    app:layout_constraintTop_toTopOf="@+id/textBuyerId" />
 
-            <TextView
-                android:id="@+id/textSoldDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="yyyy-MM-dd"
-                android:textSize="14sp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@id/staticCtgr" />
+                <TextView
+                    android:id="@+id/textBuyerQuan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text=""
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@+id/staticBuyerMark"
+                    app:layout_constraintTop_toTopOf="@+id/staticBuyerMark" />
+
+                <TextView
+                    android:id="@+id/staticBuyerQuanUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@+id/textBuyerQuan"
+                    app:layout_constraintTop_toTopOf="@+id/textBuyerQuan" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

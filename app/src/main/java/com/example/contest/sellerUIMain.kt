@@ -18,7 +18,6 @@ class sellerUIMain : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.seller_ui_main)
-
         //판매자 화면 전환
         setSellerFrag(11)
 

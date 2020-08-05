@@ -38,8 +38,11 @@ class MainActivity : AppCompatActivity() {
                 loginUserId(textUserID.text.toString(), textUserPW.text.toString())
         }
         buttonSignUp.setOnClickListener{
+            pushProducts()
             val SignUp_user=Intent(this,signup_sellect::class.java)
             startActivity(SignUp_user)
+            overridePendingTransition(R.anim.slide_right_to_left, R.anim.slide_out_right_to_left);
+
         }
         
 
@@ -127,7 +130,7 @@ private fun pushProducts() {
                 var product = productElement()
                 product.setFromDb(element)
                 product.soldDate = SimpleDateFormat("yyyyMMdd").format(Date()).toString()
-                historyDB.child(SimpleDateFormat("yyyyMMdd").format(Date()).toString()).child(product.productId).setValue(product.toMap())
+                historyDB.child(SimpleDateFormat("yyyyMMdd").format(Date()).toString()).child(product.productId).child(userInfo.id).setValue(product.toMap())
                 todayDB.child(element.key.toString()).removeValue()
             }
         }

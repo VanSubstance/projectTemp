@@ -27,7 +27,11 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
     private var locationSource: FusedLocationSource? = null
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
-    override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.buyer_ui_map, container, false)
 
         val fm = childFragmentManager
@@ -48,21 +52,28 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
         val uiSettings: UiSettings = naverMap.uiSettings
         uiSettings.setLocationButtonEnabled(true)
 
-        var marketList : ArrayList<Marker> = arrayListOf()
-        var infoWindowList : ArrayList<InfoWindow> = arrayListOf()
+        var marketList: ArrayList<Marker> = arrayListOf()
+        var infoWindowList: ArrayList<InfoWindow> = arrayListOf()
         var data = database.getReference("marketInfo")
 
         data.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
             }
+
             override fun onDataChange(p0: DataSnapshot) {
 
                 for (market in p0.children) {
                     var marketTitle = market.child("marketTitle").value.toString()
                     var marker = Marker()
-                    if (market.child("latitude").value.toString().toDouble() != null && market.child("longitude").value.toString().toDouble() != null) {
+                    if (market.child("latitude").value.toString()
+                            .toDouble() != null && market.child("longitude").value.toString()
+                            .toDouble() != null
+                    ) {
 
-                        marker.position = LatLng(market.child("latitude").value.toString().toDouble(), market.child("longitude").value.toString().toDouble())
+                        marker.position = LatLng(
+                            market.child("latitude").value.toString().toDouble(),
+                            market.child("longitude").value.toString().toDouble()
+                        )
                         marker.map = naverMap
                         marker.width = 70
                         marker.height = 100
@@ -81,11 +92,14 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
                             true
                         }
                         marker.onClickListener = Overlay.OnClickListener { overlay: Overlay? ->
+                            for (infoWindow in infoWindowList) {
+                                infoWindow.close()
+                            }
                             infoWindow.open((overlay as Marker?)!!)
                             true
                         }
                         infoWindowList.add(infoWindow)
-                        }
+                    }
                 }
             }
         })
@@ -93,7 +107,7 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
 
 
         naverMap.setOnMapClickListener { pointF, latLng ->
-            for (infoWindow in infoWindowList){
+            for (infoWindow in infoWindowList) {
                 infoWindow.close()
             }
         }
@@ -101,7 +115,7 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
             val marker = overlay as Marker
             if (marker.infoWindow != null) {
                 // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
-                for (infoWindow in infoWindowList){
+                for (infoWindow in infoWindowList) {
                     infoWindow.close()
                 }
             }

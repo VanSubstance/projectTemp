@@ -39,18 +39,19 @@ class sellerUIHistory : Fragment() {
             override fun onCancelled(p0: DatabaseError) {
             }
             override fun onDataChange(p0: DataSnapshot) {
-                for (product in p0.children) {
+               for (productListbyDate in p0.children) {
                     // 해당 사용자의 아이디 + 날짜 확인
-                    if (product.child("seller").value.toString().equals(userInfo.id)) {
-                        if (!historyElementList.keys.any{(product.child("soldDate").value).toString().equals(it)}) {
-                            var productElementList : ArrayList<productElement> = ArrayList()
-                            historyElementList.put(product.child("soldDate").value.toString(), productElementList)
-                        }
-                        var productEl = productElement()
-                        productEl.setFromDb(product)
-                        productEl.soldDate = product.child("soldDate").value.toString()
-                        historyElementList[product.child("soldDate").value.toString()]?.add(productEl)
-                    }
+                   for (product in productListbyDate.children) {
+                       if (product.child("seller").value.toString().equals(userInfo.id)) {
+                           if (!historyElementList.keys.any{it.equals(productListbyDate.key.toString())}) {
+                               var productElementList : ArrayList<productElement> = ArrayList()
+                               historyElementList.put(productListbyDate.key.toString(), productElementList)
+                           }
+                           var productEl = productElement()
+                           productEl.setFromDb(product)
+                           historyElementList[productListbyDate.key.toString()]?.add(productEl)
+                       }
+                   }
                 }
                 adapter = sellerUIHistoryAdapter(historyElementList, requireContext(), 1)
                 RecyclerView.adapter = adapter

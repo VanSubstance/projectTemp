@@ -4,21 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@drawable/element_border">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/staticDate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
         android:text="날짜"
-        android:background="@drawable/element_border"/>
+        android:gravity="center"
+        android:background="@drawable/element_border_black_1dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerView11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/element_border"/>
+        android:layout_margin="10dp"/>
 
 
 </LinearLayout>
