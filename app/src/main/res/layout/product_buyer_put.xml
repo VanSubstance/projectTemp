@@ -53,7 +53,7 @@
             android:text="/" />
 
         <TextView
-            android:id="@+id/textQuan"
+            android:id="@+id/textQuanLeft"
             app:layout_constraintTop_toTopOf="@id/textAcquire"
             app:layout_constraintLeft_toRightOf="@id/staticAcquire"
             android:layout_marginLeft="40dp"
@@ -62,9 +62,9 @@
             android:text="" />
 
         <TextView
-            android:id="@+id/staticQuan"
-            app:layout_constraintLeft_toRightOf="@id/textQuan"
-            app:layout_constraintTop_toTopOf="@id/textQuan"
+            android:id="@+id/staticQuanLeft"
+            app:layout_constraintLeft_toRightOf="@id/textQuanLeft"
+            app:layout_constraintTop_toTopOf="@id/textQuanLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="개" />
@@ -76,7 +76,7 @@
             android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="현재 상품이 그만큼 없어요!"
             android:textStyle="bold"
             android:textColor="#FF0000"
             android:visibility="gone"/>

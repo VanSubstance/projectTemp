@@ -171,7 +171,7 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
             }
             // 소비자 장바구니
             5 -> {
-                productQuanBasket.text = "담은양"
+                productQuanBasket.text = productElements.buyerId[userInfo.id].toString()
                 data.addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
                     }

@@ -68,6 +68,8 @@ class MainActivity : AppCompatActivity() {
                                     startActivity(sellerUI)
                                 }
                                 else{
+                                    userInfo.id=auth?.uid.toString()
+                                    userInfo.pw=password
                                     userInfo.role = p0.child("userDB").child(auth?.uid.toString()).child("role").value as String
                                     userInfo.pNum = p0.child("userDB").child(auth?.uid.toString()).child("pNum").value as String
                                     startActivity(buyerUI)

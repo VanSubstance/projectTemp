@@ -20,7 +20,7 @@ class productElement() {
     var quanLeft = 0
     var quanSold = 0
     var ctgr: String = ""
-    var buyerId: String = "undefined"
+    var buyerId: MutableMap<String, Int> = mutableMapOf()
     var soldDate: String = ""
     var soldTime: String= ""
 
@@ -39,18 +39,12 @@ class productElement() {
         this.price = price
         this.serve = serve
         this.sellerId = userInfo.id
-        buyerId = "undefined"
+        buyerId = mutableMapOf()
         this.soldDate = SimpleDateFormat("yyyy-MM-dd").format(Date())
         this.quanLeft = quanTotal
         this.quanTotal = quanTotal
         this.ctgr = ctgr
         this.soldTime=soldTime
-    }
-
-    // 판매시
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun sold() {
-        buyerId = userInfo.id
     }
 
     fun toMap(): Map<String, Any?> {
@@ -75,7 +69,9 @@ class productElement() {
         price = product.child("price").value.toString().toInt()
         serve = product.child("serve").value.toString().toInt()
         sellerId = product.child("seller").value.toString()
-        buyerId = product.child("buyer").value.toString()
+        for (buyer in product.child("buyer").children) {
+            buyerId.put(buyer.key.toString(), buyer.value.toString().toInt())
+        }
         soldDate = product.child("soldDate").value.toString()
         quanTotal = product.child("quanTotal").value.toString().toInt()
         quanLeft = product.child("quanLeft").value.toString().toInt()
