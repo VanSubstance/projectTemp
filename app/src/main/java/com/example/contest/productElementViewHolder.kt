@@ -100,7 +100,16 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
             3 -> {
                 // 구매한 소비자들 이름 따라락
                 for (buyer in productElements.buyerId) {
-                    textBuyerId.text = textBuyerId.text.toString() + buyer.key + "\n"
+                    var data2 = FirebaseDatabase.getInstance().getReference("userDB")
+                    var nick : String = ""
+                    data2.addValueEventListener(object : ValueEventListener {
+                        override fun onCancelled(p0: DatabaseError) {
+                        }
+                        override fun onDataChange(p0: DataSnapshot) {
+                            nick = p0.child(buyer.key).child("nick").value.toString()
+                        }
+                    })
+                    textBuyerId.text = textBuyerId.text.toString() + nick + "\n"
                     staticBuyerMark.text = staticBuyerMark.text.toString() + ":\n"
                     textBuyerQuan.text = textBuyerQuan.text.toString() + buyer.value + "\n"
                     staticBuyerQuanUnit.text = staticBuyerQuanUnit.text.toString() + "개\n"

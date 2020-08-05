@@ -87,7 +87,7 @@ class signupSeller : Fragment() {
                                             }
                                             val token=task.result?.token
                                             token_r=token.toString()})
-                                
+
                                 DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(uid.toString()).setValue(""   )
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("ctgr").setValue(storeCtgr)
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("timeOpen").setValue(timeOpen)
