@@ -18,11 +18,10 @@ class buyerUIMarketCtgr01 : Fragment() {
         view.textMarketName.setText(currentCondition.marketTitle)
 
         view.buttonComplete.setOnClickListener {
-            currentCondition.ctgr01 = "complete"
+            // 해당 시장 오늘 상품중 완제품만 보여준다.
             (activity as buyerUIMain).setBuyerFrag(24)
         }
         view.buttonRaw.setOnClickListener {
-            currentCondition.ctgr01 = "raw"
             (activity as buyerUIMain).setBuyerFrag(23)
         }
         return view

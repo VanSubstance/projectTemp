@@ -59,7 +59,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="레시피 이름"
-                        android:textSize="13sp"
+                        android:textSize="15dp"
                         app:layout_constraintLeft_toRightOf="@id/imageRecipe"
                         app:layout_constraintTop_toTopOf="@id/imageRecipe" />
 
@@ -70,7 +70,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:text="개쩌는 레시피"
-                        android:textSize="13sp"
+                        android:textSize="15dp"
                         app:layout_constraintLeft_toRightOf="@id/imageRecipe"
                         app:layout_constraintTop_toBottomOf="@id/staticRecipeTitle" />
 
@@ -81,7 +81,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:text="음식 종류"
-                        android:textSize="13sp"
+                        android:textSize="15dp"
                         app:layout_constraintLeft_toRightOf="@id/imageRecipe"
                         app:layout_constraintTop_toBottomOf="@id/textRecipeTitle" />
 
@@ -92,7 +92,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:text="돼지고기나 그런거"
-                        android:textSize="13sp"
+                        android:textSize="15dp"
                         app:layout_constraintLeft_toRightOf="@id/imageRecipe"
                         app:layout_constraintTop_toBottomOf="@id/staticCtgrSpecific" />
 
@@ -103,7 +103,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
                         android:text="조리 난이도"
-                        android:textSize="13sp"
+                        android:textSize="15dp"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -157,7 +157,7 @@
                         ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
                         ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
                         ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
-                        android:textSize="13sp"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="@id/staticIngredient"
                         app:layout_constraintTop_toBottomOf="@id/staticIngredient" />
@@ -225,7 +225,7 @@
                             ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
                             ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
                             ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
-                            android:textSize="13sp"
+                            android:textSize="15dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toRightOf="@id/imageProcedure01"
                             app:layout_constraintRight_toRightOf="parent"
@@ -273,7 +273,7 @@
                             ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
                             ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
                             ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
-                            android:textSize="13sp"
+                            android:textSize="15dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toRightOf="@id/imageProcedure02"
                             app:layout_constraintRight_toRightOf="parent"
@@ -322,7 +322,7 @@
                             ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
                             ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
                             ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
-                            android:textSize="13sp"
+                            android:textSize="15dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toRightOf="@id/imageProcedure03"
                             app:layout_constraintRight_toRightOf="parent"

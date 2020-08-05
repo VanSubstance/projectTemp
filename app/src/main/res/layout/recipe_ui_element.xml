@@ -37,7 +37,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:text="레시피 이름"
-            android:textSize="13sp"
+            android:textSize="15dp"
             app:layout_constraintStart_toEndOf="@+id/imageRecipe"
             app:layout_constraintTop_toTopOf="@+id/imageRecipe" />
 
@@ -48,7 +48,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="개쩌는 레시피"
-            android:textSize="13sp"
+            android:textSize="15dp"
             app:layout_constraintStart_toEndOf="@+id/staticRecipeTitle"
             app:layout_constraintTop_toTopOf="@+id/staticRecipeTitle" />
 
@@ -59,7 +59,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="종류"
-            android:textSize="13sp"
+            android:textSize="15dp"
             app:layout_constraintStart_toEndOf="@+id/textRecipeCtgr"
             app:layout_constraintTop_toTopOf="@+id/textRecipeCtgr" />
 
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="주 카테고리"
-            android:textSize="13sp"
+            android:textSize="15dp"
             app:layout_constraintStart_toStartOf="@+id/staticRecipeTitle"
             app:layout_constraintTop_toTopOf="@+id/imageRecipe" />
 
@@ -80,7 +80,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:text="조리 난이도"
-            android:textSize="13sp"
+            android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textRecipeTitle" />
 
@@ -89,7 +89,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
-            android:textSize="13sp"
+            android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="@+id/staticRecipeLevel"
             app:layout_constraintStart_toStartOf="@+id/staticRecipeLevel"
             app:layout_constraintTop_toBottomOf="@+id/staticRecipeLevel" />
