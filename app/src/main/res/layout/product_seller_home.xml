@@ -3,18 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:background="@drawable/element_border_black_1dp">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutProductBasic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/element_border_black_1dp"
+        >
 
         <ImageView
             android:id="@+id/imageProduct"
@@ -155,7 +156,6 @@
             app:layout_constraintLeft_toLeftOf="@id/staticPrice"
             app:layout_constraintRight_toRightOf="@id/textCloseTime"
             app:layout_constraintTop_toBottomOf="@id/imageProduct"
-            android:visibility="gone"
             >
 
             <TextView
@@ -263,7 +263,7 @@
                     android:id="@+id/textBuyerId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="구매자 이름?"
+                    android:text=""
                     android:textSize="14sp"
                     app:layout_constraintLeft_toLeftOf="@id/layoutBuyerList"
                     app:layout_constraintTop_toTopOf="@+id/layoutBuyerList" />
@@ -273,7 +273,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text=":"
+                    android:text=""
                     android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@+id/textBuyerId"
                     app:layout_constraintTop_toTopOf="@+id/textBuyerId" />
@@ -283,7 +283,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="몇"
+                    android:text=""
                     android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@+id/staticBuyerMark"
                     app:layout_constraintTop_toTopOf="@+id/staticBuyerMark" />
@@ -292,7 +292,7 @@
                     android:id="@+id/staticBuyerQuanUnit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="개"
+                    android:text=""
                     android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@+id/textBuyerQuan"
                     app:layout_constraintTop_toTopOf="@+id/textBuyerQuan" />

@@ -33,6 +33,10 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
     val textCloseTime = elementView.findViewById<TextView>(R.id.textCloseTime)
     val imageCtgr = elementView.findViewById<ImageView>(R.id.imageCtgr)
     val textSellerId = elementView.findViewById<TextView>(R.id.textSellerId)
+    var textBuyerId = elementView.findViewById<TextView>(R.id.textBuyerId)
+    var staticBuyerMark = elementView.findViewById<TextView>(R.id.staticBuyerMark)
+    var textBuyerQuan = elementView.findViewById<TextView>(R.id.textBuyerQuan)
+    var staticBuyerQuanUnit = elementView.findViewById<TextView>(R.id.staticBuyerQuanUnit)
     val usage : Int = usage
     val elementView = elementView
     val productClick = productClick
@@ -94,6 +98,13 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
             }
             // 판매자 오늘 상품
             3 -> {
+                // 구매한 소비자들 이름 따라락
+                for (buyer in productElements.buyerId) {
+                    textBuyerId.text = textBuyerId.text.toString() + buyer.key + "\n"
+                    staticBuyerMark.text = staticBuyerMark.text.toString() + ":\n"
+                    textBuyerQuan.text = textBuyerQuan.text.toString() + buyer.value + "\n"
+                    staticBuyerQuanUnit.text = staticBuyerQuanUnit.text.toString() + "개\n"
+                }
                 productQuanTotal.text = productElements.quanTotal.toString()
                 productQuanLeft.text = productElements.quanLeft.toString()
                 elementView.buttonDelete.setOnClickListener {
