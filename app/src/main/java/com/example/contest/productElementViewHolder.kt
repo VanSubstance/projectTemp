@@ -28,6 +28,8 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
     val productPrice = elementView.findViewById<TextView>(R.id.textPrice)
     val productQuanTotal = elementView.findViewById<TextView>(R.id.textQuanTotal)
     val productQuanLeft = elementView.findViewById<TextView>(R.id.textQuanLeft)
+    val productQuanSold = elementView.findViewById<TextView>(R.id.textQuanSold)
+    val productSalary = elementView.findViewById<TextView>(R.id.textSalary)
     val productQuanBasket = elementView.findViewById<TextView>(R.id.textQuanBasket)
     val productServing = elementView.findViewById<TextView>(R.id.textServing)
     val textCloseTime = elementView.findViewById<TextView>(R.id.textCloseTime)
@@ -82,7 +84,29 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
         when (usage) {
             // 판매자 이력
             2 -> {
+                productQuanTotal.text = productElements.quanTotal.toString()
+                productQuanSold.text = productElements.quanSold.toString()
+                productSalary.text = (productElements.quanSold * productElements.price).toString()
+                for (buyer in productElements.buyerId) {
+                    var nick : String = ""
+                    data2.addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onCancelled(p0: DatabaseError) {
+                        }
+                        override fun onDataChange(p0: DataSnapshot) {
+                            nick = p0.child(buyer.key).child("nick").value.toString()
+                            textBuyerId.text = textBuyerId.text.toString() + nick + "\n"
+                            staticBuyerMark.text = staticBuyerMark.text.toString() + ":\n"
+                            textBuyerQuan.text = textBuyerQuan.text.toString() + buyer.value + "\n"
+                            staticBuyerQuanUnit.text = staticBuyerQuanUnit.text.toString() + "개\n"
+                        }
+                    })
+                }
                 elementView.setOnClickListener {
+                    if (layoutProductSpecific.isGone) {
+                        layoutProductSpecific.isGone = false
+                    } else {
+                        layoutProductSpecific.isGone = true
+                    }
                     productClick(productElements)
                 }
             }

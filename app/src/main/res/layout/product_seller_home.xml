@@ -156,6 +156,7 @@
             app:layout_constraintLeft_toLeftOf="@id/staticPrice"
             app:layout_constraintRight_toRightOf="@id/textCloseTime"
             app:layout_constraintTop_toBottomOf="@id/imageProduct"
+            android:visibility="gone"
             >
 
             <TextView
