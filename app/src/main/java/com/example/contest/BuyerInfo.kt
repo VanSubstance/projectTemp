@@ -9,7 +9,8 @@ data class Post(
         var Name: String? = "",
         var pNum: String? = "",
         var role: String?="",
-        var nick: String?=""
+        var nick: String?="",
+        var token: String?=""
 ) {
 
     // [START post_to_map]
@@ -20,7 +21,8 @@ data class Post(
                 "Name" to Name,
                 "pNum" to pNum,
                 "role" to role,
-                "nick" to nick
+                "nick" to nick,
+                "token" to token
         )
     }
     // [END post_to_map]

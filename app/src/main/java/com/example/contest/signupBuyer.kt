@@ -1,17 +1,22 @@
 package com.example.contest
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.signup_buyer.view.*
 
-class signupBuyer : Fragment() {
 
+
+class signupBuyer : Fragment() {
+    private val TAG = "FirebaseService"
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     var auth : FirebaseAuth?= null
 
@@ -45,9 +50,20 @@ class signupBuyer : Fragment() {
                             if (task.isSuccessful) {
                                 // 아이디 생성이 완료되었을 때
                                 val user = auth?.getCurrentUser()
+                                var token_r:String=""
                                 val uid=user?.uid
-                                val data = Post(password,name, pnum, role,nick)
+                                FirebaseInstanceId.getInstance().instanceId
+                                        .addOnCompleteListener(OnCompleteListener { task ->
+                                            if(!task.isSuccessful){
+                                                Log.w(TAG, "getInstanceId failed", task.exception)
+                                                return@OnCompleteListener
+                                            }
+                                            val token=task.result?.token
+                                            token_r=token.toString()})
+
+                                val data = Post(password,name, pnum, role,nick,token_r)
                                 val info = data.toMap()
+
                                 DatabaseReference.child("userDB").child(uid.toString()).setValue(info)
                                 DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("정육점").setValue(view.checkCtgrMeat.isChecked)
                                 DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("생선가게").setValue(view.checkCtgrFish.isChecked)
