@@ -40,7 +40,7 @@ def get_recipe_list(link):
     print(i)
     
 def get_info(link):
-    file_path='/Users/kimjong-gyu/Desktop/example.json'
+    file_path='E:\Contest\projectTemp\Documents/돼지고기.json'
     temp_dict={}
     raw=requests.get(link)
     soup=BeautifulSoup(raw.text,"html.parser")
@@ -81,7 +81,7 @@ def get_info(link):
             with open(file_path,'w',encoding='utf-8') as f:
                 json.dump(temp_dict,f,ensure_ascii=False,indent='\t')
     else:
-        with open(file_path,'r') as s:
+        with open(file_path,'r',encoding='utf-8') as s:
             data=json.load(s)
         data.update(temp_dict)
         with open(file_path,'w',encoding='utf-8') as f:
@@ -89,7 +89,7 @@ def get_info(link):
         f.close()
     
 
-move_page('https://www.10000recipe.com/recipe/list.html?q=&query=&cat1=&cat2=&cat3=70&cat4=&fct=&order=reco&lastcate=cat3&dsearch=&copyshot=&scrap=&degree=&portion=&time=&niresource=')    
+move_page('https://www.10000recipe.com/recipe/list.html?q=&query=&cat1=&cat2=&cat3=71&cat4=&fct=&order=reco&lastcate=cat3&dsearch=&copyshot=&scrap=&degree=&portion=&time=&niresource=')    
 
 
 
