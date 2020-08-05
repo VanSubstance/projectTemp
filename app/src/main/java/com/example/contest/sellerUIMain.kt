@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.seller_ui_main.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -54,9 +56,6 @@ class sellerUIMain : AppCompatActivity() {
             12 -> {
                 ft.replace(R.id.main_frame,sellerUIEnrollProduct()).commit()
             }
-            13 -> {
-                ft.replace(R.id.main_frame,sellerUIHomeProductSpecific()).commit()
-            }
             14 -> {
                 ft.replace(R.id.main_frame,sellerUIHomeProductModify()).commit()
             }
@@ -66,7 +65,27 @@ class sellerUIMain : AppCompatActivity() {
         }
     }
 
-    // 상품의 세부사항을 보여주는 함수
+    fun recyclerViewFun() {
+        when (currentProductElement.function) {
+            "modify" -> {
+                setSellerFrag(14)
+            }
+            "delete" -> {
+                val data = FirebaseDatabase.getInstance().getReference("productTodayDB")
+                val imagePath = FirebaseStorage.getInstance().getReference("productImageDB").child(currentProductElement.currentProductElement.productId + ".png")
+                data.child(currentProductElement.currentProductElement.productId).removeValue()
+                imagePath.delete()
+
+                // currentProduct 초기화
+                currentProductElement.currentProductElement = productElement()
+                currentProductElement.function = ""
+
+                setSellerFrag(11)
+            }
+        }
+    }
+
+    /** 상품의 세부사항을 보여주는 함수 -> 폐기
     fun showProductSpecific(productElement: productElement, usage : Int) {
         when (usage) {
             // 판매자 오늘 상품
@@ -77,6 +96,7 @@ class sellerUIMain : AppCompatActivity() {
             }
         }
     }
+    */
 
     // 뒤로가기 테스트
     private final var FINISH_INTERVAL_TIME: Long = 2000

@@ -60,20 +60,23 @@ class buyerUIMarket : Fragment() {
                         productElementList.add(productEl)
                     }
                 }
-                adapter = productElementAdapter(productElementList, requireContext(), 4) {
-                        productElement ->
-                    // 팝업창 띄우기
-                    when (arguments?.getInt("usage")) {
-                        // 재료
-                        2 -> {
-                            (activity as buyerUIMain).showProductSpecific(productElement, 2)
+                when (arguments?.getInt("usage")) {
+                    // 재료
+                    2 -> {
+                        adapter = productElementAdapter(productElementList, requireContext(), 41) {
+                                productElement ->
+                            (activity as buyerUIMain).recyclerViewFun()
                         }
-                        // 완제품
-                        3 -> {
-                            (activity as buyerUIMain).showProductSpecific(productElement, 3)
+                    }
+                    // 완제품
+                    3 -> {
+                        adapter = productElementAdapter(productElementList, requireContext(), 42) {
+                                productElement ->
+                            (activity as buyerUIMain).recyclerViewFun()
                         }
                     }
                 }
+
                 RecyclerView.adapter = adapter
             }
         })

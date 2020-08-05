@@ -37,7 +37,7 @@ class productElementAdapter(
                     .inflate(R.layout.product_seller_home, parent, false)
             }
             // 구매자 재료
-            4 -> {
+            41 -> {
                 view = LayoutInflater.from(context)
                     .inflate(R.layout.product_buyer_market, parent, false)
             }

@@ -4,21 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.buyer_ui_main.*
-import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.*
-import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.buttonCancel
-import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.imageProduct
-import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textPrice
-import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textProductTitle
-import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textQuan
-import kotlinx.android.synthetic.main.product_buyer_basket_specific.view.textServing
-import kotlinx.android.synthetic.main.product_buyer_market_specific.view.*
-import kotlinx.android.synthetic.main.product_buyer_put.view.*
 
 class buyerUIMain : AppCompatActivity() {
 
@@ -119,7 +108,40 @@ class buyerUIMain : AppCompatActivity() {
 
     }
 
-    // 상품의 세부사항을 보여주는 함수
+    fun recyclerViewFun() {
+        when (currentProductElement.function) {
+            "plus" -> {
+                productBasket.productList.add(currentProductElement.currentProductElement)
+                // currentProduct 초기화
+                currentProductElement.currentProductElement = productElement()
+                currentProductElement.function = ""
+
+                // 시장이 완제품 시장인지 재료 시장인지
+                when (currentCondition.ctgr01) {
+                    "complete" -> {
+                        setBuyerFrag(24)
+                    }
+                    "raw" -> {
+                        setBuyerFrag(25)
+                    }
+                }
+            }
+            "minus" -> {
+                productBasket.productList.remove(currentProductElement.currentProductElement)
+                // currentProduct 초기화
+                currentProductElement.currentProductElement = productElement()
+                currentProductElement.function = ""
+
+                setBuyerFrag(41)
+            }
+            "purchase" -> {
+                // 구매기능
+            }
+        }
+    }
+
+    /**
+    // 상품의 세부사항을 보여주는 함수 -> 폐기
     fun showProductSpecific(productElement: productElement, usage : Int) {
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         when (usage) {
@@ -139,7 +161,7 @@ class buyerUIMain : AppCompatActivity() {
                 // 장바구니 빼기 버튼 기능 구현
 
                 view.buttonCancel.setOnClickListener {
-                    instantData.productList.remove(productElement)
+                    productBasket.productList.remove(productElement)
                     alertDialog.dismiss()
                     setBuyerFrag(41)
                 }
@@ -166,7 +188,7 @@ class buyerUIMain : AppCompatActivity() {
 
                     val alertDialog2 = AlertDialog.Builder(this).create()
 
-                    instantData.productList.add(productElement)
+                    productBasket.productList.add(productElement)
                     setBuyerFrag(24)
 
                     // 장바구니 확인 버튼
@@ -209,7 +231,7 @@ class buyerUIMain : AppCompatActivity() {
 
                     val alertDialog2 = AlertDialog.Builder(this).create()
 
-                    instantData.productList.add(productElement)
+                    productBasket.productList.add(productElement)
                     setBuyerFrag(25)
 
                     // 장바구니 확인 버튼
@@ -233,6 +255,7 @@ class buyerUIMain : AppCompatActivity() {
             }
         }
     }
+    */
 
     fun showRecipeSpecific(recipeElement: recipeElement) {
         // return 타입: recipeUISpecific

@@ -78,10 +78,18 @@ class sellerUIHomeProductModify : Fragment() {
             }
             data.child(productElement.productId).removeValue()
             data.child(modifiedProduct.productId).setValue(modifiedProduct.toMap())
+            
+            // currentProduct 초기화
+            currentProductElement.currentProductElement = productElement()
+            currentProductElement.function = ""
 
             (activity as sellerUIMain).setSellerFrag(11)
         }
         view.buttonCancel.setOnClickListener {
+            // currentProduct 초기화
+            currentProductElement.currentProductElement = productElement()
+            currentProductElement.function = ""
+
             (activity as sellerUIMain).setSellerFrag(11)
         }
 
