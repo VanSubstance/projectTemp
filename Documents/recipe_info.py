@@ -25,7 +25,7 @@ def move_page(link):
         addr=this_
         print(addr)
         get_recipe_list(url+this_)
-    return move_page(url+addr)
+    
 
 
 def get_recipe_list(link):
@@ -40,7 +40,7 @@ def get_recipe_list(link):
     print(i)
     
 def get_info(link):
-    file_path='E:\Contest\projectTemp\Documents/돼지고기.json'
+    file_path='D:\contest\projectTemp\Documents/소고기.json'
     temp_dict={}
     raw=requests.get(link)
     soup=BeautifulSoup(raw.text,"html.parser")
@@ -89,7 +89,7 @@ def get_info(link):
         f.close()
     
 
-move_page('https://www.10000recipe.com/recipe/list.html?q=&query=&cat1=&cat2=&cat3=71&cat4=&fct=&order=reco&lastcate=cat3&dsearch=&copyshot=&scrap=&degree=&portion=&time=&niresource=')    
+move_page('https://www.10000recipe.com/recipe/list.html?cat3=70&order=reco&page=1')    
 
 
 

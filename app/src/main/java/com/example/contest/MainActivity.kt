@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
             pushProducts()
             val SignUp_user=Intent(this,signup_sellect::class.java)
             startActivity(SignUp_user)
+            overridePendingTransition(R.anim.slide_right_to_left, R.anim.slide_out_right_to_left);
+
         }
         
 
