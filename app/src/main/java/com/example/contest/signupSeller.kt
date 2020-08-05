@@ -2,13 +2,16 @@ package com.example.contest
 
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.seller_ui_info.*
 import kotlinx.android.synthetic.main.signup_seller.*
 import kotlinx.android.synthetic.main.signup_seller.staicStoreTitle
@@ -20,7 +23,7 @@ class signupSeller : Fragment() {
 
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     var auth : FirebaseAuth?= null
-
+    private val TAG = "FirebaseService"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.signup_seller, container, false)
@@ -68,12 +71,14 @@ class signupSeller : Fragment() {
                 val storeCtgr = staticSpinnerDate.text.toString()
                 val timeOpen =textView_s.text.toString()
                 val timeClose = textView_e.text.toString()
+
                 auth?.createUserWithEmailAndPassword(ID, password)
                         ?.addOnCompleteListener(requireActivity()) { task ->
                             if (task.isSuccessful) {
                                 // 아이디 생성이 완료되었을 때
                                 val user = auth?.getCurrentUser()
                                 val uid=user?.uid
+
                                 DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(uid.toString()).setValue(""   )
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("ctgr").setValue(storeCtgr)
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("timeOpen").setValue(timeOpen)

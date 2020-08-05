@@ -3,9 +3,12 @@ package com.example.contest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -40,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         
 
     }
+
     fun loginUserId(email: String, password: String) {
         val DatabaseReference = database.reference
 
@@ -68,6 +72,9 @@ class MainActivity : AppCompatActivity() {
                                     startActivity(sellerUI)
                                 }
                                 else{
+                                    userInfo.id=auth?.uid.toString()
+                                    userInfo.pw=password
+                                    userInfo.nick = p0.child("userDB").child(auth?.uid.toString()).child("nick").value as String
                                     userInfo.role = p0.child("userDB").child(auth?.uid.toString()).child("role").value as String
                                     userInfo.pNum = p0.child("userDB").child(auth?.uid.toString()).child("pNum").value as String
                                     startActivity(buyerUI)
@@ -80,6 +87,7 @@ class MainActivity : AppCompatActivity() {
                 }
     }
     }
+
 
 // 이거 한 이유 설명좀 !! 
 private fun resetDB() {
@@ -128,6 +136,7 @@ private fun pushProducts() {
 object userInfo {
     var id : String = ""
     var pw : String = ""
+    var nick : String = ""
     var pNum : String = ""
     var role : String = ""
     var ctgrForSeller : String = ""
