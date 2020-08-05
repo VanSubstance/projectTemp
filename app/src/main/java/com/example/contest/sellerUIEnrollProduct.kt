@@ -76,7 +76,7 @@ class sellerUIEnrollProduct : Fragment() {
                 if (view.checkCtgrComplete.isChecked) {
                     newProduct.setInfo(title, price, serve, productId, quan, "완제품", userInfo.timeClose)
                     val message=MessagePush()
-                    message.sendMessage()
+
                 } else {
                     newProduct.setInfo(title, price, serve, productId, quan, userInfo.ctgrForSeller, userInfo.timeClose)
                 }
