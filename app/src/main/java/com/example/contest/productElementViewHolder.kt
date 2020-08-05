@@ -10,10 +10,6 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.product_buyer_basket.view.*
 import kotlinx.android.synthetic.main.product_buyer_market.view.*
@@ -28,11 +24,8 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
     val productPrice = elementView.findViewById<TextView>(R.id.textPrice)
     val productQuanTotal = elementView.findViewById<TextView>(R.id.textQuanTotal)
     val productQuanLeft = elementView.findViewById<TextView>(R.id.textQuanLeft)
-    val productQuanBasket = elementView.findViewById<TextView>(R.id.textQuanBasket)
     val productServing = elementView.findViewById<TextView>(R.id.textServing)
     val textCloseTime = elementView.findViewById<TextView>(R.id.textCloseTime)
-    val imageCtgr = elementView.findViewById<ImageView>(R.id.imageCtgr)
-    val textSellerId = elementView.findViewById<TextView>(R.id.textSellerId)
     val usage : Int = usage
     val elementView = elementView
     val productClick = productClick
@@ -40,30 +33,9 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
     var layoutProductSpecific = elementView.findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.layoutProductSpecific)
 
     private val mStorageRef = FirebaseStorage.getInstance().getReference("productImageDB")
-    val data = FirebaseDatabase.getInstance().getReference("storeDB")
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun bind (productElements : productElement, context : Context) {
-        when (productElements.ctgr) {
-            "완제품" -> {
-                imageCtgr.setImageResource(R.drawable.ui_ctgr_complete)
-            }
-            "정육점" -> {
-                imageCtgr.setImageResource(R.drawable.ui_ctgr_meat)
-            }
-            "생선가게" -> {
-                imageCtgr.setImageResource(R.drawable.ui_ctgr_seafood)
-            }
-            "잡화점" -> {
-                imageCtgr.setImageResource(R.drawable.ui_ctgr_etc)
-            }
-            "채소가게" -> {
-                imageCtgr.setImageResource(R.drawable.ui_ctgr_vegetable)
-            }
-            else -> {
-                imageCtgr.setImageResource(R.drawable.ui_ctgr_etc)
-            }
-        }
         productTitle.text = productElements.title
         productPrice.text = productElements.price.toString()
         productServing.text = productElements.serve.toString()
@@ -111,14 +83,6 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
             }
             // 소비자 재료
             41 -> {
-                productQuanLeft.text = productElements.quanLeft.toString()
-                data.addListenerForSingleValueEvent(object : ValueEventListener {
-                    override fun onCancelled(p0: DatabaseError) {
-                    }
-                    override fun onDataChange(p0: DataSnapshot) {
-                        textSellerId.text = p0.child(productElements.sellerId).child("title").value.toString()
-                    }
-                })
                 elementView.buttonPlus.setOnClickListener {
                     currentProductElement.currentProductElement = productElements
                     currentProductElement.function = "plus"
@@ -141,14 +105,6 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
             }
             // 소비자 완제품
             42 -> {
-                productQuanLeft.text = productElements.quanLeft.toString()
-                data.addListenerForSingleValueEvent(object : ValueEventListener {
-                    override fun onCancelled(p0: DatabaseError) {
-                    }
-                    override fun onDataChange(p0: DataSnapshot) {
-                        textSellerId.text = p0.child(productElements.sellerId).child("title").value.toString()
-                    }
-                })
                 elementView.buttonPlus.setOnClickListener {
                     currentProductElement.currentProductElement = productElements
                     currentProductElement.function = "plus"

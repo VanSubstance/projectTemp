@@ -53,36 +53,36 @@
             app:layout_constraintTop_toTopOf="@+id/staticProductTitle" />
 
         <TextView
-            android:id="@+id/staticQuanBasket"
+            android:id="@+id/staticQuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="180dp"
             android:layout_marginTop="5dp"
-            android:text="담은 수량"
-            android:textSize="13sp"
+            android:text="수량"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageProduct"
             app:layout_constraintTop_toTopOf="@+id/imageProduct" />
 
         <TextView
-            android:id="@+id/textQuanBasket"
+            android:id="@+id/textQuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="몇"
-            android:textSize="13sp"
-            app:layout_constraintStart_toEndOf="@+id/staticQuanBasket"
-            app:layout_constraintTop_toTopOf="@+id/staticQuanBasket" />
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/staticQuan"
+            app:layout_constraintTop_toTopOf="@+id/staticQuan" />
 
         <TextView
-            android:id="@+id/staticQuanBasketUnit"
+            android:id="@+id/staticQuanUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="개"
-            android:textSize="13sp"
-            app:layout_constraintStart_toEndOf="@+id/textQuanBasket"
-            app:layout_constraintTop_toTopOf="@+id/textQuanBasket" />
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/textQuan"
+            app:layout_constraintTop_toTopOf="@+id/textQuan" />
 
         <TextView
             android:id="@+id/staticPrice"
@@ -124,7 +124,7 @@
             android:text="남은 시간"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/staticQuanBasket"
+            app:layout_constraintStart_toStartOf="@+id/staticQuan"
             app:layout_constraintTop_toTopOf="@+id/staticPriceUnit" />
 
         <TextView
@@ -153,12 +153,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="10dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/staticPrice"
             app:layout_constraintRight_toRightOf="@id/textCloseTime"
-            app:layout_constraintTop_toBottomOf="@id/imageProduct"
-            android:visibility="gone"
-            >
+            app:layout_constraintTop_toBottomOf="@id/imageProduct">
 
             <TextView
                 android:id="@+id/staticServing"
@@ -203,8 +202,8 @@
 
             <ImageView
                 android:id="@+id/imageCtgr"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/ui_ctgr_meat"
                 app:layout_constraintLeft_toRightOf="@id/staticCtgr"
@@ -238,7 +237,7 @@
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:text="장바구니에서 빼기"
-                android:textSize="13sp"
+                android:textSize="15dp"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -248,7 +247,7 @@
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:text="구매"
-                android:textSize="13sp"
+                android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent" />
 

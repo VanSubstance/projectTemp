@@ -29,7 +29,7 @@
         android:ems="10"
         android:inputType="text"
         android:text=""
-        android:textSize="13sp"
+        android:textSize="15dp"
         android:layout_marginLeft="20dp"
         />
 
@@ -54,7 +54,7 @@
         android:ems="10"
         android:inputType="text"
         android:text=""
-        android:textSize="13sp"
+        android:textSize="15dp"
         android:layout_marginLeft="20dp"
         />
 
@@ -90,7 +90,7 @@
         android:ems="10"
         android:inputType="text"
         android:text=""
-        android:textSize="13sp"
+        android:textSize="15dp"
         android:layout_marginLeft="20dp"
         />
 
@@ -126,7 +126,7 @@
         android:ems="10"
         android:inputType="text"
         android:text=""
-        android:textSize="13sp"
+        android:textSize="15dp"
         android:layout_marginLeft="20dp"
         />
 
