@@ -73,6 +73,7 @@ class MainActivity : AppCompatActivity() {
                                 else{
                                     userInfo.id=auth?.uid.toString()
                                     userInfo.pw=password
+                                    userInfo.nick = p0.child("userDB").child(auth?.uid.toString()).child("nick").value as String
                                     userInfo.role = p0.child("userDB").child(auth?.uid.toString()).child("role").value as String
                                     userInfo.pNum = p0.child("userDB").child(auth?.uid.toString()).child("pNum").value as String
                                     startActivity(buyerUI)
@@ -133,6 +134,7 @@ private fun pushProducts() {
 object userInfo {
     var id : String = ""
     var pw : String = ""
+    var nick : String = ""
     var pNum : String = ""
     var role : String = ""
     var ctgrForSeller : String = ""
