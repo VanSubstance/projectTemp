@@ -22,6 +22,7 @@ import okhttp3.*
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.EventListener
 import kotlin.collections.ArrayList
 
 
@@ -71,12 +72,11 @@ class sellerUIEnrollProduct : Fragment() {
                 var newProduct : productElement = productElement()
                 var productId = SimpleDateFormat("yyyyMMdd").format(Date()) + userInfo.id + title
                 var imageTitle = productId + ".png"
-
                 imageData.child(imageTitle).putFile(imageUrl!!)
                 if (view.checkCtgrComplete.isChecked) {
                     newProduct.setInfo(title, price, serve, productId, quan, "완제품", userInfo.timeClose)
-                    val message=MessagePush()
-
+                    val user=MessagePush()
+                    user.sendMessage("dpEypU05T76Kf-uFf9Nc23:APA91bF-Ift9xut7h_MGuq6ZivslfZM6cjd43AouYdKS4emOXIJYWB74FxzNck1QsfesUTnCA0iu8w18OKTL36sAZ9-c3ApUabJBvkVlcGfZdnB_9XKIIuPxzGBVDivIBNZQUd65GxP-","sex","sex")
                 } else {
                     newProduct.setInfo(title, price, serve, productId, quan, userInfo.ctgrForSeller, userInfo.timeClose)
                 }
