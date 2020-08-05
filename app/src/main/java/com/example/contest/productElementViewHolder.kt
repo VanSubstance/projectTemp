@@ -22,7 +22,9 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
     val productImage = elementView.findViewById<ImageView>(R.id.imageProduct)
     val productTitle = elementView.findViewById<TextView>(R.id.textProductTitle)
     val productPrice = elementView.findViewById<TextView>(R.id.textPrice)
-    val productQuan = elementView.findViewById<TextView>(R.id.textQuan)
+    val productQuanTotal = elementView.findViewById<TextView>(R.id.textQuanTotal)
+    val productQuanLeft = elementView.findViewById<TextView>(R.id.textQuanLeft)
+    val productServing = elementView.findViewById<TextView>(R.id.textServing)
     val textCloseTime = elementView.findViewById<TextView>(R.id.textCloseTime)
     val usage : Int = usage
     val elementView = elementView
@@ -36,7 +38,7 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
     fun bind (productElements : productElement, context : Context) {
         productTitle.text = productElements.title
         productPrice.text = productElements.price.toString()
-        productQuan.text = productElements.serve.toString()
+        productServing.text = productElements.serve.toString()
         val imagePath = mStorageRef.child(productElements.productId + ".png")
         val imageSize: Long = 1024 * 1024 * 10
         imagePath.getBytes(imageSize).addOnSuccessListener {
@@ -64,11 +66,8 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
             }
             // 판매자 오늘 상품
             3 -> {
-                elementView.buttonModify.setOnClickListener {
-                    currentProductElement.currentProductElement = productElements
-                    currentProductElement.function = "modify"
-                    productClick(productElements)
-                }
+                productQuanTotal.text = productElements.quanTotal.toString()
+                productQuanLeft.text = productElements.quanLeft.toString()
                 elementView.buttonDelete.setOnClickListener {
                     currentProductElement.currentProductElement = productElements
                     currentProductElement.function = "delete"

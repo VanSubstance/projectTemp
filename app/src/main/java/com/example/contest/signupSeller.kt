@@ -49,11 +49,11 @@ class signupSeller : Fragment() {
                 Toast.makeText(requireContext(), "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
             } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
                 Toast.makeText(requireContext(), "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
-            } else if (textMarketTitle.text.equals("시장 이름")) {
+            } else if (textMarketTitle.text.equals("시장 이름") || textMarketTitle.text.equals("")) {
                 Toast.makeText(requireContext(), "시장을 선택해주세요", Toast.LENGTH_SHORT).show()
             } else if (staicStoreTitle.text.equals("")) {
                 Toast.makeText(requireContext(), "매장 명을 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
-            } else if (textTimeClose.text.equals("개점 시간") || textTimeOpen.text.equals("폐점 시간")) {
+            } else if (textTimeClose.text.equals("개점 시간") || textTimeOpen.text.equals("폐점 시간") || textTimeClose.text.equals("") || textTimeOpen.text.equals("")) {
                 Toast.makeText(requireContext(), "개점, 폐점 시간을 정해주세요", Toast.LENGTH_SHORT).show()
             } else if (staticSpinnerDate.text.equals("카테고리") || staticSpinnerDate.text.equals("")) {
                 Toast.makeText(requireContext(), "카테고리를 제대로 입력해주세요", Toast.LENGTH_SHORT).show()

@@ -41,6 +41,7 @@ class productElement() {
         this.sellerId = userInfo.id
         buyerId = "undefined"
         this.soldDate = SimpleDateFormat("yyyy-MM-dd").format(Date())
+        this.quanLeft = quanTotal
         this.quanTotal = quanTotal
         this.ctgr = ctgr
         this.soldTime=soldTime
@@ -64,7 +65,7 @@ class productElement() {
             , "quanTotal" to quanTotal
             , "quanLeft" to quanLeft
             , "quanSold" to quanSold
-            , "soldtime" to soldTime
+            , "soldTime" to soldTime
         )
     }
 
@@ -80,6 +81,6 @@ class productElement() {
         quanLeft = product.child("quanLeft").value.toString().toInt()
         quanSold = product.child("quanSold").value.toString().toInt()
         ctgr = product.child("ctgr").value.toString()
-        soldTime=product.child("soldTime").value.toString()
+        soldTime = product.child("soldTime").value.toString()
     }
 }
