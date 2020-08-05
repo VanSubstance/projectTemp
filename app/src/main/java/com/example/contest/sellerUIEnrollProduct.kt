@@ -1,9 +1,8 @@
 package com.example.contest
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
-import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -14,17 +13,13 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.*
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.view.*
-import okhttp3.MediaType
-import okhttp3.OkHttpClient
+import okhttp3.*
+import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -62,6 +57,7 @@ class sellerUIEnrollProduct : Fragment() {
             }
         }
         view.buttonEnroll.setOnClickListener {
+            val DatabaseReference = database.reference
             if (!view.checkCtgrComplete.isChecked && !view.checkCtgrRaw.isChecked) {
                 Toast.makeText(requireContext(), "제품 카테고리를 골라주세요", Toast.LENGTH_SHORT).show()
             } else if (view.textProductTitle.text.isEmpty() || view.textPrice.text.isEmpty() || view.textQuan.text.isEmpty() || view.textServing.text.isEmpty()) {
@@ -76,13 +72,31 @@ class sellerUIEnrollProduct : Fragment() {
                 var newProduct : productElement = productElement()
                 var productId = SimpleDateFormat("yyyyMMdd").format(Date()) + userInfo.id + title
                 var imageTitle = productId + ".png"
+
+
                 imageData.child(imageTitle).putFile(imageUrl!!)
                 if (view.checkCtgrComplete.isChecked) {
                     newProduct.setInfo(title, price, serve, productId, quan, "완제품", userInfo.timeClose)
+
+                    DatabaseReference.addValueEventListener(object :ValueEventListener{
+                        override fun onCancelled(p0: DatabaseError) {
+                        }
+
+                        override fun onDataChange(p0: DataSnapshot) {
+                            for(id in p0.child("userDB").children){
+                                if(id.child("ctgr").child("완제품").value==true){
+                                    sendMessage(id.toString(),"새로운 상품","완제품 새로운 상품이 등록되었습니다")
+                                }
+                           }
+                        }
+                    })
                 } else {
                     newProduct.setInfo(title, price, serve, productId, quan, userInfo.ctgrForSeller, userInfo.timeClose)
+
                 }
                 data.child(productId).setValue(newProduct.toMap())
+
+
                 (activity as sellerUIMain).setSellerFrag(11)
             }
         }
@@ -104,9 +118,7 @@ class sellerUIEnrollProduct : Fragment() {
             }
         }
     }
-    fun sendMessage(member:ArrayList<String>){
-        val auth=FirebaseAuth.getInstance()
-
+    fun sendMessage(member:String,title:String,message:String){
         val Data = FirebaseDatabase.getInstance().getReference("TokenDB")
 
         val JSON=MediaType.parse("application/json; charset=utf-8")
@@ -118,20 +130,31 @@ class sellerUIEnrollProduct : Fragment() {
             override fun onCancelled(p0: DatabaseError) {
                 TODO("Not yet implemented")
             }
-
             override fun onDataChange(p0: DataSnapshot) {
-                for(id_s in member){
                     for(id in p0.children){
-                        if(id_s==id.toString()){
-                            
+                        if(member==id.toString()){
+                            var pushDTO=pushDTO()
+                            pushDTO.to=id.toString()
+                            pushDTO.notification?.title=title
+                            pushDTO.notification?.body=message
+                            var body =RequestBody.create(JSON,gson?.toJson(pushDTO))
+                            var request =Request
+                                    .Builder()
+                                    .addHeader("Content-Type","application/json")
+                                    .addHeader("Authorization","key="+serverkey)
+                                    .url(url)
+                                    .post(body)
+                                    .build()
+                            okHttpClient?.newCall(request)?.enqueue(object : Callback {//푸시 전송
+                                override fun onFailure(call: Call?, e: IOException?) {
+                            }
+                                override fun onResponse(call: Call?, response: Response?) {
+                                    Toast.makeText(requireContext(), response?.body().toString(), Toast.LENGTH_SHORT).show()
+                                }
+                            })
                         }
                     }
                 }
-            }
-
         })
-
-
-
     }
 }
