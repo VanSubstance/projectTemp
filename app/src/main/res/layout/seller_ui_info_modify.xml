@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/sign_up_seller_background">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -14,7 +15,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@drawable/element_border_black_1dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,7 +68,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="105dp"
                     android:layout_marginRight="105dp"
+                    android:background="@drawable/button_press_event2"
                     android:text="사진 변경"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/imageUser"
                     app:layout_constraintEnd_toEndOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -287,6 +293,7 @@
 
                 <CheckBox
                     android:id="@+id/checkCtgrMeat"
+                    style="@style/EnrollCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="77dp"
@@ -298,6 +305,7 @@
 
                 <CheckBox
                     android:id="@+id/checkCtgrFish"
+                    style="@style/EnrollCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
@@ -309,6 +317,7 @@
 
                 <CheckBox
                     android:id="@+id/checkCtgrGeneral"
+                    style="@style/EnrollCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="77dp"
@@ -320,6 +329,7 @@
 
                 <CheckBox
                     android:id="@+id/checkCtgrVegetable"
+                    style="@style/EnrollCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
@@ -330,6 +340,7 @@
 
                 <CheckBox
                     android:id="@+id/checkCtgrEtc"
+                    style="@style/EnrollCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -358,7 +369,10 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/button_press_event2"
                     android:text="수정"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/buttonCancel"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -371,7 +385,10 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/button_press_event2"
                     android:text="취소"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

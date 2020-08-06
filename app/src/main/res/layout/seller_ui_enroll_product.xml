@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/sign_up_seller_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,10 +19,10 @@
             android:id="@+id/staticProductTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="100dp"
             android:text="상품 이름"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,34 +34,34 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:inputType="text"
-            android:textSize="13sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/staticQuan"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textPrice"
+            app:layout_constraintStart_toStartOf="@+id/staticProductTitle"
             app:layout_constraintTop_toBottomOf="@id/staticProductTitle" />
 
         <TextView
             android:id="@+id/staticPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="10dp"
             android:text="가격"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@id/staticProductTitle" />
+            app:layout_constraintStart_toStartOf="@+id/textProductTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textProductTitle" />
 
         <EditText
             android:id="@+id/textPrice"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:inputType="number"
             android:text=""
-            android:textSize="13sp"
+            android:textSize="15sp"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/staticPrice"
             app:layout_constraintTop_toBottomOf="@id/staticPrice" />
 
         <TextView
@@ -69,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="원"
-            android:textSize="13sp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/textPrice"
             app:layout_constraintLeft_toRightOf="@id/textPrice"
             app:layout_constraintTop_toTopOf="@+id/textPrice" />
@@ -78,24 +79,24 @@
             android:id="@+id/staticQuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
             android:text="양 (몇인분인가요?)"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@id/staticPrice" />
+            app:layout_constraintTop_toBottomOf="@+id/textPrice" />
 
         <EditText
             android:id="@+id/textServing"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:inputType="number"
             android:text=""
-            android:textSize="13sp"
+            android:textSize="15sp"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/staticQuan"
             app:layout_constraintTop_toBottomOf="@id/staticQuan" />
 
         <TextView
@@ -104,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="인분"
-            android:textSize="13sp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/textServing"
             app:layout_constraintLeft_toRightOf="@id/textServing"
             app:layout_constraintTop_toTopOf="@+id/textServing" />
@@ -113,24 +114,24 @@
             android:id="@+id/staticServing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="10dp"
             android:text="수량 (얼마나 파실껀가요?)"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@id/staticQuan" />
+            app:layout_constraintStart_toStartOf="@+id/textServing"
+            app:layout_constraintTop_toBottomOf="@+id/textServing" />
 
         <EditText
             android:id="@+id/textQuan"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:inputType="number"
             android:text=""
-            android:textSize="13sp"
+            android:textSize="15sp"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textServing"
             app:layout_constraintTop_toBottomOf="@id/staticServing" />
 
         <TextView
@@ -139,7 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="개"
-            android:textSize="13sp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/textQuan"
             app:layout_constraintLeft_toRightOf="@id/textServing"
             app:layout_constraintTop_toTopOf="@+id/textQuan" />
@@ -148,13 +149,13 @@
             android:id="@+id/staticCtgr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="10dp"
             android:text="제품 카테고리 선택"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@id/staticServing" />
+            app:layout_constraintStart_toStartOf="@+id/textQuan"
+            app:layout_constraintTop_toBottomOf="@+id/textQuan" />
 
         <LinearLayout
             android:id="@+id/layoutCheckCtgr"
@@ -169,7 +170,7 @@
 
             <CheckBox
                 android:id="@+id/checkCtgrComplete"
-                style="@style/MyCheckBox"
+                style="@style/EnrollCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -179,7 +180,7 @@
 
             <CheckBox
                 android:id="@+id/checkCtgrRaw"
-                style="@style/MyCheckBox"
+                style="@style/EnrollCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -196,7 +197,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/button_press_event2"
             android:text="추가(등록)"
+            android:textSize="15sp"
+            android:textStyle="bold"
             app:layout_constraintRight_toLeftOf="@id/buttonCancel"
             app:layout_constraintTop_toBottomOf="@id/layoutCheckCtgr" />
 
@@ -206,7 +210,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/button_press_event2"
             android:text="취소"
+            android:textSize="15sp"
+            android:textStyle="bold"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutCheckCtgr" />
 
@@ -216,7 +223,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="상품 사진"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/imageProduct"
             app:layout_constraintLeft_toLeftOf="@id/imageProduct" />
@@ -236,9 +243,12 @@
             android:id="@+id/buttonChangeImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/button_press_event2"
             android:text="사진 변경"
+            android:textSize="15sp"
+            android:textStyle="bold"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageProduct" />
 

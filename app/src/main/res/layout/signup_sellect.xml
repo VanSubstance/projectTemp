@@ -96,7 +96,6 @@
                 android:hint="이름"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
-                android:privateImeOptions="defaultInputmode=korean"
                 android:textColorHint="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
