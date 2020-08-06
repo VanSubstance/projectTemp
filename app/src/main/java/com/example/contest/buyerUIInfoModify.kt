@@ -9,16 +9,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.buyer_ui_info.view.*
 import kotlinx.android.synthetic.main.buyer_ui_info_modify.*
 import kotlinx.android.synthetic.main.buyer_ui_info_modify.view.*
-import kotlinx.android.synthetic.main.buyer_ui_info_modify.view.buttonCancel
+import kotlinx.android.synthetic.main.buyer_ui_info_modify.view.buttonConfirm
 import kotlinx.android.synthetic.main.buyer_ui_info_modify.view.imageUser
+import kotlinx.android.synthetic.main.seller_ui_enroll_product.*
 
 class buyerUIInfoModify : Fragment() {
 
@@ -40,11 +43,13 @@ class buyerUIInfoModify : Fragment() {
         dataImage.child(userInfo.id + ".png").getBytes(imageSize).addOnSuccessListener {
             bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
             view.imageUser.setImageBitmap(bitmap)
+            view.imageUser.setScaleType(ImageView.ScaleType.CENTER_CROP)
         }
         if (bitmap == null) {
             dataImage.child("default.png").getBytes(imageSize).addOnSuccessListener {
                 bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
                 view.imageUser.setImageBitmap(bitmap)
+                view.imageUser.setScaleType(ImageView.ScaleType.CENTER_CROP)
             }
         }
         var data = database.getReference("userDB").child(userInfo.id)
@@ -105,6 +110,7 @@ class buyerUIInfoModify : Fragment() {
             if (requestCode == 1) {
                 imageUrl = data?.data
                 imageUser.setImageURI(imageUrl)
+                imageProduct.setScaleType(ImageView.ScaleType.CENTER_CROP)
             }
         }
     }

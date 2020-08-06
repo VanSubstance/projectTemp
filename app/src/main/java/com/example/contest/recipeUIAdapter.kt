@@ -40,8 +40,8 @@ class recipeUIAdapter(var recipeElementList: ArrayList<recipeElement>, val conte
         val productClick = productClick
 
         fun bind(recipeElements: recipeElement, context: Context) {
-
             recipeImage.setImageResource(recipeElements.image)
+            recipeImage.setScaleType(ImageView.ScaleType.CENTER_CROP)
             recipeTitle.text = recipeElements.title
             recipeCtgr.text = recipeElements.ctgr
             recipeLevel.setImageResource(recipeElements.level)

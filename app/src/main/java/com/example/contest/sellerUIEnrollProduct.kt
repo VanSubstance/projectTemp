@@ -3,27 +3,25 @@ package com.example.contest
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.*
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.view.*
-import okhttp3.*
-import java.io.IOException
+import java.io.FileNotFoundException
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.EventListener
-import kotlin.collections.ArrayList
 
 
 class sellerUIEnrollProduct : Fragment() {
@@ -98,8 +96,44 @@ class sellerUIEnrollProduct : Fragment() {
             if (requestCode == 1) {
                 imageUrl = data?.data
                 imageProduct.setImageURI(imageUrl)
+                imageProduct.setScaleType(ImageView.ScaleType.CENTER_CROP)
             }
         }
+    }
+
+    private fun resize(
+        context: Context,
+        uri: Uri,
+        resize: Int
+    ): Bitmap? {
+        var resizeBitmap: Bitmap? = null
+        val options = BitmapFactory.Options()
+        try {
+            BitmapFactory.decodeStream(
+                context.contentResolver.openInputStream(uri),
+                null,
+                options
+            ) // 1번
+            var width = options.outWidth
+            var height = options.outHeight
+            var samplesize = 1
+            while (true) { //2번
+                if (width / 2 < resize || height / 2 < resize) break
+                width /= 2
+                height /= 2
+                samplesize *= 2
+            }
+            options.inSampleSize = samplesize
+            val bitmap = BitmapFactory.decodeStream(
+                context.contentResolver.openInputStream(uri),
+                null,
+                options
+            ) //3번
+            resizeBitmap = bitmap
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+        }
+        return resizeBitmap
     }
 
 }

@@ -22,7 +22,6 @@ import kotlinx.android.synthetic.main.signup_seller_market.view.*
 
 class signup_sellect : AppCompatActivity() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    var auth : FirebaseAuth?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

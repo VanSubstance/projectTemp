@@ -79,6 +79,7 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
         imagePath.getBytes(imageSize).addOnSuccessListener {
             val imageBitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
             productImage.setImageBitmap(imageBitmap)
+            productImage.setScaleType(ImageView.ScaleType.CENTER_CROP)
         }
 
         when (usage) {
