@@ -28,10 +28,10 @@ class signupSeller : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.signup_seller, container, false)
 
-        val msID = view.textId
-        val mPasswordText = view.textPw
-        val mPasswordcheckText = view.textPwCheck
-        val mName = view.staticName
+        val mID = arguments?.getString("ID")!!
+        val mPasswordText = arguments?.getString("pw")!!
+        val mName = arguments?.getString("name")!!
+
         val mPnum = view.textPNum
         val textMarketTitle=view.textMarketTitle
         val staticStoreTitle = view.staicStoreTitle
@@ -48,11 +48,7 @@ class signupSeller : Fragment() {
             val DatabaseReference = database.reference
             auth = FirebaseAuth.getInstance()
 
-            if (msID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
-                Toast.makeText(requireContext(), "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
-            } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
-                Toast.makeText(requireContext(), "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
-            } else if (textMarketTitle.text.equals("시장 이름") || textMarketTitle.text.equals("")) {
+            if (textMarketTitle.text.equals("시장 이름") || textMarketTitle.text.equals("")) {
                 Toast.makeText(requireContext(), "시장을 선택해주세요", Toast.LENGTH_SHORT).show()
             } else if (staicStoreTitle.text.equals("")) {
                 Toast.makeText(requireContext(), "매장 명을 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
@@ -61,9 +57,9 @@ class signupSeller : Fragment() {
             } else if (staticSpinnerDate.text.equals("카테고리") || staticSpinnerDate.text.equals("")) {
                 Toast.makeText(requireContext(), "카테고리를 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
             } else{
-                val ID = msID.text.toString()
-                val password = mPasswordText.text.toString()
-                val name = mName.text.toString()
+                val ID = mID
+                val password = mPasswordText
+                val name = mName
                 val pnum = mPnum.text.toString()
                 val role: String = "seller"
                 val marketTitle = textMarketTitle.text.toString()

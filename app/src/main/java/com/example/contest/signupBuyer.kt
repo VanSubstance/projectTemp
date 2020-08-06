@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.signup_buyer.view.*
+import kotlinx.android.synthetic.main.signup_sellect.view.*
 
 
 class signupBuyer : Fragment() {
@@ -25,37 +26,31 @@ class signupBuyer : Fragment() {
         //*************************************************************************************//
         //sign up sellect로 옮기는 바람에 오류가 뜨는중
 
+        val mID = arguments?.getString("ID")!!
+        val mPasswordText = arguments?.getString("pw")!!
+        val mName = arguments?.getString("name")!!
 
-        val mID = view.textId
-        val mPasswordText = view.textPw
-        val mPasswordcheckText = view.textPwCheck
-        val mName = view.textName
         val mPnum = view.textPNum
         val mnick=view.buyer_nick
 
 
         view.buttonConfirm.setOnClickListener {
             val DatabaseReference = database.reference
-
-            if (mID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
-                Toast.makeText(requireContext(), "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
-            } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
-                Toast.makeText(requireContext(), "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
+            if (mPnum.text.toString().length != 11) {
+                Toast.makeText(requireContext(), "전화번호 11자리를 정확히 입력해주세요", Toast.LENGTH_SHORT).show()
+            } else if (mnick.text.toString().length == 0) {
+                mnick.setText(mName)
             } else {
-                auth = FirebaseAuth.getInstance()
-                val ID = mID.text.toString()
-                val password = mPasswordText.text.toString()
-                val name = mName.text.toString()
                 val pnum = mPnum.text.toString()
                 val nick=mnick.text.toString()
                 val role: String = "buyer"
-                auth?.createUserWithEmailAndPassword(ID, password)
+                auth?.createUserWithEmailAndPassword(mID, mPasswordText)
                         ?.addOnCompleteListener(requireActivity()) { task ->
                             if (task.isSuccessful) {
                                 // 아이디 생성이 완료되었을 때
                                 val user = auth?.getCurrentUser()
                                 val uid=user?.uid
-                                val data = Post(password,name, pnum, role,nick)
+                                val data = Post(mPasswordText, mName, pnum, role, nick)
                                 val info = data.toMap()
 
                                 DatabaseReference.child("userDB").child(uid.toString()).setValue(info)

@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
 import android.widget.CheckBox
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -20,22 +22,65 @@ import kotlinx.android.synthetic.main.signup_seller_market.view.*
 
 class signup_sellect : AppCompatActivity() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    var auth : FirebaseAuth?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_sellect)
 
+
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+
+        val mID = textId
+        val mPasswordText = textPw
+        val mPasswordcheckText = textPwCheck
+        val mName = textName
+
         val ft = supportFragmentManager.beginTransaction()
 
         buttonSignupBuyer.setOnClickListener{
-            main_frame.isVisible = true
-            layoutRoleSelection.isVisible = false
-            ft.replace(R.id.main_frame,signupBuyer()).commit()
+            if (mID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
+                Toast.makeText(this, "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
+            } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
+                Toast.makeText(this, "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
+            } else if (mName.text.toString().length == 0) {
+                Toast.makeText(this, "이름을 다시 입력해주세요", Toast.LENGTH_SHORT).show()
+            } else {
+                val ID = mID.text.toString()
+                val password = mPasswordText.text.toString()
+                val name = mName.text.toString()
+                val frag = signupBuyer()
+                var bundle = Bundle(3)
+                bundle.putString("ID", ID)
+                bundle.putString("pw", password)
+                bundle.putString("name", name)
+                frag.setArguments(bundle)
+                main_frame.isVisible = true
+                layoutRoleSelection.isVisible = false
+                ft.replace(R.id.main_frame, frag).commit()
+            }
         }
         buttonSignupSeller.setOnClickListener{
-            main_frame.isVisible = true
-            layoutRoleSelection.isVisible = false
-            ft.replace(R.id.main_frame,signupSeller()).commit()
+            if (mID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
+                Toast.makeText(this, "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
+            } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
+                Toast.makeText(this, "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
+            } else if (mName.text.toString().length == 0) {
+                Toast.makeText(this, "이름을 다시 입력해주세요", Toast.LENGTH_SHORT).show()
+            } else {
+                val ID = mID.text.toString()
+                val password = mPasswordText.text.toString()
+                val name = mName.text.toString()
+                val frag = signupSeller()
+                var bundle = Bundle(3)
+                bundle.putString("ID", ID)
+                bundle.putString("pw", password)
+                bundle.putString("name", name)
+                frag.setArguments(bundle)
+                main_frame.isVisible = true
+                layoutRoleSelection.isVisible = false
+                ft.replace(R.id.main_frame, frag).commit()
+            }
         }
     }
 
