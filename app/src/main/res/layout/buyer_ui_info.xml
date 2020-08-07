@@ -48,12 +48,11 @@
                 android:id="@+id/textName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
+                android:minWidth="50dp"
                 android:text="아무개"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/staticName"
                 app:layout_constraintTop_toTopOf="@+id/staticName" />
 
             <TextView

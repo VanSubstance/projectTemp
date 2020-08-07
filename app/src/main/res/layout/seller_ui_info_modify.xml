@@ -260,6 +260,7 @@
 
                         <CheckBox
                             android:id="@+id/checkCtgrMeat"
+                            style="@style/EnrollCheckBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -269,6 +270,7 @@
 
                         <CheckBox
                             android:id="@+id/checkCtgrFish"
+                            style="@style/EnrollCheckBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -278,6 +280,7 @@
 
                         <CheckBox
                             android:id="@+id/checkCtgrEtc"
+                            style="@style/EnrollCheckBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -295,6 +298,7 @@
 
                         <CheckBox
                             android:id="@+id/checkCtgrVegetable"
+                            style="@style/EnrollCheckBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -304,6 +308,7 @@
 
                         <CheckBox
                             android:id="@+id/checkCtgrGeneral"
+                            style="@style/EnrollCheckBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
