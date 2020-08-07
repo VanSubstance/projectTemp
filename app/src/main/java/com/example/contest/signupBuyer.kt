@@ -12,7 +12,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.signup_buyer.view.*
-import kotlinx.android.synthetic.main.signup_sellect.view.*
 
 
 class signupBuyer : Fragment() {
