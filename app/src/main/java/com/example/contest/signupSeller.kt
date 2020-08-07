@@ -74,7 +74,8 @@ class signupSeller : Fragment() {
                                 // 아이디 생성이 완료되었을 때
                                 val user = auth?.getCurrentUser()
                                 val uid=user?.uid
-                                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(uid.toString()).setValue(""   )
+
+                                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(uid.toString()).setValue("")
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("ctgr").setValue(storeCtgr)
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("timeOpen").setValue(timeOpen)
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("timeClose").setValue(timeClose)

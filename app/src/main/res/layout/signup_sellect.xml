@@ -48,6 +48,7 @@
                 android:hint="이메일"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
+                android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="@+id/textName"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -63,6 +64,7 @@
                 android:hint="비밀번호"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp"
+                android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="@+id/textName"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -78,6 +80,7 @@
                 android:hint="패스워드 확인"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp"
+                android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="@+id/textPw"
                 app:layout_constraintStart_toStartOf="@+id/textPw"
@@ -99,7 +102,8 @@
                 android:textColorHint="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                android:textColor="#FFFFFF" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout

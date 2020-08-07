@@ -1,6 +1,7 @@
 package com.example.contest
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,8 +27,6 @@ class signup_sellect : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_sellect)
-
-
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         val mID = textId
@@ -194,7 +193,7 @@ class signup_sellect : AppCompatActivity() {
 
     }
     override fun onBackPressed() {
-
+        startActivity(Intent(this, MainActivity::class.java))
     }
 }
 

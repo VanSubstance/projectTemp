@@ -1,5 +1,6 @@
 package com.example.contest
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,10 +13,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.signup_buyer.view.*
-import kotlinx.android.synthetic.main.signup_sellect.view.*
 
 
-class signupBuyer : Fragment() {
+class signupBuyer : Fragment(){
     private val TAG = "FirebaseService"
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     var auth : FirebaseAuth?= null
@@ -77,7 +77,6 @@ class signupBuyer : Fragment() {
                 override fun onCancelled(p0: DatabaseError) {
                     TODO("Not yet implemented")
                 }
-
                 override fun onDataChange(p0: DataSnapshot) {
                     for(db_name in p0.children){
                         if(db_name.toString()=="userDB"){
@@ -96,10 +95,12 @@ class signupBuyer : Fragment() {
                     }
                 }
             })
-        }
 
+
+        }
         return view
     }
+
 
     fun pushToken(ID:String){
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
