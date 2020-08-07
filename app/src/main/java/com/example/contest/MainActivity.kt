@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        resetDB()
         Thread(Runnable {
             while (!Thread.interrupted()) try {
                 Thread.sleep(1000)
@@ -41,7 +40,6 @@ class MainActivity : AppCompatActivity() {
         }
         buttonSignUp.setOnClickListener{
             pushProducts()
-            resetDB()
             val SignUp_user=Intent(this,signup_sellect::class.java)
             startActivity(SignUp_user)
             overridePendingTransition(R.anim.slide_right_to_left, R.anim.slide_out_right_to_left);
