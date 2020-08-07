@@ -36,6 +36,7 @@ class signupBuyer : Fragment() {
 
         view.buttonConfirm.setOnClickListener {
             val DatabaseReference = database.reference
+            val auth=FirebaseAuth.getInstance()
             if (mPnum.text.toString().length != 11) {
                 Toast.makeText(requireContext(), "전화번호 11자리를 정확히 입력해주세요", Toast.LENGTH_SHORT).show()
             } else if (mnick.text.toString().length == 0) {
@@ -52,7 +53,6 @@ class signupBuyer : Fragment() {
                                 val uid=user?.uid
                                 val data = Post(mPasswordText, mName, pnum, role, nick)
                                 val info = data.toMap()
-
                                 DatabaseReference.child("userDB").child(uid.toString()).setValue(info)
                                 DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("정육점").setValue(view.checkCtgrMeat.isChecked)
                                 DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("생선가게").setValue(view.checkCtgrFish.isChecked)
@@ -69,18 +69,26 @@ class signupBuyer : Fragment() {
                         }
             }
         }
+
         view.buttonCertifyNick.setOnClickListener{
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-            val data = database.getReference("userDB")
-            data.addListenerForSingleValueEvent(object:ValueEventListener{
+            val DatabaseReference = database.reference
+            DatabaseReference.addListenerForSingleValueEvent(object:ValueEventListener{
                 override fun onCancelled(p0: DatabaseError) {
                     TODO("Not yet implemented")
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    for(i in p0.children){
-                        if (i.child("nick").value==mnick.text.toString()){
-                            Toast.makeText(requireContext(),"이미 있는 닉네임입니다.",Toast.LENGTH_SHORT).show()
+                    for(db_name in p0.children){
+                        if(db_name.toString()=="userDB"){
+                            for(i in p0.child("usedDB").children){
+                                if (i.child("nick").value==mnick.text.toString()){
+                                    Toast.makeText(requireContext(),"이미 있는 닉네임입니다.",Toast.LENGTH_SHORT).show()
+                                }
+                                else{
+                                    Toast.makeText(requireContext(),"사용가능한 닉네임입니다.",Toast.LENGTH_SHORT).show()
+                                }
+                            }
                         }
                         else{
                             Toast.makeText(requireContext(),"사용가능한 닉네임입니다.",Toast.LENGTH_SHORT).show()
