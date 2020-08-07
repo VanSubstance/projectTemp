@@ -66,9 +66,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="105dp"
                     android:layout_marginRight="105dp"
+                    android:background="@drawable/button_press_event2"
                     android:text="사진 변경"
                     app:layout_constraintBottom_toBottomOf="@+id/imageUser"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintEnd_toEndOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
@@ -283,6 +284,7 @@
 
                     <CheckBox
                         android:id="@+id/checkCtgrMeat"
+                        style="@style/EnrollCheckBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -292,6 +294,7 @@
 
                     <CheckBox
                         android:id="@+id/checkCtgrFish"
+                        style="@style/EnrollCheckBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -301,6 +304,7 @@
 
                     <CheckBox
                         android:id="@+id/checkCtgrEtc"
+                        style="@style/EnrollCheckBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -318,6 +322,7 @@
 
                     <CheckBox
                         android:id="@+id/checkCtgrVegetable"
+                        style="@style/EnrollCheckBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -327,6 +332,7 @@
 
                     <CheckBox
                         android:id="@+id/checkCtgrGeneral"
+                        style="@style/EnrollCheckBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -356,6 +362,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/button_press_event2"
                     android:text="수정하기"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/buttonCancel"
@@ -369,6 +376,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/button_press_event2"
                     android:text="취소"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

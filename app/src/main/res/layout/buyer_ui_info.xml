@@ -9,7 +9,11 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/element_border_black_1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
@@ -19,38 +23,43 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp">
 
                 <ImageView
                     android:id="@+id/imageUser"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="50dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_launcher_foreground" />
 
                 <TextView
                     android:id="@+id/staticName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginLeft="70dp"
                     android:layout_marginTop="50dp"
                     android:text="이름"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/imageUser"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageUser" />
 
                 <TextView
                     android:id="@+id/textName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="아무개"
                     android:textSize="20sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageUser"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/staticName" />
 
                 <TextView
@@ -62,16 +71,16 @@
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/imageUser"
+                    app:layout_constraintStart_toStartOf="@+id/staticName"
                     app:layout_constraintTop_toBottomOf="@id/staticName" />
 
                 <TextView
                     android:id="@+id/textNickName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="아무 닉넴"
                     android:textSize="20sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageUser"
+                    app:layout_constraintStart_toStartOf="@+id/textName"
                     app:layout_constraintTop_toTopOf="@+id/staticNickName" />
 
                 <TextView
@@ -86,7 +95,7 @@
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/imageUser"
+                    app:layout_constraintStart_toStartOf="@+id/staticName"
                     app:layout_constraintTop_toBottomOf="@+id/staticNickName" />
 
                 <TextView
@@ -95,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textSize="20sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageUser"
+                    app:layout_constraintStart_toStartOf="@+id/textName"
                     app:layout_constraintTop_toTopOf="@+id/staticPNum" />
 
                 <TextView
@@ -108,7 +117,7 @@
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/imageUser"
+                    app:layout_constraintStart_toStartOf="@+id/staticName"
                     app:layout_constraintTop_toBottomOf="@+id/staticPNum" />
 
                 <TextView
@@ -174,15 +183,15 @@
                     android:id="@+id/buttonConfirm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="50dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/button_press_event"
+                    android:background="@drawable/button_press_event2"
                     android:text="수정"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/staticComfimPw" />
+                    app:layout_constraintTop_toBottomOf="@id/staticCtgrMeat" />
 
                 <TextView
                     android:id="@+id/staticComfimPw"

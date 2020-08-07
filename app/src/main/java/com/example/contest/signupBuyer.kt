@@ -1,5 +1,6 @@
 package com.example.contest
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,7 +16,7 @@ import kotlinx.android.synthetic.main.signup_buyer.view.*
 import kotlinx.android.synthetic.main.signup_sellect.view.*
 
 
-class signupBuyer : Fragment() {
+class signupBuyer : Fragment(){
     private val TAG = "FirebaseService"
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     var auth : FirebaseAuth?= null
@@ -89,9 +90,9 @@ class signupBuyer : Fragment() {
                 }
             })
         }
-
         return view
     }
+
 
     fun pushToken(ID:String){
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()

@@ -10,10 +10,12 @@
         android:id="@+id/staticDate"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:text="날짜"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/element_border_black_1dp"
         android:gravity="center"
-        android:background="@drawable/element_border_black_1dp"/>
+        android:text="날짜" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerView11"
