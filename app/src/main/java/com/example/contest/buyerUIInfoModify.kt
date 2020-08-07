@@ -10,18 +10,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.buyer_ui_info.view.*
 import kotlinx.android.synthetic.main.buyer_ui_info_modify.*
 import kotlinx.android.synthetic.main.buyer_ui_info_modify.view.*
 import kotlinx.android.synthetic.main.buyer_ui_info_modify.view.buttonConfirm
 import kotlinx.android.synthetic.main.buyer_ui_info_modify.view.imageUser
-import kotlinx.android.synthetic.main.seller_ui_enroll_product.*
 
 class buyerUIInfoModify : Fragment() {
 
@@ -54,6 +53,8 @@ class buyerUIInfoModify : Fragment() {
                 view.imageUser.setScaleType(ImageView.ScaleType.CENTER_CROP)
             }
         }
+
+        // 원래 정보 기입
         var data = database.getReference("userDB").child(userInfo.id)
         data.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -61,7 +62,7 @@ class buyerUIInfoModify : Fragment() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 textName.setText(p0.child("Name").value.toString())
-                textNickName.setText(p0.child("nickName").value.toString())
+                textNickName.setText(p0.child("nick").value.toString())
                 textPNum.setText(p0.child("pNum").value.toString())
                 checkCtgrMeat.isChecked = p0.child("ctgr").child("정육점").value as Boolean
                 checkCtgrFish.isChecked = p0.child("ctgr").child("생선가게").value as Boolean
@@ -93,9 +94,10 @@ class buyerUIInfoModify : Fragment() {
             if (imageUrl != null) {
                 // 사진 바꿈
                 dataImage.child(userInfo.id + ".png").putFile(imageUrl!!)
+                (activity as buyerUIMain).setBuyerFrag(31)
+            } else {
+                Toast.makeText(requireContext(), "사진을 등록해주세요", Toast.LENGTH_SHORT).show()
             }
-            (activity as buyerUIMain).setBuyerFrag(31)
-
         }
 
         view.buttonCancel.setOnClickListener {
@@ -112,7 +114,7 @@ class buyerUIInfoModify : Fragment() {
             if (requestCode == 1) {
                 imageUrl = data?.data
                 imageUser.setImageURI(imageUrl)
-                imageProduct.setScaleType(ImageView.ScaleType.CENTER_CROP)
+                imageUser.setScaleType(ImageView.ScaleType.CENTER_CROP)
             }
         }
     }

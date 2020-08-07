@@ -5,16 +5,12 @@ import android.os.Build
 import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.product_buyer_market.view.*
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.concurrent.timer
 
 class productElementAdapter(
     var productElementList: ArrayList<productElement>,
