@@ -9,8 +9,6 @@ import android.media.RingtoneManager
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import androidx.work.OneTimeWorkRequest
-import androidx.work.WorkManager
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
@@ -23,22 +21,10 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
 
     override fun onMessageReceived(p0: RemoteMessage) {
         Log.d(TAG, "From: ${p0?.from}")
-        p0?.data?.isNotEmpty()?.let {
-            Log.d(TAG,"Message data Payload"+p0.data)
-            if(true){
-                scheduleJob()
-            }
-            else{
-                handleNow()
-            }
-        }
-        p0?.notification?.let{
-            Log.d(TAG,"Message Notification Body: ${it.body}")
-            sendNotification(it.body!!)
-        }
+        sendNotification(p0.getNotification()?.getTitle().toString(), p0.getNotification()?.getBody().toString());
     }
 
-    private fun sendNotification(body: String) {
+    private fun sendNotification(title:String,body: String) {
         val intent =Intent(this,MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         var pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
@@ -46,7 +32,7 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
         val channelId = getString(R.string.default_notification_channel_id)
         var notificationBuilder = NotificationCompat.Builder(this,channelId)
                 .setSmallIcon(R.drawable.test_push)
-                .setContentTitle("title")
+                .setContentTitle(title)
                 .setContentText(body)
                 .setAutoCancel(true)
                 .setSound(defaultSound)
@@ -55,8 +41,8 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
         var notificationManager: NotificationManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
-                channelId,
-                "Channel human readable title",
+                "fcm_default_channel",
+                "fcm_default_channel",
                 NotificationManager.IMPORTANCE_DEFAULT
             )
             notificationManager.createNotificationChannel(channel)
@@ -64,16 +50,6 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
         notificationManager.notify(0 /*알림ID */, notificationBuilder.build())
 
     }
-    private fun scheduleJob() { //장기작업인지(10초이상)일때 처리하는 메소드
-        val work = OneTimeWorkRequest.Builder(MyWorker::class.java)
-            .build()
-        WorkManager.getInstance().beginWith(work).enqueue()
-    }
-
-    private fun handleNow() {
-        Log.d(TAG, "Short lived task is done.")
-    }
-
     companion object {
         private val TAG = "FirebaseMessageService"
     }
