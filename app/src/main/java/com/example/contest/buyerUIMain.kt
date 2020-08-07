@@ -125,6 +125,8 @@ class buyerUIMain : AppCompatActivity() {
                 val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 val view = inflater.inflate(R.layout.product_buyer_put, null)
 
+                var data = FirebaseDatabase.getInstance().getReference("productTodayDB")
+
                 val alertDialog = AlertDialog.Builder(this).create()
 
                 view.textQuanLeft.text = product.quanLeft.toString()
@@ -134,13 +136,12 @@ class buyerUIMain : AppCompatActivity() {
                     ) {
                         view.staticWarning.isVisible = true
                     } else {
+                        // 데이터베이스 상품 정보 업데이트
                         product.quanSold += view.textAcquire.text.toString().toInt()
                         product.quanLeft -= view.textAcquire.text.toString().toInt()
                         product.buyerId[userInfo.id] = view.textAcquire.text.toString().toInt()
-                        var data = FirebaseDatabase.getInstance().getReference("productTodayDB")
                         data.child(product.productId).setValue(product.toMap())
                     }
-                    productBasket.productList.add(currentProductElement.currentProductElement)
 
                     // currentProduct 초기화
                     currentProductElement.currentProductElement = productElement()
@@ -171,7 +172,7 @@ class buyerUIMain : AppCompatActivity() {
                 product.buyerId.remove(userInfo.id)
                 var data = FirebaseDatabase.getInstance().getReference("productTodayDB")
                 data.child(product.productId).setValue(product.toMap())
-                productBasket.productList.remove(currentProductElement.currentProductElement)
+
                 // currentProduct 초기화
                 currentProductElement.currentProductElement = productElement()
                 currentProductElement.function = ""
