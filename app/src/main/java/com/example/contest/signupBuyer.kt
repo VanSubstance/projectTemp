@@ -77,7 +77,6 @@ class signupBuyer : Fragment(){
                 override fun onCancelled(p0: DatabaseError) {
                     TODO("Not yet implemented")
                 }
-
                 override fun onDataChange(p0: DataSnapshot) {
                     for(i in p0.children){
                         if (i.child("nick").value==mnick.text.toString()){
@@ -89,6 +88,8 @@ class signupBuyer : Fragment(){
                     }
                 }
             })
+
+
         }
         return view
     }
