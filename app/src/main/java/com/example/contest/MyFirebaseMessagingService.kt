@@ -18,28 +18,23 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
 
     override fun onMessageReceived(p0: RemoteMessage) {
         Log.d(TAG, "From: " + p0.from)
-
-        if(p0.notification != null) {
-            Log.d(TAG, "Notification Message Body: ${p0.notification?.body}")
-            sendNotification(p0.notification?.body)
+        if(p0.notification != null){
+            sendNotification(p0.notification?.title, p0.notification!!.body!!)
         }
     }
 
-    private fun sendNotification(body: String?) {
-        val intent = Intent(this, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            putExtra("Notification", body)
-        }
-
+    private fun sendNotification(title:String?,body: String?) {
+        val intent =Intent(this,sellerUIEnrollProduct::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         var pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
-        val notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val defaultSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
 
-        var notificationBuilder = NotificationCompat.Builder(this,"Notification")
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Push Notification FCM")
+        var notificationBuilder = NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.test_push)
+                .setContentTitle("title")
                 .setContentText(body)
                 .setAutoCancel(true)
-                .setSound(notificationSound)
+                .setSound(defaultSound)
                 .setContentIntent(pendingIntent)
 
         var notificationManager: NotificationManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
