@@ -137,7 +137,7 @@ class signupSeller : Fragment() {
 
                     // Get new Instance ID token
                     val token = task.result?.token
-                    DatabaseReference.child("tokenDB").child(ID).setValue(token)
+                    DatabaseReference.child("userDB").child(ID).child("token").setValue(token)
                 })
     }
 }
