@@ -57,7 +57,10 @@ class signup_sellect : AppCompatActivity() {
                 layoutRoleSelection.isVisible = false
                 ft.replace(R.id.main_frame, frag).commit()
             }
+
+            overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
         }
+
         buttonSignupSeller.setOnClickListener{
             if (mID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
                 Toast.makeText(this, "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
@@ -79,6 +82,7 @@ class signup_sellect : AppCompatActivity() {
                 layoutRoleSelection.isVisible = false
                 ft.replace(R.id.main_frame, frag).commit()
             }
+            overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
         }
     }
 
@@ -194,6 +198,7 @@ class signup_sellect : AppCompatActivity() {
     }
     override fun onBackPressed() {
         startActivity(Intent(this, MainActivity::class.java))
+        overridePendingTransition(R.anim.slide_in_left_to_right,R.anim.slide_out_left_to_right)
     }
 }
 
