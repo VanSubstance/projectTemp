@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        resetDB()
         Thread(Runnable {
             while (!Thread.interrupted()) try {
                 Thread.sleep(1000)
