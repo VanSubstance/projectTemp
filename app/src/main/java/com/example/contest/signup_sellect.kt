@@ -135,7 +135,7 @@ class signup_sellect : AppCompatActivity() {
 
     fun showMarket() {
         var marketList : ArrayList<marketElement> = arrayListOf()
-        var data = database.getReference("marketInfo")
+        var data = database.getReference("marketDB")
         data.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
             }
