@@ -23,14 +23,14 @@ class MessagePush() {
         okHttpClient = OkHttpClient()
     }
 
-    fun sendMessage(destinationUid: String, title: String, message: String) {
-        val Data = FirebaseDatabase.getInstance().getReference("TokenDB")
+    fun sendMessage(destinationToken: String, title: String, message: String) {
+        val Data = FirebaseDatabase.getInstance().getReference("userDB")
         Data.addValueEventListener(object: ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
             }
             override fun onDataChange(p0: DataSnapshot) {
                 for(id in p0.children){
-                    if(destinationUid==id.toString()){
+                    if(destinationToken==id.child("token").value){
                         var pushDTO=pushDTO()
                         pushDTO.to=id.toString()
                         pushDTO.notification?.title=title
