@@ -54,7 +54,7 @@ class buyerUIMarket : Fragment() {
             override fun onDataChange(p0: DataSnapshot) {
                 for (product in p0.children) {
                     // 판매자가 일치하는 오늘의 상품들 = 그 시장의 오늘의 상품
-                    if (sellers.any{it.equals(product.child("seller").value.toString())}) {
+                    if (sellers.any{it.equals(product.child("seller").value.toString())} && !product.child("soldTime").equals("00:00")) {
                         var productEl = productElement()
                         productEl.setFromDb(product)
                         productElementList.add(productEl)
