@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        resetDB()
         Thread(Runnable {
             while (!Thread.interrupted()) try {
                 Thread.sleep(1000)
@@ -36,9 +37,11 @@ class MainActivity : AppCompatActivity() {
 
         buttonLogin.setOnClickListener {
                 loginUserId(textUserID.text.toString(), textUserPW.text.toString())
+
         }
         buttonSignUp.setOnClickListener{
             pushProducts()
+            resetDB()
             val SignUp_user=Intent(this,signup_sellect::class.java)
             startActivity(SignUp_user)
             overridePendingTransition(R.anim.slide_right_to_left, R.anim.slide_out_right_to_left);
@@ -97,7 +100,7 @@ class MainActivity : AppCompatActivity() {
 // 이거 한 이유 설명좀 !! 
 private fun resetDB() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    var data = database.getReference("marketInfo")
+    var data = database.getReference("marketDB")
     data.addListenerForSingleValueEvent(object : ValueEventListener {
         override fun onCancelled(p0: DatabaseError) {
         }
