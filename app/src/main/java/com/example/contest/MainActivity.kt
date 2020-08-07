@@ -145,12 +145,6 @@ object userInfo {
     var timeOpen = ""
     var timeClose = ""
 }
-// 오늘을 위한 데이터
-// 소비자 -> 장바구니
-object productBasket {
-    var productList : ArrayList<productElement> = ArrayList()
-
-}
 
 object backPressedTime {
     var flag : Long = 0
