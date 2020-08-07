@@ -54,7 +54,7 @@ class buyerUIInfo : Fragment() {
                 // 개인정보들
                 view.textName.setText(p0.child("Name").value.toString())
                 view.textPNum.setText(p0.child("pNum").value.toString())
-                view.textNickName.setText(p0.child("nickName").value.toString())
+                view.textNickName.setText(p0.child("nick").value.toString())
                 if (p0.child("ctgr").child("정육점").value.toString().equals("true")) {
                     view.staticCtgrMeat.isVisible = true
                 } else {
