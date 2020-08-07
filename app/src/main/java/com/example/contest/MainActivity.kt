@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             while (!Thread.interrupted()) try {
                 Thread.sleep(1000)
                 runOnUiThread {
-                    if (SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date()) == "00:00:00") {
+                    if (SimpleDateFormat("HH:mm:ss").format(Date()) == "00:00:00") {
                         pushProducts()
                     }
                 }
@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
 
         }
         buttonSignUp.setOnClickListener{
-            pushProducts()
             val SignUp_user=Intent(this,signup_sellect::class.java)
             startActivity(SignUp_user)
             overridePendingTransition(R.anim.slide_right_to_left, R.anim.slide_out_right_to_left);

@@ -103,7 +103,7 @@ class sellerUIInfo : Fragment() {
                 view.textConfirmPw.isVisible = true
             } else {
                 if (view.textConfirmPw.text.toString().equals(userInfo.pw)) {
-                    (activity as buyerUIMain).setBuyerFrag(32)
+                    (activity as sellerUIMain).setSellerFrag(42)
                 } else {
                     view.staticComfimPw.setText("비밀번호 확인 : 비밀번호가 틀립니다!")
                     view.staticComfimPw.setTextColor(Color.parseColor("#ff0000"))

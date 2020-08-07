@@ -55,7 +55,6 @@ class sellerUIEnrollProduct : Fragment() {
             }
         }
         view.buttonEnroll.setOnClickListener {
-            val DatabaseReference = database.reference
             if (!view.checkCtgrComplete.isChecked && !view.checkCtgrRaw.isChecked) {
                 Toast.makeText(requireContext(), "제품 카테고리를 골라주세요", Toast.LENGTH_SHORT).show()
             } else if (view.textProductTitle.text.isEmpty() || view.textPrice.text.isEmpty() || view.textQuan.text.isEmpty() || view.textServing.text.isEmpty()) {

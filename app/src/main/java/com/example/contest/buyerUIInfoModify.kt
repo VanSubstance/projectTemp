@@ -17,12 +17,10 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.buyer_ui_info.view.*
 import kotlinx.android.synthetic.main.buyer_ui_info_modify.*
 import kotlinx.android.synthetic.main.buyer_ui_info_modify.view.*
 import kotlinx.android.synthetic.main.buyer_ui_info_modify.view.buttonConfirm
 import kotlinx.android.synthetic.main.buyer_ui_info_modify.view.imageUser
-import kotlinx.android.synthetic.main.seller_ui_enroll_product.*
 
 class buyerUIInfoModify : Fragment() {
 
@@ -55,6 +53,8 @@ class buyerUIInfoModify : Fragment() {
                 view.imageUser.setScaleType(ImageView.ScaleType.CENTER_CROP)
             }
         }
+
+        // 원래 정보 기입
         var data = database.getReference("userDB").child(userInfo.id)
         data.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -98,8 +98,6 @@ class buyerUIInfoModify : Fragment() {
             } else {
                 Toast.makeText(requireContext(), "사진을 등록해주세요", Toast.LENGTH_SHORT).show()
             }
-
-
         }
 
         view.buttonCancel.setOnClickListener {
@@ -116,7 +114,7 @@ class buyerUIInfoModify : Fragment() {
             if (requestCode == 1) {
                 imageUrl = data?.data
                 imageUser.setImageURI(imageUrl)
-                imageProduct.setScaleType(ImageView.ScaleType.CENTER_CROP)
+                imageUser.setScaleType(ImageView.ScaleType.CENTER_CROP)
             }
         }
     }
