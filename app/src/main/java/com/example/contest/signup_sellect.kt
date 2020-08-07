@@ -1,6 +1,7 @@
 package com.example.contest
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -192,7 +193,7 @@ class signup_sellect : AppCompatActivity() {
 
     }
     override fun onBackPressed() {
-
+        startActivity(Intent(this, MainActivity::class.java))
     }
 }
 

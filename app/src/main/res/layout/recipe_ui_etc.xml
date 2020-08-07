@@ -9,8 +9,11 @@
         android:id="@+id/staticRecipeEtc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:gravity="center"
-        android:text="기타 레시피" />
+        android:text="기타 레시피"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerView"

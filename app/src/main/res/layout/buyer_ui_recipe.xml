@@ -18,7 +18,7 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:text="레시피"
-            android:textSize="13sp" />
+            android:textSize="15sp" />
 
         <View
             android:id="@+id/view12"
@@ -36,42 +36,42 @@
 
             <ImageButton
                 android:id="@+id/buttonRecipeMeat"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
-                android:background="#ffffff"
+                android:background="@drawable/button_press_event2"
                 android:src="@drawable/ui_ctgr_meat_off"
                 android:text="육류" />
 
             <ImageButton
                 android:id="@+id/buttonRecipeFish"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
-                android:background="#ffffff"
+                android:background="@drawable/button_press_event2"
                 android:src="@drawable/ui_ctgr_seafood_off"
                 android:text="해산물" />
 
             <ImageButton
                 android:id="@+id/buttonRecipeVegetable"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
-                android:background="#ffffff"
+                android:background="@drawable/button_press_event2"
                 android:src="@drawable/ui_ctgr_vegetable_off"
                 android:text="채소류" />
 
             <ImageButton
                 android:id="@+id/buttonRecipeEtc"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="#ffffff"
+                android:background="@drawable/button_press_event2"
                 android:src="@drawable/ui_ctgr_etc_off"
                 android:text="기타" />
 
