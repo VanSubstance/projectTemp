@@ -2,210 +2,182 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/sign_up_buyer_back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="1">
+    android:layout_weight="1"
+    android:background="@drawable/sign_up_buyer_background">
 
-    <EditText
-        android:id="@+id/textId"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="match_parent"
         android:layout_margin="20dp"
-        android:background="@drawable/editext_border"
-        android:hint="이메일"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/textPw"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_margin="20dp"
-        android:background="@drawable/editext_border"
-        android:hint="패스워드"
-        android:inputType="textPassword"
-        android:paddingLeft="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textId" />
-
-    <EditText
-        android:id="@+id/textPwCheck"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_margin="20dp"
-        android:background="@drawable/editext_border"
-        android:hint="패스워드 확인"
-        android:inputType="textPassword"
-        android:paddingLeft="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPw" />
-
-    <EditText
-        android:id="@+id/textName"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/editext_border"
-        android:hint="이름"
-        android:inputType="textPersonName"
-        android:paddingLeft="20dp"
-        android:privateImeOptions="defaultInputmode=korean"
-        app:layout_constraintEnd_toEndOf="@+id/textPwCheck"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textPwCheck"
-        app:layout_constraintTop_toBottomOf="@+id/textPwCheck" />
-
-    <EditText
-        android:id="@+id/buyer_nick"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_margin="20dp"
-        android:background="@drawable/editext_border"
-        android:hint="닉네임"
-        android:inputType="text"
-        android:paddingLeft="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/buttonCertifyNick"
-        app:layout_constraintTop_toBottomOf="@+id/textName" />
-
-    <Button
-        android:id="@+id/buttonCertifyNick"
-        style="@style/buttonView"
-        android:layout_width="80dp"
-        android:layout_height="45dp"
-        android:layout_margin="20dp"
-        android:text="중복확인"
-        android:textSize="13sp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textName" />
-
-    <EditText
-        android:id="@+id/textPNum"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_margin="20dp"
-        android:background="@drawable/editext_border"
-        android:hint="핸드폰 번호"
-        android:inputType="phone"
-        android:paddingLeft="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buyer_nick" />
-
-    <LinearLayout
-        android:id="@+id/staticCheckCtgr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@+id/textPNum"
-        app:layout_constraintTop_toBottomOf="@+id/textPNum">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="선호 카테고리"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/layoutCheckCtgr"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/editext_border"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/buttonConfirm"
-        app:layout_constraintEnd_toEndOf="@+id/textPNum"
-        app:layout_constraintStart_toStartOf="@+id/textPNum"
-        app:layout_constraintTop_toBottomOf="@id/staticCheckCtgr">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <CheckBox
-                android:id="@+id/checkCtgrMeat"
-                style="@style/MyCheckBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:text="정육점" />
-
-            <CheckBox
-                android:id="@+id/checkCtgrFish"
-                style="@style/MyCheckBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:text="생선가게" />
-
-            <CheckBox
-                android:id="@+id/checkCtgrEtc"
-                style="@style/MyCheckBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="완제품" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <CheckBox
-                android:id="@+id/checkCtgrVegetable"
-                style="@style/MyCheckBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:text="채소가게" />
-
-            <CheckBox
-                android:id="@+id/checkCtgrGeneral"
-                style="@style/MyCheckBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="잡화점" />
-
-        </LinearLayout>
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/buttonConfirm"
-        style="@style/buttonView"
-        android:layout_width="200dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        android:text="완료"
+        android:background="@drawable/sign_up_buyer_border"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutCheckCtgr" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/textPNum"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#FFFFFF"
+            android:hint="핸드폰 번호"
+            android:inputType="phone"
+            android:paddingLeft="10dp"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="@+id/buttonCertifyNick"
+            app:layout_constraintStart_toStartOf="@+id/buyer_nick"
+            app:layout_constraintTop_toBottomOf="@+id/buyer_nick" />
+
+        <Button
+            android:id="@+id/buttonCertifyNick"
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/button_press_event"
+            android:text="중복확인"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/buyer_nick"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/buyer_nick" />
+
+        <EditText
+            android:id="@+id/buyer_nick"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="닉네임"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:backgroundTint="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintEnd_toStartOf="@+id/buttonCertifyNick"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/staticCheckCtgr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@+id/textPNum"
+            app:layout_constraintTop_toBottomOf="@+id/textPNum">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="선호 카테고리"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutCheckCtgr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/sign_up_ctgr_background"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/textPNum"
+            app:layout_constraintStart_toStartOf="@+id/textPNum"
+            app:layout_constraintTop_toBottomOf="@+id/staticCheckCtgr">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/checkCtgrMeat"
+                    style="@style/MyCheckBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="정육점" />
+
+                <CheckBox
+                    android:id="@+id/checkCtgrFish"
+                    style="@style/MyCheckBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="생선가게" />
+
+                <CheckBox
+                    android:id="@+id/checkCtgrEtc"
+                    style="@style/MyCheckBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="완제품" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/checkCtgrVegetable"
+                    style="@style/MyCheckBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="채소가게" />
+
+                <CheckBox
+                    android:id="@+id/checkCtgrGeneral"
+                    style="@style/MyCheckBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="잡화점" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonConfirm"
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/sign_up_complete_button"
+            android:text="완료"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/layoutCheckCtgr"
+            app:layout_constraintStart_toStartOf="@+id/layoutCheckCtgr"
+            app:layout_constraintTop_toBottomOf="@+id/layoutCheckCtgr" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <!--닉네임 중복확인-->

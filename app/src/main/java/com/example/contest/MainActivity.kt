@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
             overridePendingTransition(R.anim.slide_right_to_left, R.anim.slide_out_right_to_left);
 
         }
-        
 
     }
 
@@ -64,9 +63,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
                         DatabaseReference.addListenerForSingleValueEvent(object :ValueEventListener{
                             override fun onCancelled(p0: DatabaseError) {
-                                TODO("Not yet implemented")
                             }
-
                             override fun onDataChange(p0: DataSnapshot) {
                                 if(p0.child("userDB").child(auth?.uid.toString()).child("role").value=="seller"){
                                     userInfo.id=auth?.uid.toString()
@@ -150,12 +147,6 @@ object userInfo {
     var ctgrForSeller : String = ""
     var timeOpen = ""
     var timeClose = ""
-}
-// 오늘을 위한 데이터
-// 소비자 -> 장바구니
-object productBasket {
-    var productList : ArrayList<productElement> = ArrayList()
-
 }
 
 object backPressedTime {

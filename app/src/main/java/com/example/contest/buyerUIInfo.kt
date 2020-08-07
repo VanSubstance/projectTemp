@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.DataSnapshot
@@ -33,11 +34,13 @@ class buyerUIInfo : Fragment() {
         dataImage.child(userInfo.id + ".png").getBytes(imageSize).addOnSuccessListener {
             bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
             view.imageUser.setImageBitmap(bitmap)
+            view.imageUser.setScaleType(ImageView.ScaleType.CENTER_CROP)
         }
         if (bitmap == null) {
             dataImage.child("default.png").getBytes(imageSize).addOnSuccessListener {
                 bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
                 view.imageUser.setImageBitmap(bitmap)
+                view.imageUser.setScaleType(ImageView.ScaleType.CENTER_CROP)
             }
         }
 

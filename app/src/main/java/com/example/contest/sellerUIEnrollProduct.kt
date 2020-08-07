@@ -3,30 +3,28 @@ package com.example.contest
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.*
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.view.*
-import okhttp3.*
-import java.io.IOException
+import java.io.FileNotFoundException
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class sellerUIEnrollProduct : Fragment() {
-    var auth : FirebaseAuth?= null
     private val mStorageRef = FirebaseStorage.getInstance()
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     var imageUrl : Uri? = null
@@ -72,35 +70,18 @@ class sellerUIEnrollProduct : Fragment() {
                 var newProduct : productElement = productElement()
                 var productId = SimpleDateFormat("yyyyMMdd").format(Date()) + userInfo.id + title
                 var imageTitle = productId + ".png"
-
-
                 imageData.child(imageTitle).putFile(imageUrl!!)
                 if (view.checkCtgrComplete.isChecked) {
                     newProduct.setInfo(title, price, serve, productId, quan, "완제품", userInfo.timeClose)
-
-                    DatabaseReference.addValueEventListener(object :ValueEventListener{
-                        override fun onCancelled(p0: DatabaseError) {
-                        }
-
-                        override fun onDataChange(p0: DataSnapshot) {
-                            for(id in p0.child("userDB").children){
-                                if(id.child("ctgr").child("완제품").value==true){
-                                    sendMessage(id.toString(),"새로운 상품","완제품 새로운 상품이 등록되었습니다")
-                                }
-                           }
-                        }
-                    })
+                    val user=MessagePush()
+                    user.sendMessage("dpEypU05T76Kf-uFf9Nc23:APA91bF-Ift9xut7h_MGuq6ZivslfZM6cjd43AouYdKS4emOXIJYWB74FxzNck1QsfesUTnCA0iu8w18OKTL36sAZ9-c3ApUabJBvkVlcGfZdnB_9XKIIuPxzGBVDivIBNZQUd65GxP-","sex","sex")
                 } else {
                     newProduct.setInfo(title, price, serve, productId, quan, userInfo.ctgrForSeller, userInfo.timeClose)
-
                 }
                 data.child(productId).setValue(newProduct.toMap())
-
-
                 (activity as sellerUIMain).setSellerFrag(11)
             }
         }
-
         view.buttonCancel.setOnClickListener {
             (activity as sellerUIMain).setSellerFrag(11)
         }
@@ -115,46 +96,44 @@ class sellerUIEnrollProduct : Fragment() {
             if (requestCode == 1) {
                 imageUrl = data?.data
                 imageProduct.setImageURI(imageUrl)
+                imageProduct.setScaleType(ImageView.ScaleType.CENTER_CROP)
             }
         }
     }
-    fun sendMessage(member:String,title:String,message:String){
-        val Data = FirebaseDatabase.getInstance().getReference("TokenDB")
 
-        val JSON=MediaType.parse("application/json; charset=utf-8")
-        val url="https://fcm.googleapis.com/fcm/send"
-        val serverkey="AAAAv115-6g:APA91bHF9UX5qTiV2JmhM5oJrjq8NL6VuYciFPmV3cvyc3Z9qUJtRNE-y3E5aOMqn6e0prefmXEg2riitvF22PMHZywxcQtotCSEMZJEGPyXFwEN9642neblUBtlk492JHeTCG8CIhcO"
-        var okHttpClient:OkHttpClient=OkHttpClient()
-        var gson:Gson=Gson()
-        Data.addValueEventListener(object: ValueEventListener{
-            override fun onCancelled(p0: DatabaseError) {
-                TODO("Not yet implemented")
+    private fun resize(
+        context: Context,
+        uri: Uri,
+        resize: Int
+    ): Bitmap? {
+        var resizeBitmap: Bitmap? = null
+        val options = BitmapFactory.Options()
+        try {
+            BitmapFactory.decodeStream(
+                context.contentResolver.openInputStream(uri),
+                null,
+                options
+            ) // 1번
+            var width = options.outWidth
+            var height = options.outHeight
+            var samplesize = 1
+            while (true) { //2번
+                if (width / 2 < resize || height / 2 < resize) break
+                width /= 2
+                height /= 2
+                samplesize *= 2
             }
-            override fun onDataChange(p0: DataSnapshot) {
-                    for(id in p0.children){
-                        if(member==id.toString()){
-                            var pushDTO=pushDTO()
-                            pushDTO.to=id.toString()
-                            pushDTO.notification?.title=title
-                            pushDTO.notification?.body=message
-                            var body =RequestBody.create(JSON,gson?.toJson(pushDTO))
-                            var request =Request
-                                    .Builder()
-                                    .addHeader("Content-Type","application/json")
-                                    .addHeader("Authorization","key="+serverkey)
-                                    .url(url)
-                                    .post(body)
-                                    .build()
-                            okHttpClient?.newCall(request)?.enqueue(object : Callback {//푸시 전송
-                                override fun onFailure(call: Call?, e: IOException?) {
-                            }
-                                override fun onResponse(call: Call?, response: Response?) {
-                                    Toast.makeText(requireContext(), response?.body().toString(), Toast.LENGTH_SHORT).show()
-                                }
-                            })
-                        }
-                    }
-                }
-        })
+            options.inSampleSize = samplesize
+            val bitmap = BitmapFactory.decodeStream(
+                context.contentResolver.openInputStream(uri),
+                null,
+                options
+            ) //3번
+            resizeBitmap = bitmap
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+        }
+        return resizeBitmap
     }
+
 }

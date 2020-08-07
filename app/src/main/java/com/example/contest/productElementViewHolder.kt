@@ -5,6 +5,8 @@ import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.CountDownTimer
 import android.view.View
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
@@ -79,6 +81,7 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
         imagePath.getBytes(imageSize).addOnSuccessListener {
             val imageBitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
             productImage.setImageBitmap(imageBitmap)
+            productImage.setScaleType(ImageView.ScaleType.CENTER_CROP)
         }
 
         when (usage) {
