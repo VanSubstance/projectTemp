@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
+googleServices {disableVersionCheck=true}
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -36,12 +37,15 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx:21.5.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'com.google.firebase:firebase-messaging-directboot:20.2.0'
+
 
     implementation 'com.google.firebase:firebase-storage:19.1.1'
     implementation 'com.firebaseui:firebase-ui-storage:6.2.0'
     implementation 'com.google.firebase:firebase-messaging:20.2.3'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'androidx.work:work-runtime:2.2.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'

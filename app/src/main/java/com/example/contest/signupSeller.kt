@@ -75,7 +75,7 @@ class signupSeller : Fragment() {
                                 val user = auth?.getCurrentUser()
                                 val uid=user?.uid
 
-                                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(uid.toString()).setValue("")
+                                DatabaseReference.child("marketDB").child(marketTitle).child("store").child(uid.toString()).setValue("")
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("ctgr").setValue(storeCtgr)
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("timeOpen").setValue(timeOpen)
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("timeClose").setValue(timeClose)

@@ -15,7 +15,10 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.*
 import kotlinx.android.synthetic.main.seller_ui_enroll_product.view.*
@@ -29,11 +32,13 @@ class sellerUIEnrollProduct : Fragment() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     var imageUrl : Uri? = null
 
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.seller_ui_enroll_product, container, false)
         val data = database.getReference("productTodayDB")
         val imageData = mStorageRef.getReference("productImageDB")
+        val dataMessage=database.getReference("userDB")
         // 사진 변경 버튼
         view.buttonChangeImage.setOnClickListener {
             val intent : Intent = Intent(Intent.ACTION_GET_CONTENT)
@@ -55,7 +60,6 @@ class sellerUIEnrollProduct : Fragment() {
             }
         }
         view.buttonEnroll.setOnClickListener {
-            val DatabaseReference = database.reference
             if (!view.checkCtgrComplete.isChecked && !view.checkCtgrRaw.isChecked) {
                 Toast.makeText(requireContext(), "제품 카테고리를 골라주세요", Toast.LENGTH_SHORT).show()
             } else if (view.textProductTitle.text.isEmpty() || view.textPrice.text.isEmpty() || view.textQuan.text.isEmpty() || view.textServing.text.isEmpty()) {
@@ -71,10 +75,42 @@ class sellerUIEnrollProduct : Fragment() {
                 var productId = SimpleDateFormat("yyyyMMdd").format(Date()) + userInfo.id + title
                 var imageTitle = productId + ".png"
                 imageData.child(imageTitle).putFile(imageUrl!!)
+
                 if (view.checkCtgrComplete.isChecked) {
                     newProduct.setInfo(title, price, serve, productId, quan, "완제품", userInfo.timeClose)
+                    dataMessage.addListenerForSingleValueEvent(object :ValueEventListener{
+                        override fun onCancelled(p0: DatabaseError) {
+                        }
+                        override fun onDataChange(p0: DataSnapshot) {
+                            for(uid in p0.children){
+                                if(uid.child("ctgr").child("완제품").value==true){
+                                    val send=MessagePush()
+                                    val title="새로운 완제품이 등록"
+                                    val body="제품명:"+title+"가격은:"+price+"양은:"+serve+"마감시간은:"+userInfo.timeClose
+                                    send.sendMessage(uid.child("token").value.toString(),title,body)
+                                }
+                            }
+                        }
+                    })
                 } else {
                     newProduct.setInfo(title, price, serve, productId, quan, userInfo.ctgrForSeller, userInfo.timeClose)
+                    dataMessage.addValueEventListener(object :ValueEventListener{
+                        override fun onCancelled(p0: DatabaseError) {
+                            TODO("Not yet implemented")
+                        }
+                        override fun onDataChange(p0: DataSnapshot) {
+                            for(uid in p0.children){
+                                for(ctgr in uid.child("ctgr").children){
+                                    if(ctgr.child(userInfo.ctgrForSeller).value==true){
+                                        val send=MessagePush()
+                                        val title="새로운"+userInfo.ctgrForSeller+"제품이 등록"
+                                        val body="제품명:"+title+"가격은:"+price+"양은:"+serve+"마감시간은:"+userInfo.timeClose
+                                        send.sendMessage(uid.child("token").value.toString(),title,body)
+                                    }
+                                }
+                            }
+                        }
+                    })
                 }
                 data.child(productId).setValue(newProduct.toMap())
                 (activity as sellerUIMain).setSellerFrag(11)

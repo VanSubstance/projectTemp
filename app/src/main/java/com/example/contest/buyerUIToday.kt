@@ -54,7 +54,7 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
 
         var marketList: ArrayList<Marker> = arrayListOf()
         var infoWindowList: ArrayList<InfoWindow> = arrayListOf()
-        var data = database.getReference("marketInfo")
+        var data = database.getReference("marketDB")
 
         data.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
