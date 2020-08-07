@@ -75,7 +75,7 @@ class signupSeller : Fragment() {
                                 val user = auth?.getCurrentUser()
                                 val uid=user?.uid
 
-                                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(uid.toString()).setValue(""   )
+                                DatabaseReference.child("marketInfo").child(marketTitle).child("store").child(uid.toString()).setValue("")
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("ctgr").setValue(storeCtgr)
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("timeOpen").setValue(timeOpen)
                                 DatabaseReference.child("storeDB").child(uid.toString()).child("timeClose").setValue(timeClose)
@@ -137,7 +137,7 @@ class signupSeller : Fragment() {
 
                     // Get new Instance ID token
                     val token = task.result?.token
-                    DatabaseReference.child("tokenDB").child(ID).setValue(token)
+                    DatabaseReference.child("userDB").child(ID).child("token").setValue(token)
                 })
     }
 }

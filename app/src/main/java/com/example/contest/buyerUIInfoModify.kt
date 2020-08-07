@@ -37,6 +37,8 @@ class buyerUIInfoModify : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.buyer_ui_info_modify, container, false)
+        
+        // 사진
         var dataImage = storage.getReference("userImageDB")
         val imageSize: Long = 1024 * 1024 * 10
         var bitmap: Bitmap? = null

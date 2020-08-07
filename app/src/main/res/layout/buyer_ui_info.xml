@@ -4,220 +4,212 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/sign_up_seller_background"
     >
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/element_border_black_1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_margin="15dp"
+        android:orientation="vertical"
+        android:background="@drawable/element_border_black_1dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/imageUser"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/element_border_black_1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/imageUser"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="50dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_launcher_foreground" />
+            <TextView
+                android:id="@+id/staticName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="50dp"
+                android:text="이름"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageUser" />
 
-                <TextView
-                    android:id="@+id/staticName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="70dp"
-                    android:layout_marginLeft="70dp"
-                    android:layout_marginTop="50dp"
-                    android:text="이름"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageUser" />
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="아무개"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/staticName" />
 
-                <TextView
-                    android:id="@+id/textName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginLeft="30dp"
-                    android:text="아무개"
-                    android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/staticName" />
+            <TextView
+                android:id="@+id/staticNickName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="닉네임"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@id/imageUser"
+                app:layout_constraintStart_toStartOf="@+id/staticName"
+                app:layout_constraintTop_toBottomOf="@id/staticName" />
 
-                <TextView
-                    android:id="@+id/staticNickName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:text="닉네임"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/staticName"
-                    app:layout_constraintTop_toBottomOf="@id/staticName" />
+            <TextView
+                android:id="@+id/textNickName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아무개네 가게"
+                android:textSize="20sp"
+                app:layout_constraintLeft_toRightOf="@id/staticNickName"
+                app:layout_constraintStart_toStartOf="@id/textName"
+                app:layout_constraintTop_toTopOf="@id/staticNickName" />
 
-                <TextView
-                    android:id="@+id/textNickName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="아무 닉넴"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="@+id/textName"
-                    app:layout_constraintTop_toTopOf="@+id/staticNickName" />
+            <TextView
+                android:id="@+id/staticPNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="전화번호"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/staticNickName"
+                app:layout_constraintTop_toBottomOf="@+id/staticNickName" />
 
-                <TextView
-                    android:id="@+id/staticPNum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="50dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="전화 번호"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/staticName"
-                    app:layout_constraintTop_toBottomOf="@+id/staticNickName" />
+            <TextView
+                android:id="@+id/textPNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전화번호"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/textNickName"
+                app:layout_constraintTop_toTopOf="@+id/staticPNum" />
 
-                <TextView
-                    android:id="@+id/textPNum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="@+id/textName"
-                    app:layout_constraintTop_toTopOf="@+id/staticPNum" />
+            <TextView
+                android:id="@+id/staticCtgr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:text="선호 카테고리"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/staticPNum"
+                app:layout_constraintTop_toBottomOf="@+id/staticPNum" />
 
-                <TextView
-                    android:id="@+id/staticCtgr"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:gravity="center"
-                    android:text="선호 카테고리"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/staticName"
-                    app:layout_constraintTop_toBottomOf="@+id/staticPNum" />
+            <TextView
+                android:id="@+id/staticCtgrMeat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="정육점"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/staticCtgr"
+                app:layout_constraintTop_toBottomOf="@+id/staticCtgr" />
 
-                <TextView
-                    android:id="@+id/staticCtgrMeat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="정육점"
-                    android:textSize="20sp"
-                    android:visibility="gone"
-                    app:layout_constraintStart_toStartOf="@+id/staticCtgr"
-                    app:layout_constraintTop_toBottomOf="@+id/staticCtgr" />
+            <TextView
+                android:id="@+id/staticCtgrVegetable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:text="채소가게"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@id/staticCtgrMeat"
+                app:layout_constraintTop_toTopOf="@id/staticCtgrMeat" />
 
-                <TextView
-                    android:id="@+id/staticCtgrVegetable"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:text="채소가게"
-                    android:textSize="20sp"
-                    android:visibility="gone"
-                    app:layout_constraintStart_toEndOf="@id/staticCtgrMeat"
-                    app:layout_constraintTop_toTopOf="@id/staticCtgrMeat" />
+            <TextView
+                android:id="@+id/staticCtgrFish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:text="생선가게"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/staticCtgrVegetable"
+                app:layout_constraintTop_toTopOf="@+id/staticCtgrGeneral" />
 
-                <TextView
-                    android:id="@+id/staticCtgrFish"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:text="생선가게"
-                    android:textSize="20sp"
-                    android:visibility="gone"
-                    app:layout_constraintStart_toEndOf="@+id/staticCtgrVegetable"
-                    app:layout_constraintTop_toTopOf="@+id/staticCtgrGeneral" />
+            <TextView
+                android:id="@+id/staticCtgrGeneral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:text="잡화점"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/staticCtgrFish"
+                app:layout_constraintTop_toTopOf="@+id/staticCtgrVegetable" />
 
-                <TextView
-                    android:id="@+id/staticCtgrGeneral"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:text="잡화점"
-                    android:textSize="20sp"
-                    android:visibility="gone"
-                    app:layout_constraintStart_toEndOf="@+id/staticCtgrFish"
-                    app:layout_constraintTop_toTopOf="@+id/staticCtgrVegetable" />
+            <TextView
+                android:id="@+id/staticCtgrComplete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:text="완제품"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/staticCtgrGeneral"
+                app:layout_constraintTop_toTopOf="@+id/staticCtgrVegetable" />
 
-                <TextView
-                    android:id="@+id/staticCtgrComplete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:text="완제품"
-                    android:textSize="20sp"
-                    android:visibility="gone"
-                    app:layout_constraintStart_toEndOf="@+id/staticCtgrGeneral"
-                    app:layout_constraintTop_toTopOf="@+id/staticCtgrVegetable" />
+            <Button
+                android:id="@+id/buttonConfirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_press_event2"
+                android:text="수정"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/staticComfimPw" />
 
-                <Button
-                    android:id="@+id/buttonConfirm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/button_press_event2"
-                    android:text="수정"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/staticCtgrMeat" />
+            <TextView
+                android:id="@+id/staticComfimPw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="비밀번호 확인"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="@id/staticCtgr"
+                app:layout_constraintStart_toStartOf="@+id/staticCtgr"
+                app:layout_constraintTop_toBottomOf="@id/staticCtgrMeat" />
 
-                <TextView
-                    android:id="@+id/staticComfimPw"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="비밀번호 확인"
-                    android:visibility="gone"
-                    app:layout_constraintLeft_toLeftOf="@id/staticCtgr"
-                    app:layout_constraintStart_toStartOf="@+id/staticCtgr"
-                    app:layout_constraintTop_toBottomOf="@id/staticCtgrMeat" />
-
-                <EditText
-                    android:id="@+id/textConfirmPw"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:ems="10"
-                    android:hint="현재 비밀번호 입력"
-                    android:inputType="textPassword"
-                    android:visibility="gone"
-                    app:layout_constraintLeft_toLeftOf="@id/staticCtgr"
-                    app:layout_constraintTop_toBottomOf="@+id/staticComfimPw" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-    </ScrollView>
+            <EditText
+                android:id="@+id/textConfirmPw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="현재 비밀번호 입력"
+                android:inputType="textPassword"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="@id/staticCtgr"
+                app:layout_constraintTop_toBottomOf="@+id/staticComfimPw" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

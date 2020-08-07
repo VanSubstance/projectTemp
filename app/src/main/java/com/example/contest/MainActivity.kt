@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         buttonLogin.setOnClickListener {
                 loginUserId(textUserID.text.toString(), textUserPW.text.toString())
+
         }
         buttonSignUp.setOnClickListener{
             pushProducts()
@@ -94,7 +95,7 @@ class MainActivity : AppCompatActivity() {
 // 이거 한 이유 설명좀 !! 
 private fun resetDB() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    var data = database.getReference("marketInfo")
+    var data = database.getReference("marketDB")
     data.addListenerForSingleValueEvent(object : ValueEventListener {
         override fun onCancelled(p0: DatabaseError) {
         }
@@ -144,12 +145,6 @@ object userInfo {
     var ctgrForSeller : String = ""
     var timeOpen = ""
     var timeClose = ""
-}
-// 오늘을 위한 데이터
-// 소비자 -> 장바구니
-object productBasket {
-    var productList : ArrayList<productElement> = ArrayList()
-
 }
 
 object backPressedTime {

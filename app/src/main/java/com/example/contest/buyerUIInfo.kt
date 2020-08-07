@@ -18,7 +18,6 @@ import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.buyer_ui_info.view.*
 
 class buyerUIInfo : Fragment() {
-
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     val storage = FirebaseStorage.getInstance()
 
@@ -28,6 +27,7 @@ class buyerUIInfo : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.buyer_ui_info, container, false)
+        // 사진
         var dataImage = storage.getReference("userImageDB")
         val imageSize: Long = 1024 * 1024 * 10
         var bitmap: Bitmap? = null
@@ -45,13 +45,13 @@ class buyerUIInfo : Fragment() {
         }
 
 
-
         var data = database.getReference("userDB").child(userInfo.id)
         data.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
             }
 
             override fun onDataChange(p0: DataSnapshot) {
+                // 개인정보들
                 view.textName.setText(p0.child("Name").value.toString())
                 view.textPNum.setText(p0.child("pNum").value.toString())
                 view.textNickName.setText(p0.child("nickName").value.toString())
