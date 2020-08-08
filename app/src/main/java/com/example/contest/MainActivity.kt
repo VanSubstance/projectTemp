@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
             // 액티비티 전환 애니메이션 설정
             // overridePendingTransition(다음화면, 현재화면)
-            overridePendingTransition(R.anim.slide_in_top_to_bot, R.anim.slide_out_top_to_bot)
+
 
         }
         buttonSignUp.setOnClickListener{
@@ -46,6 +46,8 @@ class MainActivity : AppCompatActivity() {
             overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
 
         }
+
+
 
     }
 
@@ -88,6 +90,10 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
                     }
                 }
+    }
+
+    override fun onBackPressed() {
+        finishAffinity()
     }
 }
 

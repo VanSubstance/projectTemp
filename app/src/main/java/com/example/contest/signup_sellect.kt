@@ -58,7 +58,7 @@ class signup_sellect : AppCompatActivity() {
                 ft.replace(R.id.main_frame, frag).commit()
             }
 
-            overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
+            //overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
         }
 
         buttonSignupSeller.setOnClickListener{
@@ -82,7 +82,7 @@ class signup_sellect : AppCompatActivity() {
                 layoutRoleSelection.isVisible = false
                 ft.replace(R.id.main_frame, frag).commit()
             }
-            overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
+            //overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
         }
     }
 
