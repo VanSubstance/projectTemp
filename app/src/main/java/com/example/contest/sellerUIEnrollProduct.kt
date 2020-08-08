@@ -104,8 +104,8 @@ class sellerUIEnrollProduct : Fragment() {
                                 for(ctgr in uid.child("ctgr").children){
                                     if(ctgr.child(userInfo.ctgrForSeller).value==true){
                                         val send=MessagePush()
-                                        val title="새로운"+userInfo.ctgrForSeller+"제품이 등록"
-                                        val body="제품명:"+title+"가격은:"+price+"양은:"+serve+"마감시간은:"+userInfo.timeClose
+                                        val title="새로운 "+userInfo.ctgrForSeller+"제품이 등록"
+                                        val body="제품명 :"+title+"이고 ,"+"가격은 :"+price+"이고 ,"+"양은 :"+serve+"이고, "+"마감시간은 :"+userInfo.timeClose+"이다."
                                         MessagePush().sendNotification(uid.child("token").value.toString(),title,body)
                                     }
                                 }
