@@ -77,6 +77,7 @@ class sellerUIEnrollProduct : Fragment() {
                 imageData.child(imageTitle).putFile(imageUrl!!)
 
                 if (view.checkCtgrComplete.isChecked) {
+                    val dataMessage=database.getReference("userDB")
                     newProduct.setInfo(title, price, serve, productId, quan, "완제품", userInfo.timeClose)
                     dataMessage.addListenerForSingleValueEvent(object :ValueEventListener{
                         override fun onCancelled(p0: DatabaseError) {
@@ -84,10 +85,10 @@ class sellerUIEnrollProduct : Fragment() {
                         override fun onDataChange(p0: DataSnapshot) {
                             for(uid in p0.children){
                                 if(uid.child("ctgr").child("완제품").value==true){
-                                    val send=MessagePush()
                                     val title="새로운 완제품이 등록"
-                                    val body="제품명:"+title+"가격은:"+price+"양은:"+serve+"마감시간은:"+userInfo.timeClose
-                                    send.sendMessage(uid.child("token").value.toString(),title,body)
+                                    val body="제품명 :"+title+"이고 ,"+"가격은 :"+price+"이고 ,"+"양은 :"+serve+"이고, "+"마감시간은 :"+userInfo.timeClose+"이다."
+                                    val regToken = uid.child("token").value.toString()
+                                    MessagePush().sendNotification(regToken,title,body)
                                 }
                             }
                         }
@@ -103,9 +104,9 @@ class sellerUIEnrollProduct : Fragment() {
                                 for(ctgr in uid.child("ctgr").children){
                                     if(ctgr.child(userInfo.ctgrForSeller).value==true){
                                         val send=MessagePush()
-                                        val title="새로운"+userInfo.ctgrForSeller+"제품이 등록"
-                                        val body="제품명:"+title+"가격은:"+price+"양은:"+serve+"마감시간은:"+userInfo.timeClose
-                                        send.sendMessage(uid.child("token").value.toString(),title,body)
+                                        val title="새로운 "+userInfo.ctgrForSeller+"제품이 등록"
+                                        val body="제품명 :"+title+"이고 ,"+"가격은 :"+price+"이고 ,"+"양은 :"+serve+"이고, "+"마감시간은 :"+userInfo.timeClose+"이다."
+                                        MessagePush().sendNotification(uid.child("token").value.toString(),title,body)
                                     }
                                 }
                             }

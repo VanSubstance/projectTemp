@@ -89,8 +89,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
     }
-
-    }
+}
 
 
 // 이거 한 이유 설명좀 !! 
