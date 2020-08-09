@@ -75,7 +75,20 @@ class signup_sellect : AppCompatActivity() {
                                     override fun onCancelled(p0: DatabaseError) {
                                     }
                                     override fun onDataChange(p0: DataSnapshot) {
-                                        
+                                        for (user in p0.children) {
+                                            if (user.child(auth.currentUser?.uid.toString()).exists()) {
+                                                val frag = signupBuyer()
+                                                var bundle = Bundle(3)
+                                                bundle.putString("ID", ID)
+                                                bundle.putString("pw", password)
+                                                bundle.putString("name", name)
+                                                frag.setArguments(bundle)
+                                                main_frame.isVisible = true
+                                                layoutRoleSelection.isVisible = false
+                                                ft.replace(R.id.main_frame, frag).commit()
+                                                overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
+                                            }
+                                        }
                                     }
                                 })
                                 textAlert.isVisible = true
