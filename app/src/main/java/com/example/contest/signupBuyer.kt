@@ -41,6 +41,9 @@ class signupBuyer : Fragment(){
         textAlertList.add(view.textAlertCtgr)
         textAlertList.add(view.textAlertPNum)
 
+        view.buttonFindMarket.setOnClickListener {
+            (activity as signup_sellect).showMarket()
+        }
 
         view.buttonConfirm.setOnClickListener {
             val DatabaseReference = database.reference
