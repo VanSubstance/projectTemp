@@ -73,7 +73,6 @@
             android:layout_marginTop="20dp"
             android:backgroundTint="#FFFFFF"
             android:hint="매장명"
-            android:inputType="textPersonName"
             android:paddingLeft="10dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
@@ -203,6 +202,84 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/staicStoreTitle" />
+
+        <TextView
+            android:id="@+id/textAlertMarket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#FF0000"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/textMarketTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textMarketTitle" />
+
+        <TextView
+            android:id="@+id/textAlertStoreTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#FF0000"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/staicStoreTitle"
+            app:layout_constraintTop_toBottomOf="@+id/staicStoreTitle" />
+
+        <TextView
+            android:id="@+id/textAlertPNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#FF0000"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/textPNum"
+            app:layout_constraintTop_toBottomOf="@+id/textPNum" />
+
+        <TextView
+            android:id="@+id/textAlertOpenTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#FF0000"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/textTimeOpen"
+            app:layout_constraintTop_toBottomOf="@+id/textTimeOpen" />
+
+        <TextView
+            android:id="@+id/textAlertCloseTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#FF0000"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/textTimeClose"
+            app:layout_constraintTop_toBottomOf="@+id/textTimeClose" />
+
+        <TextView
+            android:id="@+id/textAlertCtgr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#FF0000"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/staticSpinnerDate"
+            app:layout_constraintTop_toBottomOf="@+id/staticSpinnerDate" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

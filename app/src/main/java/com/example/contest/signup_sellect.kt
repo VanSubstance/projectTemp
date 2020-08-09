@@ -38,11 +38,14 @@ class signup_sellect : AppCompatActivity() {
 
         buttonSignupBuyer.setOnClickListener{
             if (mID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
-                Toast.makeText(this, "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
+                textAlert.isVisible = true
+                textAlert.setText("※ 이메일 또는 비밀번호를 반드시 입력하세요!")
             } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
-                Toast.makeText(this, "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
+                textAlert.isVisible = true
+                textAlert.setText("※ 비밀번호가 일치하지 않습니다!")
             } else if (mName.text.toString().length == 0) {
-                Toast.makeText(this, "이름을 다시 입력해주세요", Toast.LENGTH_SHORT).show()
+                textAlert.isVisible = true
+                textAlert.setText("※ 이름을 확인해주세요!")
             } else {
                 val ID = mID.text.toString()
                 val password = mPasswordText.text.toString()
@@ -62,11 +65,14 @@ class signup_sellect : AppCompatActivity() {
 
         buttonSignupSeller.setOnClickListener{
             if (mID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
-                Toast.makeText(this, "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
+                textAlert.isVisible = true
+                textAlert.setText("※ 이메일 또는 비밀번호를 반드시 입력하세요!")
             } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
-                Toast.makeText(this, "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
+                textAlert.isVisible = true
+                textAlert.setText("※ 비밀번호가 일치하지 않습니다!")
             } else if (mName.text.toString().length == 0) {
-                Toast.makeText(this, "이름을 다시 입력해주세요", Toast.LENGTH_SHORT).show()
+                textAlert.isVisible = true
+                textAlert.setText("※ 이름을 확인해주세요!")
             } else {
                 val ID = mID.text.toString()
                 val password = mPasswordText.text.toString()

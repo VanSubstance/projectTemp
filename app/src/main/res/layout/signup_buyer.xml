@@ -184,10 +184,13 @@
             android:id="@+id/textAlertNick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_margin="10dp"
+            android:text="닉네임 중복 에러 메세지"
             android:textColor="#ff0000"
             android:textSize="15sp"
             android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/textPNum"
             app:layout_constraintStart_toStartOf="@+id/buyer_nick"
             app:layout_constraintTop_toBottomOf="@+id/buyer_nick" />
 
@@ -195,10 +198,12 @@
             android:id="@+id/textAlertPNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_margin="10dp"
+            android:text="핸드폰 번호 에러 메세지"
             android:textColor="#ff0000"
             android:textSize="15sp"
             android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="@+id/textPNum"
             app:layout_constraintTop_toBottomOf="@+id/textPNum" />
 
@@ -206,15 +211,17 @@
             android:id="@+id/textAlertCtgr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_margin="10dp"
+            android:text="카테고리 에러 메세지"
             android:textColor="#ff0000"
             android:textSize="15sp"
             android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="@+id/layoutCheckCtgr"
             app:layout_constraintTop_toBottomOf="@+id/layoutCheckCtgr" />
 
         <TextView
-            android:id="@+id/texAlertMain"
+            android:id="@+id/textAlertMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -222,6 +229,7 @@
             android:textColor="#ff0000"
             android:textSize="15sp"
             android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@id/buyer_nick"
             app:layout_constraintEnd_toEndOf="@+id/buttonCertifyNick"
             app:layout_constraintStart_toStartOf="@+id/buyer_nick" />
