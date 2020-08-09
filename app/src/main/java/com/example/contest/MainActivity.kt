@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    var auth : FirebaseAuth?= null
+    var auth: FirebaseAuth? = null
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private val TAG = "FirebaseService"
 
@@ -31,22 +31,24 @@ class MainActivity : AppCompatActivity() {
         }).start()
 
         buttonLogin.setOnClickListener {
-                loginUserId(textUserID.text.toString(), textUserPW.text.toString())
+            loginUserId(textUserID.text.toString(), textUserPW.text.toString())
 
             // 액티비티 전환 애니메이션 설정
             // overridePendingTransition(다음화면, 현재화면)
 
 
         }
-        buttonSignUp.setOnClickListener{
-            val SignUp_user=Intent(this,signup_sellect::class.java)
+        buttonSignUp.setOnClickListener {
+            val SignUp_user = Intent(this, signup_sellect::class.java)
             startActivity(SignUp_user)
 
             // 액티비티 전환 애니메이션 설정
-            overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
+            overridePendingTransition(
+                R.anim.slide_in_right_to_left,
+                R.anim.slide_out_right_to_left
+            );
 
         }
-
 
 
     }
@@ -54,34 +56,50 @@ class MainActivity : AppCompatActivity() {
     fun loginUserId(email: String, password: String) {
         val DatabaseReference = database.reference
 
-        val sellerUI = Intent(this, sellerUIMain :: class.java)
-        val buyerUI = Intent(this, buyerUIMain :: class.java)
-
-        auth = FirebaseAuth.getInstance()
-        auth?.signInWithEmailAndPassword(email, password)
+        val sellerUI = Intent(this, sellerUIMain::class.java)
+        val buyerUI = Intent(this, buyerUIMain::class.java)
+        if (textUserID.text.toString().equals("") || textUserPW.text.toString().equals("")) {
+            Toast.makeText(this@MainActivity, "아이디와 비밀번호를 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
+        } else {
+            auth = FirebaseAuth.getInstance()
+            auth?.signInWithEmailAndPassword(email, password)
                 ?.addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) { // 로그인 성공 시 이벤트 발생
                         Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
-                        DatabaseReference.addListenerForSingleValueEvent(object :ValueEventListener{
+                        DatabaseReference.addListenerForSingleValueEvent(object :
+                            ValueEventListener {
                             override fun onCancelled(p0: DatabaseError) {
                             }
+
                             override fun onDataChange(p0: DataSnapshot) {
-                                if(p0.child("userDB").child(auth?.uid.toString()).child("role").value=="seller"){
-                                    userInfo.id=auth?.uid.toString()
-                                    userInfo.pw=password
-                                    userInfo.role = p0.child("userDB").child(auth?.uid.toString()).child("role").value as String
-                                    userInfo.pNum = p0.child("userDB").child(auth?.uid.toString()).child("pNum").value as String
-                                    userInfo.ctgrForSeller = p0.child("storeDB").child(auth?.uid.toString()).child("ctgr").value.toString()
-                                    userInfo.timeOpen = p0.child("storeDB").child(auth?.uid.toString()).child("timeOpen").value.toString()
-                                    userInfo.timeClose = p0.child("storeDB").child(auth?.uid.toString()).child("timeClose").value.toString()
+                                if (p0.child("userDB").child(auth?.uid.toString())
+                                        .child("role").value == "seller"
+                                ) {
+                                    userInfo.id = auth?.uid.toString()
+                                    userInfo.pw = password
+                                    userInfo.role = p0.child("userDB").child(auth?.uid.toString())
+                                        .child("role").value as String
+                                    userInfo.pNum = p0.child("userDB").child(auth?.uid.toString())
+                                        .child("pNum").value as String
+                                    userInfo.ctgrForSeller =
+                                        p0.child("storeDB").child(auth?.uid.toString())
+                                            .child("ctgr").value.toString()
+                                    userInfo.timeOpen =
+                                        p0.child("storeDB").child(auth?.uid.toString())
+                                            .child("timeOpen").value.toString()
+                                    userInfo.timeClose =
+                                        p0.child("storeDB").child(auth?.uid.toString())
+                                            .child("timeClose").value.toString()
                                     startActivity(sellerUI)
-                                }
-                                else{
-                                    userInfo.id=auth?.uid.toString()
-                                    userInfo.pw=password
-                                    userInfo.nick = p0.child("userDB").child(auth?.uid.toString()).child("nick").value as String
-                                    userInfo.role = p0.child("userDB").child(auth?.uid.toString()).child("role").value as String
-                                    userInfo.pNum = p0.child("userDB").child(auth?.uid.toString()).child("pNum").value as String
+                                } else {
+                                    userInfo.id = auth?.uid.toString()
+                                    userInfo.pw = password
+                                    userInfo.nick = p0.child("userDB").child(auth?.uid.toString())
+                                        .child("nick").value as String
+                                    userInfo.role = p0.child("userDB").child(auth?.uid.toString())
+                                        .child("role").value as String
+                                    userInfo.pNum = p0.child("userDB").child(auth?.uid.toString())
+                                        .child("pNum").value as String
                                     startActivity(buyerUI)
                                 }
                             }
@@ -90,6 +108,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
                     }
                 }
+        }
     }
 
     override fun onBackPressed() {
@@ -105,6 +124,7 @@ private fun resetDB() {
     data.addListenerForSingleValueEvent(object : ValueEventListener {
         override fun onCancelled(p0: DatabaseError) {
         }
+
         override fun onDataChange(p0: DataSnapshot) {
             for (market in p0.children) {
                 var title = market.child("marketTitle").value.toString()
@@ -129,41 +149,46 @@ private fun pushProducts() {
     todayDB.addListenerForSingleValueEvent(object : ValueEventListener {
         override fun onCancelled(p0: DatabaseError) {
         }
+
         override fun onDataChange(p0: DataSnapshot) {
             for (element in p0.children) {
                 var product = productElement()
                 product.setFromDb(element)
                 product.soldDate = SimpleDateFormat("yyyyMMdd").format(Date()).toString()
-                historyDB.child(SimpleDateFormat("yyyyMMdd").format(Date()).toString()).child(product.productId).child(userInfo.id).setValue(product.toMap())
+                historyDB.child(SimpleDateFormat("yyyyMMdd").format(Date()).toString())
+                    .child(product.productId).child(userInfo.id).setValue(product.toMap())
                 todayDB.child(element.key.toString()).removeValue()
             }
         }
     })
 }
+
 // 앱 실행부터 종료때까지 유저의 정보를 저장해두는 오브젝트
 // 자바의 static 개념으로 보면 됨
 object userInfo {
-    var id : String = ""
-    var pw : String = ""
-    var nick : String = ""
-    var pNum : String = ""
-    var role : String = ""
-    var ctgrForSeller : String = ""
+    var id: String = ""
+    var pw: String = ""
+    var nick: String = ""
+    var pNum: String = ""
+    var role: String = ""
+    var ctgrForSeller: String = ""
     var timeOpen = ""
     var timeClose = ""
 }
 
 object backPressedTime {
-    var flag : Long = 0
+    var flag: Long = 0
 }
 
 object currentCondition {
     // 시장
-    var marketTitle : String = ""
+    var marketTitle: String = ""
+
     // 완제품 or 재료
-    var ctgr01 : String = ""
+    var ctgr01: String = ""
+
     // 육류, 해산물, 등등
-    var ctgr02 : String = ""
+    var ctgr02: String = ""
 }
 
 object currentProductElement {

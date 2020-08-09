@@ -43,7 +43,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:background="@drawable/element_border_black_0_5dp"
+                        android:background="@drawable/element_border_black_1dp"
                         android:src="@drawable/test_02"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
