@@ -45,6 +45,35 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/textMarketTitle"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:hint="시장이름"
+            android:paddingLeft="10dp"
+            android:paddingBottom="5dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
+            app:layout_constraintStart_toStartOf="@+id/textView11"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/textMarketAddress"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:hint="주소"
+            android:paddingLeft="10dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="@+id/textMarketTitle"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/textMarketTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textMarketTitle" />
+
+        <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,88 +98,6 @@
             android:textColorHint="#FFFFFF"
             app:layout_constraintStart_toStartOf="@+id/buyer_nick"
             app:layout_constraintTop_toBottomOf="@+id/textAlertNick" />
-
-        <TextView
-            android:id="@+id/textMarket1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="시장 1"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/mapFrame" />
-
-        <TextView
-            android:id="@+id/textMarket1Addr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="시장1 주소"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textMarket1" />
-
-        <TextView
-            android:id="@+id/textMarket2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="시장 2"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textMarket1Addr" />
-
-        <TextView
-            android:id="@+id/textMarket2Addr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="시장2 주소"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textMarket2" />
-
-        <TextView
-            android:id="@+id/textMarket3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="시장 3"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textMarket2Addr" />
-
-        <TextView
-            android:id="@+id/textMarket3Addr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="시장3 주소"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textMarket3" />
-
-        <fragment
-            android:id="@+id/mapFrame"
-            android:name="com.naver.maps.map.MapFragment"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textView11">
-
-        </fragment>
 
         <Button
             android:id="@+id/buttonCertifyNick"
@@ -302,7 +249,6 @@
             android:id="@+id/buyer_nick"
             android:layout_width="195dp"
             android:layout_height="45dp"
-            android:layout_marginTop="20dp"
             android:backgroundTint="#FFFFFF"
             android:hint="닉네임"
             android:inputType="text"
@@ -310,7 +256,7 @@
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
             app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textMarket3Addr" />
+            tools:layout_editor_absoluteY="400dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
