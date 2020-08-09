@@ -108,6 +108,8 @@ class signup_sellect : AppCompatActivity() {
         }
 
         buttonSignupSeller.setOnClickListener{
+            val auth=FirebaseAuth.getInstance()
+
             if (mID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
                 textAlert.isVisible = true
                 textAlert.setText("※ 이메일 또는 비밀번호를 반드시 입력하세요!")
@@ -138,9 +140,34 @@ class signup_sellect : AppCompatActivity() {
                                 ft.setCustomAnimations(R.anim.slide_in_right_to_left,R.anim.slide_out_right_to_left)
                             }
                             else{
-                                // 아이디 생성이 실패했을 경우
-                                textAlert.isVisible = true
-                                textAlert.setText("※ 이메일 또는 비밀번호를 반드시 입력하세요!")
+                                // 아이디 생성이 실패했을 경우 또는 이미 존재하는 계정일 경우
+                                database.getReference("userDB").addListenerForSingleValueEvent( object : ValueEventListener {
+                                    override fun onCancelled(p0: DatabaseError) {
+                                    }
+                                    override fun onDataChange(p0: DataSnapshot) {
+                                        var err = 0
+                                        for (user in p0.children) {
+                                            if (user.child(auth.currentUser?.uid.toString()).exists()) {
+                                                err = 1
+                                            }
+                                        }
+                                        if (err == 0) {
+                                            val frag = signupSeller()
+                                            var bundle = Bundle(3)
+                                            bundle.putString("ID", ID)
+                                            bundle.putString("pw", password)
+                                            bundle.putString("name", name)
+                                            frag.setArguments(bundle)
+                                            main_frame.isVisible = true
+                                            layoutRoleSelection.isVisible = false
+                                            ft.replace(R.id.main_frame, frag).commit()
+                                            overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
+                                        } else {
+                                            textAlert.isVisible = true
+                                            textAlert.setText("※ 잘못된 입력 또는 이미 가입된 이메일입니다!")
+                                        }
+                                    }
+                                })
                             }
                         }
             }
