@@ -40,7 +40,6 @@ class signupBuyer : Fragment(){
         textAlertList.add(view.textAlertNick)
         textAlertList.add(view.textAlertCtgr)
         textAlertList.add(view.textAlertPNum)
-        textAlertList.add(view.textAlertMain)
 
 
         view.buttonConfirm.setOnClickListener {
@@ -88,18 +87,6 @@ class signupBuyer : Fragment(){
                         }
             }
         }
-
-        view.buttonFindMarket.setOnClickListener {
-            if(!view.mapFrame.isVisible) {
-                view.mapFrame.isVisible = true
-            }
-        }
-
-        view.mapFrame.setOnClickListener(View.OnClickListener {
-            if(mapFrame.isVisible) {
-                mapFrame.isVisible = false
-            }
-        })
 
         view.buttonCertifyNick.setOnClickListener{
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()

@@ -24,7 +24,7 @@
             android:background="@drawable/button_press_event"
             android:text="찾기"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView11"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView11" />
@@ -141,19 +141,16 @@
             app:layout_constraintStart_toStartOf="@+id/textView11"
             app:layout_constraintTop_toBottomOf="@+id/textMarket3" />
 
-        <FrameLayout
+        <fragment
             android:id="@+id/mapFrame"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/ui_main_basket"
-            android:clickable="true"
-            android:visibility="gone"
+            android:name="com.naver.maps.map.MapFragment"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
             app:layout_constraintStart_toStartOf="@+id/textView11"
             app:layout_constraintTop_toBottomOf="@+id/textView11">
 
-        </FrameLayout>
+        </fragment>
 
         <Button
             android:id="@+id/buttonCertifyNick"
@@ -162,7 +159,7 @@
             android:background="@drawable/button_press_event"
             android:text="중복확인"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
             app:layout_constraintTop_toTopOf="@+id/buyer_nick" />

@@ -32,13 +32,13 @@ class signupBuyerMap : Fragment(), OnMapReadyCallback {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.signup_buyer_map, container, false)
+        val view = inflater.inflate(R.layout.signup_buyer, container, false)
 
         val fm = childFragmentManager
 
-        val mapFragment = fm.findFragmentById(R.id.map) as MapFragment?
+        val mapFragment = fm.findFragmentById(R.id.mapFrame) as MapFragment?
             ?: MapFragment.newInstance().also {
-                fm.beginTransaction().add(R.id.map, it).commit()
+                fm.beginTransaction().add(R.id.mapFrame, it).commit()
 
             }
         mapFragment.getMapAsync(this)
