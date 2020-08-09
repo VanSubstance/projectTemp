@@ -7,11 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.iid.FirebaseInstanceId
+import kotlinx.android.synthetic.main.signup_buyer.*
 import kotlinx.android.synthetic.main.signup_buyer.view.*
 
 
@@ -69,6 +72,18 @@ class signupBuyer : Fragment(){
                         }
             }
         }
+
+        view.buttonFindMarket.setOnClickListener {
+            if(!view.mapFrame.isVisible) {
+                view.mapFrame.isVisible = true
+            }
+        }
+
+        view.mapFrame.setOnClickListener(View.OnClickListener {
+            if(mapFrame.isVisible) {
+                mapFrame.isVisible = false
+            }
+        })
 
         view.buttonCertifyNick.setOnClickListener{
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()
