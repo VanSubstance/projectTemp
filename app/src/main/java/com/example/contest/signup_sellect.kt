@@ -81,7 +81,7 @@ class signup_sellect : AppCompatActivity() {
                                     override fun onDataChange(p0: DataSnapshot) {
                                         var err = 0
                                         for (user in p0.children) {
-                                            if (user.child(auth.currentUser?.uid.toString()).exists()) {
+                                            if (user.getKey().equals(auth.currentUser?.uid)) {
                                                 err = 1
                                             }
                                         }
