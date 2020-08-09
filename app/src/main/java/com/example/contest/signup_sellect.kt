@@ -73,8 +73,10 @@ class signup_sellect : AppCompatActivity() {
                                 layoutRoleSelection.isVisible = false
                                 ft.replace(R.id.main_frame, frag).commit()
                                 overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
-                            } else { // 아이디 생성이 실패했을 경우
-                                Toast.makeText(this, "이미 가입된 이메일이거나 잘못된 이메일입니다.", Toast.LENGTH_SHORT).show()
+                            } else {
+                                // 아이디 생성이 실패했을 경우
+                                textAlert.isVisible = true
+                                textAlert.setText("※ 이미 가입된 이메일입니다!")
                             }
                         }
             }
@@ -111,7 +113,9 @@ class signup_sellect : AppCompatActivity() {
                                 ft.setCustomAnimations(R.anim.slide_in_right_to_left,R.anim.slide_out_right_to_left)
                             }
                             else{
-                                Toast.makeText(this, "이미 가입된 이메일이거나 잘못된 이메일입니다.", Toast.LENGTH_SHORT).show()
+                                // 아이디 생성이 실패했을 경우
+                                textAlert.isVisible = true
+                                textAlert.setText("※ 이메일 또는 비밀번호를 반드시 입력하세요!")
                             }
                         }
             }
