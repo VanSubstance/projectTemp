@@ -92,11 +92,12 @@ class signup_sellect : AppCompatActivity() {
                                             layoutRoleSelection.isVisible = false
                                             ft.replace(R.id.main_frame, frag).commit()
                                             overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
+                                        } else {
+                                            textAlert.isVisible = true
+                                            textAlert.setText("※ 잘못된 입력 또는 이미 가입된 이메일입니다!")
                                         }
                                     }
                                 })
-                                textAlert.isVisible = true
-                                textAlert.setText("※ 잘못된 입력 또는 이미 가입된 이메일입니다!")
                             }
                         }
             }
