@@ -3,6 +3,7 @@ package com.example.contest
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
@@ -12,10 +13,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentTransaction
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.signup_sellect.*
 import kotlinx.android.synthetic.main.signup_seller.*
 import kotlinx.android.synthetic.main.signup_seller_ctgr.view.*
@@ -24,6 +28,8 @@ import kotlinx.android.synthetic.main.signup_seller_market.view.*
 class signup_sellect : AppCompatActivity() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     val ft = supportFragmentManager.beginTransaction()
+    var auth : FirebaseAuth?= null
+    private val TAG = "FirebaseService"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +43,8 @@ class signup_sellect : AppCompatActivity() {
 
 
         buttonSignupBuyer.setOnClickListener{
+            val auth=FirebaseAuth.getInstance()
+
             if (mID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
                 textAlert.isVisible = true
                 textAlert.setText("※ 이메일 또는 비밀번호를 반드시 입력하세요!")
@@ -50,16 +58,27 @@ class signup_sellect : AppCompatActivity() {
                 val ID = mID.text.toString()
                 val password = mPasswordText.text.toString()
                 val name = mName.text.toString()
-                val frag = signupBuyer()
-                var bundle = Bundle(3)
-                bundle.putString("ID", ID)
-                bundle.putString("pw", password)
-                bundle.putString("name", name)
-                frag.setArguments(bundle)
-                main_frame.isVisible = true
-                layoutRoleSelection.isVisible = false
-                ft.replace(R.id.main_frame, frag).commit()
-                overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
+                auth?.createUserWithEmailAndPassword(ID,password)
+                        ?.addOnCompleteListener(this) { task ->
+                            if (task.isSuccessful) {
+                                // 아이디 생성이 완료되었을 때
+                                val user = auth?.getCurrentUser()
+                                val frag = signupBuyer()
+                                var bundle = Bundle(3)
+                                bundle.putString("ID", ID)
+                                bundle.putString("pw", password)
+                                bundle.putString("name", name)
+                                frag.setArguments(bundle)
+                                main_frame.isVisible = true
+                                layoutRoleSelection.isVisible = false
+                                ft.replace(R.id.main_frame, frag).commit()
+                                overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
+                            } else {
+                                // 아이디 생성이 실패했을 경우
+                                textAlert.isVisible = true
+                                textAlert.setText("※ 이미 가입된 이메일입니다!")
+                            }
+                        }
             }
         }
 
@@ -77,19 +96,32 @@ class signup_sellect : AppCompatActivity() {
                 val ID = mID.text.toString()
                 val password = mPasswordText.text.toString()
                 val name = mName.text.toString()
-                val frag = signupSeller()
-                var bundle = Bundle(3)
-                bundle.putString("ID", ID)
-                bundle.putString("pw", password)
-                bundle.putString("name", name)
-                frag.setArguments(bundle)
-                main_frame.isVisible = true
-                layoutRoleSelection.isVisible = false
-                ft.replace(R.id.main_frame, frag).commit()
-                ft.setCustomAnimations(R.anim.slide_in_right_to_left,R.anim.slide_out_right_to_left)
+                auth?.createUserWithEmailAndPassword(ID,password)
+                        ?.addOnCompleteListener(this) { task ->
+                            if (task.isSuccessful) {
+                                // 아이디 생성이 완료되었을 때
+                                val user = auth?.getCurrentUser()
+                                val frag = signupSeller()
+                                var bundle = Bundle(3)
+                                bundle.putString("ID", ID)
+                                bundle.putString("pw", password)
+                                bundle.putString("name", name)
+                                frag.setArguments(bundle)
+                                main_frame.isVisible = true
+                                layoutRoleSelection.isVisible = false
+                                ft.replace(R.id.main_frame, frag).commit()
+                                ft.setCustomAnimations(R.anim.slide_in_right_to_left,R.anim.slide_out_right_to_left)
+                            }
+                            else{
+                                // 아이디 생성이 실패했을 경우
+                                textAlert.isVisible = true
+                                textAlert.setText("※ 이메일 또는 비밀번호를 반드시 입력하세요!")
+                            }
+                        }
             }
         }
     }
+
 
     // 판매자 카테고리 보여주기
     fun showCtgr() {
