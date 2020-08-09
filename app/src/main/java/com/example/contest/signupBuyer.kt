@@ -91,6 +91,7 @@ class signupBuyer : Fragment(){
                                 DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("채소가게").setValue(view.checkCtgrVegetable.isChecked)
                                 DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("잡화점").setValue(view.checkCtgrGeneral.isChecked)
                                 DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("완제품").setValue(view.checkCtgrEtc.isChecked)
+                                DatabaseReference.child("userDB").child(uid.toString()).child("관심시장").child("marketTitle").setValue(marketTitle.text.toString())
                                 pushToken(uid.toString())
                                 Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
                                 (activity as signup_sellect).finish()
