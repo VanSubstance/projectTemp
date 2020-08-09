@@ -27,7 +27,8 @@
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/textMarketTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textMarketTitle" />
+            app:layout_constraintTop_toTopOf="@+id/textMarketTitle"
+            app:layout_constraintVertical_weight="1" />
 
         <TextView
             android:id="@+id/staticMarketSelect"
@@ -42,7 +43,8 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/buttonFindMarket"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1" />
 
         <TextView
             android:id="@+id/textMarketTitle"
@@ -58,7 +60,8 @@
             android:textColorHint="#FFFFFF"
             app:layout_constraintEnd_toStartOf="@+id/buttonFindMarket"
             app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
-            app:layout_constraintTop_toBottomOf="@+id/textAlertMarketSelect" />
+            app:layout_constraintTop_toBottomOf="@+id/textAlertMarketSelect"
+            app:layout_constraintVertical_weight="1" />
 
         <TextView
             android:id="@+id/textMarketAddress"
@@ -73,7 +76,8 @@
             app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/textMarketTitle"
-            app:layout_constraintTop_toBottomOf="@+id/textMarketTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/textMarketTitle"
+            app:layout_constraintVertical_weight="1" />
 
         <TextView
             android:id="@+id/textView12"
@@ -85,7 +89,8 @@
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
-            app:layout_constraintTop_toBottomOf="@+id/textAlertPNum" />
+            app:layout_constraintTop_toBottomOf="@+id/textAlertPNum"
+            app:layout_constraintVertical_weight="1" />
 
         <EditText
             android:id="@+id/textPNum"
@@ -100,7 +105,8 @@
             android:textColorHint="#FFFFFF"
             app:layout_constraintEnd_toEndOf="@+id/buttonCertifyNick"
             app:layout_constraintStart_toStartOf="@+id/buyer_nick"
-            app:layout_constraintTop_toBottomOf="@+id/buyer_nick" />
+            app:layout_constraintTop_toBottomOf="@+id/buyer_nick"
+            app:layout_constraintVertical_weight="1" />
 
         <Button
             android:id="@+id/buttonCertifyNick"
@@ -112,7 +118,8 @@
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
-            app:layout_constraintTop_toTopOf="@+id/buyer_nick" />
+            app:layout_constraintTop_toTopOf="@+id/buyer_nick"
+            app:layout_constraintVertical_weight="1" />
 
         <LinearLayout
             android:id="@+id/layoutCheckCtgr"
@@ -124,7 +131,8 @@
             app:layout_constraintEnd_toEndOf="@+id/buttonCertifyNick"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView12"
-            app:layout_constraintTop_toBottomOf="@+id/textView12">
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            app:layout_constraintVertical_weight="1">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -207,7 +215,8 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/layoutCheckCtgr"
             app:layout_constraintStart_toStartOf="@+id/layoutCheckCtgr"
-            app:layout_constraintTop_toBottomOf="@+id/textAlertCtgr" />
+            app:layout_constraintTop_toBottomOf="@+id/textAlertCtgr"
+            app:layout_constraintVertical_weight="1" />
 
         <TextView
             android:id="@+id/textAlertNick"
@@ -262,7 +271,8 @@
             android:textColorHint="#FFFFFF"
             app:layout_constraintEnd_toStartOf="@+id/buttonCertifyNick"
             app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
-            app:layout_constraintTop_toBottomOf="@+id/textMarketAddress" />
+            app:layout_constraintTop_toBottomOf="@+id/textMarketAddress"
+            app:layout_constraintVertical_weight="1" />
 
         <TextView
             android:id="@+id/textAlertMarketSelect"
