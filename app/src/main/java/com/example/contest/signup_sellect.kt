@@ -3,23 +3,27 @@ package com.example.contest
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
 import android.widget.CheckBox
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.fragment.app.FragmentTransaction
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.signup_sellect.*
 import kotlinx.android.synthetic.main.signup_seller.*
 import kotlinx.android.synthetic.main.signup_seller_ctgr.view.*
 import kotlinx.android.synthetic.main.signup_seller_market.view.*
-import kotlin.collections.ArrayList
 
 class signup_sellect : AppCompatActivity() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
@@ -70,16 +74,9 @@ class signup_sellect : AppCompatActivity() {
                                 ft.replace(R.id.main_frame, frag).commit()
                                 overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
                             } else {
-                                // 아이디 생성이 실패했을 경우 또는 이미 존재하는 계정일 경우
-                                database.getReference("userDB").addListenerForSingleValueEvent( object : ValueEventListener {
-                                    override fun onCancelled(p0: DatabaseError) {
-                                    }
-                                    override fun onDataChange(p0: DataSnapshot) {
-                                        
-                                    }
-                                })
+                                // 아이디 생성이 실패했을 경우
                                 textAlert.isVisible = true
-                                textAlert.setText("※ 잘못된 입력 또는 이미 가입된 이메일입니다!")
+                                textAlert.setText("※ 이미 가입된 이메일입니다!")
                             }
                         }
             }
