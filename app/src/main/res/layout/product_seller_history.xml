@@ -165,14 +165,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/staticPrice"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageProduct"
-            android:visibility="gone"
-            >
+            app:layout_constraintTop_toBottomOf="@id/imageProduct">
 
             <TextView
                 android:id="@+id/staticSalary"
@@ -181,8 +180,8 @@
                 android:text="총 판매 금액"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"/>
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textSalary"
@@ -271,8 +270,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 app:layout_constraintLeft_toLeftOf="@id/staticBuyerId"
-                app:layout_constraintTop_toTopOf="@+id/staticBuyerId"
-                >
+                app:layout_constraintTop_toTopOf="@+id/staticBuyerId">
 
                 <TextView
                     android:id="@+id/textBuyerId"

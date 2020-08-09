@@ -25,6 +25,8 @@
             android:text="찾기"
             android:textColor="#FFFFFF"
             android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textMarketTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textMarketTitle" />
 
