@@ -34,6 +34,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/alertError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="※ 이메일 또는 비밀번호를 확인해주세요!"
+                android:textColor="#FF0000"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="@id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
             <EditText
                 android:id="@+id/textUserID"
                 android:layout_width="0dp"
@@ -55,7 +67,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
             <TextView
-                android:id="@+id/AlertEmail"
+                android:id="@+id/alertEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -83,7 +95,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textUserID" />
 
             <TextView
-                android:id="@+id/AlertPW"
+                android:id="@+id/alertPW"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
