@@ -77,31 +77,22 @@ class signupBuyer : Fragment(){
                 val pnum = mPnum.text.toString()
                 val nick=mnick.text.toString()
                 val role: String = "buyer"
-                auth?.createUserWithEmailAndPassword(mID, mPasswordText)
-                        ?.addOnCompleteListener(requireActivity()) { task ->
-                            if (task.isSuccessful) {
-                                // 아이디 생성이 완료되었을 때
-                                val user = auth?.getCurrentUser()
-                                val uid=user?.uid
-                                val data = Post(mPasswordText, mName, pnum, role, nick)
-                                val info = data.toMap()
-                                DatabaseReference.child("userDB").child(uid.toString()).setValue(info)
-                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("정육점").setValue(view.checkCtgrMeat.isChecked)
-                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("생선가게").setValue(view.checkCtgrFish.isChecked)
-                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("채소가게").setValue(view.checkCtgrVegetable.isChecked)
-                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("잡화점").setValue(view.checkCtgrGeneral.isChecked)
-                                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("완제품").setValue(view.checkCtgrEtc.isChecked)
-                                DatabaseReference.child("userDB").child(uid.toString()).child("관심시장").child("marketTitle").setValue(marketTitle.text.toString())
-                                pushToken(uid.toString())
-                                Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
-                                (activity as signup_sellect).finish()
+                val user = auth.currentUser
+                val uid=user?.uid
+                val data = Post(mPasswordText, mName, pnum, role, nick)
+                val info = data.toMap()
+                DatabaseReference.child("userDB").child(uid.toString()).setValue(info)
+                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("정육점").setValue(view.checkCtgrMeat.isChecked)
+                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("생선가게").setValue(view.checkCtgrFish.isChecked)
+                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("채소가게").setValue(view.checkCtgrVegetable.isChecked)
+                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("잡화점").setValue(view.checkCtgrGeneral.isChecked)
+                DatabaseReference.child("userDB").child(uid.toString()).child("ctgr").child("완제품").setValue(view.checkCtgrEtc.isChecked)
+                pushToken(uid.toString())
+                Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
+                (activity as signup_sellect).finish()
 
-                            } else { // 아이디 생성이 실패했을 경우
-                                Toast.makeText(requireContext(), "이미 가입된 이메일이거나 잘못된 이메일입니다.", Toast.LENGTH_SHORT).show()
-                            }
-                        }
             }
-        }
+            }
 
         view.buttonCertifyNick.setOnClickListener{
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()

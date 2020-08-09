@@ -25,9 +25,9 @@
             android:text="찾기"
             android:textColor="#FFFFFF"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@+id/staticMarketSelect"
+            app:layout_constraintBottom_toBottomOf="@+id/textMarketTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/staticMarketSelect" />
+            app:layout_constraintTop_toTopOf="@+id/textMarketTitle" />
 
         <TextView
             android:id="@+id/staticMarketSelect"
@@ -56,7 +56,7 @@
             android:paddingBottom="5dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
+            app:layout_constraintEnd_toStartOf="@+id/buttonFindMarket"
             app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
             app:layout_constraintTop_toBottomOf="@+id/textAlertMarketSelect" />
 
@@ -260,6 +260,7 @@
             android:paddingLeft="10dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
+            app:layout_constraintEnd_toStartOf="@+id/buttonCertifyNick"
             app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
             app:layout_constraintTop_toBottomOf="@+id/textMarketAddress" />
 
