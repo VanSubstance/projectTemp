@@ -74,7 +74,27 @@ class signup_sellect : AppCompatActivity() {
                                 ft.replace(R.id.main_frame, frag).commit()
                                 overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
                             } else {
-                                // 아이디 생성이 실패했을 경우
+                                // 아이디 생성이 실패했을 경우 또는 이미 존재하는 계정일 경우
+                                database.getReference("userDB").addListenerForSingleValueEvent( object : ValueEventListener {
+                                    override fun onCancelled(p0: DatabaseError) {
+                                    }
+                                    override fun onDataChange(p0: DataSnapshot) {
+                                        for (user in p0.children) {
+                                            if (user.child(auth.currentUser?.uid.toString()).exists()) {
+                                                val frag = signupBuyer()
+                                                var bundle = Bundle(3)
+                                                bundle.putString("ID", ID)
+                                                bundle.putString("pw", password)
+                                                bundle.putString("name", name)
+                                                frag.setArguments(bundle)
+                                                main_frame.isVisible = true
+                                                layoutRoleSelection.isVisible = false
+                                                ft.replace(R.id.main_frame, frag).commit()
+                                                overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
+                                            }
+                                        }
+                                    }
+                                })
                                 textAlert.isVisible = true
                                 textAlert.setText("※ 이미 가입된 이메일입니다!")
                             }
