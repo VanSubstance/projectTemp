@@ -94,7 +94,6 @@ class signupSeller : Fragment() {
                 view.textAlertCtgr.isVisible = true
                 view.textAlertCtgr.setText("카테고리를 정해주세요!")
             } else{
-                val ID = mID
                 val password = mPasswordText
                 val name = mName
                 val pnum = mPnum.text.toString()
@@ -104,30 +103,20 @@ class signupSeller : Fragment() {
                 val storeCtgr = staticSpinnerDate.text.toString()
                 val timeOpen =textView_s.text.toString()
                 val timeClose = textView_e.text.toString()
-
-                auth?.createUserWithEmailAndPassword(ID, password)
-                        ?.addOnCompleteListener(requireActivity()) { task ->
-                            if (task.isSuccessful) {
-                                // 아이디 생성이 완료되었을 때
-                                val user = auth?.getCurrentUser()
-                                val uid=user?.uid
-
-                                DatabaseReference.child("marketDB").child(marketTitle).child("store").child(uid.toString()).setValue("")
-                                DatabaseReference.child("storeDB").child(uid.toString()).child("ctgr").setValue(storeCtgr)
-                                DatabaseReference.child("storeDB").child(uid.toString()).child("timeOpen").setValue(timeOpen)
-                                DatabaseReference.child("storeDB").child(uid.toString()).child("timeClose").setValue(timeClose)
-                                DatabaseReference.child("storeDB").child(uid.toString()).child("title").setValue(storeTitle)
-                                val data = Post_s(password,name, pnum, role,storeTitle,marketTitle)
-                                val info = data.toMap_s()
-                                pushToken(uid.toString())
-                                DatabaseReference.child("userDB").child(uid.toString()).setValue(info)
-                                Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
-                                (activity as signup_sellect).finish()
-
-                            } else { // 아이디 생성이 실패했을 경우
-                                Toast.makeText(requireContext(), "이미 가입된 이메일이거나 잘못된 이메일입니다.", Toast.LENGTH_SHORT).show()
-                            }
-                        }
+                // 아이디 생성이 완료되었을 때
+                val user = auth?.currentUser
+                val uid=user?.uid
+                DatabaseReference.child("marketDB").child(marketTitle).child("store").child(uid.toString()).setValue("")
+                DatabaseReference.child("storeDB").child(uid.toString()).child("ctgr").setValue(storeCtgr)
+                DatabaseReference.child("storeDB").child(uid.toString()).child("timeOpen").setValue(timeOpen)
+                DatabaseReference.child("storeDB").child(uid.toString()).child("timeClose").setValue(timeClose)
+                DatabaseReference.child("storeDB").child(uid.toString()).child("title").setValue(storeTitle)
+                val data = Post_s(password,name, pnum, role,storeTitle,marketTitle)
+                val info = data.toMap_s()
+                pushToken(uid.toString())
+                DatabaseReference.child("userDB").child(uid.toString()).setValue(info)
+                Toast.makeText(requireContext(), "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
+                (activity as signup_sellect).finish()
             }
         }
 
