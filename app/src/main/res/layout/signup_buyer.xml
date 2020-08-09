@@ -179,6 +179,52 @@
             app:layout_constraintEnd_toEndOf="@+id/layoutCheckCtgr"
             app:layout_constraintStart_toStartOf="@+id/layoutCheckCtgr"
             app:layout_constraintTop_toBottomOf="@+id/layoutCheckCtgr" />
+
+        <TextView
+            android:id="@+id/textAlertNick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#ff0000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/buyer_nick"
+            app:layout_constraintTop_toBottomOf="@+id/buyer_nick" />
+
+        <TextView
+            android:id="@+id/textAlertPNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#ff0000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/textPNum"
+            app:layout_constraintTop_toBottomOf="@+id/textPNum" />
+
+        <TextView
+            android:id="@+id/textAlertCtgr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#ff0000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/layoutCheckCtgr"
+            app:layout_constraintTop_toBottomOf="@+id/layoutCheckCtgr" />
+
+        <TextView
+            android:id="@+id/texAlertMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="메인 에러 메세지"
+            android:textColor="#ff0000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/buyer_nick"
+            app:layout_constraintEnd_toEndOf="@+id/buttonCertifyNick"
+            app:layout_constraintStart_toStartOf="@+id/buyer_nick" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

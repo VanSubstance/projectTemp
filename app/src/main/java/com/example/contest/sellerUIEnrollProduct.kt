@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -61,11 +62,14 @@ class sellerUIEnrollProduct : Fragment() {
         }
         view.buttonEnroll.setOnClickListener {
             if (!view.checkCtgrComplete.isChecked && !view.checkCtgrRaw.isChecked) {
-                Toast.makeText(requireContext(), "제품 카테고리를 골라주세요", Toast.LENGTH_SHORT).show()
+                view.textAlert.isVisible = true
+                view.textAlert.setText("※ 제품 카테고리를 골라주세요!")
             } else if (view.textProductTitle.text.isEmpty() || view.textPrice.text.isEmpty() || view.textQuan.text.isEmpty() || view.textServing.text.isEmpty()) {
-                Toast.makeText(requireContext(), "제대로 입력해야 합니다", Toast.LENGTH_SHORT).show()
+                view.textAlert.isVisible = true
+                view.textAlert.setText("※ 제대로 입력해야 합니다!")
             } else if (imageUrl == null) {
-                Toast.makeText(requireContext(), "사진을 등록해주세요", Toast.LENGTH_SHORT).show()
+                view.textAlert.isVisible = true
+                view.textAlert.setText("※ 사진을 등록해주세요!")
             } else {
                 var title = view.textProductTitle.text.toString()
                 var price = Integer.parseInt(view.textPrice.text.toString())
