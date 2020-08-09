@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:background="@drawable/sign_up_buyer_border"
         tools:layout_editor_absoluteX="20dp"
         tools:layout_editor_absoluteY="20dp">
@@ -48,6 +48,8 @@
             android:id="@+id/textMarketTitle"
             android:layout_width="0dp"
             android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
             android:gravity="center_vertical"
             android:hint="시장이름"
             android:paddingLeft="10dp"
@@ -62,13 +64,13 @@
             android:id="@+id/textMarketAddress"
             android:layout_width="0dp"
             android:layout_height="45dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:gravity="center_vertical"
             android:hint="주소"
             android:paddingLeft="10dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="@+id/textMarketTitle"
+            app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/textMarketTitle"
             app:layout_constraintTop_toBottomOf="@+id/textMarketTitle" />
@@ -77,7 +79,7 @@
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:text="선호 카테고리"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
@@ -87,7 +89,7 @@
 
         <EditText
             android:id="@+id/textPNum"
-            android:layout_width="285dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#FFFFFF"
@@ -96,8 +98,9 @@
             android:paddingLeft="10dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="@+id/buttonCertifyNick"
             app:layout_constraintStart_toStartOf="@+id/buyer_nick"
-            app:layout_constraintTop_toBottomOf="@+id/textAlertNick" />
+            app:layout_constraintTop_toBottomOf="@+id/buyer_nick" />
 
         <Button
             android:id="@+id/buttonCertifyNick"
@@ -115,7 +118,7 @@
             android:id="@+id/layoutCheckCtgr"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/sign_up_ctgr_background"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="@+id/buttonCertifyNick"
@@ -196,7 +199,7 @@
             android:id="@+id/buttonConfirm"
             android:layout_width="200dp"
             android:layout_height="45dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/sign_up_complete_button"
             android:text="완료"
             android:textColor="#FFFFFF"
@@ -247,8 +250,10 @@
 
         <EditText
             android:id="@+id/buyer_nick"
-            android:layout_width="195dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
             android:backgroundTint="#FFFFFF"
             android:hint="닉네임"
             android:inputType="text"
