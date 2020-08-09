@@ -9,7 +9,7 @@ import android.widget.TextView
 
 import java.util.ArrayList
 
-class signupSellerMarketAdapter : BaseAdapter() {
+class signupMarketAdapter : BaseAdapter() {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
     private var listViewItemList = ArrayList<marketElement>()
 
