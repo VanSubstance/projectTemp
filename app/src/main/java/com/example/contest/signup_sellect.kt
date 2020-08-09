@@ -79,24 +79,29 @@ class signup_sellect : AppCompatActivity() {
                                     override fun onCancelled(p0: DatabaseError) {
                                     }
                                     override fun onDataChange(p0: DataSnapshot) {
+                                        var err = 0
                                         for (user in p0.children) {
                                             if (user.child(auth.currentUser?.uid.toString()).exists()) {
-                                                val frag = signupBuyer()
-                                                var bundle = Bundle(3)
-                                                bundle.putString("ID", ID)
-                                                bundle.putString("pw", password)
-                                                bundle.putString("name", name)
-                                                frag.setArguments(bundle)
-                                                main_frame.isVisible = true
-                                                layoutRoleSelection.isVisible = false
-                                                ft.replace(R.id.main_frame, frag).commit()
-                                                overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
+                                                err = 1
                                             }
+                                        }
+                                        if (err == 0) {
+                                            val frag = signupBuyer()
+                                            var bundle = Bundle(3)
+                                            bundle.putString("ID", ID)
+                                            bundle.putString("pw", password)
+                                            bundle.putString("name", name)
+                                            frag.setArguments(bundle)
+                                            main_frame.isVisible = true
+                                            layoutRoleSelection.isVisible = false
+                                            ft.replace(R.id.main_frame, frag).commit()
+                                            overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
+                                        } else {
+                                            textAlert.isVisible = true
+                                            textAlert.setText("※ 잘못된 입력 또는 이미 가입된 이메일입니다!")
                                         }
                                     }
                                 })
-                                textAlert.isVisible = true
-                                textAlert.setText("※ 이미 가입된 이메일입니다!")
                             }
                         }
             }
