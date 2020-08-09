@@ -166,7 +166,7 @@ class signup_sellect : AppCompatActivity() {
                 alertDialog.setView(view)
                 alertDialog.show()
 
-                val adapter = signupSellerMarketAdapter()
+                val adapter = signupMarketAdapter()
                 val listMarket = view.listMarket
                 listMarket.adapter = adapter
                 for (marketEl in marketList) {
