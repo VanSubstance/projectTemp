@@ -152,12 +152,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="10dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/staticPrice"
             app:layout_constraintRight_toRightOf="@id/textCloseTime"
-            app:layout_constraintTop_toBottomOf="@id/imageProduct"
-            android:visibility="gone"
-            >
+            app:layout_constraintTop_toBottomOf="@id/imageProduct">
 
             <TextView
                 android:id="@+id/staticServing"
@@ -235,6 +234,7 @@
                 android:id="@+id/buttonMinus"
                 android:layout_width="140dp"
                 android:layout_height="40dp"
+                android:background="@drawable/button_press_event2"
                 android:text="장바구니에서 빼기"
                 android:textSize="13sp"
                 app:layout_constraintRight_toRightOf="parent"
@@ -245,6 +245,7 @@
                 style="@style/"
                 android:layout_width="140dp"
                 android:layout_height="40dp"
+                android:background="@drawable/button_press_event2"
                 android:text="구매"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"

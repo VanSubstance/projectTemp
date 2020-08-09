@@ -152,12 +152,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="10dp"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/staticPrice"
             app:layout_constraintRight_toRightOf="@id/textCloseTime"
-            app:layout_constraintTop_toBottomOf="@id/imageProduct"
-            android:visibility="gone"
-            >
+            app:layout_constraintTop_toBottomOf="@id/imageProduct">
 
             <TextView
                 android:id="@+id/staticServing"
@@ -257,8 +256,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 app:layout_constraintLeft_toLeftOf="@id/staticBuyerId"
-                app:layout_constraintTop_toTopOf="@+id/staticBuyerId"
-                >
+                app:layout_constraintTop_toTopOf="@+id/staticBuyerId">
 
                 <TextView
                     android:id="@+id/textBuyerId"
@@ -304,7 +302,7 @@
                 android:id="@+id/buttonDelete"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
-                android:background="@drawable/button_press_event"
+                android:background="@drawable/button_press_event2"
                 android:text="삭제"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
