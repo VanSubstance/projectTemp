@@ -11,13 +11,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import com.google.firebase.auth.FirebaseAuth
+import androidx.fragment.app.FragmentTransaction
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.signup_seller.*
 import kotlinx.android.synthetic.main.signup_sellect.*
+import kotlinx.android.synthetic.main.signup_seller.*
 import kotlinx.android.synthetic.main.signup_seller_ctgr.view.*
 import kotlinx.android.synthetic.main.signup_seller_market.view.*
 
@@ -56,9 +56,8 @@ class signup_sellect : AppCompatActivity() {
                 main_frame.isVisible = true
                 layoutRoleSelection.isVisible = false
                 ft.replace(R.id.main_frame, frag).commit()
+                overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
             }
-
-            //overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
         }
 
         buttonSignupSeller.setOnClickListener{
@@ -81,8 +80,8 @@ class signup_sellect : AppCompatActivity() {
                 main_frame.isVisible = true
                 layoutRoleSelection.isVisible = false
                 ft.replace(R.id.main_frame, frag).commit()
+                ft.setCustomAnimations(R.anim.slide_in_right_to_left,R.anim.slide_out_right_to_left)
             }
-            //overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
         }
     }
 

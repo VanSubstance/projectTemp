@@ -33,10 +33,6 @@ class MainActivity : AppCompatActivity() {
         buttonLogin.setOnClickListener {
                 loginUserId(textUserID.text.toString(), textUserPW.text.toString())
 
-            // 액티비티 전환 애니메이션 설정
-            // overridePendingTransition(다음화면, 현재화면)
-
-
         }
         buttonSignUp.setOnClickListener{
             val SignUp_user=Intent(this,signup_sellect::class.java)

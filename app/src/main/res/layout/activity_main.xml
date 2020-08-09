@@ -40,13 +40,11 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="68dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
                 android:backgroundTint="#FFFFFF"
                 android:ems="10"
-                android:hint="아이디"
+                android:hint="이메일"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
 
@@ -55,6 +53,18 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/imageView2"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/AlertEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:text="※ 이메일을 입력해 주세요."
+                android:textColor="#FF0000"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/textUserID"
+                app:layout_constraintTop_toBottomOf="@+id/textUserID" />
 
             <EditText
                 android:id="@+id/textUserPW"
@@ -71,6 +81,18 @@
                 app:layout_constraintEnd_toEndOf="@+id/textUserID"
                 app:layout_constraintStart_toStartOf="@+id/textUserID"
                 app:layout_constraintTop_toBottomOf="@+id/textUserID" />
+
+            <TextView
+                android:id="@+id/AlertPW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:text="※ 비밀번호를 입력해 주세요."
+                android:textColor="#FF0000"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/textUserPW"
+                app:layout_constraintTop_toBottomOf="@+id/textUserPW" />
 
             <Button
                 android:id="@+id/buttonLogin"
