@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="10dp"
         android:text="육류레시피"
         android:textSize="15sp"
         android:textStyle="bold"/>
