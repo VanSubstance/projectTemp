@@ -1,13 +1,13 @@
 package com.example.contest
 
-import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.gms.tasks.OnCompleteListener
@@ -36,14 +36,30 @@ class signupBuyer : Fragment(){
         val mPnum = view.textPNum
         val mnick=view.buyer_nick
 
+        val textAlertList : ArrayList<TextView> = arrayListOf()
+        textAlertList.add(view.textAlertNick)
+        textAlertList.add(view.textAlertCtgr)
+        textAlertList.add(view.textAlertPNum)
+        textAlertList.add(view.textAlertMain)
+
 
         view.buttonConfirm.setOnClickListener {
             val DatabaseReference = database.reference
             val auth=FirebaseAuth.getInstance()
             if (mPnum.text.toString().length != 11) {
-                Toast.makeText(requireContext(), "전화번호 11자리를 정확히 입력해주세요", Toast.LENGTH_SHORT).show()
+                for (alert in textAlertList) {
+                    alert.isVisible = false
+                }
+                view.textAlertPNum.isVisible = true
+                view.textAlertPNum.setText("전화번호 11자리를 정확히 입력해주세요!")
             } else if (mnick.text.toString().length == 0) {
                 mnick.setText(mName)
+            } else if (!checkCtgrMeat.isChecked && !checkCtgrFish.isChecked && !checkCtgrVegetable.isChecked && !checkCtgrGeneral.isChecked && !checkCtgrEtc.isChecked) {
+                for (alert in textAlertList) {
+                    alert.isVisible = false
+                }
+                view.textAlertCtgr.isVisible = true
+                view.textAlertCtgr.setText("카테고리를 선택해주세요!")
             } else {
                 val pnum = mPnum.text.toString()
                 val nick=mnick.text.toString()
@@ -88,30 +104,52 @@ class signupBuyer : Fragment(){
         view.buttonCertifyNick.setOnClickListener{
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()
             val DatabaseReference = database.reference
-            DatabaseReference.addListenerForSingleValueEvent(object:ValueEventListener{
-                override fun onCancelled(p0: DatabaseError) {
-                    TODO("Not yet implemented")
+            if (mnick.text.toString().equals("")) {
+                for (alert in textAlertList) {
+                    alert.isVisible = false
                 }
-                override fun onDataChange(p0: DataSnapshot) {
-                    for(db_name in p0.children){
-                        if(db_name.toString()=="userDB"){
-                            for(i in p0.child("usedDB").children){
-                                if (i.child("nick").value==mnick.text.toString()){
-                                    Toast.makeText(requireContext(),"이미 있는 닉네임입니다.",Toast.LENGTH_SHORT).show()
-                                }
-                                else{
-                                    Toast.makeText(requireContext(),"사용가능한 닉네임입니다.",Toast.LENGTH_SHORT).show()
+                view.textAlertNick.setTextColor(Color.parseColor("#ff0000"))
+                view.textAlertNick.isVisible = true
+                view.textAlertNick.setText("닉네임을 입력해주세요!")
+            } else {
+                DatabaseReference.addListenerForSingleValueEvent(object:ValueEventListener{
+                    override fun onCancelled(p0: DatabaseError) {
+                        TODO("Not yet implemented")
+                    }
+                    override fun onDataChange(p0: DataSnapshot) {
+                        for(db_name in p0.children){
+                            if(db_name.toString()=="userDB"){
+                                for(i in p0.child("usedDB").children){
+                                    if (i.child("nick").value==mnick.text.toString()){
+                                        for (alert in textAlertList) {
+                                            alert.isVisible = false
+                                        }
+                                        view.textAlertNick.setTextColor(Color.parseColor("#ff0000"))
+                                        view.textAlertNick.isVisible = true
+                                        view.textAlertNick.setText("이미 존재하는 닉네임입니다!")
+                                    }
+                                    else{
+                                        for (alert in textAlertList) {
+                                            alert.isVisible = false
+                                        }
+                                        view.textAlertNick.setTextColor(Color.parseColor("#00ee00"))
+                                        view.textAlertNick.isVisible = true
+                                        view.textAlertNick.setText("사용 가능한 닉네임입니다!")
+                                    }
                                 }
                             }
-                        }
-                        else{
-                            Toast.makeText(requireContext(),"사용가능한 닉네임입니다.",Toast.LENGTH_SHORT).show()
+                            else{
+                                for (alert in textAlertList) {
+                                    alert.isVisible = false
+                                }
+                                view.textAlertNick.setTextColor(Color.parseColor("#00ee00"))
+                                view.textAlertNick.isVisible = true
+                                view.textAlertNick.setText("사용 가능한 닉네임입니다!")
+                            }
                         }
                     }
-                }
-            })
-
-
+                })
+            }
         }
         return view
     }

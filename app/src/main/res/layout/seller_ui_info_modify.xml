@@ -266,6 +266,20 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <TextView
+                        android:id="@+id/textAlert"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:text="에러 메세지"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="#ff0000"
+                        android:visibility="gone"
+                        app:layout_constraintTop_toTopOf="@id/buttonConfirm"
+                        app:layout_constraintBottom_toBottomOf="@id/buttonConfirm"
+                        app:layout_constraintRight_toLeftOf="@id/buttonConfirm"/>
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

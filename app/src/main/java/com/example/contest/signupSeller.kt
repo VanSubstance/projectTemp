@@ -6,18 +6,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.iid.FirebaseInstanceId
-import kotlinx.android.synthetic.main.seller_ui_info.*
 import kotlinx.android.synthetic.main.signup_seller.*
-import kotlinx.android.synthetic.main.signup_seller.staicStoreTitle
 import kotlinx.android.synthetic.main.signup_seller.view.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class signupSeller : Fragment() {
 
@@ -44,18 +45,54 @@ class signupSeller : Fragment() {
         val mPickTimeBt_e = view.buttonTimepickClose
         val textView_e = view.textTimeClose
 
+        var viewAlertList : ArrayList<TextView> = arrayListOf()
+        viewAlertList.add(view.textAlertMarket)
+        viewAlertList.add(view.textAlertStoreTitle)
+        viewAlertList.add(view.textAlertPNum)
+        viewAlertList.add(view.textAlertOpenTime)
+        viewAlertList.add(view.textAlertCloseTime)
+        viewAlertList.add(view.textAlertCtgr)
+
         view.buttonConfirm.setOnClickListener {
             val DatabaseReference = database.reference
             auth = FirebaseAuth.getInstance()
 
             if (textMarketTitle.text.equals("시장 이름") || textMarketTitle.text.equals("")) {
-                Toast.makeText(requireContext(), "시장을 선택해주세요", Toast.LENGTH_SHORT).show()
-            } else if (staicStoreTitle.text.equals("")) {
-                Toast.makeText(requireContext(), "매장 명을 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
-            } else if (textTimeClose.text.equals("개점 시간") || textTimeOpen.text.equals("폐점 시간") || textTimeClose.text.equals("") || textTimeOpen.text.equals("")) {
-                Toast.makeText(requireContext(), "개점, 폐점 시간을 정해주세요", Toast.LENGTH_SHORT).show()
+                for (alert in viewAlertList) {
+                    alert.isVisible = false
+                }
+                view.textAlertMarket.isVisible = true
+                view.textAlertMarket.setText("시장을 선택해주세요!")
+            } else if (staicStoreTitle.text.equals("매장명") || staicStoreTitle.text.equals("")) {
+                for (alert in viewAlertList) {
+                    alert.isVisible = false
+                }
+                view.textAlertStoreTitle.isVisible = true
+                view.textAlertStoreTitle.setText("매장명을 확인해주세요!")
+            } else if (mPnum.text.toString().equals("") || mPnum.text.toString().equals("핸드폰 번호") || mPnum.text.toString().length != 11) {
+                for (alert in viewAlertList) {
+                    alert.isVisible = false
+                }
+                view.textAlertPNum.isVisible = true
+                view.textAlertPNum.setText("핸드폰 번호를 확인해주세요!")
+            } else if (textTimeOpen.text.equals("") || textTimeOpen.text.equals("개점 시간")) {
+                for (alert in viewAlertList) {
+                    alert.isVisible = false
+                }
+                view.textAlertOpenTime.isVisible = true
+                view.textAlertOpenTime.setText("개점 시간을 정해주세요!")
+            } else if (textTimeClose.text.equals("폐점 시간") || textTimeClose.text.equals("")) {
+                for (alert in viewAlertList) {
+                    alert.isVisible = false
+                }
+                view.textAlertCloseTime.isVisible = true
+                view.textAlertCloseTime.setText("폐점 시간을 정해주세요!")
             } else if (staticSpinnerDate.text.equals("카테고리") || staticSpinnerDate.text.equals("")) {
-                Toast.makeText(requireContext(), "카테고리를 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
+                for (alert in viewAlertList) {
+                    alert.isVisible = false
+                }
+                view.textAlertCtgr.isVisible = true
+                view.textAlertCtgr.setText("카테고리를 정해주세요!")
             } else{
                 val ID = mID
                 val password = mPasswordText

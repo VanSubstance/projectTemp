@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -78,7 +79,8 @@ class sellerUIInfoModify : Fragment() {
                 dataImage.child(userInfo.id + ".png").putFile(imageUrl!!)
                 (activity as sellerUIMain).setSellerFrag(41)
             } else {
-                Toast.makeText(requireContext(), "사진을 등록해주세요", Toast.LENGTH_SHORT).show()
+                view.textAlert.isVisible = true
+                view.textAlert.setText("※ 사진을 등록해주세요!")
             }
         }
 

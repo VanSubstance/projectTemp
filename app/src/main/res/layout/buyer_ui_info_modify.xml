@@ -339,6 +339,22 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textAlert"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:text="TextView"
+                        android:textColor="#FF0000"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        app:layout_constraintRight_toLeftOf="@id/buttonConfirm"
+                        app:layout_constraintTop_toTopOf="@id/buttonConfirm"
+                        app:layout_constraintBottom_toBottomOf="@id/buttonConfirm"
+                        />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.signup_seller_market.view.*
 
 class signup_sellect : AppCompatActivity() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    val ft = supportFragmentManager.beginTransaction()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,15 +35,17 @@ class signup_sellect : AppCompatActivity() {
         val mPasswordcheckText = textPwCheck
         val mName = textName
 
-        val ft = supportFragmentManager.beginTransaction()
 
         buttonSignupBuyer.setOnClickListener{
             if (mID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
-                Toast.makeText(this, "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
+                textAlert.isVisible = true
+                textAlert.setText("※ 이메일 또는 비밀번호를 반드시 입력하세요!")
             } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
-                Toast.makeText(this, "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
+                textAlert.isVisible = true
+                textAlert.setText("※ 비밀번호가 일치하지 않습니다!")
             } else if (mName.text.toString().length == 0) {
-                Toast.makeText(this, "이름을 다시 입력해주세요", Toast.LENGTH_SHORT).show()
+                textAlert.isVisible = true
+                textAlert.setText("※ 이름을 확인해주세요!")
             } else {
                 val ID = mID.text.toString()
                 val password = mPasswordText.text.toString()
@@ -62,11 +65,14 @@ class signup_sellect : AppCompatActivity() {
 
         buttonSignupSeller.setOnClickListener{
             if (mID.text.toString().length == 0 || mPasswordText.text.toString().length == 0) {
-                Toast.makeText(this, "email 혹은 password를 반드시 입력하세요.", Toast.LENGTH_SHORT).show()
+                textAlert.isVisible = true
+                textAlert.setText("※ 이메일 또는 비밀번호를 반드시 입력하세요!")
             } else if (mPasswordcheckText.text.toString() != mPasswordText.text.toString()) {
-                Toast.makeText(this, "password가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
+                textAlert.isVisible = true
+                textAlert.setText("※ 비밀번호가 일치하지 않습니다!")
             } else if (mName.text.toString().length == 0) {
-                Toast.makeText(this, "이름을 다시 입력해주세요", Toast.LENGTH_SHORT).show()
+                textAlert.isVisible = true
+                textAlert.setText("※ 이름을 확인해주세요!")
             } else {
                 val ID = mID.text.toString()
                 val password = mPasswordText.text.toString()
@@ -85,6 +91,7 @@ class signup_sellect : AppCompatActivity() {
         }
     }
 
+    // 판매자 카테고리 보여주기
     fun showCtgr() {
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.signup_seller_ctgr, null)
@@ -136,6 +143,7 @@ class signup_sellect : AppCompatActivity() {
         alertDialog.show()
     }
 
+    // 판매자 시장 리스트 보여주기
     fun showMarket() {
         var marketList : ArrayList<marketElement> = arrayListOf()
         var data = database.getReference("marketDB")
@@ -195,10 +203,18 @@ class signup_sellect : AppCompatActivity() {
         })
 
     }
+
+    // 구매자 시장 지도 보여주기
+    fun showMap() {
+        //ft.replace(바꿀 프레임, signupBuyerMap()).commit()
+    }
+
     override fun onBackPressed() {
         startActivity(Intent(this, MainActivity::class.java))
         overridePendingTransition(R.anim.slide_in_left_to_right,R.anim.slide_out_left_to_right)
     }
+
+
 }
 
 class marketElement {

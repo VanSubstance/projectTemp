@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -54,14 +55,19 @@ class MainActivity : AppCompatActivity() {
 
         val sellerUI = Intent(this, sellerUIMain::class.java)
         val buyerUI = Intent(this, buyerUIMain::class.java)
-        if (textUserID.text.toString().equals("") || textUserPW.text.toString().equals("")) {
-            Toast.makeText(this@MainActivity, "아이디와 비밀번호를 제대로 입력해주세요", Toast.LENGTH_SHORT).show()
+        if (textUserID.text.toString().equals("") ) {
+            alertEmail.isVisible = true
+            alertPW.isVisible = false
+            alertError.isVisible = false
+        } else if (textUserPW.text.toString().equals("")) {
+            alertEmail.isVisible = false
+            alertPW.isVisible = true
+            alertError.isVisible = false
         } else {
             auth = FirebaseAuth.getInstance()
             auth?.signInWithEmailAndPassword(email, password)
                 ?.addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) { // 로그인 성공 시 이벤트 발생
-                        Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
                         DatabaseReference.addListenerForSingleValueEvent(object :
                             ValueEventListener {
                             override fun onCancelled(p0: DatabaseError) {
@@ -101,7 +107,9 @@ class MainActivity : AppCompatActivity() {
                             }
                         })
                     } else {
-                        Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
+                        alertEmail.isVisible = false
+                        alertPW.isVisible = false
+                        alertError.isVisible = true
                     }
                 }
         }

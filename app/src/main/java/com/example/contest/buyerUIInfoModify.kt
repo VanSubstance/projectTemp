@@ -10,7 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -19,8 +19,6 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.buyer_ui_info_modify.*
 import kotlinx.android.synthetic.main.buyer_ui_info_modify.view.*
-import kotlinx.android.synthetic.main.buyer_ui_info_modify.view.buttonConfirm
-import kotlinx.android.synthetic.main.buyer_ui_info_modify.view.imageUser
 
 class buyerUIInfoModify : Fragment() {
 
@@ -96,7 +94,8 @@ class buyerUIInfoModify : Fragment() {
                 dataImage.child(userInfo.id + ".png").putFile(imageUrl!!)
                 (activity as buyerUIMain).setBuyerFrag(31)
             } else {
-                Toast.makeText(requireContext(), "사진을 등록해주세요", Toast.LENGTH_SHORT).show()
+                view.textAlert.isVisible = true
+                view.textAlert.setText("※ 사진을 등록해주세요!")
             }
         }
 
