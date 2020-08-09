@@ -40,6 +40,7 @@ class signupBuyer : Fragment(){
         textAlertList.add(view.textAlertNick)
         textAlertList.add(view.textAlertCtgr)
         textAlertList.add(view.textAlertPNum)
+        textAlertList.add(view.textAlertMarketSelect)
 
         view.buttonFindMarket.setOnClickListener {
             (activity as signup_sellect).showMarket()
@@ -48,6 +49,13 @@ class signupBuyer : Fragment(){
         view.buttonConfirm.setOnClickListener {
             val DatabaseReference = database.reference
             val auth=FirebaseAuth.getInstance()
+            if (view.textMarketTitle.text.toString().equals("")) {
+                for (alert in textAlertList) {
+                    alert.isVisible = false
+                }
+                view.textAlertMarketSelect.isVisible = true
+                view.textAlertMarketSelect.setText("관심 시장을 선택해주세요!")
+            }
             if (mPnum.text.toString().length != 11) {
                 for (alert in textAlertList) {
                     alert.isVisible = false

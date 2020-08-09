@@ -108,7 +108,6 @@ class signupSeller : Fragment() {
                 auth?.createUserWithEmailAndPassword(ID, password)
                         ?.addOnCompleteListener(requireActivity()) { task ->
                             if (task.isSuccessful) {
-                                // 아이디 생성이 완료되었을 때
                                 val user = auth?.getCurrentUser()
                                 val uid=user?.uid
 

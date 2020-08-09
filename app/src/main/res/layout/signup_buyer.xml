@@ -25,12 +25,12 @@
             android:text="찾기"
             android:textColor="#FFFFFF"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView11"
+            app:layout_constraintBottom_toBottomOf="@+id/staticMarketSelect"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView11" />
+            app:layout_constraintTop_toTopOf="@+id/staticMarketSelect" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/staticMarketSelect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -55,8 +55,8 @@
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
             app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
+            app:layout_constraintTop_toBottomOf="@+id/textAlertMarketSelect" />
 
         <TextView
             android:id="@+id/textMarketAddress"
@@ -82,7 +82,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
+            app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
             app:layout_constraintTop_toBottomOf="@+id/textAlertPNum" />
 
         <EditText
@@ -255,8 +255,19 @@
             android:paddingLeft="10dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
+            app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
             app:layout_constraintTop_toBottomOf="@+id/textMarketAddress" />
+
+        <TextView
+            android:id="@+id/textAlertMarketSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#ff0000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
+            app:layout_constraintTop_toBottomOf="@id/staticMarketSelect" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
