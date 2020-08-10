@@ -61,7 +61,7 @@
 
                 android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textColorHint="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -114,6 +114,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="70dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="70dp"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/sign_in_button"
@@ -125,7 +126,8 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/buttonSignUp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textUserPW" />
 
             <Button
                 android:id="@+id/buttonSignUp"
