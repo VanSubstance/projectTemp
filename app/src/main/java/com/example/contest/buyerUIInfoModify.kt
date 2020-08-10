@@ -1,6 +1,7 @@
 package com.example.contest
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -27,12 +28,7 @@ class buyerUIInfoModify : Fragment() {
     var imageUrl: Uri? = null
     var pw: String = ""
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.buyer_ui_info_modify, container, false)
         
         // 사진
@@ -57,7 +53,6 @@ class buyerUIInfoModify : Fragment() {
         data.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
             }
-
             override fun onDataChange(p0: DataSnapshot) {
                 textName.setText(p0.child("Name").value.toString())
                 textNickName.setText(p0.child("nick").value.toString())
@@ -82,20 +77,21 @@ class buyerUIInfoModify : Fragment() {
                 data.child("pw").setValue(textPwChange.text.toString())
             }
             data.child("Name").setValue(textName.text.toString())
-            data.child("nickName").setValue(textNickName.text.toString())
+            data.child("nick").setValue(textNickName.text.toString())
             data.child("pNum").setValue(textPNum.text.toString())
             data.child("ctgr").child("정육점").setValue(checkCtgrMeat.isChecked)
             data.child("ctgr").child("생선가게").setValue(checkCtgrFish.isChecked)
             data.child("ctgr").child("잡화점").setValue(checkCtgrGeneral.isChecked)
             data.child("ctgr").child("채소가게").setValue(checkCtgrVegetable.isChecked)
             data.child("ctgr").child("완제품").setValue(checkCtgrEtc.isChecked)
+
             if (imageUrl != null) {
                 // 사진 바꿈
                 dataImage.child(userInfo.id + ".png").putFile(imageUrl!!)
-                (activity as buyerUIMain).setBuyerFrag(31)
-            } else {
+                (activity as buyerUIMain).setBuyerFrag(31) }
+            else {
                 view.textAlert.isVisible = true
-                view.textAlert.setText("※ 사진을 등록해주세요!")
+                view.textAlert.setText("사진을 등록해주세요!")
             }
         }
 
@@ -117,4 +113,5 @@ class buyerUIInfoModify : Fragment() {
             }
         }
     }
+
 }

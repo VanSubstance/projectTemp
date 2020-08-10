@@ -3,20 +3,13 @@ package com.example.contest
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.buyer_ui_main.*
 import kotlinx.android.synthetic.main.product_buyer_put.view.*
 
@@ -52,27 +45,27 @@ class buyerUIMain : AppCompatActivity() {
         when (fragNum) {
             // 레시피
             11 -> {
-                ft.replace(R.id.main_frame, buyerUIRecipe()).commit()
+                ft.replace(R.id.main_frame, buyerUIRecipe()).addToBackStack(null).commit()
             }
             // 지도
             21 -> {
-                ft.replace(R.id.main_frame, buyerUIToday()).commit()
+                ft.replace(R.id.main_frame, buyerUIToday()).addToBackStack(null).commit()
             }
             // 정보
             31 -> {
-                ft.replace(R.id.main_frame, buyerUIInfo()).commit()
+                ft.replace(R.id.main_frame, buyerUIInfo()).addToBackStack(null).commit()
             }
             // 장바구니
             41 -> {
-                ft.replace(R.id.main_frame, buyerUIBasket()).commit()
+                ft.replace(R.id.main_frame, buyerUIBasket()).addToBackStack(null).commit()
             }
             // 시장 선택 시
             22 -> {
-                ft.replace(R.id.main_frame, buyerUIMarketCtgr01()).commit()
+                ft.replace(R.id.main_frame, buyerUIMarketCtgr01()).addToBackStack(null).commit()
             }
             // 재료 카테고리 선택 시
             23 -> {
-                ft.replace(R.id.main_frame02, buyerUIMarketCtgr02()).commit()
+                ft.replace(R.id.main_frame02, buyerUIMarketCtgr02()).addToBackStack(null).commit()
             }
             // 판매자 완제품
             24 -> {
@@ -80,7 +73,7 @@ class buyerUIMain : AppCompatActivity() {
                 var bundle = Bundle(1)
                 bundle.putInt("usage", 2)
                 frag.setArguments(bundle)
-                ft.replace(R.id.main_frame02, frag).commit()
+                ft.replace(R.id.main_frame02, frag).addToBackStack(null).commit()
             }
             // 판매자 재료
             25 -> {
@@ -88,31 +81,31 @@ class buyerUIMain : AppCompatActivity() {
                 var bundle = Bundle(1)
                 bundle.putInt("usage", 3)
                 frag.setArguments(bundle)
-                ft.replace(R.id.main_frame03, frag).commit()
+                ft.replace(R.id.main_frame03, frag).addToBackStack(null).commit()
             }
             // 정보 수정
             32 -> {
-                ft.replace(R.id.main_frame, buyerUIInfoModify()).commit()
+                ft.replace(R.id.main_frame, buyerUIInfoModify()).addToBackStack(null).commit()
             }
             // 레시피 육류
             12 -> {
-                ft.replace(R.id.recipe_frame, recipeUIMeat()).commit()
+                ft.replace(R.id.recipe_frame, recipeUIMeat()).addToBackStack(null).commit()
             }
             // 레시피 해산물
             13 -> {
-                ft.replace(R.id.recipe_frame, recipeUISeafood()).commit()
+                ft.replace(R.id.recipe_frame, recipeUISeafood()).addToBackStack(null).commit()
             }
             // 레시피 채소
             14 -> {
-                ft.replace(R.id.recipe_frame, recipeUIVegetable()).commit()
+                ft.replace(R.id.recipe_frame, recipeUIVegetable()).addToBackStack(null).commit()
             }
             // 레시피 기타
             15 -> {
-                ft.replace(R.id.recipe_frame, recipeUIEtc()).commit()
+                ft.replace(R.id.recipe_frame, recipeUIEtc()).addToBackStack(null).commit()
             }
             // 레시피 페이지
             16 -> {
-                ft.replace(R.id.recipe_frame, recipeUISpecific()).commit()
+                ft.replace(R.id.recipe_frame, recipeUISpecific()).addToBackStack(null).commit()
             }
         }
 
@@ -189,17 +182,22 @@ class buyerUIMain : AppCompatActivity() {
         // return 타입: recipeUISpecific
         // 값을 전달받은 fragment
         var frag = recipeUISpecific()
-        var bundle = Bundle(2)
+        var bundle = Bundle(5)
         bundle.putString("title", recipeElement.title)
+        bundle.putString("titleUrl", recipeElement.titleUrl)
         bundle.putString("ctgr", recipeElement.ctgr)
+        bundle.putStringArrayList("ingredient", recipeElement.ingredient)
+        bundle.putStringArrayList("recipe", recipeElement.recipe)
+        bundle.putStringArrayList("recipeUrl", recipeElement.recipeUrl)
 
         frag.setArguments(bundle)
 
         val ft = supportFragmentManager.beginTransaction()
-        ft.replace(R.id.recipe_frame, frag).commit()
+        ft.replace(R.id.recipe_frame, frag).addToBackStack(null).commit()
     }
 
     // 뒤로가기 테스트
+    /**
     private final var FINISH_INTERVAL_TIME: Long = 2000
     private var backPressedTime: Long = 0
     override fun onBackPressed() {
@@ -207,8 +205,9 @@ class buyerUIMain : AppCompatActivity() {
             var tempTime = System.currentTimeMillis()
             var intervalTime = tempTime - backPressedTime
             if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
-                finishAffinity()
-                System.exit(0)
+              /*finishAffinity()
+                System.exit(0)*/
+                startActivity(Intent(this, MainActivity::class.java))
                 super.onBackPressed()
             } else {
                 backPressedTime = tempTime;
@@ -218,5 +217,6 @@ class buyerUIMain : AppCompatActivity() {
         }
         super.onBackPressed()
     }
+    */
 
 }

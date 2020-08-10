@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -28,7 +29,7 @@ class buyerUIInfo : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.buyer_ui_info, container, false)
         // 사진
-        var dataImage = storage.getReference("userImageDB")
+        var dataImage = storage.getReference("userImageDB").child(userInfo.id + ".png")
         val imageSize: Long = 1024 * 1024 * 10
         var bitmap: Bitmap? = null
         dataImage.child(userInfo.id + ".png").getBytes(imageSize).addOnSuccessListener {
@@ -85,13 +86,18 @@ class buyerUIInfo : Fragment() {
         })
 
         view.buttonConfirm.setOnClickListener {
+            val manager = activity!!.supportFragmentManager
+            val fragment = buyerUIInfoModify()
+
+
             if (!view.staticComfimPw.isVisible) {
                 // 수정 버튼 처음 눌렀을 때
                 view.staticComfimPw.isVisible = true
                 view.textConfirmPw.isVisible = true
             } else {
                 if (view.textConfirmPw.text.toString().equals(userInfo.pw)) {
-                    (activity as buyerUIMain).setBuyerFrag(32)
+                    manager.beginTransaction().setCustomAnimations(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left).replace(R.id.frame, fragment).addToBackStack(null).setTransition(
+                        FragmentTransaction.TRANSIT_FRAGMENT_OPEN).addToBackStack(null).commit()
                 } else {
                     view.staticComfimPw.setText("비밀번호 확인 : 비밀번호가 틀립니다!")
                     view.staticComfimPw.setTextColor(Color.parseColor("#ff0000"))
@@ -100,4 +106,5 @@ class buyerUIInfo : Fragment() {
         }
         return view
     }
+
 }

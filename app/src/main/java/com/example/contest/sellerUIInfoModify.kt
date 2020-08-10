@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.seller_ui_info_modify.*
 import kotlinx.android.synthetic.main.seller_ui_info_modify.view.*
 
 class sellerUIInfoModify : Fragment() {
+
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     val storage = FirebaseStorage.getInstance()
     var imageUrl: Uri? = null
@@ -49,7 +50,6 @@ class sellerUIInfoModify : Fragment() {
 
         // 원래 정보 기입
         var data = database.getReference("userDB").child(userInfo.id)
-
         data.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
             }
