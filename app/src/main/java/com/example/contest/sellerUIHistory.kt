@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.seller_ui_history.*
 class sellerUIHistory : Fragment() {
 
     private lateinit var historyElementList: MutableMap<String, ArrayList<productElement>>
-
+    private val linearLayoutManager by lazy { LinearLayoutManager(context) }
     private lateinit var adapter: sellerUIHistoryAdapter
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
@@ -30,7 +30,7 @@ class sellerUIHistory : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-         RecyclerView.setLayoutManager(LinearLayoutManager(context))
+        RecyclerView.layoutManager = linearLayoutManager
 
         historyElementList = mutableMapOf()
 

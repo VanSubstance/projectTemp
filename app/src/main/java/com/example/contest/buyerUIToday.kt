@@ -38,7 +38,7 @@ class buyerUIToday : Fragment(), OnMapReadyCallback {
 
         val mapFragment = fm.findFragmentById(R.id.map) as MapFragment?
             ?: MapFragment.newInstance().also {
-                fm.beginTransaction().add(R.id.map, it).addToBackStack(null).commit()
+                fm.beginTransaction().add(R.id.map, it).commit()
 
             }
         mapFragment.getMapAsync(this)

@@ -97,7 +97,7 @@ class buyerUIInfo : Fragment() {
             } else {
                 if (view.textConfirmPw.text.toString().equals(userInfo.pw)) {
                     manager.beginTransaction().setCustomAnimations(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left).replace(R.id.frame, fragment).addToBackStack(null).setTransition(
-                        FragmentTransaction.TRANSIT_FRAGMENT_OPEN).addToBackStack(null).commit()
+                        FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
                 } else {
                     view.staticComfimPw.setText("비밀번호 확인 : 비밀번호가 틀립니다!")
                     view.staticComfimPw.setTextColor(Color.parseColor("#ff0000"))

@@ -17,7 +17,7 @@ import java.sql.Array
 class buyerUIMarket : Fragment() {
 
     private lateinit var productElementList: ArrayList<productElement>
-
+    private val linearLayoutManager by lazy { LinearLayoutManager(context) }
     private lateinit var adapter: productElementAdapter
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
@@ -32,7 +32,7 @@ class buyerUIMarket : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-         RecyclerView.setLayoutManager(LinearLayoutManager(context))
+        RecyclerView.layoutManager = linearLayoutManager
 
         var data = database.getReference("marketDB").child(currentCondition.marketTitle).child("store")
         var sellers : ArrayList<String> = ArrayList()
