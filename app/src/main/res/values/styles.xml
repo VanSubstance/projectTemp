@@ -26,7 +26,7 @@
     </style>
 
     <style name="sign_up_buyer_back">
-        <item name="android:background">@drawable/sign_up_buyer_background</item>
+        <item name="android:background">@drawable/border_oriental_black</item>
     </style>
 
     <style name="MyCheckBox">
