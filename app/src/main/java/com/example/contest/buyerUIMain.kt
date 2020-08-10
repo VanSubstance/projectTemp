@@ -189,9 +189,13 @@ class buyerUIMain : AppCompatActivity() {
         // return 타입: recipeUISpecific
         // 값을 전달받은 fragment
         var frag = recipeUISpecific()
-        var bundle = Bundle(2)
+        var bundle = Bundle(6)
         bundle.putString("title", recipeElement.title)
+        bundle.putString("titleUrl", recipeElement.titleUrl)
         bundle.putString("ctgr", recipeElement.ctgr)
+        bundle.putStringArrayList("ingredient", recipeElement.ingredient)
+        bundle.putStringArrayList("recipe", recipeElement.recipe)
+        bundle.putStringArrayList("recipeUrl", recipeElement.recipeUrl)
 
         frag.setArguments(bundle)
 

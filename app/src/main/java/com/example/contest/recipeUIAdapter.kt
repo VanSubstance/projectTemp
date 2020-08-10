@@ -1,12 +1,16 @@
 package com.example.contest
 
 import android.content.Context
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import java.net.URL
 import kotlin.collections.ArrayList
 
 class recipeUIAdapter(var recipeElementList: ArrayList<recipeElement>, val context: Context, var usage : Int, val productClick: (recipeElement) -> Unit) : RecyclerView.Adapter<recipeUIAdapter.recipeUIViewHolder>() {
@@ -35,20 +39,17 @@ class recipeUIAdapter(var recipeElementList: ArrayList<recipeElement>, val conte
         val recipeImage = elementView.findViewById<ImageView>(R.id.imageRecipe)
         val recipeTitle = elementView.findViewById<TextView>(R.id.textRecipeTitle)
         val recipeCtgr = elementView.findViewById<TextView>(R.id.textRecipeCtgr)
-        val recipeLevel = elementView.findViewById<ImageView>(R.id.imageRecipeLevel)
         val elementView = elementView
         val productClick = productClick
 
         fun bind(recipeElements: recipeElement, context: Context) {
-            recipeImage.setImageResource(recipeElements.image)
+            Glide.with(context).load(recipeElements.titleUrl).into(recipeImage)
             recipeImage.setScaleType(ImageView.ScaleType.CENTER_CROP)
             recipeTitle.text = recipeElements.title
             recipeCtgr.text = recipeElements.ctgr
-            recipeLevel.setImageResource(recipeElements.level)
             elementView.setOnClickListener {
                 productClick(recipeElements)
             }
-
         }
     }
 
