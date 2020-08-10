@@ -1,6 +1,7 @@
 package com.example.contest
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -208,8 +209,9 @@ class buyerUIMain : AppCompatActivity() {
             var tempTime = System.currentTimeMillis()
             var intervalTime = tempTime - backPressedTime
             if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
-                finishAffinity()
-                System.exit(0)
+              /*finishAffinity()
+                System.exit(0)*/
+                startActivity(Intent(this, MainActivity::class.java))
                 super.onBackPressed()
             } else {
                 backPressedTime = tempTime;
