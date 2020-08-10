@@ -14,6 +14,8 @@
                 android:endColor="#BFB9B6E5"
                 android:type="linear"
                 />
+            <stroke android:color="#FFFFFF"
+                android:width="1dp"/>
         </shape>
     </item>
     <item android:state_pressed="false">
@@ -30,6 +32,8 @@
                 android:endColor="#B9B6E5"
                 android:type="linear"
                 />
+            <stroke android:color="#FFFFFF"
+                android:width="1dp"/>
         </shape>
 
     </item>
