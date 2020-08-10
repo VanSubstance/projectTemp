@@ -92,6 +92,7 @@ class MainActivity : AppCompatActivity() {
                                     userInfo.timeClose =
                                         p0.child("storeDB").child(auth?.uid.toString())
                                             .child("timeClose").value.toString()
+                                    userInfo.marketTitle= p0.child("userDB").child(auth?.uid.toString()).child("marketTitle").value.toString()
                                     startActivity(sellerUI)
                                 } else {
                                     userInfo.id = auth?.uid.toString()
@@ -178,6 +179,7 @@ object userInfo {
     var ctgrForSeller: String = ""
     var timeOpen = ""
     var timeClose = ""
+    var marketTitle:String=""
 }
 
 object backPressedTime {
