@@ -18,7 +18,6 @@ import kotlinx.android.synthetic.main.recipe_ui_seafood.RecyclerView
 class recipeUISeafood : Fragment() {
 
     private lateinit var recipeElementList: ArrayList<recipeElement>
-    private val linearLayoutManager by lazy { LinearLayoutManager(context) }
     private lateinit var adapter: recipeUIAdapter
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
@@ -26,7 +25,7 @@ class recipeUISeafood : Fragment() {
         val view = inflater.inflate(R.layout.recipe_ui_seafood,container,false)
 
         view.buttonSearchRecipe.setOnClickListener {
-            RecyclerView.layoutManager = linearLayoutManager
+             RecyclerView.setLayoutManager(LinearLayoutManager(context))
 
             recipeElementList = ArrayList()
 
@@ -71,7 +70,7 @@ class recipeUISeafood : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        RecyclerView.layoutManager = linearLayoutManager
+         RecyclerView.setLayoutManager(LinearLayoutManager(context))
 
         recipeElementList = ArrayList()
 

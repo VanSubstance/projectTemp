@@ -11,12 +11,13 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.recipe_ui_meat.*
+import kotlinx.android.synthetic.main.recipe_ui_meat.RecyclerView
 import kotlinx.android.synthetic.main.recipe_ui_meat.view.*
+import kotlinx.android.synthetic.main.recipe_ui_vegetable.*
 
 class recipeUIMeat : Fragment() {
 
     private var recipeElementList: ArrayList<recipeElement> = arrayListOf()
-    private val linearLayoutManager by lazy { LinearLayoutManager(context) }
     private lateinit var adapter: recipeUIAdapter
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
@@ -28,7 +29,8 @@ class recipeUIMeat : Fragment() {
         val view = inflater.inflate(R.layout.recipe_ui_meat, container, false)
 
         view.buttonSearchRecipe.setOnClickListener {
-            RecyclerView.layoutManager = linearLayoutManager
+            RecyclerView.setLayoutManager(LinearLayoutManager(context))
+
             var ctgrList: ArrayList<String> = arrayListOf()
             ctgrList.add("달걀_유제품")
             ctgrList.add("돼지고기")
@@ -74,7 +76,7 @@ class recipeUIMeat : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        RecyclerView.layoutManager = linearLayoutManager
+         RecyclerView.setLayoutManager(LinearLayoutManager(context))
 
         var ctgrList: ArrayList<String> = arrayListOf()
         ctgrList.add("달걀_유제품")

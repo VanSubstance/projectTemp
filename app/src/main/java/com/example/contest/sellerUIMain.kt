@@ -44,19 +44,19 @@ class sellerUIMain : AppCompatActivity() {
         when(fragNum)
         {
             11 -> {
-                ft.replace(R.id.main_frame,sellerUIHome()).commit()
+                ft.replace(R.id.main_frame,sellerUIHome()).addToBackStack(null).commit()
             }
             21 -> {
-                ft.replace(R.id.main_frame,sellerUIHistory()).commit()
+                ft.replace(R.id.main_frame,sellerUIHistory()).addToBackStack(null).commit()
             }
             41 -> {
-                ft.replace(R.id.main_frame,sellerUIInfo()).commit()
+                ft.replace(R.id.main_frame,sellerUIInfo()).addToBackStack(null).commit()
             }
             12 -> {
-                ft.replace(R.id.main_frame,sellerUIEnrollProduct()).commit()
+                ft.replace(R.id.main_frame,sellerUIEnrollProduct()).addToBackStack(null).commit()
             }
             42 -> {
-                ft.replace(R.id.main_frame,sellerUIInfoModify()).commit()
+                ft.replace(R.id.main_frame,sellerUIInfoModify()).addToBackStack(null).commit()
             }
         }
     }
@@ -94,6 +94,7 @@ class sellerUIMain : AppCompatActivity() {
     }
     */
 
+    /**
     // 뒤로가기 테스트
     private final var FINISH_INTERVAL_TIME: Long = 2000
     override fun onBackPressed() {
@@ -113,4 +114,5 @@ class sellerUIMain : AppCompatActivity() {
         }
         super.onBackPressed()
     }
+    */
 }
