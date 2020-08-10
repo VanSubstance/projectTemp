@@ -28,7 +28,45 @@ class recipeUIMeat : Fragment() {
         val view = inflater.inflate(R.layout.recipe_ui_meat, container, false)
 
         view.buttonSearchRecipe.setOnClickListener {
+            RecyclerView.layoutManager = linearLayoutManager
+            var ctgrList: ArrayList<String> = arrayListOf()
+            ctgrList.add("달걀_유제품")
+            ctgrList.add("돼지고기")
+            ctgrList.add("소고기")
+            ctgrList.add("육류")
+            ctgrList.add("닭고기")
+            recipeElementList = arrayListOf()
 
+            database.getReference("recipeDB")
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(p0: DatabaseError) {
+                    }
+                    override fun onDataChange(p0: DataSnapshot) {
+                        for (recipeCtgr in p0.children) {
+                            // 큰 카테고리에 포함 될 경우
+                            if (ctgrList.any{it.equals(recipeCtgr.key.toString())}) {
+                                var recipeList: ArrayList<recipeElement> = arrayListOf()
+                                for (recipe in recipeCtgr.children) {
+                                    for (ingre in recipe.child("ingredient")
+                                        .child("재료").value as ArrayList<String>) {
+                                        if (ingre.contains(view!!.textRecipeTitle.text.toString())) {
+                                            var element = recipeElement()
+                                            element.setFromDB(recipe, recipeCtgr.key.toString())
+                                            recipeList.add(element)
+                                            break
+                                        }
+                                    }
+                                }
+                                addList(recipeList, recipeElementList)
+                            }
+                        }
+                        recipeElementList.shuffle()
+                        adapter = recipeUIAdapter(recipeElementList, requireContext(), 1) { recipeElement ->
+                            (activity as buyerUIMain).showRecipeSpecific(recipeElement)
+                        }
+                        RecyclerView.adapter = adapter
+                    }
+                })
         }
 
         return view
@@ -36,7 +74,6 @@ class recipeUIMeat : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         RecyclerView.layoutManager = linearLayoutManager
 
         var ctgrList: ArrayList<String> = arrayListOf()
@@ -46,19 +83,6 @@ class recipeUIMeat : Fragment() {
         ctgrList.add("육류")
         ctgrList.add("닭고기")
 
-
-        /**
-        readData(object : MyCallback {
-        override fun onCallback(value: ArrayList<recipeElement>?) {
-        recipeElementList.addAll(value!!)
-
-        adapter = recipeUIAdapter(recipeElementList, requireContext(), 1) { recipeElement ->
-        (activity as buyerUIMain).showRecipeSpecific(recipeElement)
-        }
-        RecyclerView.adapter = adapter
-        }
-        }, "달걀_유제품")
-         */
         database.getReference("recipeDB")
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
@@ -82,6 +106,7 @@ class recipeUIMeat : Fragment() {
                             addList(recipeList, recipeElementList)
                         }
                     }
+                    recipeElementList.shuffle()
                     adapter = recipeUIAdapter(recipeElementList, requireContext(), 1) { recipeElement ->
                         (activity as buyerUIMain).showRecipeSpecific(recipeElement)
                     }
@@ -89,6 +114,18 @@ class recipeUIMeat : Fragment() {
                 }
             })
 
+        /**
+        readData(object : MyCallback {
+        override fun onCallback(value: ArrayList<recipeElement>?) {
+        recipeElementList.addAll(value!!)
+
+        adapter = recipeUIAdapter(recipeElementList, requireContext(), 1) { recipeElement ->
+        (activity as buyerUIMain).showRecipeSpecific(recipeElement)
+        }
+        RecyclerView.adapter = adapter
+        }
+        }, "달걀_유제품")
+         */
 
         /**
         for (recipeCtgrTitle in ctgrList) {

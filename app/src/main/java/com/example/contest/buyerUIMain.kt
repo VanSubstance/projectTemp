@@ -190,7 +190,7 @@ class buyerUIMain : AppCompatActivity() {
         // return 타입: recipeUISpecific
         // 값을 전달받은 fragment
         var frag = recipeUISpecific()
-        var bundle = Bundle(6)
+        var bundle = Bundle(5)
         bundle.putString("title", recipeElement.title)
         bundle.putString("titleUrl", recipeElement.titleUrl)
         bundle.putString("ctgr", recipeElement.ctgr)
@@ -208,7 +208,6 @@ class buyerUIMain : AppCompatActivity() {
     private final var FINISH_INTERVAL_TIME: Long = 2000
     private var backPressedTime: Long = 0
     override fun onBackPressed() {
-
         if (supportFragmentManager.backStackEntryCount == 0) {
             var tempTime = System.currentTimeMillis()
             var intervalTime = tempTime - backPressedTime
