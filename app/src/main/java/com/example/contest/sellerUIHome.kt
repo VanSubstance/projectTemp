@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
@@ -12,6 +13,9 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.seller_ui_home.*
 import kotlinx.android.synthetic.main.seller_ui_home.view.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class sellerUIHome : Fragment() {
 
@@ -25,7 +29,21 @@ class sellerUIHome : Fragment() {
         val view = inflater.inflate(R.layout.seller_ui_home, container, false)
 
         view.buttonEnrollProduct.setOnClickListener {
-            (activity as sellerUIMain).setSellerFrag(12)
+            if (userInfo.timeClose < SimpleDateFormat("HH:mm", Locale.KOREA).format(Calendar.getInstance().time)) {
+                // 만약에 오늘 마감시간이 끝났으면
+                /**
+                 *
+                 *
+                 *
+                 * 경고메세지 (view.textAlert) 가 샤라락 사라져야댐
+                 *
+                 *
+                 *
+                 */
+                view.textAlert.isVisible = true
+            } else {
+                (activity as sellerUIMain).setSellerFrag(12)
+            }
         }
 
         return view
