@@ -13,12 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_weight="9"
-        android:background="@drawable/element_border">
+        android:background="@drawable/border_oriental_black">
 
         <FrameLayout
             android:id="@+id/main_frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:background="#88FFFFFF">
 
         </FrameLayout>
 

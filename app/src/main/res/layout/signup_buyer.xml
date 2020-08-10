@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
@@ -22,7 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:background="#88FFFFFF">
+            android:background="#88FFFFFF"
+            android:visibility="visible">
 
             <TextView
                 android:id="@+id/staticMarketSelect"
@@ -30,10 +32,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="50dp"
+                android:layout_marginEnd="106dp"
                 android:text="선호 시장 선택"
                 android:textColor="#000000"
                 android:textSize="30sp"
                 android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,14 +51,16 @@
                 android:text="찾기"
                 android:textColor="#000000"
                 android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textMarketTitle" />
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/textMarketTitle"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
                 android:id="@+id/textMarketTitle"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
                 android:gravity="center_vertical"
                 android:hint="시장이름"
@@ -61,94 +68,113 @@
                 android:paddingBottom="5dp"
                 android:textColor="#000000"
                 android:textColorHint="#000000"
+                android:visibility="visible"
                 app:layout_constraintEnd_toStartOf="@+id/buttonFindMarket"
-                app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/staticMarketSelect" />
 
             <TextView
                 android:id="@+id/textMarketAddress"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="40dp"
                 android:gravity="center_vertical"
                 android:hint="주소"
                 android:paddingLeft="10dp"
                 android:textColor="#000000"
                 android:textColorHint="#000000"
-                app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
-                app:layout_constraintStart_toStartOf="@+id/textMarketTitle"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textMarketTitle" />
 
             <EditText
                 android:id="@+id/buyer_nick"
-                android:layout_width="173dp"
+                android:layout_width="0dp"
                 android:layout_height="45dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="30dp"
+                android:layout_marginEnd="10dp"
                 android:backgroundTint="#000000"
                 android:hint="닉네임"
                 android:inputType="text"
                 android:paddingLeft="10dp"
                 android:textColor="#000000"
                 android:textColorHint="#000000"
-                app:layout_constraintEnd_toEndOf="@+id/textMarketTitle"
-                app:layout_constraintStart_toStartOf="@+id/textMarketTitle"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@+id/buttonCertifyNick"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textMarketAddress" />
 
             <Button
                 android:id="@+id/buttonCertifyNick"
                 android:layout_width="80dp"
                 android:layout_height="45dp"
+                android:layout_marginEnd="40dp"
                 android:background="@drawable/button_press_event"
                 android:text="중복확인"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/buyer_nick" />
 
             <EditText
                 android:id="@+id/textPNum"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="40dp"
                 android:backgroundTint="#000000"
                 android:hint="핸드폰 번호"
                 android:inputType="phone"
                 android:paddingLeft="10dp"
                 android:textColor="#000000"
                 android:textColorHint="#000000"
-                app:layout_constraintEnd_toEndOf="@+id/buttonCertifyNick"
-                app:layout_constraintStart_toStartOf="@+id/buyer_nick"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/buyer_nick" />
 
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="50dp"
                 android:text="선호 카테고리"
                 android:textColor="#000000"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPNum" />
 
             <LinearLayout
                 android:id="@+id/layoutCheckCtgr"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="30dp"
+                android:layout_marginEnd="40dp"
                 android:background="@drawable/sign_up_ctgr_background"
                 android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="@+id/textPNum"
-                app:layout_constraintStart_toStartOf="@+id/textPNum"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="visible">
 
                     <CheckBox
                         android:id="@+id/checkCtgrMeat"
@@ -158,7 +184,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
-                        android:text="정육점" />
+                        android:text="정육점"
+                        android:visibility="visible" />
 
                     <CheckBox
                         android:id="@+id/checkCtgrFish"
@@ -168,7 +195,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
-                        android:text="생선가게" />
+                        android:text="생선가게"
+                        android:visibility="visible" />
 
                     <CheckBox
                         android:id="@+id/checkCtgrEtc"
@@ -179,7 +207,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
-                        android:text="완제품" />
+                        android:text="완제품"
+                        android:visibility="visible" />
 
                 </LinearLayout>
 
@@ -187,7 +216,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="visible">
 
                     <CheckBox
                         android:id="@+id/checkCtgrVegetable"
@@ -197,7 +227,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
-                        android:text="채소가게" />
+                        android:text="채소가게"
+                        android:visibility="visible" />
 
                     <CheckBox
                         android:id="@+id/checkCtgrGeneral"
@@ -208,7 +239,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
-                        android:text="잡화점" />
+                        android:text="잡화점"
+                        android:visibility="visible" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -216,64 +248,74 @@
             <Button
                 android:id="@+id/buttonConfirm"
                 android:layout_width="200dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/sign_up_complete_button"
                 android:text="완료"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/layoutCheckCtgr"
-                app:layout_constraintStart_toStartOf="@+id/layoutCheckCtgr"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layoutCheckCtgr" />
 
             <TextView
                 android:id="@+id/textAlertNick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="5dp"
                 android:text="닉네임 중복 에러 메세지"
                 android:textColor="#ff0000"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="@+id/buyer_nick"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/buyer_nick" />
 
             <TextView
                 android:id="@+id/textAlertPNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="5dp"
                 android:text="핸드폰 번호 에러 메세지"
                 android:textColor="#ff0000"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="@+id/textPNum"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPNum" />
 
             <TextView
                 android:id="@+id/textAlertCtgr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="5dp"
                 android:text="카테고리 에러 메세지"
                 android:textColor="#ff0000"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="@+id/textView12"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
             <TextView
                 android:id="@+id/textAlertMarketSelect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="5dp"
                 android:text="TextView"
                 android:textColor="#ff0000"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="@+id/textMarketAddress"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textMarketAddress" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
