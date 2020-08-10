@@ -138,10 +138,20 @@ class buyerUIMain : AppCompatActivity() {
                         view.staticWarning.isVisible = true
                     } else {
                         // 데이터베이스 상품 정보 업데이트
-                        product.quanSold += view.textAcquire.text.toString().toInt()
-                        product.quanLeft -= view.textAcquire.text.toString().toInt()
-                        product.buyerId[userInfo.id] = view.textAcquire.text.toString().toInt()
-                        data.child(product.productId).setValue(product.toMap())
+                        if (product.buyerId.keys.any { it == userInfo.id }) {
+                            // 장바구니에 이미 담겨있는 경우
+                            var pastAcquire = product.buyerId[userInfo.id]!!
+                            product.quanSold += view.textAcquire.text.toString().toInt()
+                            product.quanLeft -= view.textAcquire.text.toString().toInt()
+                            product.buyerId[userInfo.id] = view.textAcquire.text.toString().toInt() + pastAcquire
+                            data.child(product.productId).setValue(product.toMap())
+                        } else {
+                            // 장바구니에 이 제품이 없는 경우
+                            product.quanSold += view.textAcquire.text.toString().toInt()
+                            product.quanLeft -= view.textAcquire.text.toString().toInt()
+                            product.buyerId[userInfo.id] = view.textAcquire.text.toString().toInt()
+                            data.child(product.productId).setValue(product.toMap())
+                        }
                     }
 
                     // currentProduct 초기화
