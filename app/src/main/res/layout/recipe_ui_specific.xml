@@ -131,12 +131,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginBottom="10dp"
-                        android:text="
-                        ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                        ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                        ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                        ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                        ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                        android:text=""
                         android:textSize="13sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="@id/staticIngredient"
@@ -166,7 +161,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/layoutRecipeProcedureElement01"
+                        android:id="@+id/layoutRecipeProcedureElement1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -178,7 +173,7 @@
                         app:layout_constraintTop_toBottomOf="@id/staticProcedure">
 
                         <ImageView
-                            android:id="@+id/imageProcedure01"
+                            android:id="@+id/imageProcedure1"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginLeft="5dp"
@@ -189,7 +184,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textProcedure01"
+                            android:id="@+id/textProcedure1"
                             android:layout_width="240dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -204,7 +199,7 @@
                             ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
                             android:textSize="13sp"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toRightOf="@id/imageProcedure01"
+                            app:layout_constraintLeft_toRightOf="@id/imageProcedure1"
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
 
@@ -214,7 +209,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/layoutRecipeProcedureElement02"
+                        android:id="@+id/layoutRecipeProcedureElement2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -223,10 +218,10 @@
                         android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement01">
+                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement1">
 
                         <ImageView
-                            android:id="@+id/imageProcedure02"
+                            android:id="@+id/imageProcedure2"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginLeft="5dp"
@@ -237,7 +232,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textProcedure02"
+                            android:id="@+id/textProcedure2"
                             android:layout_width="240dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -252,7 +247,7 @@
                             ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
                             android:textSize="13sp"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toRightOf="@id/imageProcedure02"
+                            app:layout_constraintLeft_toRightOf="@id/imageProcedure2"
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
 
@@ -262,7 +257,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/layoutRecipeProcedureElement03"
+                        android:id="@+id/layoutRecipeProcedureElement3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -271,10 +266,10 @@
                         android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement02">
+                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement2">
 
                         <ImageView
-                            android:id="@+id/imageProcedure03"
+                            android:id="@+id/imageProcedure3"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginLeft="5dp"
@@ -285,7 +280,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textProcedure03"
+                            android:id="@+id/textProcedure3"
                             android:layout_width="240dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -304,13 +299,13 @@
 
 
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure03"
+                            app:layout_constraintStart_toEndOf="@+id/imageProcedure3"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/layoutRecipeProcedureElement04"
+                        android:id="@+id/layoutRecipeProcedureElement4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -320,10 +315,10 @@
 
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement03">
+                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement3">
 
                         <ImageView
-                            android:id="@+id/imageProcedure04"
+                            android:id="@+id/imageProcedure4"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginLeft="5dp"
@@ -334,7 +329,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textProcedure04"
+                            android:id="@+id/textProcedure4"
                             android:layout_width="240dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -353,13 +348,13 @@
 
 
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure04"
+                            app:layout_constraintStart_toEndOf="@+id/imageProcedure4"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/layoutRecipeProcedureElement05"
+                        android:id="@+id/layoutRecipeProcedureElement5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -368,10 +363,10 @@
                         android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement04">
+                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement4">
 
                         <ImageView
-                            android:id="@+id/imageProcedure05"
+                            android:id="@+id/imageProcedure5"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginLeft="5dp"
@@ -382,7 +377,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textProcedure05"
+                            android:id="@+id/textProcedure5"
                             android:layout_width="240dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -401,13 +396,13 @@
 
 
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure05"
+                            app:layout_constraintStart_toEndOf="@+id/imageProcedure5"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/layoutRecipeProcedureElement06"
+                        android:id="@+id/layoutRecipeProcedureElement6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -418,10 +413,10 @@
 
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement05">
+                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement5">
 
                         <ImageView
-                            android:id="@+id/imageProcedure06"
+                            android:id="@+id/imageProcedure6"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginLeft="5dp"
@@ -432,7 +427,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textProcedure06"
+                            android:id="@+id/textProcedure6"
                             android:layout_width="240dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -451,13 +446,13 @@
 
 
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure06"
+                            app:layout_constraintStart_toEndOf="@+id/imageProcedure6"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/layoutRecipeProcedureElement07"
+                        android:id="@+id/layoutRecipeProcedureElement7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -468,10 +463,10 @@
 
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement06">
+                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement6">
 
                         <ImageView
-                            android:id="@+id/imageProcedure07"
+                            android:id="@+id/imageProcedure7"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginLeft="5dp"
@@ -482,7 +477,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textProcedure07"
+                            android:id="@+id/textProcedure7"
                             android:layout_width="240dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -501,13 +496,13 @@
 
 
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure07"
+                            app:layout_constraintStart_toEndOf="@+id/imageProcedure7"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/layoutRecipeProcedureElement08"
+                        android:id="@+id/layoutRecipeProcedureElement8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -518,10 +513,10 @@
 
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement07">
+                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement7">
 
                         <ImageView
-                            android:id="@+id/imageProcedure08"
+                            android:id="@+id/imageProcedure8"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginLeft="5dp"
@@ -532,7 +527,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textProcedure08"
+                            android:id="@+id/textProcedure8"
                             android:layout_width="240dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -551,13 +546,13 @@
 
 
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure08"
+                            app:layout_constraintStart_toEndOf="@+id/imageProcedure8"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/layoutRecipeProcedureElement09"
+                        android:id="@+id/layoutRecipeProcedureElement9"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -568,10 +563,10 @@
 
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement08">
+                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement8">
 
                         <ImageView
-                            android:id="@+id/imageProcedure09"
+                            android:id="@+id/imageProcedure9"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginLeft="5dp"
@@ -582,7 +577,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/textProcedure09"
+                            android:id="@+id/textProcedure9"
                             android:layout_width="240dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -601,7 +596,7 @@
 
 
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure09"
+                            app:layout_constraintStart_toEndOf="@+id/imageProcedure9"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -618,7 +613,7 @@
 
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement09">
+                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement9">
 
                         <ImageView
                             android:id="@+id/imageProcedure10"
