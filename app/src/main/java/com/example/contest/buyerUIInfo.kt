@@ -29,7 +29,7 @@ class buyerUIInfo : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.buyer_ui_info, container, false)
         // 사진
-        var dataImage = storage.getReference("userImageDB")
+        var dataImage = storage.getReference("userImageDB").child(userInfo.id + ".png")
         val imageSize: Long = 1024 * 1024 * 10
         var bitmap: Bitmap? = null
         dataImage.child(userInfo.id + ".png").getBytes(imageSize).addOnSuccessListener {

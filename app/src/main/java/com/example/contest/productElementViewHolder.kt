@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -76,13 +77,9 @@ class productElementViewHolder(elementView : View, usage : Int, productClick: (p
         productTitle.text = productElements.title
         productPrice.text = productElements.price.toString()
         productServing.text = productElements.serve.toString()
-        val imagePath = mStorageRef.child(productElements.productId + ".png")
-        val imageSize: Long = 1024 * 1024 * 10
-        imagePath.getBytes(imageSize).addOnSuccessListener {
-            val imageBitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
-            productImage.setImageBitmap(imageBitmap)
-            productImage.setScaleType(ImageView.ScaleType.CENTER_CROP)
-        }
+        val imagePath = mStorageRef.child(productElements.productId + ".png").toString()
+        Glide.with(context).load(imagePath).into(productImage)
+        productImage.setScaleType(ImageView.ScaleType.CENTER_CROP)
 
         when (usage) {
             // 판매자 이력

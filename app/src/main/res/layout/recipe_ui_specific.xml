@@ -97,27 +97,6 @@
                         app:layout_constraintLeft_toRightOf="@id/imageRecipe"
                         app:layout_constraintTop_toBottomOf="@id/staticCtgrSpecific" />
 
-                    <TextView
-                        android:id="@+id/staticRecipeLevel"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:text="조리 난이도"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/imageRecipeLevel"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/recipe_level_2"
-                        app:layout_constraintLeft_toLeftOf="@id/staticRecipeLevel"
-                        app:layout_constraintRight_toRightOf="@id/staticRecipeLevel"
-                        app:layout_constraintTop_toBottomOf="@id/staticRecipeLevel" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
