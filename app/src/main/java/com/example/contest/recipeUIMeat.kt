@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.recipe_ui_meat.view.*
 class recipeUIMeat : Fragment() {
 
     private var recipeElementList: ArrayList<recipeElement> = arrayListOf()
-    private val linearLayoutManager by lazy { LinearLayoutManager(context) }
+
     private lateinit var adapter: recipeUIAdapter
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
@@ -28,7 +28,7 @@ class recipeUIMeat : Fragment() {
         val view = inflater.inflate(R.layout.recipe_ui_meat, container, false)
 
         view.buttonSearchRecipe.setOnClickListener {
-            RecyclerView.layoutManager = linearLayoutManager
+            RecyclerView.setLayoutManager(LinearLayoutManager(context))
             var ctgrList: ArrayList<String> = arrayListOf()
             ctgrList.add("달걀_유제품")
             ctgrList.add("돼지고기")
@@ -74,7 +74,7 @@ class recipeUIMeat : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        RecyclerView.layoutManager = linearLayoutManager
+        RecyclerView.setLayoutManager(LinearLayoutManager(context))
 
         var ctgrList: ArrayList<String> = arrayListOf()
         ctgrList.add("달걀_유제품")

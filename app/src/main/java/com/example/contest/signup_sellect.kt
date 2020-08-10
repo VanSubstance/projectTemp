@@ -71,7 +71,7 @@ class signup_sellect : AppCompatActivity() {
                                 frag.setArguments(bundle)
                                 main_frame.isVisible = true
                                 layoutRoleSelection.isVisible = false
-                                ft.replace(R.id.main_frame, frag).commit()
+                                ft.replace(R.id.main_frame, frag).addToBackStack(null).commit()
                                 overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
                             } else {
                                 // 아이디 생성이 실패했을 경우 또는 이미 존재하는 계정일 경우
@@ -94,7 +94,7 @@ class signup_sellect : AppCompatActivity() {
                                             frag.setArguments(bundle)
                                             main_frame.isVisible = true
                                             layoutRoleSelection.isVisible = false
-                                            ft.replace(R.id.main_frame, frag).commit()
+                                            ft.replace(R.id.main_frame, frag).addToBackStack(null).commit()
                                             overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
                                         } else {
                                             textAlert.isVisible = true
@@ -136,7 +136,7 @@ class signup_sellect : AppCompatActivity() {
                                 frag.setArguments(bundle)
                                 main_frame.isVisible = true
                                 layoutRoleSelection.isVisible = false
-                                ft.replace(R.id.main_frame, frag).commit()
+                                ft.replace(R.id.main_frame, frag).addToBackStack(null).commit()
                                 ft.setCustomAnimations(R.anim.slide_in_right_to_left,R.anim.slide_out_right_to_left)
                             }
                             else{
@@ -160,7 +160,7 @@ class signup_sellect : AppCompatActivity() {
                                             frag.setArguments(bundle)
                                             main_frame.isVisible = true
                                             layoutRoleSelection.isVisible = false
-                                            ft.replace(R.id.main_frame, frag).commit()
+                                            ft.replace(R.id.main_frame, frag).addToBackStack(null).commit()
                                             overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
                                         } else {
                                             textAlert.isVisible = true
@@ -290,7 +290,7 @@ class signup_sellect : AppCompatActivity() {
 
     // 구매자 시장 지도 보여주기
     fun showMap() {
-        //ft.replace(바꿀 프레임, signupBuyerMap()).commit()
+        //ft.replace(바꿀 프레임, signupBuyerMap()).addToBackStack(null).commit()
     }
 
     override fun onBackPressed() {

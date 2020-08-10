@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.buyer_ui_basket.*
 class buyerUIBasket : Fragment() {
 
     private lateinit var productElementList: ArrayList<productElement>
-    private val linearLayoutManager by lazy { LinearLayoutManager(context) }
     private lateinit var adapter: productElementAdapter
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
@@ -29,7 +28,7 @@ class buyerUIBasket : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        RecyclerView.layoutManager = linearLayoutManager
+        RecyclerView.setLayoutManager(LinearLayoutManager(context))
 
         var data = FirebaseDatabase.getInstance().getReference("productTodayDB")
         // 이전 장바구니 정보 초기화
