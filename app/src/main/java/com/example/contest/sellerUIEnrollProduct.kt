@@ -88,11 +88,13 @@ class sellerUIEnrollProduct : Fragment() {
                         }
                         override fun onDataChange(p0: DataSnapshot) {
                             for(uid in p0.children){
-                                if(uid.child("ctgr").child("완제품").value==true){
-                                    val title="새로운 완제품이 등록"
-                                    val body="제품명 :"+title+"이고 ,"+"가격은 :"+price+"이고 ,"+"양은 :"+serve+"이고, "+"마감시간은 :"+userInfo.timeClose+"이다."
-                                    val regToken = uid.child("token").value.toString()
-                                    MessagePush().sendNotification(regToken,title,body)
+                                if(uid.child("관심시장").value.toString()==userInfo.marketTitle){
+                                    if(uid.child("ctgr").child("완제품").value==true){
+                                        val title_m="새로운 완제품이 등록"
+                                        val body="제품명 :"+title+"이고 ,"+"가격은 :"+price+"이고 ,"+"양은 :"+serve+"이고, "+"마감시간은 :"+userInfo.timeClose+"이다."
+                                        val regToken = uid.child("token").value.toString()
+                                        MessagePush().sendNotification(regToken,title_m,body)
+                                }
                                 }
                             }
                         }
@@ -105,12 +107,12 @@ class sellerUIEnrollProduct : Fragment() {
                         }
                         override fun onDataChange(p0: DataSnapshot) {
                             for(uid in p0.children){
-                                for(ctgr in uid.child("ctgr").children){
-                                    if(ctgr.child(userInfo.ctgrForSeller).value==true){
-                                        val send=MessagePush()
-                                        val title="새로운 "+userInfo.ctgrForSeller+"제품이 등록"
+                                if(uid.child("관심시장").value.toString()==userInfo.marketTitle){
+                                    if(uid.child("ctgr").child(userInfo.ctgrForSeller).value==true){
+                                        val regToken=uid.child("token").value.toString()
+                                        val title_m="새로운 "+userInfo.ctgrForSeller+"제품이 등록"
                                         val body="제품명 :"+title+"이고 ,"+"가격은 :"+price+"이고 ,"+"양은 :"+serve+"이고, "+"마감시간은 :"+userInfo.timeClose+"이다."
-                                        MessagePush().sendNotification(uid.child("token").value.toString(),title,body)
+                                        MessagePush().sendNotification(regToken,title_m,body)
                                     }
                                 }
                             }

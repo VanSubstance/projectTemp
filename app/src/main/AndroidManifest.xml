@@ -28,7 +28,7 @@
         </activity>
         <service
             android:name=".MyFirebaseMessagingService"
-            android:exported="false"
+            android:stopWithTask="false"
             android:directBootAware="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
