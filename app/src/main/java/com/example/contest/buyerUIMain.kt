@@ -203,7 +203,6 @@ class buyerUIMain : AppCompatActivity() {
     private final var FINISH_INTERVAL_TIME: Long = 2000
     private var backPressedTime: Long = 0
     override fun onBackPressed() {
-
         if (supportFragmentManager.backStackEntryCount == 0) {
             var tempTime = System.currentTimeMillis()
             var intervalTime = tempTime - backPressedTime
