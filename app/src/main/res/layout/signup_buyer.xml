@@ -2,290 +2,283 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/sign_up_buyer_back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
     android:background="@drawable/sign_up_buyer_background">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="20dp"
-        android:background="@drawable/sign_up_buyer_border"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="20dp">
+        android:layout_height="0dp"
+        android:layout_margin="30dp"
+        android:background="@drawable/border_oriental_black"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/buttonFindMarket"
-            android:layout_width="80dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="40dp"
-            android:background="@drawable/button_press_event"
-            android:text="찾기"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textMarketTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textMarketTitle"
-            app:layout_constraintVertical_weight="1" />
-
-        <TextView
-            android:id="@+id/staticMarketSelect"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="10dp"
-            android:text="선호 시장 선택"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/buttonFindMarket"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_weight="1" />
+            android:layout_margin="4dp"
+            android:background="#88FFFFFF">
 
-        <TextView
-            android:id="@+id/textMarketTitle"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center_vertical"
-            android:hint="시장이름"
-            android:paddingLeft="10dp"
-            android:paddingBottom="5dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            app:layout_constraintEnd_toStartOf="@+id/buttonFindMarket"
-            app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
-            app:layout_constraintTop_toBottomOf="@+id/textAlertMarketSelect"
-            app:layout_constraintVertical_weight="1" />
-
-        <TextView
-            android:id="@+id/textMarketAddress"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="5dp"
-            android:gravity="center_vertical"
-            android:hint="주소"
-            android:paddingLeft="10dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/textMarketTitle"
-            app:layout_constraintTop_toBottomOf="@+id/textMarketTitle"
-            app:layout_constraintVertical_weight="1" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="선호 카테고리"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
-            app:layout_constraintTop_toBottomOf="@+id/textAlertPNum"
-            app:layout_constraintVertical_weight="1" />
-
-        <EditText
-            android:id="@+id/textPNum"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#FFFFFF"
-            android:hint="핸드폰 번호"
-            android:inputType="phone"
-            android:paddingLeft="10dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="@+id/buttonCertifyNick"
-            app:layout_constraintStart_toStartOf="@+id/buyer_nick"
-            app:layout_constraintTop_toBottomOf="@+id/buyer_nick"
-            app:layout_constraintVertical_weight="1" />
-
-        <Button
-            android:id="@+id/buttonCertifyNick"
-            android:layout_width="80dp"
-            android:layout_height="45dp"
-            android:background="@drawable/button_press_event"
-            android:text="중복확인"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
-            app:layout_constraintTop_toTopOf="@+id/buyer_nick"
-            app:layout_constraintVertical_weight="1" />
-
-        <LinearLayout
-            android:id="@+id/layoutCheckCtgr"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/sign_up_ctgr_background"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@+id/buttonCertifyNick"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView12"
-            app:layout_constraintTop_toBottomOf="@+id/textView12"
-            app:layout_constraintVertical_weight="1">
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/staticMarketSelect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="50dp"
+                android:text="선호 시장 선택"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <CheckBox
-                    android:id="@+id/checkCtgrMeat"
-                    style="@style/MyCheckBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:text="정육점" />
+            <Button
+                android:id="@+id/buttonFindMarket"
+                android:layout_width="80dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/button_press_event"
+                android:text="찾기"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textMarketTitle" />
 
-                <CheckBox
-                    android:id="@+id/checkCtgrFish"
-                    style="@style/MyCheckBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:text="생선가게" />
+            <TextView
+                android:id="@+id/textMarketTitle"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center_vertical"
+                android:hint="시장이름"
+                android:paddingLeft="10dp"
+                android:paddingBottom="5dp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                app:layout_constraintEnd_toStartOf="@+id/buttonFindMarket"
+                app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
+                app:layout_constraintTop_toBottomOf="@+id/staticMarketSelect" />
 
-                <CheckBox
-                    android:id="@+id/checkCtgrEtc"
-                    style="@style/MyCheckBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="완제품" />
+            <TextView
+                android:id="@+id/textMarketAddress"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:hint="주소"
+                android:paddingLeft="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
+                app:layout_constraintStart_toStartOf="@+id/textMarketTitle"
+                app:layout_constraintTop_toBottomOf="@+id/textMarketTitle" />
 
-            </LinearLayout>
+            <EditText
+                android:id="@+id/buyer_nick"
+                android:layout_width="173dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="#000000"
+                android:hint="닉네임"
+                android:inputType="text"
+                android:paddingLeft="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                app:layout_constraintEnd_toEndOf="@+id/textMarketTitle"
+                app:layout_constraintStart_toStartOf="@+id/textMarketTitle"
+                app:layout_constraintTop_toBottomOf="@+id/textMarketAddress" />
 
-            <LinearLayout
+            <Button
+                android:id="@+id/buttonCertifyNick"
+                android:layout_width="80dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_press_event"
+                android:text="중복확인"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/buttonFindMarket"
+                app:layout_constraintTop_toTopOf="@+id/buyer_nick" />
+
+            <EditText
+                android:id="@+id/textPNum"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="#000000"
+                android:hint="핸드폰 번호"
+                android:inputType="phone"
+                android:paddingLeft="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                app:layout_constraintEnd_toEndOf="@+id/buttonCertifyNick"
+                app:layout_constraintStart_toStartOf="@+id/buyer_nick"
+                app:layout_constraintTop_toBottomOf="@+id/buyer_nick" />
+
+            <TextView
+                android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginTop="50dp"
+                android:text="선호 카테고리"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
+                app:layout_constraintTop_toBottomOf="@+id/textPNum" />
 
-                <CheckBox
-                    android:id="@+id/checkCtgrVegetable"
-                    style="@style/MyCheckBox"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/layoutCheckCtgr"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/sign_up_ctgr_background"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/textPNum"
+                app:layout_constraintStart_toStartOf="@+id/textPNum"
+                app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:text="채소가게" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <CheckBox
-                    android:id="@+id/checkCtgrGeneral"
-                    style="@style/MyCheckBox"
-                    android:layout_width="match_parent"
+                    <CheckBox
+                        android:id="@+id/checkCtgrMeat"
+                        style="@style/EnrollCheckBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="정육점" />
+
+                    <CheckBox
+                        android:id="@+id/checkCtgrFish"
+                        style="@style/EnrollCheckBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="생선가게" />
+
+                    <CheckBox
+                        android:id="@+id/checkCtgrEtc"
+                        style="@style/EnrollCheckBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="완제품" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="잡화점" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
+                    <CheckBox
+                        android:id="@+id/checkCtgrVegetable"
+                        style="@style/EnrollCheckBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="채소가게" />
+
+                    <CheckBox
+                        android:id="@+id/checkCtgrGeneral"
+                        style="@style/EnrollCheckBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="잡화점" />
+
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <Button
-            android:id="@+id/buttonConfirm"
-            android:layout_width="200dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/sign_up_complete_button"
-            android:text="완료"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/layoutCheckCtgr"
-            app:layout_constraintStart_toStartOf="@+id/layoutCheckCtgr"
-            app:layout_constraintTop_toBottomOf="@+id/textAlertCtgr"
-            app:layout_constraintVertical_weight="1" />
+            <Button
+                android:id="@+id/buttonConfirm"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/sign_up_complete_button"
+                android:text="완료"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/layoutCheckCtgr"
+                app:layout_constraintStart_toStartOf="@+id/layoutCheckCtgr"
+                app:layout_constraintTop_toBottomOf="@+id/layoutCheckCtgr" />
 
-        <TextView
-            android:id="@+id/textAlertNick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="닉네임 중복 에러 메세지"
-            android:textColor="#ff0000"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/buyer_nick"
-            app:layout_constraintTop_toBottomOf="@+id/buyer_nick" />
+            <TextView
+                android:id="@+id/textAlertNick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="닉네임 중복 에러 메세지"
+                android:textColor="#ff0000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/buyer_nick"
+                app:layout_constraintTop_toBottomOf="@+id/buyer_nick" />
 
-        <TextView
-            android:id="@+id/textAlertPNum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="핸드폰 번호 에러 메세지"
-            android:textColor="#ff0000"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/textPNum"
-            app:layout_constraintTop_toBottomOf="@+id/textPNum" />
+            <TextView
+                android:id="@+id/textAlertPNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="핸드폰 번호 에러 메세지"
+                android:textColor="#ff0000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/textPNum"
+                app:layout_constraintTop_toBottomOf="@+id/textPNum" />
 
-        <TextView
-            android:id="@+id/textAlertCtgr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="카테고리 에러 메세지"
-            android:textColor="#ff0000"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/layoutCheckCtgr"
-            app:layout_constraintTop_toBottomOf="@+id/layoutCheckCtgr" />
+            <TextView
+                android:id="@+id/textAlertCtgr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="카테고리 에러 메세지"
+                android:textColor="#ff0000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/textView12"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
-        <EditText
-            android:id="@+id/buyer_nick"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:backgroundTint="#FFFFFF"
-            android:hint="닉네임"
-            android:inputType="text"
-            android:paddingLeft="10dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            app:layout_constraintEnd_toStartOf="@+id/buttonCertifyNick"
-            app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
-            app:layout_constraintTop_toBottomOf="@+id/textMarketAddress"
-            app:layout_constraintVertical_weight="1" />
+            <TextView
+                android:id="@+id/textAlertMarketSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="TextView"
+                android:textColor="#ff0000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/textMarketAddress"
+                app:layout_constraintTop_toBottomOf="@+id/textMarketAddress" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/textAlertMarketSelect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:visibility="gone"
-            android:textColor="#ff0000"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/staticMarketSelect"
-            app:layout_constraintTop_toBottomOf="@id/staticMarketSelect" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 
     <!--닉네임 중복확인-->

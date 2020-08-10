@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wall120"
+    android:background="@drawable/wall21"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -13,22 +13,23 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:layout_weight="9"
-        android:orientation="vertical"
-        android:background="@drawable/border_oriental_black">
+        android:background="@drawable/border_oriental_black"
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/main_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            >
+            android:layout_margin="4dp"
+            android:background="#88FFFFFF">
 
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="240dp"
-                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="40dp"
                 android:src="@drawable/logo_main_black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -51,20 +52,19 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="68dp"
-                android:layout_marginEnd="20dp"
-                android:backgroundTint="#FFFFFF"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="60dp"
+                android:backgroundTint="#000000"
                 android:ems="10"
                 android:hint="이메일"
+
                 android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
-
-                android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
             <TextView
@@ -85,13 +85,13 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="#FFFFFF"
+                android:backgroundTint="#000000"
                 android:ems="10"
                 android:hint="비밀번호"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
                 app:layout_constraintEnd_toEndOf="@+id/textUserID"
                 app:layout_constraintStart_toStartOf="@+id/textUserID"
                 app:layout_constraintTop_toBottomOf="@+id/textUserID" />
@@ -112,37 +112,38 @@
                 android:id="@+id/buttonLogin"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginStart="70dp"
-                android:layout_marginLeft="70dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="70dp"
-                android:layout_marginRight="70dp"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/sign_in_button"
                 android:shadowColor="#A8A8A8"
                 android:shadowRadius="10"
                 android:text="로그인"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/buttonSignUp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textUserPW" />
 
             <Button
                 android:id="@+id/buttonSignUp"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="120dp"
+                android:layout_marginBottom="100dp"
                 android:background="@drawable/sign_up_button"
                 android:text="회원가입"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/buttonLogin"
-                app:layout_constraintStart_toStartOf="@+id/buttonLogin" />
+                app:layout_constraintStart_toStartOf="@+id/buttonLogin"
+                app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

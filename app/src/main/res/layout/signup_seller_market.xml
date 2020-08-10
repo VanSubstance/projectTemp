@@ -52,7 +52,8 @@
             android:layout_weight="4"
             android:background="@drawable/editext_border"
             android:gravity="center"
-            android:hint="시장 이름을 입력하세요" />
+            android:hint="시장 이름을 입력하세요"
+            android:textSize="13sp" />
 
         <Button
             android:id="@+id/buttonSearchMarket"

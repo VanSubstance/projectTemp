@@ -16,7 +16,11 @@
         <item name="windowNoTitle">true</item>
 
     </style>
-    
+
+    <style name="border">
+        <item name="background">@drawable/border_oriental_black</item>
+    </style>
+
     <style name="fragment">
         <item name="android:background">@drawable/editext_border3</item>
     </style>

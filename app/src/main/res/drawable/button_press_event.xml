@@ -15,7 +15,7 @@
                 />
             <stroke
                 android:width="3dp"
-                android:color="#ffffff"
+                android:color="#000000"
                 />
         </shape>
     </item>
@@ -32,7 +32,7 @@
             />
         <stroke
             android:width="3dp"
-            android:color="#FFFFFF"
+            android:color="#000000"
             />
         </shape>
     </item>

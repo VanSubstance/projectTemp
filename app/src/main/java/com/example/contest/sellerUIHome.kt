@@ -20,7 +20,7 @@ import kotlin.collections.ArrayList
 class sellerUIHome : Fragment() {
 
     private lateinit var productElementList: ArrayList<productElement>
-    private val linearLayoutManager by lazy { LinearLayoutManager(context) }
+
     private lateinit var adapter: productElementAdapter
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
@@ -51,7 +51,7 @@ class sellerUIHome : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        RecyclerView.layoutManager = linearLayoutManager
+        RecyclerView.setLayoutManager(LinearLayoutManager(context))
         productElementList = ArrayList()
 
         val data = database.getReference("productTodayDB")
