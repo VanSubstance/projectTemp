@@ -60,6 +60,7 @@
                 android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
 
+                android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="@+id/imageView2"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -89,6 +90,7 @@
                 android:hint="비밀번호"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp"
+                android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="@+id/textUserID"
                 app:layout_constraintStart_toStartOf="@+id/textUserID"
