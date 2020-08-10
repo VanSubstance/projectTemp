@@ -9,15 +9,25 @@
 
     tools:context=".sellerUIMain">
 
-    <FrameLayout
-        android:id="@+id/main_frame"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:layout_weight="9"
-        android:background="@drawable/element_border">
+        android:background="@drawable/border_oriental_black">
 
-    </FrameLayout>
+        <FrameLayout
+            android:id="@+id/main_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:layout_weight="9"
+            android:background="#88FFFFFF"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="356dp">
+
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -7,7 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/element_border_black_1dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,11 +20,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/element_border_thin"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
@@ -43,12 +40,14 @@
 
         <TextView
             android:id="@+id/textRecipeTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="개쩌는 레시피"
+            android:layout_marginEnd="10dp"
+            android:lineSpacingExtra="10sp"
+            android:text="레시피개쩌는레시피개쩌는레시피개쩌는레시피개쩌는레시피개쩌는레시피개쩌는레시피개쩌는레시피개쩌는레시피개쩌는레시피개쩌는레시피개쩌는레시피개쩌는레시피개쩌는레시피개쩌는레시피개쩌는레시피개쩌는레시피개쩌는"
             android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/staticRecipeTitle"
             app:layout_constraintTop_toTopOf="@+id/staticRecipeTitle" />
 
@@ -67,12 +66,14 @@
             android:id="@+id/staticRecipeCtgr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:text="주 카테고리"
             android:textSize="15sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/staticRecipeTitle"
-            app:layout_constraintTop_toTopOf="@+id/imageRecipe" />
+            app:layout_constraintTop_toBottomOf="@+id/textRecipeTitle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
