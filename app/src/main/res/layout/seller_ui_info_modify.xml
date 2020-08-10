@@ -9,7 +9,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/border_oriental_black"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="20dp"
         tools:layout_editor_absoluteY="20dp">
@@ -17,7 +16,6 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
             android:background="#88FFFFFF"
             android:fillViewport="true">
 
