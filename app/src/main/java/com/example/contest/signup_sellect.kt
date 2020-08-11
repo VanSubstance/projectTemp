@@ -293,6 +293,12 @@ class signup_sellect : AppCompatActivity() {
         //ft.replace(바꿀 프레임, signupBuyerMap()).addToBackStack(null).commit()
     }
 
+    override fun onBackPressed() {
+        startActivity(Intent(this, MainActivity::class.java))
+        overridePendingTransition(R.anim.slide_in_left_to_right,R.anim.slide_out_left_to_right)
+    }
+
+
 }
 
 class marketElement {

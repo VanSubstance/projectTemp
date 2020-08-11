@@ -94,7 +94,6 @@ class sellerUIMain : AppCompatActivity() {
     }
     */
 
-    /**
     // 뒤로가기 테스트
     private final var FINISH_INTERVAL_TIME: Long = 2000
     override fun onBackPressed() {
@@ -114,5 +113,4 @@ class sellerUIMain : AppCompatActivity() {
         }
         super.onBackPressed()
     }
-    */
 }

@@ -9,7 +9,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/element_border_black_1dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="20dp"
         tools:layout_editor_absoluteY="20dp">
@@ -17,6 +16,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#88FFFFFF"
             android:fillViewport="true">
 
             <LinearLayout
@@ -272,13 +272,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
                         android:text="에러 메세지"
-                        android:textStyle="bold"
-                        android:textSize="15sp"
                         android:textColor="#ff0000"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
                         android:visibility="gone"
-                        app:layout_constraintTop_toTopOf="@id/buttonConfirm"
                         app:layout_constraintBottom_toBottomOf="@id/buttonConfirm"
-                        app:layout_constraintRight_toLeftOf="@id/buttonConfirm"/>
+                        app:layout_constraintRight_toLeftOf="@id/buttonConfirm"
+                        app:layout_constraintTop_toTopOf="@id/buttonConfirm" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

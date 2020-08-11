@@ -10,24 +10,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.buyer_ui_info.view.*
 import kotlinx.android.synthetic.main.seller_ui_info.view.*
-import kotlinx.android.synthetic.main.seller_ui_info.view.buttonConfirm
-import kotlinx.android.synthetic.main.seller_ui_info.view.imageUser
-import kotlinx.android.synthetic.main.seller_ui_info.view.staticComfimPw
-import kotlinx.android.synthetic.main.seller_ui_info.view.staticCtgrComplete
-import kotlinx.android.synthetic.main.seller_ui_info.view.staticCtgrFish
-import kotlinx.android.synthetic.main.seller_ui_info.view.staticCtgrGeneral
-import kotlinx.android.synthetic.main.seller_ui_info.view.staticCtgrMeat
-import kotlinx.android.synthetic.main.seller_ui_info.view.staticCtgrVegetable
-import kotlinx.android.synthetic.main.seller_ui_info.view.textConfirmPw
-import kotlinx.android.synthetic.main.seller_ui_info.view.textName
-import kotlinx.android.synthetic.main.seller_ui_info.view.textPNum
 
 class sellerUIInfo : Fragment() {
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
@@ -56,45 +41,26 @@ class sellerUIInfo : Fragment() {
             }
         }
 
-
-        var data = database.getReference("userDB").child(userInfo.id)
-        data.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {
+        view.textName.setText(userInfo.name)
+        view.textPNum.setText(userInfo.pNum)
+        view.textStoreTitle.setText(userInfo.storeTitle)
+        when (userInfo.ctgrForSeller) {
+            "정육점" -> {
+                view.staticCtgrMeat.isVisible = true
             }
-
-            override fun onDataChange(p0: DataSnapshot) {
-                // 개인정보들
-                view.textName.setText(p0.child("Name").value.toString())
-                view.textPNum.setText(p0.child("pNum").value.toString())
-                view.textStoreTitle.setText(p0.child("storeTitle").value.toString())
-                if (p0.child("ctgr").child("정육점").value.toString().equals("true")) {
-                    view.staticCtgrMeat.isVisible = true
-                } else {
-                    view.staticCtgrMeat.isVisible = false
-                }
-                if (p0.child("ctgr").child("생선가게").value.toString().equals("true")) {
-                    view.staticCtgrFish.isVisible = true
-                } else {
-                    view.staticCtgrFish.isVisible = false
-                }
-                if (p0.child("ctgr").child("채소가게").value.toString().equals("true")) {
-                    view.staticCtgrVegetable.isVisible = true
-                } else {
-                    view.staticCtgrVegetable.isVisible = false
-                }
-                if (p0.child("ctgr").child("잡화점").value.toString().equals("true")) {
-                    view.staticCtgrGeneral.isVisible = true
-                } else {
-                    view.staticCtgrGeneral.isVisible = false
-                }
-                if (p0.child("ctgr").child("완제품").value.toString().equals("true")) {
-                    view.staticCtgrComplete.isVisible = true
-                } else {
-                    view.staticCtgrComplete.isVisible = false
-                }
+            "생선가게" -> {
+                view.staticCtgrFish.isVisible = true
             }
-
-        })
+            "채소가게" -> {
+                view.staticCtgrVegetable.isVisible = true
+            }
+            "잡화점" -> {
+                view.staticCtgrGeneral.isVisible = true
+            }
+            "완제품" -> {
+                view.staticCtgrComplete.isVisible = true
+            }
+        }
 
         view.buttonConfirm.setOnClickListener {
             if (!view.staticComfimPw.isVisible) {

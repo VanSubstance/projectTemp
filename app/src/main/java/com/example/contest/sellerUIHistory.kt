@@ -30,7 +30,7 @@ class sellerUIHistory : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-         RecyclerView.setLayoutManager(LinearLayoutManager(context))
+        RecyclerView.setLayoutManager(LinearLayoutManager(context))
 
         historyElementList = mutableMapOf()
 

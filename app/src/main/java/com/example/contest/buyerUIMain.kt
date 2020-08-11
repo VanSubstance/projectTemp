@@ -1,15 +1,23 @@
 package com.example.contest
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.buyer_ui_main.*
 import kotlinx.android.synthetic.main.product_buyer_put.view.*
 
@@ -130,10 +138,20 @@ class buyerUIMain : AppCompatActivity() {
                         view.staticWarning.isVisible = true
                     } else {
                         // 데이터베이스 상품 정보 업데이트
-                        product.quanSold += view.textAcquire.text.toString().toInt()
-                        product.quanLeft -= view.textAcquire.text.toString().toInt()
-                        product.buyerId[userInfo.id] = view.textAcquire.text.toString().toInt()
-                        data.child(product.productId).setValue(product.toMap())
+                        if (product.buyerId.keys.any { it == userInfo.id }) {
+                            // 장바구니에 이미 담겨있는 경우
+                            var pastAcquire = product.buyerId[userInfo.id]!!
+                            product.quanSold += view.textAcquire.text.toString().toInt()
+                            product.quanLeft -= view.textAcquire.text.toString().toInt()
+                            product.buyerId[userInfo.id] = view.textAcquire.text.toString().toInt() + pastAcquire
+                            data.child(product.productId).setValue(product.toMap())
+                        } else {
+                            // 장바구니에 이 제품이 없는 경우
+                            product.quanSold += view.textAcquire.text.toString().toInt()
+                            product.quanLeft -= view.textAcquire.text.toString().toInt()
+                            product.buyerId[userInfo.id] = view.textAcquire.text.toString().toInt()
+                            data.child(product.productId).setValue(product.toMap())
+                        }
                     }
 
                     // currentProduct 초기화
@@ -182,7 +200,7 @@ class buyerUIMain : AppCompatActivity() {
         // return 타입: recipeUISpecific
         // 값을 전달받은 fragment
         var frag = recipeUISpecific()
-        var bundle = Bundle(5)
+        var bundle = Bundle(6)
         bundle.putString("title", recipeElement.title)
         bundle.putString("titleUrl", recipeElement.titleUrl)
         bundle.putString("ctgr", recipeElement.ctgr)
@@ -197,11 +215,9 @@ class buyerUIMain : AppCompatActivity() {
     }
 
     // 뒤로가기 테스트
-    /**
     private final var FINISH_INTERVAL_TIME: Long = 2000
     private var backPressedTime: Long = 0
     override fun onBackPressed() {
-
         if (supportFragmentManager.backStackEntryCount == 0) {
             var tempTime = System.currentTimeMillis()
             var intervalTime = tempTime - backPressedTime
@@ -218,6 +234,5 @@ class buyerUIMain : AppCompatActivity() {
         }
         super.onBackPressed()
     }
-    */
 
 }

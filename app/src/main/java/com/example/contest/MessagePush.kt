@@ -23,7 +23,7 @@ class MessagePush {
                 try {
                     val JSON = MediaType.parse("application/json; charset=utf-8")
                     val serverKey =
-                        "AAAAv115-6g:APA91bHF9UX5qTiV2JmhM5oJrjq8NL6VuYciFPmV3cvyc3Z9qUJtRNE-y3E5aOMqn6e0prefmXEg2riitvF22PMHZywxcQtotCSEMZJEGPyXFwEN9642neblUBtlk492JHeTCG8CIhcO"
+                        "AAAAv115-6g:APA91bEKlZcjh-2GqBs4m0P8hRniu9b-0iivf8h4P2UkbIzZ0W8VQq4-jUFfFm2_4h8moSU_4DqhhHyC5yZYfU7gvbcFpqTocEtNDoqcDwYICekZ0SxONgIfOuIvuRIMff02ImLATTAV"
                     val client = OkHttpClient()
                     val json = JSONObject()
                     val dataJson = JSONObject()

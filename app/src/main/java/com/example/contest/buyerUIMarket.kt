@@ -32,7 +32,7 @@ class buyerUIMarket : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-         RecyclerView.setLayoutManager(LinearLayoutManager(context))
+        RecyclerView.setLayoutManager(LinearLayoutManager(context))
 
         var data = database.getReference("marketDB").child(currentCondition.marketTitle).child("store")
         var sellers : ArrayList<String> = ArrayList()

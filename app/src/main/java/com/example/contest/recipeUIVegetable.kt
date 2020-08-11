@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.recipe_ui_vegetable.RecyclerView
 class recipeUIVegetable : Fragment() {
 
     private lateinit var recipeElementList: ArrayList<recipeElement>
+
     private lateinit var adapter: recipeUIAdapter
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
@@ -69,6 +70,7 @@ class recipeUIVegetable : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         RecyclerView.setLayoutManager(LinearLayoutManager(context))
 
         recipeElementList = ArrayList()

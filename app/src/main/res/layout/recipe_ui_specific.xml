@@ -44,11 +44,8 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/element_border_black_1dp"
                         android:src="@drawable/test_02"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,13 +62,15 @@
 
                     <TextView
                         android:id="@+id/textRecipeTitle"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
-                        android:text="개쩌는 레시피"
+                        android:layout_marginEnd="10dp"
+                        android:lineSpacingExtra="10sp"
+                        android:text="레시피개쩌는레시피개쩌는레시피개쩌는"
                         android:textSize="13sp"
-                        app:layout_constraintLeft_toRightOf="@id/imageRecipe"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/staticRecipeTitle"
                         app:layout_constraintTop_toBottomOf="@id/staticRecipeTitle" />
 
                     <TextView
@@ -92,8 +91,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
                         android:text="돼지고기나 그런거"
                         android:textSize="13sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toRightOf="@id/imageRecipe"
                         app:layout_constraintTop_toBottomOf="@id/staticCtgrSpecific" />
 
@@ -129,10 +130,10 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="20dp"
                         android:layout_marginBottom="10dp"
+                        android:lineSpacingExtra="8sp"
                         android:text=""
-                        android:textSize="13sp"
+                        android:textSize="15sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="@id/staticIngredient"
                         app:layout_constraintTop_toBottomOf="@id/staticIngredient" />
@@ -165,7 +166,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -176,35 +176,32 @@
                             android:id="@+id/imageProcedure1"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure1"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toRightOf="@id/imageProcedure1"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
 
 
-                            />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -213,7 +210,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -224,35 +220,32 @@
                             android:id="@+id/imageProcedure2"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure2"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toRightOf="@id/imageProcedure2"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
 
 
-                            />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -261,7 +254,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -272,34 +264,31 @@
                             android:id="@+id/imageProcedure3"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure3"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+
+
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@id/imageProcedure3"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure3"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -309,7 +298,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
 
@@ -321,34 +309,31 @@
                             android:id="@+id/imageProcedure4"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure4"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure4"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure4"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -358,7 +343,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -369,34 +353,31 @@
                             android:id="@+id/imageProcedure5"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure5"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure5"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure5"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -406,7 +387,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
 
@@ -419,34 +399,31 @@
                             android:id="@+id/imageProcedure6"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure6"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure6"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure6"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -456,7 +433,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
 
@@ -469,34 +445,31 @@
                             android:id="@+id/imageProcedure7"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure7"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure7"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure7"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -506,7 +479,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
 
@@ -519,34 +491,31 @@
                             android:id="@+id/imageProcedure8"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure8"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure8"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure8"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -556,7 +525,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
 
@@ -569,34 +537,31 @@
                             android:id="@+id/imageProcedure9"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure9"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure9"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure9"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -606,7 +571,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
 
@@ -619,34 +583,31 @@
                             android:id="@+id/imageProcedure10"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure10"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure10"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure10"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -656,7 +617,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
 
@@ -669,34 +629,31 @@
                             android:id="@+id/imageProcedure11"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure11"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure11"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure11"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -706,7 +663,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
 
@@ -719,34 +675,31 @@
                             android:id="@+id/imageProcedure12"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure12"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure12"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure12"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -756,7 +709,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
 
@@ -769,34 +721,31 @@
                             android:id="@+id/imageProcedure13"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure13"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure13"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure13"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -806,7 +755,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
 
@@ -819,34 +767,31 @@
                             android:id="@+id/imageProcedure14"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure14"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure14"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure14"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -856,7 +801,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
 
@@ -869,34 +813,31 @@
                             android:id="@+id/imageProcedure15"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure15"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure15"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure15"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -906,7 +847,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
 
@@ -919,34 +859,31 @@
                             android:id="@+id/imageProcedure16"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure16"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure16"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure16"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -956,7 +893,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
 
@@ -969,34 +905,31 @@
                             android:id="@+id/imageProcedure17"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure17"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure17"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure17"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -1006,7 +939,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
 
@@ -1019,34 +951,31 @@
                             android:id="@+id/imageProcedure18"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure18"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure18"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure18"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -1056,7 +985,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -1067,34 +995,31 @@
                             android:id="@+id/imageProcedure19"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure19"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure19"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure19"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -1104,46 +1029,41 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
                         android:background="@drawable/recipe_border"
                         android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement19"
-                        >
+                        app:layout_constraintTop_toBottomOf="@id/layoutRecipeProcedureElement19">
 
                         <ImageView
                             android:id="@+id/imageProcedure20"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:background="@drawable/element_border_black_0_5dp"
                             android:src="@drawable/test"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/textProcedure20"
-                            android:layout_width="240dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text="
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ
-                            ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+                            android:lineSpacingExtra="10sp"
+                            android:text="정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 정신나갈거같아 "
                             android:textSize="13sp"
+
+
                             app:layout_constraintBottom_toBottomOf="parent"
-
-
+                            app:layout_constraintLeft_toRightOf="@+id/imageProcedure20"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/imageProcedure20"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
