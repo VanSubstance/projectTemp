@@ -182,19 +182,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/staticCtgr" />
-
-            <TextView
-                android:id="@+id/staticComfimPw"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:minHeight="20dp"
-                android:text="비밀번호 확인"
-                android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/textConfirmPw"
-                app:layout_constraintLeft_toLeftOf="@id/staticCtgr"
-                app:layout_constraintStart_toStartOf="@+id/staticCtgr" />
+                app:layout_constraintTop_toBottomOf="@+id/staticCtgrComplete" />
 
             <EditText
                 android:id="@+id/textConfirmPw"
@@ -206,6 +194,19 @@
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/buttonConfirm"
                 app:layout_constraintLeft_toLeftOf="@id/staticCtgr" />
+
+            <TextView
+                android:id="@+id/staticComfimPw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:minHeight="20dp"
+                android:text="비밀번호 확인"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/textConfirmPw"
+                app:layout_constraintLeft_toLeftOf="@id/staticCtgr"
+                app:layout_constraintStart_toStartOf="@+id/staticCtgr"
+                app:layout_constraintTop_toBottomOf="@+id/staticCtgrMeat" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
