@@ -10,6 +10,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     var auth: FirebaseAuth? = null
@@ -79,10 +80,14 @@ class MainActivity : AppCompatActivity() {
                                 ) {
                                     userInfo.id = auth?.uid.toString()
                                     userInfo.pw = password
+                                    userInfo.name = p0.child("userDB").child(auth?.uid.toString())
+                                        .child("Name").value as String
                                     userInfo.role = p0.child("userDB").child(auth?.uid.toString())
                                         .child("role").value as String
                                     userInfo.pNum = p0.child("userDB").child(auth?.uid.toString())
                                         .child("pNum").value as String
+                                    userInfo.storeTitle = p0.child("userDB").child(auth?.uid.toString())
+                                        .child("storeTitle").value as String
                                     userInfo.ctgrForSeller =
                                         p0.child("storeDB").child(auth?.uid.toString())
                                             .child("ctgr").value.toString()
@@ -97,12 +102,36 @@ class MainActivity : AppCompatActivity() {
                                 } else {
                                     userInfo.id = auth?.uid.toString()
                                     userInfo.pw = password
+                                    userInfo.name = p0.child("userDB").child(auth?.uid.toString())
+                                        .child("Name").value as String
                                     userInfo.nick = p0.child("userDB").child(auth?.uid.toString())
                                         .child("nick").value as String
                                     userInfo.role = p0.child("userDB").child(auth?.uid.toString())
                                         .child("role").value as String
                                     userInfo.pNum = p0.child("userDB").child(auth?.uid.toString())
                                         .child("pNum").value as String
+                                    userInfo.marketTitle = p0.child("userDB").child(auth?.uid.toString())
+                                        .child("관심시장").value as String
+                                    if (p0.child("userDB").child(auth?.uid.toString())
+                                        .child("ctgr").child("생선가게").value as Boolean) {
+                                        userInfo.ctgrForBuyer.add("생선가게")
+                                    }
+                                    if (p0.child("userDB").child(auth?.uid.toString())
+                                            .child("ctgr").child("정육점").value as Boolean) {
+                                        userInfo.ctgrForBuyer.add("정육점")
+                                    }
+                                    if (p0.child("userDB").child(auth?.uid.toString())
+                                            .child("ctgr").child("채소가게").value as Boolean) {
+                                        userInfo.ctgrForBuyer.add("채소가게")
+                                    }
+                                    if (p0.child("userDB").child(auth?.uid.toString())
+                                            .child("ctgr").child("잡화점").value as Boolean) {
+                                        userInfo.ctgrForBuyer.add("잡화점")
+                                    }
+                                    if (p0.child("userDB").child(auth?.uid.toString())
+                                            .child("ctgr").child("완제품").value as Boolean) {
+                                        userInfo.ctgrForBuyer.add("완제품")
+                                    }
                                     startActivity(buyerUI)
                                 }
                             }
@@ -173,10 +202,13 @@ private fun pushProducts() {
 object userInfo {
     var id: String = ""
     var pw: String = ""
+    var name : String = ""
     var nick: String = ""
     var pNum: String = ""
     var role: String = ""
+    var storeTitle : String = ""
     var ctgrForSeller: String = ""
+    var ctgrForBuyer : ArrayList<String> = arrayListOf()
     var timeOpen = ""
     var timeClose = ""
     var marketTitle:String=""

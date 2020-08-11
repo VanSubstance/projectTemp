@@ -136,7 +136,7 @@ class sellerUIEnrollProduct : Fragment() {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 1) {
                 imageUrl = data?.data
-                imageProduct.setImageURI(imageUrl)
+                        imageProduct.setImageURI(imageUrl)
                 imageProduct.setScaleType(ImageView.ScaleType.CENTER_CROP)
             }
         }
