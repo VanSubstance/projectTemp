@@ -113,8 +113,8 @@ class sellerUIEnrollProduct : Fragment() {
                             for (uid in p0.children) {
                                 if (uid.child("관심시장").value.toString() == userInfo.marketTitle) {
                                     if (uid.child("ctgr").child("완제품").value == true) {
-                                        val title_m = "새로운 완제품이 등록"
-                                        val body = "제품명 :" + title + "이고 ," + "가격은 :" + price + "이고 ," + "양은 :" + serve + "이고, " + "마감시간은 :" + userInfo.timeClose + "이다."
+                                        val title_m = "새로운 상품이 등록되었습니다"
+                                        val body = "제품명 :" + title + " " + "가격 :" + price + " " + "마감시간 :" + userInfo.timeClose + " "
                                         val regToken = uid.child("token").value.toString()
                                         MessagePush().sendNotification(regToken, title_m, body)
                                     }
@@ -134,8 +134,8 @@ class sellerUIEnrollProduct : Fragment() {
                                 if (uid.child("관심시장").value.toString() == userInfo.marketTitle) {
                                     if (uid.child("ctgr").child(userInfo.ctgrForSeller).value == true) {
                                         val regToken = uid.child("token").value.toString()
-                                        val title_m = "새로운 " + userInfo.ctgrForSeller + "제품이 등록"
-                                        val body = "제품명 :" + title + "이고 ," + "가격은 :" + price + "이고 ," + "양은 :" + serve + "이고, " + "마감시간은 :" + userInfo.timeClose + "이다."
+                                        val title_m = "새로운 상품이 등록되었습니다"
+                                        val body = "제품명 :" + title + " " + "가격 :" + price + " " + "마감시간 :" + userInfo.timeClose + " "
                                         MessagePush().sendNotification(regToken, title_m, body)
                                     }
                                 }
